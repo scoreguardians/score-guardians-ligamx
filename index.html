@@ -8,9 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@300;400;500;600&family=Oswald:wght@700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js"></script>
-  <link rel="stylesheet" href="styles.css">
 
 
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -501,19 +501,9 @@
 </main>
 
 <!--  SCRIPT  -->
-  <script src="datos.js"></script>
-  <script src="script.js"></script>
 
 
-  <!-- Error display for debugging -->
-  <div id="jsError" style="display:none;position:fixed;bottom:20px;right:20px;background:#ff3b5c;color:#fff;padding:12px 18px;border-radius:8px;font-family:monospace;font-size:12px;max-width:400px;z-index:9999;"></div>
-  <script>
-    window.onerror = function(msg, src, line) {
-      var el = document.getElementById('jsError');
-      if(el){ el.style.display='block'; el.textContent = 'Error: ' + msg + ' (línea ' + line + ')'; }
-      return false;
-    };
-  </script>
-
+  <script src="datos.js?v=3"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
