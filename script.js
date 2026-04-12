@@ -49,6 +49,19 @@ function checkAdminPass() {
   if (val === ADMIN_PASS) {
     closeAdminModal();
     document.getElementById('adminPanel').style.display='block';
+    // Populate admin selects now that panel is visible
+    const sortedT = [...TEAMS].sort();
+    ['updHome','updAway','fxHome','fxAway'].forEach(id=>{
+      const el = document.getElementById(id);
+      if(!el || el.options.length > 0) return; // already populated
+      sortedT.forEach(t=>{
+        const o=document.createElement('option');
+        o.value=t; o.textContent=t;
+        el.appendChild(o);
+      });
+    });
+    const uh = document.getElementById('updHome'); if(uh) uh.value='América';
+    const ua = document.getElementById('updAway'); if(ua) ua.value='Guadalajara';
     renderUpcoming();
     renderAdminFixtures();
   } else {
@@ -713,23 +726,33 @@ function switchTab(e, paneId){
 //  INIT
 // 
 function init(){
-  try {
-  // Initialize data from datos.js (loaded before this script)
+  // Initialize data from datos.js
+  console.log('[SG] init() started');
   if (typeof ACTUALIZACIONES !== 'undefined') pendingMatches = [...ACTUALIZACIONES];
   if (typeof UPCOMING !== 'undefined') customUpcoming = JSON.parse(JSON.stringify(UPCOMING));
 
-  // Populate selects
+  // Populate main page selects
   const sortedTeams=[...TEAMS].sort();
+  // Only selects that are always visible in the DOM
+  const mainSelects = ['homeTeam','awayTeam','h2hT1','h2hT2'];
   sortedTeams.forEach(t=>{
-    ['homeTeam','awayTeam','h2hT1','h2hT2','updHome','updAway','fxHome','fxAway'].forEach(id=>{
-      const o=document.createElement('option');o.value=t;o.textContent=t;
-      document.getElementById(id).appendChild(o);
+    mainSelects.forEach(id=>{
+      const el = document.getElementById(id);
+      if(!el) return;
+      const o=document.createElement('option');
+      o.value=t; o.textContent=t;
+      el.appendChild(o);
     });
   });
-  document.getElementById('awayTeam').value='Guadalajara';
+  const awayEl = document.getElementById('awayTeam');
+  if(awayEl) awayEl.value='Guadalajara';
+  const h2t2 = document.getElementById('h2hT2');
+  if(h2t2) h2t2.value='Guadalajara';
   // Set initial logos
-  const initHome = document.getElementById('homeTeam').value;
-  const initAway = document.getElementById('awayTeam').value;
+  const htEl = document.getElementById('homeTeam');
+  const atEl = document.getElementById('awayTeam');
+  const initHome = htEl ? htEl.value : 'América';
+  const initAway = atEl ? atEl.value : 'Guadalajara';
   const lh = document.getElementById('logoHome'); if(lh) lh.innerHTML = logoSVG(initHome,80);
   const la = document.getElementById('logoAway'); if(la) la.innerHTML = logoSVG(initAway,80);
   document.getElementById('h2hT2').value='Guadalajara';
@@ -983,7 +1006,7 @@ async function reentrenarModelo() {
   document.getElementById('btnPredict').disabled = true;
   document.getElementById('btnMonte').disabled = true;
   await trainNN(getAllMatches(), true); // forceRetrai
-  } catch(e) { console.error("Init error:", e); }n = true
+  console.log('[SG] init() completed');n = true
 }
 
 window.addEventListener('DOMContentLoaded',init);
