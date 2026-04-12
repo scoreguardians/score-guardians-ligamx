@@ -3,7 +3,164 @@
 // 
 const HIST = {"Apertura 2021":[{"date":"22/jul/21","round":1,"home":"Querétaro","hg":0,"ag":0,"away":"América"},{"date":"23/jul/21","round":1,"home":"Necaxa","hg":0,"ag":3,"away":"Santos"},{"date":"23/jul/21","round":1,"home":"FC Juárez","hg":1,"ag":3,"away":"Toluca"},{"date":"24/jul/21","round":1,"home":"Pachuca","hg":4,"ag":0,"away":"León"},{"date":"24/jul/21","round":1,"home":"Guadalajara","hg":1,"ag":2,"away":"Atl. San Luis"},{"date":"25/jul/21","round":1,"home":"Pumas","hg":0,"ag":0,"away":"Atlas"},{"date":"25/jul/21","round":1,"home":"Monterrey","hg":1,"ag":1,"away":"Puebla"},{"date":"25/jul/21","round":1,"home":"Tijuana","hg":1,"ag":2,"away":"Tigres"},{"date":"26/jul/21","round":1,"home":"Cruz Azul","hg":0,"ag":2,"away":"Mazatlán"},{"date":"30/jul/21","round":2,"home":"Mazatlán","hg":2,"ag":1,"away":"Pachuca"},{"date":"30/jul/21","round":2,"home":"Puebla","hg":0,"ag":2,"away":"Guadalajara"},{"date":"31/jul/21","round":2,"home":"León","hg":2,"ag":1,"away":"Tijuana"},{"date":"31/jul/21","round":2,"home":"América","hg":2,"ag":1,"away":"Necaxa"},{"date":"31/jul/21","round":2,"home":"Monterrey","hg":2,"ag":0,"away":"Pumas"},{"date":"31/jul/21","round":2,"home":"Atlas","hg":2,"ag":0,"away":"FC Juárez"},{"date":"01/ago/21","round":2,"home":"Toluca","hg":3,"ag":1,"away":"Tigres"},{"date":"01/ago/21","round":2,"home":"Santos","hg":1,"ag":1,"away":"Cruz Azul"},{"date":"02/ago/21","round":2,"home":"Atl. San Luis","hg":1,"ag":1,"away":"Querétaro"},{"date":"05/ago/21","round":3,"home":"Querétaro","hg":0,"ag":1,"away":"León"},{"date":"06/ago/21","round":3,"home":"Mazatlán","hg":1,"ag":1,"away":"Monterrey"},{"date":"06/ago/21","round":3,"home":"Necaxa","hg":1,"ag":2,"away":"Cruz Azul"},{"date":"06/ago/21","round":3,"home":"Tijuana","hg":0,"ag":2,"away":"Toluca"},{"date":"07/ago/21","round":3,"home":"Guadalajara","hg":2,"ag":2,"away":"FC Juárez"},{"date":"07/ago/21","round":3,"home":"América","hg":2,"ag":0,"away":"Puebla"},{"date":"07/ago/21","round":3,"home":"Tigres","hg":1,"ag":1,"away":"Santos"},{"date":"08/ago/21","round":3,"home":"Pumas","hg":1,"ag":3,"away":"Atl. San Luis"},{"date":"09/ago/21","round":3,"home":"Pachuca","hg":0,"ag":1,"away":"Atlas"},{"date":"12/ago/21","round":4,"home":"Atl. San Luis","hg":0,"ag":2,"away":"Necaxa"},{"date":"13/ago/21","round":4,"home":"Puebla","hg":1,"ag":1,"away":"Tigres"},{"date":"13/ago/21","round":4,"home":"FC Juárez","hg":1,"ag":1,"away":"Tijuana"},{"date":"14/ago/21","round":4,"home":"Pumas","hg":0,"ag":0,"away":"Querétaro"},{"date":"14/ago/21","round":4,"home":"León","hg":3,"ag":0,"away":"Mazatlán"},{"date":"14/ago/21","round":4,"home":"Cruz Azul","hg":4,"ag":0,"away":"Toluca"},{"date":"14/ago/21","round":4,"home":"Monterrey","hg":3,"ag":1,"away":"Pachuca"},{"date":"15/ago/21","round":4,"home":"Atlas","hg":0,"ag":1,"away":"América"},{"date":"15/ago/21","round":4,"home":"Santos","hg":0,"ag":0,"away":"Guadalajara"},{"date":"17/ago/21","round":5,"home":"Toluca","hg":2,"ag":2,"away":"Mazatlán"},{"date":"17/ago/21","round":5,"home":"Tigres","hg":3,"ag":0,"away":"Querétaro"},{"date":"18/ago/21","round":5,"home":"Cruz Azul","hg":1,"ag":1,"away":"Monterrey"},{"date":"18/ago/21","round":5,"home":"Santos","hg":1,"ag":1,"away":"Atlas"},{"date":"18/ago/21","round":5,"home":"Guadalajara","hg":0,"ag":3,"away":"León"},{"date":"18/ago/21","round":5,"home":"FC Juárez","hg":1,"ag":2,"away":"América"},{"date":"19/ago/21","round":5,"home":"Pumas","hg":2,"ag":0,"away":"Puebla"},{"date":"28/sep/21","round":5,"home":"Necaxa","hg":3,"ag":0,"away":"Tijuana"},{"date":"03/nov/21","round":5,"home":"Pachuca","hg":0,"ag":0,"away":"Atl. San Luis"},{"date":"20/ago/21","round":6,"home":"Mazatlán","hg":0,"ag":3,"away":"Tigres"},{"date":"21/ago/21","round":6,"home":"Atlas","hg":0,"ag":0,"away":"Toluca"},{"date":"21/ago/21","round":6,"home":"León","hg":1,"ag":1,"away":"Santos"},{"date":"21/ago/21","round":6,"home":"Atl. San Luis","hg":0,"ag":0,"away":"Cruz Azul"},{"date":"21/ago/21","round":6,"home":"Monterrey","hg":0,"ag":0,"away":"Guadalajara"},{"date":"22/ago/21","round":6,"home":"Pumas","hg":2,"ag":0,"away":"Puebla"},{"date":"22/ago/21","round":6,"home":"América","hg":2,"ag":0,"away":"Tijuana"},{"date":"22/ago/21","round":6,"home":"Necaxa","hg":1,"ag":0,"away":"FC Juárez"},{"date":"22/ago/21","round":6,"home":"Querétaro","hg":0,"ag":2,"away":"Pachuca"},{"date":"27/ago/21","round":7,"home":"Mazatlán","hg":2,"ag":2,"away":"Atl. San Luis"},{"date":"27/ago/21","round":7,"home":"Puebla","hg":1,"ag":0,"away":"Querétaro"},{"date":"27/ago/21","round":7,"home":"Tijuana","hg":2,"ag":2,"away":"Monterrey"},{"date":"28/ago/21","round":7,"home":"Guadalajara","hg":2,"ag":1,"away":"Necaxa"},{"date":"28/ago/21","round":7,"home":"Tigres","hg":1,"ag":1,"away":"Atlas"},{"date":"28/ago/21","round":7,"home":"León","hg":1,"ag":1,"away":"América"},{"date":"29/ago/21","round":7,"home":"Toluca","hg":2,"ag":1,"away":"Pumas"},{"date":"29/ago/21","round":7,"home":"Santos","hg":2,"ag":0,"away":"FC Juárez"},{"date":"29/ago/21","round":7,"home":"Cruz Azul","hg":1,"ag":1,"away":"Pachuca"},{"date":"10/sep/21","round":8,"home":"Puebla","hg":2,"ag":2,"away":"Atl. San Luis"},{"date":"10/sep/21","round":8,"home":"FC Juárez","hg":2,"ag":1,"away":"Cruz Azul"},{"date":"10/sep/21","round":8,"home":"Tijuana","hg":2,"ag":1,"away":"Santos"},{"date":"11/sep/21","round":8,"home":"Atlas","hg":2,"ag":1,"away":"Monterrey"},{"date":"11/sep/21","round":8,"home":"Tigres","hg":2,"ag":2,"away":"León"},{"date":"11/sep/21","round":8,"home":"América","hg":2,"ag":0,"away":"Mazatlán"},{"date":"12/sep/21","round":8,"home":"Pumas","hg":0,"ag":0,"away":"Guadalajara"},{"date":"12/sep/21","round":8,"home":"Querétaro","hg":3,"ag":0,"away":"Necaxa"},{"date":"13/sep/21","round":8,"home":"Pachuca","hg":1,"ag":2,"away":"Toluca"},{"date":"16/sep/21","round":9,"home":"Atl. San Luis","hg":4,"ag":1,"away":"Tijuana"},{"date":"17/sep/21","round":9,"home":"Necaxa","hg":0,"ag":3,"away":"Atlas"},{"date":"18/sep/21","round":9,"home":"León","hg":0,"ag":1,"away":"FC Juárez"},{"date":"18/sep/21","round":9,"home":"Toluca","hg":3,"ag":1,"away":"América"},{"date":"18/sep/21","round":9,"home":"Guadalajara","hg":1,"ag":0,"away":"Pachuca"},{"date":"18/sep/21","round":9,"home":"Mazatlán","hg":2,"ag":2,"away":"Pumas"},{"date":"19/sep/21","round":9,"home":"Cruz Azul","hg":2,"ag":0,"away":"Querétaro"},{"date":"19/sep/21","round":9,"home":"Monterrey","hg":2,"ag":0,"away":"Tigres"},{"date":"19/sep/21","round":9,"home":"Santos","hg":1,"ag":1,"away":"Puebla"},{"date":"23/sep/21","round":10,"home":"Pachuca","hg":1,"ag":0,"away":"Necaxa"},{"date":"24/sep/21","round":10,"home":"Puebla","hg":1,"ag":1,"away":"Cruz Azul"},{"date":"24/sep/21","round":10,"home":"Tijuana","hg":0,"ag":0,"away":"Mazatlán"},{"date":"25/sep/21","round":10,"home":"Atlas","hg":2,"ag":0,"away":"León"},{"date":"25/sep/21","round":10,"home":"Tigres","hg":0,"ag":0,"away":"Pumas"},{"date":"25/sep/21","round":10,"home":"América","hg":0,"ag":0,"away":"Guadalajara"},{"date":"26/sep/21","round":10,"home":"Toluca","hg":1,"ag":2,"away":"Atl. San Luis"},{"date":"26/sep/21","round":10,"home":"Santos","hg":1,"ag":2,"away":"Monterrey"},{"date":"30/sep/21","round":10,"home":"FC Juárez","hg":0,"ag":0,"away":"Querétaro"},{"date":"22/sep/21","round":11,"home":"Monterrey","hg":2,"ag":0,"away":"Toluca"},{"date":"28/sep/21","round":11,"home":"Necaxa","hg":3,"ag":0,"away":"Tijuana"},{"date":"28/sep/21","round":11,"home":"Mazatlán","hg":3,"ag":1,"away":"FC Juárez"},{"date":"28/sep/21","round":11,"home":"Atlas","hg":0,"ag":1,"away":"Puebla"},{"date":"28/sep/21","round":11,"home":"Pachuca","hg":1,"ag":1,"away":"América"},{"date":"29/sep/21","round":11,"home":"Atl. San Luis","hg":0,"ag":3,"away":"Tigres"},{"date":"29/sep/21","round":11,"home":"Querétaro","hg":1,"ag":0,"away":"Guadalajara"},{"date":"03/nov/21","round":11,"home":"Cruz Azul","hg":0,"ag":1,"away":"León"},{"date":"04/nov/21","round":11,"home":"Pumas","hg":0,"ag":3,"away":"Santos"},{"date":"01/oct/21","round":12,"home":"Puebla","hg":1,"ag":2,"away":"Pachuca"},{"date":"01/oct/21","round":12,"home":"FC Juárez","hg":3,"ag":1,"away":"Monterrey"},{"date":"02/oct/21","round":12,"home":"León","hg":0,"ag":0,"away":"Atl. San Luis"},{"date":"02/oct/21","round":12,"home":"Santos","hg":1,"ag":0,"away":"Mazatlán"},{"date":"02/oct/21","round":12,"home":"Guadalajara","hg":0,"ag":1,"away":"Atlas"},{"date":"03/oct/21","round":12,"home":"América","hg":2,"ag":0,"away":"Pumas"},{"date":"03/oct/21","round":12,"home":"Toluca","hg":1,"ag":1,"away":"Querétaro"},{"date":"03/oct/21","round":12,"home":"Tigres","hg":0,"ag":0,"away":"Necaxa"},{"date":"03/oct/21","round":12,"home":"Tijuana","hg":0,"ag":1,"away":"Cruz Azul"},{"date":"14/oct/21","round":13,"home":"Querétaro","hg":1,"ag":1,"away":"Tijuana"},{"date":"15/oct/21","round":13,"home":"Necaxa","hg":0,"ag":1,"away":"Puebla"},{"date":"15/oct/21","round":13,"home":"Mazatlán","hg":1,"ag":0,"away":"Atlas"},{"date":"16/oct/21","round":13,"home":"Monterrey","hg":0,"ag":1,"away":"León"},{"date":"16/oct/21","round":13,"home":"Atl. San Luis","hg":0,"ag":1,"away":"América"},{"date":"16/oct/21","round":13,"home":"Cruz Azul","hg":1,"ag":1,"away":"Tigres"},{"date":"17/oct/21","round":13,"home":"Pumas","hg":1,"ag":0,"away":"FC Juárez"},{"date":"17/oct/21","round":13,"home":"Guadalajara","hg":2,"ag":0,"away":"Toluca"},{"date":"18/oct/21","round":13,"home":"Pachuca","hg":1,"ag":1,"away":"Santos"},{"date":"19/oct/21","round":14,"home":"Querétaro","hg":1,"ag":0,"away":"Monterrey"},{"date":"19/oct/21","round":14,"home":"Puebla","hg":2,"ag":0,"away":"Mazatlán"},{"date":"19/oct/21","round":14,"home":"América","hg":2,"ag":1,"away":"Santos"},{"date":"19/oct/21","round":14,"home":"Atlas","hg":0,"ag":0,"away":"Cruz Azul"},{"date":"20/oct/21","round":14,"home":"Toluca","hg":1,"ag":1,"away":"Necaxa"},{"date":"20/oct/21","round":14,"home":"Tigres","hg":3,"ag":0,"away":"Pachuca"},{"date":"20/oct/21","round":14,"home":"Tijuana","hg":0,"ag":0,"away":"Guadalajara"},{"date":"20/oct/21","round":14,"home":"Pumas","hg":1,"ag":2,"away":"León"},{"date":"21/oct/21","round":14,"home":"FC Juárez","hg":1,"ag":0,"away":"Atl. San Luis"},{"date":"22/oct/21","round":15,"home":"Mazatlán","hg":2,"ag":1,"away":"Querétaro"},{"date":"23/oct/21","round":15,"home":"Puebla","hg":0,"ag":1,"away":"León"},{"date":"23/oct/21","round":15,"home":"Monterrey","hg":0,"ag":1,"away":"Necaxa"},{"date":"23/oct/21","round":15,"home":"América","hg":1,"ag":0,"away":"Tigres"},{"date":"23/oct/21","round":15,"home":"Guadalajara","hg":1,"ag":1,"away":"Cruz Azul"},{"date":"24/oct/21","round":15,"home":"Pumas","hg":3,"ag":1,"away":"Tijuana"},{"date":"24/oct/21","round":15,"home":"Atl. San Luis","hg":2,"ag":6,"away":"Atlas"},{"date":"24/oct/21","round":15,"home":"Santos","hg":2,"ag":2,"away":"Toluca"},{"date":"25/oct/21","round":15,"home":"Pachuca","hg":1,"ag":1,"away":"FC Juárez"},{"date":"28/oct/21","round":16,"home":"Atlas","hg":0,"ag":2,"away":"Tijuana"},{"date":"29/oct/21","round":16,"home":"Necaxa","hg":2,"ag":1,"away":"Mazatlán"},{"date":"29/oct/21","round":16,"home":"FC Juárez","hg":0,"ag":2,"away":"Puebla"},{"date":"30/oct/21","round":16,"home":"Querétaro","hg":2,"ag":3,"away":"Santos"},{"date":"30/oct/21","round":16,"home":"Pachuca","hg":1,"ag":1,"away":"Pumas"},{"date":"30/oct/21","round":16,"home":"Tigres","hg":2,"ag":1,"away":"Guadalajara"},{"date":"31/oct/21","round":16,"home":"Toluca","hg":0,"ag":0,"away":"León"},{"date":"31/oct/21","round":16,"home":"Cruz Azul","hg":2,"ag":1,"away":"América"},{"date":"31/oct/21","round":16,"home":"Atl. San Luis","hg":1,"ag":1,"away":"Monterrey"},{"date":"04/nov/21","round":17,"home":"Atlas","hg":2,"ag":0,"away":"Querétaro"},{"date":"05/nov/21","round":17,"home":"Puebla","hg":1,"ag":0,"away":"Toluca"},{"date":"05/nov/21","round":17,"home":"Mazatlán","hg":0,"ag":1,"away":"Guadalajara"},{"date":"06/nov/21","round":17,"home":"León","hg":3,"ag":0,"away":"Necaxa"},{"date":"06/nov/21","round":17,"home":"América","hg":0,"ag":0,"away":"Monterrey"},{"date":"06/nov/21","round":17,"home":"Tigres","hg":3,"ag":0,"away":"FC Juárez"},{"date":"07/nov/21","round":17,"home":"Tijuana","hg":3,"ag":2,"away":"Pachuca"},{"date":"07/nov/21","round":17,"home":"Pumas","hg":4,"ag":3,"away":"Cruz Azul"},{"date":"07/nov/21","round":17,"home":"Santos","hg":0,"ag":0,"away":"Atl. San Luis"}],"Clausura 2022":[{"date":"06/ene/22","round":1,"home":"Atl. San Luis","hg":0,"ag":2,"away":"Pachuca"},{"date":"07/ene/22","round":1,"home":"FC Juárez","hg":2,"ag":1,"away":"Necaxa"},{"date":"07/ene/22","round":1,"home":"Puebla","hg":1,"ag":1,"away":"América"},{"date":"08/ene/22","round":1,"home":"Monterrey","hg":0,"ag":0,"away":"Querétaro"},{"date":"08/ene/22","round":1,"home":"Cruz Azul","hg":2,"ag":0,"away":"Tijuana"},{"date":"08/ene/22","round":1,"home":"Guadalajara","hg":3,"ag":0,"away":"Mazatlán"},{"date":"09/ene/22","round":1,"home":"Pumas","hg":5,"ag":0,"away":"Toluca"},{"date":"12/ene/22","round":1,"home":"Santos","hg":1,"ag":1,"away":"Tigres"},{"date":"19/ene/22","round":1,"home":"León","hg":1,"ag":1,"away":"Atlas"},{"date":"14/ene/22","round":2,"home":"Querétaro","hg":0,"ag":0,"away":"Pumas"},{"date":"14/ene/22","round":2,"home":"Necaxa","hg":0,"ag":4,"away":"Monterrey"},{"date":"15/ene/22","round":2,"home":"Atlas","hg":1,"ag":0,"away":"Atl. San Luis"},{"date":"15/ene/22","round":2,"home":"Tigres","hg":0,"ag":2,"away":"Puebla"},{"date":"15/ene/22","round":2,"home":"Cruz Azul","hg":1,"ag":0,"away":"FC Juárez"},{"date":"15/ene/22","round":2,"home":"Tijuana","hg":1,"ag":1,"away":"León"},{"date":"16/ene/22","round":2,"home":"Toluca","hg":3,"ag":1,"away":"Santos"},{"date":"16/ene/22","round":2,"home":"Pachuca","hg":2,"ag":1,"away":"Guadalajara"},{"date":"16/feb/22","round":2,"home":"Mazatlán","hg":2,"ag":1,"away":"América"},{"date":"20/ene/22","round":3,"home":"Atl. San Luis","hg":1,"ag":0,"away":"FC Juárez"},{"date":"21/ene/22","round":3,"home":"Mazatlán","hg":1,"ag":2,"away":"Toluca"},{"date":"22/ene/22","round":3,"home":"Guadalajara","hg":1,"ag":1,"away":"Querétaro"},{"date":"22/ene/22","round":3,"home":"León","hg":2,"ag":1,"away":"Pachuca"},{"date":"22/ene/22","round":3,"home":"América","hg":0,"ag":2,"away":"Atlas"},{"date":"22/ene/22","round":3,"home":"Monterrey","hg":2,"ag":2,"away":"Cruz Azul"},{"date":"23/ene/22","round":3,"home":"Pumas","hg":1,"ag":2,"away":"Tigres"},{"date":"23/ene/22","round":3,"home":"Santos","hg":1,"ag":4,"away":"Necaxa"},{"date":"28/ene/22","round":3,"home":"Puebla","hg":3,"ag":1,"away":"Tijuana"},{"date":"05/feb/22","round":4,"home":"Necaxa","hg":1,"ag":3,"away":"Pachuca"},{"date":"05/feb/22","round":4,"home":"América","hg":2,"ag":3,"away":"Atl. San Luis"},{"date":"05/feb/22","round":4,"home":"Tijuana","hg":1,"ag":0,"away":"Pumas"},{"date":"05/feb/22","round":4,"home":"Tigres","hg":4,"ag":3,"away":"Mazatlán"},{"date":"05/feb/22","round":4,"home":"León","hg":0,"ag":1,"away":"Cruz Azul"},{"date":"06/feb/22","round":4,"home":"Querétaro","hg":0,"ag":2,"away":"Puebla"},{"date":"06/feb/22","round":4,"home":"Atlas","hg":2,"ag":1,"away":"Santos"},{"date":"06/feb/22","round":4,"home":"Tigres","hg":4,"ag":3,"away":"Mazatlán"},{"date":"09/feb/22","round":4,"home":"FC Juárez","hg":1,"ag":3,"away":"Guadalajara"},{"date":"06/abr/22","round":4,"home":"Toluca","hg":2,"ag":2,"away":"Monterrey"},{"date":"11/feb/22","round":5,"home":"Mazatlán","hg":2,"ag":0,"away":"Tijuana"},{"date":"11/feb/22","round":5,"home":"Puebla","hg":1,"ag":1,"away":"Atlas"},{"date":"12/feb/22","round":5,"home":"Atl. San Luis","hg":0,"ag":1,"away":"Toluca"},{"date":"12/feb/22","round":5,"home":"Guadalajara","hg":1,"ag":3,"away":"Tigres"},{"date":"12/feb/22","round":5,"home":"Cruz Azul","hg":1,"ag":2,"away":"Necaxa"},{"date":"12/feb/22","round":5,"home":"Santos","hg":2,"ag":3,"away":"América"},{"date":"13/feb/22","round":5,"home":"Pumas","hg":2,"ag":1,"away":"León"},{"date":"14/feb/22","round":5,"home":"Pachuca","hg":2,"ag":2,"away":"Querétaro"},{"date":"08/mar/22","round":5,"home":"Monterrey","hg":3,"ag":0,"away":"FC Juárez"},{"date":"18/fev/22","round":6,"home":"Puebla","hg":1,"ag":0,"away":"Monterrey"},{"date":"18/feb/22","round":6,"home":"FC Juárez","hg":0,"ag":0,"away":"Santos"},{"date":"18/feb/22","round":6,"home":"Tijuana","hg":1,"ag":1,"away":"Necaxa"},{"date":"19/feb/22","round":6,"home":"Querétaro","hg":1,"ag":1,"away":"Mazatlán"},{"date":"19/feb/22","round":6,"home":"Tigres","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"19/feb/22","round":6,"home":"León","hg":2,"ag":1,"away":"Guadalajara"},{"date":"20/feb/22","round":6,"home":"América","hg":1,"ag":3,"away":"Pachuca"},{"date":"20/feb/22","round":6,"home":"Toluca","hg":1,"ag":4,"away":"Cruz Azul"},{"date":"20/feb/22","round":6,"home":"Atlas","hg":0,"ag":0,"away":"Pumas"},{"date":"24/feb/22","round":7,"home":"Pachuca","hg":3,"ag":1,"away":"Mazatlán"},{"date":"24/feb/22","round":7,"home":"Querétaro","hg":1,"ag":1,"away":"Toluca"},{"date":"25/feb/22","round":7,"home":"Necaxa","hg":0,"ag":1,"away":"León"},{"date":"25/feb/22","round":7,"home":"FC Juárez","hg":2,"ag":3,"away":"Tigres"},{"date":"25/feb/22","round":7,"home":"Tijuana","hg":2,"ag":0,"away":"Atlas"},{"date":"26/feb/22","round":7,"home":"Monterrey","hg":0,"ag":2,"away":"Atl. San Luis"},{"date":"26/feb/22","round":7,"home":"Guadalajara","hg":2,"ag":3,"away":"Puebla"},{"date":"26/feb/22","round":7,"home":"Pumas","hg":0,"ag":0,"away":"América"},{"date":"27/feb/22","round":7,"home":"Cruz Azul","hg":1,"ag":2,"away":"Santos"},{"date":"01/mar/22","round":8,"home":"Puebla","hg":1,"ag":1,"away":"FC Juárez"},{"date":"01/mar/22","round":8,"home":"León","hg":0,"ag":0,"away":"Monterrey"},{"date":"01/mar/22","round":8,"home":"América","hg":1,"ag":1,"away":"Querétaro"},{"date":"01/mar/22","round":8,"home":"Mazatlán","hg":0,"ag":0,"away":"Necaxa"},{"date":"02/mar/22","round":8,"home":"Atlas","hg":0,"ag":1,"away":"Pachuca"},{"date":"02/mar/22","round":8,"home":"Tigres","hg":2,"ag":2,"away":"Cruz Azul"},{"date":"02/mar/22","round":8,"home":"Atl. San Luis","hg":2,"ag":2,"away":"Guadalajara"},{"date":"02/mar/22","round":8,"home":"Santos","hg":3,"ag":2,"away":"Pumas"},{"date":"03/mar/22","round":8,"home":"Toluca","hg":1,"ag":2,"away":"Tijuana"},{"date":"04/mar/22","round":9,"home":"Necaxa","hg":0,"ag":1,"away":"Toluca"},{"date":"04/mar/22","round":9,"home":"FC Juárez","hg":0,"ag":1,"away":"Atlas"},{"date":"05/mar/22","round":9,"home":"Monterrey","hg":2,"ag":1,"away":"América"},{"date":"05/mar/22","round":9,"home":"Cruz Azul","hg":1,"ag":3,"away":"Puebla"},{"date":"05/mar/22","round":9,"home":"Guadalajara","hg":1,"ag":0,"away":"Santos"},{"date":"06/mar/22","round":9,"home":"Pumas","hg":1,"ag":1,"away":"Mazatlán"},{"date":"06/mar/22","round":9,"home":"Pachuca","hg":2,"ag":1,"away":"Tigres"},{"date":"06/mar/22","round":9,"home":"Tijuana","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"11/mar/22","round":10,"home":"Necaxa","hg":1,"ag":0,"away":"Querétaro"},{"date":"11/mar/22","round":10,"home":"FC Juárez","hg":1,"ag":2,"away":"León"},{"date":"12/mar/22","round":10,"home":"León","hg":0,"ag":3,"away":"Tigres"},{"date":"12/mar/22","round":10,"home":"Cruz Azul","hg":2,"ag":1,"away":"Pumas"},{"date":"12/mar/22","round":10,"home":"Guadalajara","hg":0,"ag":0,"away":"América"},{"date":"13/mar/22","round":10,"home":"Toluca","hg":0,"ag":3,"away":"Pachuca"},{"date":"13/mar/22","round":10,"home":"Atl. San Luis","hg":2,"ag":1,"away":"Puebla"},{"date":"13/mar/22","round":10,"home":"Santos","hg":4,"ag":0,"away":"Tijuana"},{"date":"20/mar/22","round":10,"home":"Mazatlán","hg":1,"ag":2,"away":"Monterrey"},{"date":"17/mar/22","round":11,"home":"Querétaro","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"18/mar/22","round":11,"home":"Puebla","hg":2,"ag":2,"away":"Santos"},{"date":"20/mar/22","round":11,"home":"Pumas","hg":1,"ag":3,"away":"Necaxa"},{"date":"20/mar/22","round":11,"home":"América","hg":3,"ag":0,"away":"Toluca"},{"date":"20/mar/22","round":11,"home":"Atlas","hg":1,"ag":1,"away":"Guadalajara"},{"date":"20/mar/22","round":11,"home":"Mazatlán","hg":1,"ag":0,"away":"León"},{"date":"20/mar/22","round":11,"home":"Tigres","hg":2,"ag":0,"away":"Monterrey"},{"date":"20/mar/22","round":11,"home":"Pachuca","hg":1,"ag":0,"away":"Cruz Azul"},{"date":"20/mar/22","round":11,"home":"Tijuana","hg":1,"ag":0,"away":"FC Juárez"},{"date":"01/abr/22","round":12,"home":"Atl. San Luis","hg":1,"ag":0,"away":"Mazatlán"},{"date":"02/abr/22","round":12,"home":"Cruz Azul","hg":1,"ag":0,"away":"Atlas"},{"date":"02/abr/22","round":12,"home":"Necaxa","hg":0,"ag":1,"away":"América"},{"date":"02/abr/22","round":12,"home":"FC Juárez","hg":0,"ag":1,"away":"Pumas"},{"date":"03/abr/22","round":12,"home":"Toluca","hg":2,"ag":1,"away":"Puebla"},{"date":"03/abr/22","round":12,"home":"León","hg":1,"ag":1,"away":"Querétaro"},{"date":"03/abr/22","round":12,"home":"Tigres","hg":2,"ag":0,"away":"Tijuana"},{"date":"03/abr/22","round":12,"home":"Santos","hg":3,"ag":1,"away":"Pachuca"},{"date":"13/abr/22","round":12,"home":"Guadalajara","hg":1,"ag":3,"away":"Monterrey"},{"date":"07/abr/22","round":13,"home":"Atlas","hg":2,"ag":1,"away":"Necaxa"},{"date":"08/abr/22","round":13,"home":"Puebla","hg":2,"ag":2,"away":"Pumas"},{"date":"08/abr/22","round":13,"home":"Mazatlán","hg":1,"ag":1,"away":"Cruz Azul"},{"date":"09/abr/22","round":13,"home":"Atl. San Luis","hg":2,"ag":0,"away":"León"},{"date":"09/abr/22","round":13,"home":"Toluca","hg":1,"ag":1,"away":"Guadalajara"},{"date":"09/abr/22","round":13,"home":"Monterrey","hg":1,"ag":0,"away":"Santos"},{"date":"09/abr/22","round":13,"home":"América","hg":3,"ag":0,"away":"FC Juárez"},{"date":"10/abr/22","round":13,"home":"Querétaro","hg":0,"ag":1,"away":"Tigres"},{"date":"11/abr/22","round":13,"home":"Pachuca","hg":0,"ag":0,"away":"Tijuana"},{"date":"14/abr/22","round":14,"home":"Atlas","hg":1,"ag":2,"away":"Mazatlán"},{"date":"15/abr/22","round":14,"home":"Necaxa","hg":4,"ag":2,"away":"Atl. San Luis"},{"date":"15/abr/22","round":14,"home":"FC Juárez","hg":1,"ag":2,"away":"Pachuca"},{"date":"15/abr/22","round":14,"home":"Tijuana","hg":1,"ag":3,"away":"América"},{"date":"16/abr/22","round":14,"home":"León","hg":0,"ag":1,"away":"Puebla"},{"date":"16/abr/22","round":14,"home":"Santos","hg":1,"ag":1,"away":"Querétaro"},{"date":"16/abr/22","round":14,"home":"Tigres","hg":3,"ag":0,"away":"Toluca"},{"date":"16/abr/22","round":14,"home":"Cruz Azul","hg":0,"ag":1,"away":"Guadalajara"},{"date":"17/abr/22","round":14,"home":"Pumas","hg":2,"ag":0,"away":"Monterrey"},{"date":"19/abr/22","round":15,"home":"Pachuca","hg":1,"ag":0,"away":"Puebla"},{"date":"19/abr/22","round":15,"home":"Necaxa","hg":2,"ag":0,"away":"Tigres"},{"date":"19/abr/22","round":15,"home":"Mazatlán","hg":1,"ag":0,"away":"Santos"},{"date":"19/abr/22","round":15,"home":"Guadalajara","hg":2,"ag":1,"away":"Tijuana"},{"date":"20/abr/22","round":15,"home":"Atl. San Luis","hg":2,"ag":0,"away":"Pumas"},{"date":"20/abr/22","round":15,"home":"América","hg":2,"ag":0,"away":"León"},{"date":"20/abr/22","round":15,"home":"Monterrey","hg":0,"ag":0,"away":"Atlas"},{"date":"21/abr/22","round":15,"home":"Querétaro","hg":0,"ag":1,"away":"Cruz Azul"},{"date":"22/abr/22","round":15,"home":"FC Juárez","hg":0,"ag":1,"away":"Toluca"},{"date":"22/abr/22","round":16,"home":"Puebla","hg":0,"ag":1,"away":"Necaxa"},{"date":"22/abr/22","round":16,"home":"FC Juárez","hg":0,"ag":2,"away":"Mazatlán"},{"date":"23/abr/22","round":16,"home":"Pachuca","hg":3,"ag":0,"away":"Monterrey"},{"date":"23/abr/22","round":16,"home":"Tigres","hg":0,"ag":2,"away":"América"},{"date":"23/abr/22","round":16,"home":"Guadalajara","hg":2,"ag":1,"away":"Pumas"},{"date":"24/abr/22","round":16,"home":"Toluca","hg":2,"ag":4,"away":"Atlas"},{"date":"24/abr/22","round":16,"home":"Cruz Azul","hg":0,"ag":1,"away":"Atl. San Luis"},{"date":"24/abr/22","round":16,"home":"Santos","hg":1,"ag":1,"away":"León"},{"date":"24/abr/22","round":16,"home":"Tijuana","hg":2,"ag":2,"away":"Querétaro"},{"date":"29/abr/22","round":17,"home":"Necaxa","hg":0,"ag":1,"away":"Guadalajara"},{"date":"29/abr/22","round":17,"home":"Mazatlán","hg":2,"ag":1,"away":"Puebla"},{"date":"30/abr/22","round":17,"home":"Querétaro","hg":4,"ag":1,"away":"FC Juárez"},{"date":"30/abr/22","round":17,"home":"Atlas","hg":1,"ag":1,"away":"Tigres"},{"date":"30/abr/22","round":17,"home":"Monterrey","hg":2,"ag":0,"away":"Tijuana"},{"date":"30/abr/22","round":17,"home":"América","hg":0,"ag":0,"away":"Cruz Azul"},{"date":"01/may/22","round":17,"home":"Pumas","hg":2,"ag":0,"away":"Pachuca"},{"date":"01/may/22","round":17,"home":"Atl. San Luis","hg":1,"ag":3,"away":"Santos"},{"date":"01/may/22","round":17,"home":"León","hg":4,"ag":4,"away":"Toluca"}],"Apertura 2022":[{"date":"01/jul/22","round":1,"home":"Necaxa","hg":1,"ag":3,"away":"Toluca"},{"date":"01/jul/22","round":1,"home":"Mazatlán","hg":2,"ag":4,"away":"Puebla"},{"date":"02/jul/22","round":1,"home":"Guadalajara","hg":0,"ag":0,"away":"FC Juárez"},{"date":"02/jul/22","round":1,"home":"Tigres","hg":2,"ag":3,"away":"Cruz Azul"},{"date":"02/jul/22","round":1,"home":"América","hg":0,"ag":0,"away":"Atlas"},{"date":"03/jul/22","round":1,"home":"Pumas","hg":1,"ag":1,"away":"Tijuana"},{"date":"03/jul/22","round":1,"home":"Atl. San Luis","hg":1,"ag":2,"away":"León"},{"date":"03/jul/22","round":1,"home":"Santos","hg":4,"ag":3,"away":"Monterrey"},{"date":"04/jul/22","round":1,"home":"Pachuca","hg":2,"ag":0,"away":"Querétaro"},{"date":"08/jul/22","round":2,"home":"Mazatlán","hg":0,"ag":1,"away":"Tigres"},{"date":"08/jul/22","round":2,"home":"Puebla","hg":1,"ag":0,"away":"Santos"},{"date":"08/jul/22","round":2,"home":"Tijuana","hg":0,"ag":2,"away":"FC Juárez"},{"date":"09/jul/22","round":2,"home":"León","hg":3,"ag":3,"away":"Pumas"},{"date":"09/jul/22","round":2,"home":"Guadalajara","hg":0,"ag":1,"away":"Atl. San Luis"},{"date":"09/jul/22","round":2,"home":"Cruz Azul","hg":1,"ag":2,"away":"Pachuca"},{"date":"09/jul/22","round":2,"home":"Monterrey","hg":3,"ag":2,"away":"América"},{"date":"10/jul/22","round":2,"home":"Toluca","hg":3,"ag":2,"away":"Atlas"},{"date":"10/jul/22","round":2,"home":"Querétaro","hg":1,"ag":2,"away":"Necaxa"},{"date":"13/jul/22","round":3,"home":"América","hg":1,"ag":0,"away":"Toluca"},{"date":"13/jul/22","round":3,"home":"Puebla","hg":1,"ag":1,"away":"León"},{"date":"13/jul/22","round":3,"home":"FC Juárez","hg":1,"ag":1,"away":"Querétaro"},{"date":"14/jul/22","round":3,"home":"Atlas","hg":3,"ag":2,"away":"Cruz Azul"},{"date":"15/jul/22","round":3,"home":"Querétaro","hg":0,"ag":3,"away":"Monterrey"},{"date":"16/jul/22","round":3,"home":"Atlas","hg":3,"ag":2,"away":"Cruz Azul"},{"date":"16/jul/22","round":3,"home":"Santos","hg":1,"ag":1,"away":"Guadalajara"},{"date":"17/jul/22","round":3,"home":"Pumas","hg":1,"ag":0,"away":"Necaxa"},{"date":"17/jul/22","round":3,"home":"Tigres","hg":1,"ag":0,"away":"Tijuana"},{"date":"17/jul/22","round":3,"home":"Pachuca","hg":1,"ag":1,"away":"Mazatlán"},{"date":"20/jul/22","round":4,"home":"Guadalajara","hg":0,"ag":0,"away":"León"},{"date":"21/jul/22","round":4,"home":"Querétaro","hg":0,"ag":3,"away":"Monterrey"},{"date":"22/jul/22","round":4,"home":"Mazatlán","hg":1,"ag":1,"away":"Pumas"},{"date":"22/jul/22","round":4,"home":"Necaxa","hg":1,"ag":0,"away":"FC Juárez"},{"date":"23/jul/22","round":4,"home":"Toluca","hg":2,"ag":1,"away":"Santos"},{"date":"23/jul/22","round":4,"home":"Cruz Azul","hg":2,"ag":2,"away":"Puebla"},{"date":"23/jul/22","round":4,"home":"Tijuana","hg":2,"ag":0,"away":"América"},{"date":"23/jul/22","round":4,"home":"Tigres","hg":2,"ag":0,"away":"Atlas"},{"date":"24/jul/22","round":4,"home":"Pachuca","hg":0,"ag":0,"away":"Atl. San Luis"},{"date":"26/jul/22","round":5,"home":"Monterrey","hg":1,"ag":0,"away":"Puebla"},{"date":"26/jul/22","round":5,"home":"FC Juárez","hg":0,"ag":1,"away":"Tigres"},{"date":"26/jul/22","round":5,"home":"Atlas","hg":1,"ag":2,"away":"Tijuana"},{"date":"26/jul/22","round":5,"home":"Atl. San Luis","hg":0,"ag":0,"away":"Cruz Azul"},{"date":"26/jul/22","round":5,"home":"León","hg":0,"ag":1,"away":"Toluca"},{"date":"27/jul/22","round":5,"home":"Querétaro","hg":2,"ag":2,"away":"Guadalajara"},{"date":"27/jul/22","round":5,"home":"Necaxa","hg":2,"ag":0,"away":"Pachuca"},{"date":"27/jul/22","round":5,"home":"Pumas","hg":1,"ag":1,"away":"Mazatlán"},{"date":"14/sep/22","round":5,"home":"América","hg":3,"ag":3,"away":"Santos"},{"date":"29/jul/22","round":6,"home":"FC Juárez","hg":1,"ag":1,"away":"Toluca"},{"date":"30/jul/22","round":6,"home":"Cruz Azul","hg":1,"ag":0,"away":"Necaxa"},{"date":"30/jul/22","round":6,"home":"Tigres","hg":2,"ag":1,"away":"Querétaro"},{"date":"30/jul/22","round":6,"home":"Guadalajara","hg":0,"ag":0,"away":"Pachuca"},{"date":"30/jul/22","round":6,"home":"Puebla","hg":0,"ag":0,"away":"Atl. San Luis"},{"date":"31/jul/22","round":6,"home":"Pumas","hg":1,"ag":1,"away":"Monterrey"},{"date":"31/jul/22","round":6,"home":"Santos","hg":1,"ag":0,"away":"Atlas"},{"date":"31/jul/22","round":6,"home":"León","hg":3,"ag":2,"away":"América"},{"date":"01/ago/22","round":6,"home":"Mazatlán","hg":2,"ag":0,"away":"Tijuana"},{"date":"04/ago/22","round":7,"home":"Atlas","hg":1,"ag":2,"away":"Querétaro"},{"date":"05/ago/22","round":7,"home":"Mazatlán","hg":2,"ag":1,"away":"Guadalajara"},{"date":"06/ago/22","round":7,"home":"Monterrey","hg":5,"ag":1,"away":"León"},{"date":"06/ago/22","round":7,"home":"Santos","hg":4,"ag":0,"away":"Cruz Azul"},{"date":"07/ago/22","round":7,"home":"Toluca","hg":3,"ag":1,"away":"Tijuana"},{"date":"07/ago/22","round":7,"home":"Atl. San Luis","hg":1,"ag":2,"away":"Necaxa"},{"date":"07/ago/22","round":7,"home":"Pachuca","hg":2,"ag":0,"away":"Tigres"},{"date":"07/ago/22","round":7,"home":"América","hg":2,"ag":1,"away":"FC Juárez"},{"date":"23/sep/22","round":7,"home":"Puebla","hg":2,"ag":2,"away":"Pumas"},{"date":"11/ago/22","round":8,"home":"Querétaro","hg":1,"ag":1,"away":"Atl. San Luis"},{"date":"12/ago/22","round":8,"home":"Necaxa","hg":1,"ag":2,"away":"Monterrey"},{"date":"12/ago/22","round":8,"home":"Tijuana","hg":3,"ag":3,"away":"Puebla"},{"date":"13/ago/22","round":8,"home":"León","hg":0,"ag":3,"away":"Mazatlán"},{"date":"13/ago/22","round":8,"home":"Pumas","hg":0,"ag":3,"away":"América"},{"date":"13/ago/22","round":8,"home":"Guadalajara","hg":1,"ag":1,"away":"Atlas"},{"date":"14/ago/22","round":8,"home":"Cruz Azul","hg":2,"ag":3,"away":"Tijuana"},{"date":"14/ago/22","round":8,"home":"Tigres","hg":2,"ag":0,"away":"Santos"},{"date":"14/ago/22","round":8,"home":"Toluca","hg":3,"ag":1,"away":"Pachuca"},{"date":"16/ago/22","round":9,"home":"Atlas","hg":0,"ag":1,"away":"FC Juárez"},{"date":"16/ago/22","round":9,"home":"Mazatlán","hg":1,"ag":1,"away":"Querétaro"},{"date":"16/ago/22","round":9,"home":"Puebla","hg":2,"ag":2,"away":"Necaxa"},{"date":"17/ago/22","round":9,"home":"Toluca","hg":1,"ag":4,"away":"Monterrey"},{"date":"17/ago/22","round":9,"home":"Cruz Azul","hg":1,"ag":2,"away":"Tijuana"},{"date":"17/ago/22","round":9,"home":"Pachuca","hg":0,"ag":3,"away":"América"},{"date":"17/ago/22","round":9,"home":"Santos","hg":2,"ag":1,"away":"León"},{"date":"18/ago/22","round":9,"home":"Atl. San Luis","hg":2,"ag":0,"away":"Pumas"},{"date":"13/sep/22","round":9,"home":"Guadalajara","hg":1,"ag":4,"away":"Tigres"},{"date":"19/ago/22","round":10,"home":"Necaxa","hg":0,"ag":4,"away":"Guadalajara"},{"date":"20/ago/22","round":10,"home":"Querétaro","hg":1,"ag":1,"away":"Tijuana"},{"date":"20/ago/22","round":10,"home":"Atlas","hg":1,"ag":1,"away":"Puebla"},{"date":"20/ago/22","round":10,"home":"Monterrey","hg":0,"ag":0,"away":"Tigres"},{"date":"20/ago/22","round":10,"home":"América","hg":7,"ag":0,"away":"Cruz Azul"},{"date":"20/ago/22","round":10,"home":"FC Juárez","hg":1,"ag":1,"away":"Mazatlán"},{"date":"21/ago/22","round":10,"home":"Pumas","hg":1,"ag":5,"away":"Santos"},{"date":"21/ago/22","round":10,"home":"Atl. San Luis","hg":1,"ag":0,"away":"Toluca"},{"date":"21/ago/22","round":10,"home":"Pachuca","hg":1,"ag":0,"away":"León"},{"date":"26/ago/22","round":11,"home":"Puebla","hg":1,"ag":1,"away":"FC Juárez"},{"date":"26/ago/22","round":11,"home":"Mazatlán","hg":1,"ag":3,"away":"América"},{"date":"27/ago/22","round":11,"home":"Cruz Azul","hg":2,"ag":1,"away":"Querétaro"},{"date":"27/ago/22","round":11,"home":"Tigres","hg":0,"ag":0,"away":"Necaxa"},{"date":"27/ago/22","round":11,"home":"Guadalajara","hg":3,"ag":1,"away":"Pumas"},{"date":"28/ago/22","round":11,"home":"Toluca","hg":1,"ag":4,"away":"Pachuca"},{"date":"28/ago/22","round":11,"home":"León","hg":4,"ag":2,"away":"Atlas"},{"date":"28/ago/22","round":11,"home":"Santos","hg":4,"ag":1,"away":"Atl. San Luis"},{"date":"28/ago/22","round":11,"home":"Tijuana","hg":0,"ag":3,"away":"Monterrey"},{"date":"01/sep/22","round":12,"home":"Querétaro","hg":1,"ag":1,"away":"Puebla"},{"date":"02/sep/22","round":12,"home":"Necaxa","hg":3,"ag":2,"away":"León"},{"date":"02/sep/22","round":12,"home":"FC Juárez","hg":2,"ag":2,"away":"Cruz Azul"},{"date":"03/sep/22","round":12,"home":"Pachuca","hg":2,"ag":0,"away":"Santos"},{"date":"03/sep/22","round":12,"home":"Monterrey","hg":0,"ag":0,"away":"Mazatlán"},{"date":"03/sep/22","round":12,"home":"Atlas","hg":0,"ag":0,"away":"Pumas"},{"date":"03/sep/22","round":12,"home":"América","hg":2,"ag":1,"away":"Tigres"},{"date":"04/sep/22","round":12,"home":"Toluca","hg":0,"ag":0,"away":"Guadalajara"},{"date":"04/sep/22","round":12,"home":"Atl. San Luis","hg":0,"ag":0,"away":"Tijuana"},{"date":"06/sep/22","round":13,"home":"León","hg":1,"ag":0,"away":"FC Juárez"},{"date":"06/sep/22","round":13,"home":"Santos","hg":3,"ag":1,"away":"Necaxa"},{"date":"06/sep/22","round":13,"home":"Monterrey","hg":3,"ag":2,"away":"Cruz Azul"},{"date":"06/sep/22","round":13,"home":"América","hg":3,"ag":0,"away":"Atl. San Luis"},{"date":"07/sep/22","round":13,"home":"Puebla","hg":2,"ag":2,"away":"Pachuca"},{"date":"07/sep/22","round":13,"home":"Tigres","hg":3,"ag":1,"away":"Toluca"},{"date":"07/sep/22","round":13,"home":"Mazatlán","hg":1,"ag":0,"away":"Atlas"},{"date":"07/sep/22","round":13,"home":"Pumas","hg":4,"ag":1,"away":"Querétaro"},{"date":"07/sep/22","round":13,"home":"Tijuana","hg":1,"ag":2,"away":"Guadalajara"},{"date":"09/sep/22","round":14,"home":"FC Juárez","hg":0,"ag":1,"away":"Monterrey"},{"date":"10/sep/22","round":14,"home":"Querétaro","hg":3,"ag":3,"away":"Santos"},{"date":"10/sep/22","round":14,"home":"Necaxa","hg":1,"ag":2,"away":"América"},{"date":"10/sep/22","round":14,"home":"Tigres","hg":0,"ag":1,"away":"León"},{"date":"10/sep/22","round":14,"home":"Toluca","hg":2,"ag":2,"away":"Pumas"},{"date":"10/sep/22","round":14,"home":"Guadalajara","hg":1,"ag":0,"away":"Puebla"},{"date":"11/sep/22","round":14,"home":"Cruz Azul","hg":2,"ag":0,"away":"Mazatlán"},{"date":"11/sep/22","round":14,"home":"Atlas","hg":1,"ag":3,"away":"Atl. San Luis"},{"date":"11/sep/22","round":14,"home":"Pachuca","hg":6,"ag":1,"away":"Tijuana"},{"date":"16/sep/22","round":15,"home":"Puebla","hg":2,"ag":1,"away":"Tigres"},{"date":"16/sep/22","round":15,"home":"Mazatlán","hg":1,"ag":1,"away":"Toluca"},{"date":"17/sep/22","round":15,"home":"Monterrey","hg":2,"ag":0,"away":"Atlas"},{"date":"17/sep/22","round":15,"home":"América","hg":2,"ag":1,"away":"Guadalajara"},{"date":"18/sep/22","round":15,"home":"Pumas","hg":1,"ag":2,"away":"Cruz Azul"},{"date":"18/sep/22","round":15,"home":"Santos","hg":2,"ag":0,"away":"FC Juárez"},{"date":"18/sep/22","round":15,"home":"León","hg":3,"ag":1,"away":"Querétaro"},{"date":"18/sep/22","round":15,"home":"Atl. San Luis","hg":1,"ag":2,"away":"Pachuca"},{"date":"18/sep/22","round":15,"home":"Tijuana","hg":1,"ag":1,"away":"Necaxa"},{"date":"02/ago/22","round":16,"home":"Toluca","hg":1,"ag":1,"away":"Puebla"},{"date":"23/ago/22","round":16,"home":"Guadalajara","hg":1,"ag":0,"away":"Monterrey"},{"date":"24/ago/22","round":16,"home":"Querétaro","hg":0,"ag":1,"away":"América"},{"date":"24/ago/22","round":16,"home":"Pumas","hg":1,"ag":1,"away":"Tigres"},{"date":"22/sep/22","round":16,"home":"Necaxa","hg":2,"ag":2,"away":"Mazatlán"},{"date":"24/sep/22","round":16,"home":"Atlas","hg":1,"ag":0,"away":"Necaxa"},{"date":"24/sep/22","round":16,"home":"Tigres","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"25/sep/22","round":16,"home":"Cruz Azul","hg":2,"ag":1,"away":"Guadalajara"},{"date":"30/sep/22","round":16,"home":"FC Juárez","hg":3,"ag":1,"away":"Pumas"},{"date":"30/sep/22","round":17,"home":"Puebla","hg":1,"ag":2,"away":"América"},{"date":"30/sep/22","round":17,"home":"FC Juárez","hg":3,"ag":1,"away":"Pumas"},{"date":"01/oct/22","round":17,"home":"Atl. San Luis","hg":0,"ag":3,"away":"Tigres"},{"date":"01/oct/22","round":17,"home":"Monterrey","hg":0,"ag":0,"away":"Pachuca"},{"date":"01/oct/22","round":17,"home":"Atlas","hg":1,"ag":0,"away":"Necaxa"},{"date":"01/oct/22","round":17,"home":"Cruz Azul","hg":2,"ag":1,"away":"Guadalajara"},{"date":"02/oct/22","round":17,"home":"Toluca","hg":4,"ag":1,"away":"Querétaro"},{"date":"02/oct/22","round":17,"home":"Santos","hg":3,"ag":0,"away":"Mazatlán"},{"date":"02/oct/22","round":17,"home":"León","hg":2,"ag":2,"away":"Tijuana"}],"Clausura 2023":[{"date":"06/ene/23","round":1,"home":"Necaxa","hg":2,"ag":3,"away":"Atl. San Luis"},{"date":"07/ene/23","round":1,"home":"América","hg":0,"ag":0,"away":"Querétaro"},{"date":"07/ene/23","round":1,"home":"Monterrey","hg":0,"ag":1,"away":"Guadalajara"},{"date":"08/ene/23","round":1,"home":"Pumas","hg":2,"ag":1,"away":"FC Juárez"},{"date":"08/ene/23","round":1,"home":"Santos","hg":0,"ag":3,"away":"Tigres"},{"date":"08/ene/23","round":1,"home":"Tijuana","hg":1,"ag":1,"away":"Cruz Azul"},{"date":"09/ene/23","round":1,"home":"Pachuca","hg":5,"ag":1,"away":"Puebla"},{"date":"01/feb/23","round":1,"home":"Atlas","hg":0,"ag":0,"away":"Toluca"},{"date":"24/mar/23","round":1,"home":"Mazatlán","hg":1,"ag":2,"away":"León"},{"date":"12/ene/23","round":2,"home":"Atlas","hg":2,"ag":1,"away":"Mazatlán"},{"date":"13/ene/23","round":2,"home":"Atl. San Luis","hg":0,"ag":0,"away":"Guadalajara"},{"date":"13/ene/23","round":2,"home":"Puebla","hg":2,"ag":0,"away":"Querétaro"},{"date":"14/ene/23","round":2,"home":"Cruz Azul","hg":2,"ag":3,"away":"Monterrey"},{"date":"14/ene/23","round":2,"home":"Toluca","hg":2,"ag":2,"away":"América"},{"date":"14/ene/23","round":2,"home":"FC Juárez","hg":3,"ag":0,"away":"Tijuana"},{"date":"14/ene/23","round":2,"home":"Santos","hg":3,"ag":0,"away":"Pumas"},{"date":"15/ene/23","round":2,"home":"Tigres","hg":4,"ag":1,"away":"Pachuca"},{"date":"16/ene/23","round":2,"home":"León","hg":2,"ag":1,"away":"Necaxa"},{"date":"20/ene/23","round":3,"home":"Mazatlán","hg":1,"ag":2,"away":"Santos"},{"date":"20/ene/23","round":3,"home":"Tijuana","hg":1,"ag":1,"away":"Tigres"},{"date":"21/ene/23","round":3,"home":"Monterrey","hg":3,"ag":1,"away":"Atl. San Luis"},{"date":"21/ene/23","round":3,"home":"América","hg":2,"ag":2,"away":"Puebla"},{"date":"21/ene/23","round":3,"home":"Guadalajara","hg":1,"ag":2,"away":"Toluca"},{"date":"21/ene/23","round":3,"home":"Necaxa","hg":1,"ag":0,"away":"Cruz Azul"},{"date":"22/ene/23","round":3,"home":"Pumas","hg":4,"ag":1,"away":"León"},{"date":"22/ene/23","round":3,"home":"Querétaro","hg":3,"ag":3,"away":"Atlas"},{"date":"22/ene/23","round":3,"home":"Pachuca","hg":4,"ag":1,"away":"FC Juárez"},{"date":"26/ene/23","round":4,"home":"Atlas","hg":2,"ag":2,"away":"Santos"},{"date":"27/ene/23","round":4,"home":"Puebla","hg":1,"ag":2,"away":"Monterrey"},{"date":"27/ene/23","round":4,"home":"Tijuana","hg":0,"ag":0,"away":"Pumas"},{"date":"28/ene/23","round":4,"home":"Tigres","hg":0,"ag":0,"away":"Atl. San Luis"},{"date":"28/ene/23","round":4,"home":"FC Juárez","hg":1,"ag":2,"away":"Guadalajara"},{"date":"28/ene/23","round":4,"home":"América","hg":6,"ag":0,"away":"Mazatlán"},{"date":"29/ene/23","round":4,"home":"Toluca","hg":0,"ag":0,"away":"León"},{"date":"29/ene/23","round":4,"home":"Pachuca","hg":2,"ag":1,"away":"Necaxa"},{"date":"29/mar/23","round":4,"home":"Querétaro","hg":2,"ag":2,"away":"Cruz Azul"},{"date":"02/feb/23","round":5,"home":"Atl. San Luis","hg":2,"ag":0,"away":"Puebla"},{"date":"03/feb/23","round":5,"home":"Necaxa","hg":1,"ag":1,"away":"Tijuana"},{"date":"03/feb/23","round":5,"home":"Mazatlán","hg":2,"ag":3,"away":"FC Juárez"},{"date":"04/feb/23","round":5,"home":"León","hg":0,"ag":1,"away":"Pachuca"},{"date":"04/feb/23","round":5,"home":"Cruz Azul","hg":0,"ag":1,"away":"Tigres"},{"date":"04/feb/23","round":5,"home":"Santos","hg":2,"ag":2,"away":"América"},{"date":"05/feb/23","round":5,"home":"Pumas","hg":2,"ag":2,"away":"Atlas"},{"date":"05/feb/23","round":5,"home":"Guadalajara","hg":1,"ag":1,"away":"Querétaro"},{"date":"05/feb/23","round":5,"home":"Monterrey","hg":2,"ag":1,"away":"Toluca"},{"date":"09/feb/23","round":6,"home":"Atlas","hg":0,"ag":2,"away":"Monterrey"},{"date":"09/feb/23","round":6,"home":"Querétaro","hg":0,"ag":3,"away":"León"},{"date":"10/feb/23","round":6,"home":"Puebla","hg":3,"ag":1,"away":"Mazatlán"},{"date":"10/feb/23","round":6,"home":"Tijuana","hg":1,"ag":0,"away":"Atl. San Luis"},{"date":"11/feb/23","round":6,"home":"América","hg":2,"ag":1,"away":"Necaxa"},{"date":"11/feb/23","round":6,"home":"Tigres","hg":4,"ag":2,"away":"Pumas"},{"date":"11/feb/23","round":6,"home":"FC Juárez","hg":0,"ag":0,"away":"Santos"},{"date":"11/feb/23","round":6,"home":"Pachuca","hg":1,"ag":1,"away":"Guadalajara"},{"date":"12/feb/23","round":6,"home":"Toluca","hg":3,"ag":1,"away":"Cruz Azul"},{"date":"14/feb/23","round":7,"home":"León","hg":2,"ag":0,"away":"Puebla"},{"date":"14/feb/23","round":7,"home":"Tigres","hg":0,"ag":0,"away":"FC Juárez"},{"date":"14/feb/23","round":7,"home":"Atl. San Luis","hg":1,"ag":3,"away":"América"},{"date":"15/feb/23","round":7,"home":"Monterrey","hg":2,"ag":0,"away":"Querétaro"},{"date":"15/feb/23","round":7,"home":"Guadalajara","hg":2,"ag":1,"away":"Tijuana"},{"date":"15/feb/23","round":7,"home":"Necaxa","hg":3,"ag":1,"away":"Pumas"},{"date":"16/feb/23","round":7,"home":"Mazatlán","hg":2,"ag":3,"away":"Pachuca"},{"date":"22/feb/23","round":7,"home":"Cruz Azul","hg":1,"ag":0,"away":"Atlas"},{"date":"23/feb/23","round":7,"home":"Santos","hg":0,"ag":5,"away":"Toluca"},{"date":"17/feb/23","round":8,"home":"FC Juárez","hg":0,"ag":0,"away":"León"},{"date":"17/feb/23","round":8,"home":"Puebla","hg":1,"ag":3,"away":"Cruz Azul"},{"date":"18/feb/23","round":8,"home":"Atl. San Luis","hg":1,"ag":1,"away":"Santos"},{"date":"18/feb/23","round":8,"home":"Monterrey","hg":2,"ag":1,"away":"Necaxa"},{"date":"18/feb/23","round":8,"home":"Atlas","hg":0,"ag":1,"away":"Tigres"},{"date":"18/feb/23","round":8,"home":"Pumas","hg":1,"ag":2,"away":"Guadalajara"},{"date":"19/feb/23","round":8,"home":"Querétaro","hg":1,"ag":1,"away":"Mazatlán"},{"date":"19/feb/23","round":8,"home":"América","hg":2,"ag":1,"away":"Tijuana"},{"date":"19/feb/23","round":8,"home":"Pachuca","hg":1,"ag":2,"away":"Toluca"},{"date":"24/feb/23","round":9,"home":"Necaxa","hg":1,"ag":1,"away":"Querétaro"},{"date":"24/feb/23","round":9,"home":"Mazatlán","hg":1,"ag":2,"away":"Pumas"},{"date":"25/feb/23","round":9,"home":"Cruz Azul","hg":1,"ag":0,"away":"FC Juárez"},{"date":"25/feb/23","round":9,"home":"Tigres","hg":1,"ag":2,"away":"Guadalajara"},{"date":"25/feb/23","round":9,"home":"Atlas","hg":2,"ag":2,"away":"América"},{"date":"26/feb/23","round":9,"home":"Toluca","hg":2,"ag":0,"away":"Atl. San Luis"},{"date":"26/feb/23","round":9,"home":"Santos","hg":3,"ag":2,"away":"Puebla"},{"date":"26/feb/23","round":9,"home":"Tijuana","hg":2,"ag":0,"away":"Pachuca"},{"date":"27/feb/23","round":9,"home":"León","hg":1,"ag":1,"away":"Monterrey"},{"date":"03/mar/23","round":10,"home":"Necaxa","hg":0,"ag":1,"away":"Tigres"},{"date":"03/mar/23","round":10,"home":"Mazatlán","hg":1,"ag":2,"away":"Cruz Azul"},{"date":"03/mar/23","round":10,"home":"Tijuana","hg":1,"ag":1,"away":"Atlas"},{"date":"04/mar/23","round":10,"home":"León","hg":2,"ag":0,"away":"Atl. San Luis"},{"date":"04/mar/23","round":10,"home":"Monterrey","hg":3,"ag":0,"away":"FC Juárez"},{"date":"04/mar/23","round":10,"home":"América","hg":0,"ag":3,"away":"Pachuca"},{"date":"04/mar/23","round":10,"home":"Guadalajara","hg":2,"ag":0,"away":"Santos"},{"date":"05/mar/23","round":10,"home":"Pumas","hg":2,"ag":4,"away":"Puebla"},{"date":"05/mar/23","round":10,"home":"Querétaro","hg":1,"ag":0,"away":"Toluca"},{"date":"10/mar/23","round":11,"home":"Atl. San Luis","hg":2,"ag":0,"away":"Querétaro"},{"date":"10/mar/23","round":11,"home":"Puebla","hg":1,"ag":0,"away":"Guadalajara"},{"date":"10/mar/23","round":11,"home":"FC Juárez","hg":1,"ag":1,"away":"Necaxa"},{"date":"11/mar/23","round":11,"home":"Atlas","hg":0,"ag":1,"away":"León"},{"date":"11/mar/23","round":11,"home":"Cruz Azul","hg":1,"ag":0,"away":"Pumas"},{"date":"11/mar/23","round":11,"home":"Tigres","hg":0,"ag":2,"away":"América"},{"date":"12/mar/23","round":11,"home":"Toluca","hg":4,"ag":1,"away":"Mazatlán"},{"date":"12/mar/23","round":11,"home":"Pachuca","hg":1,"ag":2,"away":"Monterrey"},{"date":"12/mar/23","round":11,"home":"Santos","hg":3,"ag":2,"away":"Tijuana"},{"date":"17/mar/23","round":12,"home":"Puebla","hg":0,"ag":4,"away":"Atlas"},{"date":"17/mar/23","round":12,"home":"Mazatlán","hg":0,"ag":1,"away":"Necaxa"},{"date":"17/mar/23","round":12,"home":"Tijuana","hg":3,"ag":3,"away":"Toluca"},{"date":"18/mar/23","round":12,"home":"Cruz Azul","hg":1,"ag":0,"away":"Atl. San Luis"},{"date":"18/mar/23","round":12,"home":"Tigres","hg":0,"ag":1,"away":"Monterrey"},{"date":"18/mar/23","round":12,"home":"Guadalajara","hg":2,"ag":4,"away":"América"},{"date":"19/mar/23","round":12,"home":"Pumas","hg":0,"ag":2,"away":"Pachuca"},{"date":"19/mar/23","round":12,"home":"Querétaro","hg":2,"ag":2,"away":"FC Juárez"},{"date":"19/mar/23","round":12,"home":"León","hg":4,"ag":1,"away":"Santos"},{"date":"31/mar/23","round":13,"home":"Necaxa","hg":0,"ag":0,"away":"Santos"},{"date":"31/mar/23","round":13,"home":"FC Juárez","hg":0,"ag":2,"away":"Puebla"},{"date":"01/abr/23","round":13,"home":"Pachuca","hg":0,"ag":2,"away":"Cruz Azul"},{"date":"01/abr/23","round":13,"home":"América","hg":2,"ag":2,"away":"León"},{"date":"01/abr/23","round":13,"home":"Monterrey","hg":4,"ag":0,"away":"Tijuana"},{"date":"01/abr/23","round":13,"home":"Atlas","hg":3,"ag":3,"away":"Guadalajara"},{"date":"02/abr/23","round":13,"home":"Toluca","hg":3,"ag":2,"away":"Tigres"},{"date":"02/abr/23","round":13,"home":"Atl. San Luis","hg":2,"ag":1,"away":"Mazatlán"},{"date":"02/abr/23","round":13,"home":"Querétaro","hg":1,"ag":0,"away":"Pumas"},{"date":"07/abr/23","round":14,"home":"Puebla","hg":1,"ag":2,"away":"Toluca"},{"date":"07/abr/23","round":14,"home":"Tijuana","hg":1,"ag":2,"away":"Querétaro"},{"date":"08/abr/23","round":14,"home":"León","hg":0,"ag":0,"away":"Cruz Azul"},{"date":"08/abr/23","round":14,"home":"Tigres","hg":1,"ag":2,"away":"Mazatlán"},{"date":"08/abr/23","round":14,"home":"Guadalajara","hg":1,"ag":0,"away":"Necaxa"},{"date":"08/abr/23","round":14,"home":"América","hg":2,"ag":1,"away":"Monterrey"},{"date":"09/abr/23","round":14,"home":"Pumas","hg":3,"ag":1,"away":"Atl. San Luis"},{"date":"09/abr/23","round":14,"home":"Santos","hg":1,"ag":4,"away":"Pachuca"},{"date":"09/abr/23","round":14,"home":"FC Juárez","hg":1,"ag":1,"away":"Atlas"},{"date":"13/abr/23","round":15,"home":"Atl. San Luis","hg":2,"ag":0,"away":"FC Juárez"},{"date":"14/abr/23","round":15,"home":"Necaxa","hg":1,"ag":1,"away":"Puebla"},{"date":"14/abr/23","round":15,"home":"Mazatlán","hg":1,"ag":2,"away":"Tijuana"},{"date":"15/abr/23","round":15,"home":"Atlas","hg":4,"ag":1,"away":"Pachuca"},{"date":"15/abr/23","round":15,"home":"León","hg":0,"ag":2,"away":"Guadalajara"},{"date":"15/abr/23","round":15,"home":"Cruz Azul","hg":1,"ag":3,"away":"América"},{"date":"16/abr/23","round":15,"home":"Pumas","hg":3,"ag":1,"away":"Toluca"},{"date":"16/abr/23","round":15,"home":"Querétaro","hg":0,"ag":0,"away":"Tigres"},{"date":"16/abr/23","round":15,"home":"Monterrey","hg":1,"ag":2,"away":"Santos"},{"date":"20/abr/23","round":16,"home":"Tigres","hg":1,"ag":0,"away":"Puebla"},{"date":"21/abr/23","round":16,"home":"Mazatlán","hg":0,"ag":2,"away":"Monterrey"},{"date":"21/abr/23","round":16,"home":"Necaxa","hg":1,"ag":3,"away":"Atlas"},{"date":"21/abr/23","round":16,"home":"Tijuana","hg":0,"ag":0,"away":"León"},{"date":"22/abr/23","round":16,"home":"Pachuca","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"22/abr/23","round":16,"home":"Guadalajara","hg":2,"ag":1,"away":"Cruz Azul"},{"date":"22/abr/23","round":16,"home":"América","hg":1,"ag":1,"away":"Pumas"},{"date":"23/abr/23","round":16,"home":"Toluca","hg":1,"ag":1,"away":"FC Juárez"},{"date":"23/abr/23","round":16,"home":"Santos","hg":0,"ag":2,"away":"Querétaro"},{"date":"28/abr/23","round":17,"home":"Puebla","hg":5,"ag":2,"away":"Tijuana"},{"date":"28/abr/23","round":17,"home":"FC Juárez","hg":0,"ag":1,"away":"América"},{"date":"29/abr/23","round":17,"home":"Atl. San Luis","hg":0,"ag":0,"away":"Atlas"},{"date":"29/abr/23","round":17,"home":"Monterrey","hg":4,"ag":1,"away":"Pumas"},{"date":"29/abr/23","round":17,"home":"Guadalajara","hg":4,"ag":1,"away":"Mazatlán"},{"date":"29/abr/23","round":17,"home":"Cruz Azul","hg":3,"ag":2,"away":"Santos"},{"date":"30/abr/23","round":17,"home":"Toluca","hg":3,"ag":0,"away":"Necaxa"},{"date":"30/abr/23","round":17,"home":"Querétaro","hg":0,"ag":1,"away":"Pachuca"},{"date":"30/abr/23","round":17,"home":"León","hg":3,"ag":0,"away":"Tigres"}],"Apertura 2023":[{"date":"30/jun/23","round":1,"home":"América","hg":1,"ag":2,"away":"FC Juárez"},{"date":"30/jun/23","round":1,"home":"Mazatlán","hg":1,"ag":1,"away":"Pachuca"},{"date":"30/jun/23","round":1,"home":"Tijuana","hg":2,"ag":3,"away":"Pumas"},{"date":"01/jul/23","round":1,"home":"Atl. San Luis","hg":1,"ag":1,"away":"Monterrey"},{"date":"01/jul/23","round":1,"home":"Tigres","hg":1,"ag":1,"away":"Puebla"},{"date":"01/jul/23","round":1,"home":"Atlas","hg":2,"ag":0,"away":"Cruz Azul"},{"date":"02/jul/23","round":1,"home":"Toluca","hg":0,"ag":0,"away":"Necaxa"},{"date":"02/jul/23","round":1,"home":"Santos","hg":0,"ag":2,"away":"Querétaro"},{"date":"03/jul/23","round":1,"home":"León","hg":1,"ag":2,"away":"Guadalajara"},{"date":"07/jul/23","round":2,"home":"Puebla","hg":2,"ag":3,"away":"Santos"},{"date":"07/jul/23","round":2,"home":"Necaxa","hg":1,"ag":1,"away":"Tijuana"},{"date":"08/jul/23","round":2,"home":"Cruz Azul","hg":0,"ag":2,"away":"Toluca"},{"date":"08/jul/23","round":2,"home":"Guadalajara","hg":3,"ag":1,"away":"Atl. San Luis"},{"date":"08/jul/23","round":2,"home":"FC Juárez","hg":1,"ag":1,"away":"Tigres"},{"date":"09/jul/23","round":2,"home":"Pumas","hg":0,"ag":0,"away":"Mazatlán"},{"date":"09/jul/23","round":2,"home":"Monterrey","hg":1,"ag":0,"away":"Atlas"},{"date":"10/jul/23","round":2,"home":"León","hg":4,"ag":0,"away":"Pachuca"},{"date":"20/sep/23","round":2,"home":"Querétaro","hg":1,"ag":2,"away":"América"},{"date":"13/jul/23","round":3,"home":"Santos","hg":0,"ag":0,"away":"Atlas"},{"date":"13/jul/23","round":3,"home":"Guadalajara","hg":2,"ag":0,"away":"Necaxa"},{"date":"14/jul/23","round":3,"home":"Mazatlán","hg":0,"ag":3,"away":"Monterrey"},{"date":"14/jul/23","round":3,"home":"Tijuana","hg":2,"ag":1,"away":"Cruz Azul"},{"date":"15/jul/23","round":3,"home":"Atl. San Luis","hg":4,"ag":1,"away":"Querétaro"},{"date":"15/jul/23","round":3,"home":"América","hg":3,"ag":0,"away":"Puebla"},{"date":"15/jul/23","round":3,"home":"Tigres","hg":1,"ag":0,"away":"León"},{"date":"16/jul/23","round":3,"home":"Toluca","hg":2,"ag":4,"away":"FC Juárez"},{"date":"16/jul/23","round":3,"home":"Pachuca","hg":1,"ag":1,"away":"Pumas"},{"date":"18/ago/23","round":4,"home":"León","hg":1,"ag":1,"away":"Mazatlán"},{"date":"18/ago/23","round":4,"home":"Pumas","hg":1,"ag":1,"away":"Tigres"},{"date":"18/ago/23","round":4,"home":"Puebla","hg":1,"ag":2,"away":"Atl. San Luis"},{"date":"18/ago/23","round":4,"home":"FC Juárez","hg":1,"ag":1,"away":"Guadalajara"},{"date":"20/ago/23","round":4,"home":"Cruz Azul","hg":2,"ag":2,"away":"Santos"},{"date":"20/ago/23","round":4,"home":"Querétaro","hg":1,"ag":1,"away":"Pachuca"},{"date":"20/ago/23","round":4,"home":"Atlas","hg":0,"ag":0,"away":"América"},{"date":"20/ago/23","round":4,"home":"Necaxa","hg":0,"ag":3,"away":"Tigres"},{"date":"30/ago/23","round":4,"home":"Toluca","hg":1,"ag":0,"away":"Monterrey"},{"date":"22/ago/23","round":5,"home":"Guadalajara","hg":1,"ag":0,"away":"Tijuana"},{"date":"22/ago/23","round":5,"home":"Mazatlán","hg":1,"ag":0,"away":"Puebla"},{"date":"22/ago/23","round":5,"home":"FC Juárez","hg":4,"ag":1,"away":"Pumas"},{"date":"23/ago/23","round":5,"home":"América","hg":3,"ag":2,"away":"Necaxa"},{"date":"23/ago/23","round":5,"home":"Pachuca","hg":1,"ag":0,"away":"Cruz Azul"},{"date":"23/ago/23","round":5,"home":"Atl. San Luis","hg":3,"ag":0,"away":"León"},{"date":"30/ago/23","round":5,"home":"Tigres","hg":3,"ag":2,"away":"Santos"},{"date":"30/ago/23","round":5,"home":"Querétaro","hg":1,"ag":2,"away":"Atlas"},{"date":"25/oct/23","round":5,"home":"Monterrey","hg":3,"ag":1,"away":"Tijuana"},{"date":"25/ago/23","round":6,"home":"Puebla","hg":1,"ag":0,"away":"FC Juárez"},{"date":"25/ago/23","round":6,"home":"Tijuana","hg":1,"ag":1,"away":"Mazatlán"},{"date":"26/ago/23","round":6,"home":"Atlas","hg":0,"ag":0,"away":"Toluca"},{"date":"26/ago/23","round":6,"home":"América","hg":1,"ag":1,"away":"León"},{"date":"26/ago/23","round":6,"home":"Santos","hg":2,"ag":1,"away":"Guadalajara"},{"date":"27/ago/23","round":6,"home":"Necaxa","hg":0,"ag":1,"away":"Querétaro"},{"date":"27/ago/23","round":6,"home":"Pumas","hg":2,"ag":1,"away":"Tigres"},{"date":"27/ago/23","round":6,"home":"Monterrey","hg":1,"ag":2,"away":"Cruz Azul"},{"date":"28/ago/23","round":6,"home":"Pachuca","hg":0,"ag":2,"away":"Atl. San Luis"},{"date":"01/sep/23","round":7,"home":"FC Juárez","hg":3,"ag":1,"away":"Mazatlán"},{"date":"01/sep/23","round":7,"home":"Puebla","hg":3,"ag":0,"away":"Tijuana"},{"date":"02/sep/23","round":7,"home":"León","hg":1,"ag":1,"away":"Necaxa"},{"date":"02/sep/23","round":7,"home":"Santos","hg":2,"ag":1,"away":"Pumas"},{"date":"02/sep/23","round":7,"home":"Tigres","hg":5,"ag":0,"away":"Querétaro"},{"date":"02/sep/23","round":7,"home":"Cruz Azul","hg":2,"ag":3,"away":"América"},{"date":"03/sep/23","round":7,"home":"Toluca","hg":5,"ag":0,"away":"Pachuca"},{"date":"03/sep/23","round":7,"home":"Guadalajara","hg":1,"ag":2,"away":"Monterrey"},{"date":"03/sep/23","round":7,"home":"Atl. San Luis","hg":2,"ag":0,"away":"Atlas"},{"date":"15/sep/23","round":8,"home":"Mazatlán","hg":2,"ag":2,"away":"Cruz Azul"},{"date":"15/sep/23","round":8,"home":"Tijuana","hg":2,"ag":1,"away":"Toluca"},{"date":"16/sep/23","round":8,"home":"Necaxa","hg":1,"ag":1,"away":"FC Juárez"},{"date":"16/sep/23","round":8,"home":"Monterrey","hg":3,"ag":1,"away":"León"},{"date":"16/sep/23","round":8,"home":"América","hg":4,"ag":0,"away":"Guadalajara"},{"date":"17/sep/23","round":8,"home":"Pumas","hg":3,"ag":2,"away":"Atl. San Luis"},{"date":"17/sep/23","round":8,"home":"Querétaro","hg":1,"ag":2,"away":"Puebla"},{"date":"17/sep/23","round":8,"home":"Atlas","hg":2,"ag":0,"away":"Tigres"},{"date":"18/sep/23","round":8,"home":"Pachuca","hg":3,"ag":2,"away":"Santos"},{"date":"22/sep/23","round":9,"home":"Atl. San Luis","hg":3,"ag":2,"away":"Mazatlán"},{"date":"22/sep/23","round":9,"home":"FC Juárez","hg":1,"ag":2,"away":"Atlas"},{"date":"23/sep/23","round":9,"home":"León","hg":1,"ag":0,"away":"Tijuana"},{"date":"23/sep/23","round":9,"home":"Guadalajara","hg":0,"ag":0,"away":"Pachuca"},{"date":"23/sep/23","round":9,"home":"Tigres","hg":3,"ag":0,"away":"Monterrey"},{"date":"24/sep/23","round":9,"home":"Toluca","hg":1,"ag":1,"away":"América"},{"date":"24/sep/23","round":9,"home":"Cruz Azul","hg":1,"ag":3,"away":"Querétaro"},{"date":"24/sep/23","round":9,"home":"Santos","hg":2,"ag":5,"away":"Necaxa"},{"date":"24/sep/23","round":9,"home":"Pumas","hg":0,"ag":2,"away":"Puebla"},{"date":"28/sep/23","round":10,"home":"Atlas","hg":2,"ag":3,"away":"Puebla"},{"date":"29/sep/23","round":10,"home":"Querétaro","hg":1,"ag":1,"away":"León"},{"date":"29/sep/23","round":10,"home":"Tijuana","hg":5,"ag":1,"away":"FC Juárez"},{"date":"30/sep/23","round":10,"home":"Pachuca","hg":1,"ag":1,"away":"Necaxa"},{"date":"30/sep/23","round":10,"home":"América","hg":1,"ag":0,"away":"Pumas"},{"date":"30/sep/23","round":10,"home":"Mazatlán","hg":2,"ag":3,"away":"Tigres"},{"date":"01/oct/23","round":10,"home":"Toluca","hg":3,"ag":1,"away":"Guadalajara"},{"date":"01/oct/23","round":10,"home":"Cruz Azul","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"08/nov/23","round":10,"home":"Monterrey","hg":3,"ag":0,"away":"Santos"},{"date":"03/oct/23","round":11,"home":"Puebla","hg":1,"ag":1,"away":"Monterrey"},{"date":"03/oct/23","round":11,"home":"América","hg":4,"ag":0,"away":"Pachuca"},{"date":"03/oct/23","round":11,"home":"Guadalajara","hg":4,"ag":1,"away":"Mazatlán"},{"date":"04/oct/23","round":11,"home":"Necaxa","hg":1,"ag":3,"away":"Cruz Azul"},{"date":"04/oct/23","round":11,"home":"Pumas","hg":4,"ag":0,"away":"Querétaro"},{"date":"04/oct/23","round":11,"home":"Tigres","hg":2,"ag":2,"away":"Toluca"},{"date":"04/oct/23","round":11,"home":"León","hg":1,"ag":1,"away":"Atlas"},{"date":"04/oct/23","round":11,"home":"Santos","hg":2,"ag":1,"away":"Tijuana"},{"date":"25/oct/23","round":11,"home":"FC Juárez","hg":0,"ag":1,"away":"Atl. San Luis"},{"date":"06/oct/23","round":12,"home":"Mazatlán","hg":1,"ag":2,"away":"América"},{"date":"07/oct/23","round":12,"home":"Monterrey","hg":3,"ag":1,"away":"FC Juárez"},{"date":"07/oct/23","round":12,"home":"Pachuca","hg":1,"ag":1,"away":"Tigres"},{"date":"07/oct/23","round":12,"home":"Guadalajara","hg":4,"ag":1,"away":"Atlas"},{"date":"07/oct/23","round":12,"home":"Cruz Azul","hg":1,"ag":4,"away":"Pumas"},{"date":"08/oct/23","round":12,"home":"Toluca","hg":3,"ag":1,"away":"Querétaro"},{"date":"08/oct/23","round":12,"home":"Necaxa","hg":1,"ag":2,"away":"Puebla"},{"date":"08/oct/23","round":12,"home":"Santos","hg":0,"ag":2,"away":"León"},{"date":"08/oct/23","round":12,"home":"Tijuana","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"20/oct/23","round":13,"home":"Atlas","hg":1,"ag":3,"away":"Mazatlán"},{"date":"20/oct/23","round":13,"home":"FC Juárez","hg":0,"ag":1,"away":"Pachuca"},{"date":"20/oct/23","round":13,"home":"Puebla","hg":0,"ag":2,"away":"Guadalajara"},{"date":"21/oct/23","round":13,"home":"León","hg":1,"ag":0,"away":"Toluca"},{"date":"21/oct/23","round":13,"home":"América","hg":1,"ag":0,"away":"Santos"},{"date":"21/oct/23","round":13,"home":"Querétaro","hg":1,"ag":0,"away":"Tijuana"},{"date":"21/oct/23","round":13,"home":"Tigres","hg":2,"ag":1,"away":"Cruz Azul"},{"date":"22/oct/23","round":13,"home":"Pumas","hg":0,"ag":1,"away":"Monterrey"},{"date":"22/oct/23","round":13,"home":"Atl. San Luis","hg":4,"ag":0,"away":"Necaxa"},{"date":"27/oct/23","round":14,"home":"Necaxa","hg":1,"ag":0,"away":"Pumas"},{"date":"27/oct/23","round":14,"home":"Mazatlán","hg":3,"ag":0,"away":"Querétaro"},{"date":"28/oct/23","round":14,"home":"Cruz Azul","hg":1,"ag":0,"away":"León"},{"date":"28/oct/23","round":14,"home":"Pachuca","hg":1,"ag":1,"away":"Puebla"},{"date":"28/oct/23","round":14,"home":"Guadalajara","hg":0,"ag":4,"away":"Tigres"},{"date":"28/oct/23","round":14,"home":"Monterrey","hg":0,"ag":3,"away":"América"},{"date":"29/oct/23","round":14,"home":"Toluca","hg":3,"ag":1,"away":"Atl. San Luis"},{"date":"29/oct/23","round":14,"home":"Santos","hg":5,"ag":1,"away":"FC Juárez"},{"date":"29/oct/23","round":14,"home":"Tijuana","hg":2,"ag":0,"away":"Atlas"},{"date":"31/oct/23","round":15,"home":"Toluca","hg":0,"ag":1,"away":"Puebla"},{"date":"31/oct/23","round":15,"home":"Querétaro","hg":1,"ag":2,"away":"Guadalajara"},{"date":"31/oct/23","round":15,"home":"León","hg":1,"ag":1,"away":"Pumas"},{"date":"31/oct/23","round":15,"home":"Monterrey","hg":3,"ag":0,"away":"Necaxa"},{"date":"31/oct/23","round":15,"home":"Tigres","hg":4,"ag":0,"away":"Tijuana"},{"date":"01/nov/23","round":15,"home":"Atlas","hg":0,"ag":2,"away":"Pachuca"},{"date":"01/nov/23","round":15,"home":"Cruz Azul","hg":2,"ag":0,"away":"FC Juárez"},{"date":"01/nov/23","round":15,"home":"Atl. San Luis","hg":0,"ag":1,"away":"América"},{"date":"01/nov/23","round":15,"home":"Mazatlán","hg":3,"ag":1,"away":"Santos"},{"date":"03/nov/23","round":16,"home":"Puebla","hg":5,"ag":4,"away":"León"},{"date":"04/nov/23","round":16,"home":"Tigres","hg":2,"ag":2,"away":"Atl. San Luis"},{"date":"04/nov/23","round":16,"home":"América","hg":3,"ag":0,"away":"Tijuana"},{"date":"04/nov/23","round":16,"home":"Pachuca","hg":0,"ag":2,"away":"Monterrey"},{"date":"04/nov/23","round":16,"home":"Guadalajara","hg":1,"ag":0,"away":"Cruz Azul"},{"date":"05/nov/23","round":16,"home":"Pumas","hg":3,"ag":0,"away":"Atlas"},{"date":"05/nov/23","round":16,"home":"Necaxa","hg":4,"ag":0,"away":"Mazatlán"},{"date":"05/nov/23","round":16,"home":"Santos","hg":3,"ag":1,"away":"Toluca"},{"date":"05/nov/23","round":16,"home":"FC Juárez","hg":0,"ag":3,"away":"Querétaro"},{"date":"10/nov/23","round":17,"home":"Atlas","hg":0,"ag":0,"away":"Necaxa"},{"date":"10/nov/23","round":17,"home":"Mazatlán","hg":1,"ag":0,"away":"Toluca"},{"date":"10/nov/23","round":17,"home":"Tijuana","hg":2,"ag":3,"away":"Pachuca"},{"date":"11/nov/23","round":17,"home":"Atl. San Luis","hg":0,"ag":2,"away":"Santos"},{"date":"11/nov/23","round":17,"home":"Querétaro","hg":0,"ag":0,"away":"Monterrey"},{"date":"11/nov/23","round":17,"home":"Pumas","hg":1,"ag":0,"away":"Guadalajara"},{"date":"11/nov/23","round":17,"home":"Tigres","hg":0,"ag":0,"away":"América"},{"date":"12/nov/23","round":17,"home":"Cruz Azul","hg":1,"ag":2,"away":"Puebla"},{"date":"12/nov/23","round":17,"home":"León","hg":2,"ag":1,"away":"FC Juárez"}],"Clausura 2024":[{"date":"12/ene/24","round":1,"home":"Querétaro","hg":2,"ag":2,"away":"Toluca"},{"date":"12/ene/24","round":1,"home":"Mazatlán","hg":0,"ag":1,"away":"Atl. San Luis"},{"date":"13/ene/24","round":1,"home":"Cruz Azul","hg":0,"ag":1,"away":"Pachuca"},{"date":"13/ene/24","round":1,"home":"Guadalajara","hg":1,"ag":1,"away":"Santos"},{"date":"13/ene/24","round":1,"home":"Monterrey","hg":2,"ag":0,"away":"Puebla"},{"date":"13/ene/24","round":1,"home":"Tijuana","hg":0,"ag":2,"away":"América"},{"date":"14/ene/24","round":1,"home":"Pumas","hg":1,"ag":0,"away":"FC Juárez"},{"date":"14/ene/24","round":1,"home":"Necaxa","hg":2,"ag":1,"away":"Atlas"},{"date":"17/ene/24","round":1,"home":"León","hg":1,"ag":2,"away":"Tigres"},{"date":"19/ene/24","round":2,"home":"Puebla","hg":1,"ag":2,"away":"Necaxa"},{"date":"19/ene/24","round":2,"home":"FC Juárez","hg":0,"ag":0,"away":"Cruz Azul"},{"date":"20/ene/24","round":2,"home":"Atl. San Luis","hg":3,"ag":1,"away":"Pumas"},{"date":"20/ene/24","round":2,"home":"América","hg":2,"ag":0,"away":"Querétaro"},{"date":"20/ene/24","round":2,"home":"Toluca","hg":4,"ag":1,"away":"Mazatlán"},{"date":"20/ene/24","round":2,"home":"Atlas","hg":0,"ag":0,"away":"Tijuana"},{"date":"21/ene/24","round":2,"home":"Tigres","hg":1,"ag":0,"away":"Guadalajara"},{"date":"21/ene/24","round":2,"home":"Santos","hg":0,"ag":2,"away":"Monterrey"},{"date":"21/ene/24","round":2,"home":"Pachuca","hg":3,"ag":2,"away":"León"},{"date":"26/ene/24","round":3,"home":"Puebla","hg":1,"ag":1,"away":"Toluca"},{"date":"26/ene/24","round":3,"home":"Tijuana","hg":1,"ag":1,"away":"Guadalajara"},{"date":"27/ene/24","round":3,"home":"Cruz Azul","hg":2,"ag":1,"away":"Mazatlán"},{"date":"27/ene/24","round":3,"home":"León","hg":3,"ag":2,"away":"Santos"},{"date":"27/ene/24","round":3,"home":"Monterrey","hg":3,"ag":1,"away":"Atl. San Luis"},{"date":"27/ene/24","round":3,"home":"Necaxa","hg":0,"ag":0,"away":"América"},{"date":"28/ene/24","round":3,"home":"Pumas","hg":3,"ag":1,"away":"Pachuca"},{"date":"28/ene/24","round":3,"home":"Atlas","hg":2,"ag":1,"away":"FC Juárez"},{"date":"28/ene/24","round":3,"home":"Querétaro","hg":1,"ag":1,"away":"Tigres"},{"date":"30/ene/24","round":4,"home":"Cruz Azul","hg":1,"ag":0,"away":"Tijuana"},{"date":"30/ene/24","round":4,"home":"Mazatlán","hg":2,"ag":2,"away":"León"},{"date":"30/ene/24","round":4,"home":"Guadalajara","hg":3,"ag":2,"away":"Toluca"},{"date":"31/ene/24","round":4,"home":"Pachuca","hg":4,"ag":3,"away":"Atlas"},{"date":"31/ene/24","round":4,"home":"Pumas","hg":2,"ag":2,"away":"Necaxa"},{"date":"24/ene/24","round":4,"home":"Atl. San Luis","hg":1,"ag":2,"away":"Tigres"},{"date":"24/ene/24","round":4,"home":"Monterrey","hg":1,"ag":1,"away":"Querétaro"},{"date":"24/ene/24","round":4,"home":"FC Juárez","hg":0,"ag":2,"away":"América"},{"date":"21/feb/24","round":4,"home":"Santos","hg":3,"ag":0,"away":"Puebla"},{"date":"02/feb/24","round":5,"home":"Querétaro","hg":1,"ag":3,"away":"Cruz Azul"},{"date":"02/feb/24","round":5,"home":"Puebla","hg":3,"ag":2,"away":"Mazatlán"},{"date":"03/feb/24","round":5,"home":"Toluca","hg":4,"ag":1,"away":"León"},{"date":"03/feb/24","round":5,"home":"FC Juárez","hg":2,"ag":2,"away":"Necaxa"},{"date":"03/feb/24","round":5,"home":"Tigres","hg":2,"ag":2,"away":"Pumas"},{"date":"03/feb/24","round":5,"home":"Pachuca","hg":3,"ag":2,"away":"Tijuana"},{"date":"03/feb/24","round":5,"home":"América","hg":1,"ag":1,"away":"Monterrey"},{"date":"04/feb/24","round":5,"home":"Atlas","hg":3,"ag":0,"away":"Santos"},{"date":"04/feb/24","round":5,"home":"Atl. San Luis","hg":0,"ag":2,"away":"Guadalajara"},{"date":"09/feb/24","round":6,"home":"Mazatlán","hg":2,"ag":0,"away":"Atlas"},{"date":"09/feb/24","round":6,"home":"Tijuana","hg":1,"ag":1,"away":"Querétaro"},{"date":"10/feb/24","round":6,"home":"Necaxa","hg":3,"ag":3,"away":"Toluca"},{"date":"10/feb/24","round":6,"home":"Guadalajara","hg":2,"ag":1,"away":"FC Juárez"},{"date":"10/feb/24","round":6,"home":"León","hg":0,"ag":1,"away":"América"},{"date":"10/feb/24","round":6,"home":"Cruz Azul","hg":3,"ag":0,"away":"Atl. San Luis"},{"date":"10/feb/24","round":6,"home":"Monterrey","hg":3,"ag":2,"away":"Pachuca"},{"date":"10/feb/24","round":6,"home":"Santos","hg":0,"ag":3,"away":"Tigres"},{"date":"11/feb/24","round":6,"home":"Pumas","hg":3,"ag":0,"away":"Puebla"},{"date":"16/feb/24","round":7,"home":"Querétaro","hg":1,"ag":1,"away":"Necaxa"},{"date":"16/feb/24","round":7,"home":"Mazatlán","hg":2,"ag":2,"away":"Guadalajara"},{"date":"17/feb/24","round":7,"home":"Atl. San Luis","hg":3,"ag":3,"away":"Tijuana"},{"date":"17/feb/24","round":7,"home":"FC Juárez","hg":0,"ag":3,"away":"Monterrey"},{"date":"17/feb/24","round":7,"home":"Pachuca","hg":2,"ag":1,"away":"América"},{"date":"17/feb/24","round":7,"home":"Cruz Azul","hg":1,"ag":0,"away":"Tigres"},{"date":"18/feb/24","round":7,"home":"Atlas","hg":0,"ag":1,"away":"León"},{"date":"18/feb/24","round":7,"home":"Pumas","hg":3,"ag":0,"away":"Santos"},{"date":"20/feb/24","round":7,"home":"Puebla","hg":1,"ag":4,"away":"Toluca"},{"date":"23/feb/24","round":8,"home":"Puebla","hg":0,"ag":2,"away":"Querétaro"},{"date":"23/feb/24","round":8,"home":"Necaxa","hg":1,"ag":1,"away":"Pachuca"},{"date":"23/feb/24","round":8,"home":"FC Juárez","hg":0,"ag":3,"away":"Mazatlán"},{"date":"24/feb/24","round":8,"home":"León","hg":1,"ag":0,"away":"Atl. San Luis"},{"date":"24/feb/24","round":8,"home":"Tigres","hg":1,"ag":1,"away":"Atlas"},{"date":"24/feb/24","round":8,"home":"Guadalajara","hg":3,"ag":1,"away":"Pumas"},{"date":"24/feb/24","round":8,"home":"América","hg":1,"ag":0,"away":"Cruz Azul"},{"date":"25/feb/24","round":8,"home":"Toluca","hg":1,"ag":0,"away":"Tijuana"},{"date":"25/feb/24","round":8,"home":"Santos","hg":0,"ag":3,"away":"Monterrey"},{"date":"20/feb/24","round":9,"home":"Puebla","hg":1,"ag":4,"away":"Toluca"},{"date":"21/feb/24","round":9,"home":"América","hg":2,"ag":2,"away":"Mazatlán"},{"date":"21/feb/24","round":9,"home":"León","hg":0,"ag":0,"away":"Cruz Azul"},{"date":"21/feb/24","round":9,"home":"Necaxa","hg":1,"ag":1,"away":"Guadalajara"},{"date":"27/feb/24","round":9,"home":"Querétaro","hg":4,"ag":1,"away":"Atl. San Luis"},{"date":"28/feb/24","round":9,"home":"Tigres","hg":1,"ag":0,"away":"FC Juárez"},{"date":"28/feb/24","round":9,"home":"Tijuana","hg":1,"ag":1,"away":"Monterrey"},{"date":"01/mar/24","round":9,"home":"Atlas","hg":1,"ag":5,"away":"América"},{"date":"02/mar/24","round":9,"home":"Pachuca","hg":3,"ag":2,"away":"FC Juárez"},{"date":"01/mar/24","round":10,"home":"Atl. San Luis","hg":4,"ag":0,"away":"Puebla"},{"date":"01/mar/24","round":10,"home":"Mazatlán","hg":2,"ag":1,"away":"Necaxa"},{"date":"02/mar/24","round":10,"home":"Toluca","hg":2,"ag":1,"away":"Tigres"},{"date":"02/mar/24","round":10,"home":"Pachuca","hg":1,"ag":1,"away":"FC Juárez"},{"date":"02/mar/24","round":10,"home":"Cruz Azul","hg":3,"ag":0,"away":"Guadalajara"},{"date":"02/mar/24","round":10,"home":"Atlas","hg":1,"ag":5,"away":"América"},{"date":"03/mar/24","round":10,"home":"Monterrey","hg":3,"ag":0,"away":"Pumas"},{"date":"03/mar/24","round":10,"home":"Tijuana","hg":1,"ag":1,"away":"León"},{"date":"01/mar/24","round":10,"home":"Querétaro","hg":0,"ag":1,"away":"Santos"},{"date":"08/mar/24","round":11,"home":"Puebla","hg":2,"ag":2,"away":"Atlas"},{"date":"08/mar/24","round":11,"home":"FC Juárez","hg":1,"ag":1,"away":"Toluca"},{"date":"08/mar/24","round":11,"home":"Necaxa","hg":3,"ag":1,"away":"Atl. San Luis"},{"date":"08/mar/24","round":11,"home":"Mazatlán","hg":1,"ag":2,"away":"Monterrey"},{"date":"09/mar/24","round":11,"home":"Guadalajara","hg":1,"ag":2,"away":"León"},{"date":"09/mar/24","round":11,"home":"Santos","hg":3,"ag":0,"away":"Cruz Azul"},{"date":"09/mar/24","round":11,"home":"América","hg":2,"ag":0,"away":"Tigres"},{"date":"10/mar/24","round":11,"home":"Pumas","hg":3,"ag":3,"away":"Tijuana"},{"date":"09/mar/24","round":11,"home":"Pachuca","hg":1,"ag":2,"away":"Querétaro"},{"date":"15/mar/24","round":12,"home":"Querétaro","hg":1,"ag":0,"away":"FC Juárez"},{"date":"15/mar/24","round":12,"home":"Tijuana","hg":2,"ag":2,"away":"Santos"},{"date":"16/mar/24","round":12,"home":"Cruz Azul","hg":1,"ag":2,"away":"Necaxa"},{"date":"16/mar/24","round":12,"home":"León","hg":1,"ag":0,"away":"Puebla"},{"date":"16/mar/24","round":12,"home":"Tigres","hg":5,"ag":1,"away":"Mazatlán"},{"date":"16/mar/24","round":12,"home":"Guadalajara","hg":0,"ag":0,"away":"América"},{"date":"17/mar/24","round":12,"home":"Atlas","hg":1,"ag":2,"away":"Monterrey"},{"date":"17/mar/24","round":12,"home":"Atl. San Luis","hg":2,"ag":1,"away":"Pachuca"},{"date":"17/mar/24","round":12,"home":"Toluca","hg":3,"ag":0,"away":"Pumas"},{"date":"29/mar/24","round":13,"home":"Puebla","hg":2,"ag":3,"away":"Tigres"},{"date":"29/mar/24","round":13,"home":"Mazatlán","hg":2,"ag":0,"away":"Tijuana"},{"date":"30/mar/24","round":13,"home":"Pachuca","hg":2,"ag":3,"away":"Toluca"},{"date":"30/mar/24","round":13,"home":"Monterrey","hg":0,"ag":2,"away":"Guadalajara"},{"date":"30/mar/24","round":13,"home":"Pumas","hg":0,"ag":0,"away":"Cruz Azul"},{"date":"31/mar/24","round":13,"home":"Atlas","hg":2,"ag":3,"away":"Querétaro"},{"date":"31/mar/24","round":13,"home":"Necaxa","hg":1,"ag":2,"away":"León"},{"date":"31/mar/24","round":13,"home":"FC Juárez","hg":2,"ag":1,"away":"Santos"},{"date":"29/mar/24","round":13,"home":"América","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"05/abr/24","round":14,"home":"Mazatlán","hg":0,"ag":4,"away":"Pumas"},{"date":"05/abr/24","round":14,"home":"Tijuana","hg":2,"ag":3,"away":"Necaxa"},{"date":"06/abr/24","round":14,"home":"León","hg":0,"ag":2,"away":"Querétaro"},{"date":"06/abr/24","round":14,"home":"Tigres","hg":0,"ag":3,"away":"Pachuca"},{"date":"06/abr/24","round":14,"home":"Guadalajara","hg":3,"ag":2,"away":"Puebla"},{"date":"06/abr/24","round":14,"home":"Cruz Azul","hg":2,"ag":1,"away":"Monterrey"},{"date":"06/abr/24","round":14,"home":"Santos","hg":1,"ag":1,"away":"América"},{"date":"07/abr/24","round":14,"home":"Toluca","hg":4,"ag":1,"away":"Atl. San Luis"},{"date":"07/abr/24","round":14,"home":"FC Juárez","hg":2,"ag":1,"away":"Atlas"},{"date":"12/abr/24","round":15,"home":"Querétaro","hg":0,"ag":2,"away":"Mazatlán"},{"date":"12/abr/24","round":15,"home":"Necaxa","hg":2,"ag":0,"away":"Santos"},{"date":"12/abr/24","round":15,"home":"Puebla","hg":0,"ag":1,"away":"Cruz Azul"},{"date":"13/abr/24","round":15,"home":"Pachuca","hg":0,"ag":1,"away":"Guadalajara"},{"date":"13/abr/24","round":15,"home":"América","hg":5,"ag":1,"away":"Toluca"},{"date":"13/abr/24","round":15,"home":"Monterrey","hg":3,"ag":3,"away":"Tigres"},{"date":"14/abr/24","round":15,"home":"Atlas","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"14/abr/24","round":15,"home":"Pumas","hg":1,"ag":0,"away":"León"},{"date":"14/abr/24","round":15,"home":"FC Juárez","hg":0,"ag":1,"away":"Tijuana"},{"date":"19/abr/24","round":16,"home":"Mazatlán","hg":0,"ag":2,"away":"FC Juárez"},{"date":"19/abr/24","round":16,"home":"Atl. San Luis","hg":1,"ag":5,"away":"Toluca"},{"date":"19/abr/24","round":16,"home":"Tijuana","hg":3,"ag":1,"away":"Puebla"},{"date":"20/abr/24","round":16,"home":"León","hg":2,"ag":0,"away":"Monterrey"},{"date":"20/abr/24","round":16,"home":"Tigres","hg":5,"ag":2,"away":"Necaxa"},{"date":"20/abr/24","round":16,"home":"Guadalajara","hg":2,"ag":0,"away":"Querétaro"},{"date":"20/abr/24","round":16,"home":"Santos","hg":0,"ag":2,"away":"Pachuca"},{"date":"20/abr/24","round":16,"home":"Pumas","hg":2,"ag":1,"away":"América"},{"date":"21/abr/24","round":16,"home":"Cruz Azul","hg":2,"ag":2,"away":"Atlas"},{"date":"26/abr/24","round":17,"home":"Puebla","hg":1,"ag":2,"away":"América"},{"date":"26/abr/24","round":17,"home":"Querétaro","hg":1,"ag":1,"away":"Pumas"},{"date":"27/abr/24","round":17,"home":"FC Juárez","hg":1,"ag":1,"away":"León"},{"date":"27/abr/24","round":17,"home":"Tigres","hg":4,"ag":1,"away":"Tijuana"},{"date":"27/abr/24","round":17,"home":"Pachuca","hg":1,"ag":1,"away":"Mazatlán"},{"date":"27/abr/24","round":17,"home":"Toluca","hg":0,"ag":1,"away":"Cruz Azul"},{"date":"27/abr/24","round":17,"home":"Atlas","hg":0,"ag":1,"away":"Guadalajara"},{"date":"28/abr/24","round":17,"home":"Necaxa","hg":2,"ag":5,"away":"Monterrey"},{"date":"28/abr/24","round":17,"home":"Santos","hg":0,"ag":3,"away":"Atl. San Luis"}],"Apertura 2024":[{"date":"05/jul/24","round":1,"home":"Querétaro","hg":1,"ag":2,"away":"Tijuana"},{"date":"05/jul/24","round":1,"home":"Puebla","hg":1,"ag":0,"away":"Santos"},{"date":"05/jul/24","round":1,"home":"FC Juárez","hg":2,"ag":2,"away":"Atlas"},{"date":"06/jul/24","round":1,"home":"Atl. San Luis","hg":2,"ag":1,"away":"América"},{"date":"06/jul/24","round":1,"home":"Tigres","hg":1,"ag":0,"away":"Necaxa"},{"date":"06/jul/24","round":1,"home":"Guadalajara","hg":0,"ag":0,"away":"Mazatlán"},{"date":"06/jul/24","round":1,"home":"Cruz Azul","hg":1,"ag":0,"away":"Mazatlán"},{"date":"07/jul/24","round":1,"home":"Pumas","hg":4,"ag":1,"away":"León"},{"date":"07/jul/24","round":1,"home":"Pachuca","hg":0,"ag":1,"away":"Monterrey"},{"date":"12/jul/24","round":2,"home":"Mazatlán","hg":2,"ag":2,"away":"Atl. San Luis"},{"date":"12/jul/24","round":2,"home":"Tijuana","hg":1,"ag":1,"away":"Guadalajara"},{"date":"12/jul/24","round":2,"home":"Atlas","hg":1,"ag":1,"away":"Tigres"},{"date":"13/jul/24","round":2,"home":"León","hg":0,"ag":0,"away":"Pachuca"},{"date":"13/jul/24","round":2,"home":"Necaxa","hg":4,"ag":1,"away":"Puebla"},{"date":"13/jul/24","round":2,"home":"Santos","hg":1,"ag":1,"away":"Pumas"},{"date":"13/jul/24","round":2,"home":"Monterrey","hg":0,"ag":4,"away":"Cruz Azul"},{"date":"14/jul/24","round":2,"home":"Querétaro","hg":0,"ag":2,"away":"Guadalajara"},{"date":"14/jul/24","round":2,"home":"América","hg":3,"ag":1,"away":"Querétaro"},{"date":"16/jul/24","round":3,"home":"Querétaro","hg":0,"ag":2,"away":"Guadalajara"},{"date":"16/jul/24","round":3,"home":"Atlas","hg":1,"ag":0,"away":"Santos"},{"date":"16/jul/24","round":3,"home":"Pachuca","hg":2,"ag":0,"away":"Atl. San Luis"},{"date":"16/jul/24","round":3,"home":"Cruz Azul","hg":3,"ag":0,"away":"Tijuana"},{"date":"17/jul/24","round":3,"home":"FC Juárez","hg":1,"ag":2,"away":"Pumas"},{"date":"17/jul/24","round":3,"home":"Puebla","hg":2,"ag":2,"away":"León"},{"date":"17/jul/24","round":3,"home":"Tigres","hg":1,"ag":0,"away":"América"},{"date":"17/jul/24","round":3,"home":"Necaxa","hg":0,"ag":1,"away":"Monterrey"},{"date":"17/jul/24","round":3,"home":"Mazatlán","hg":0,"ag":2,"away":"Guadalajara"},{"date":"19/jul/24","round":4,"home":"Atl. San Luis","hg":1,"ag":1,"away":"Tijuana"},{"date":"19/jul/24","round":4,"home":"Puebla","hg":1,"ag":2,"away":"Atlas"},{"date":"20/jul/24","round":4,"home":"Guadalajara","hg":2,"ag":0,"away":"Mazatlán"},{"date":"20/jul/24","round":4,"home":"Santos","hg":0,"ag":3,"away":"Tigres"},{"date":"20/jul/24","round":4,"home":"Monterrey","hg":2,"ag":1,"away":"Querétaro"},{"date":"20/jul/24","round":4,"home":"Cruz Azul","hg":1,"ag":1,"away":"Toluca"},{"date":"20/jul/24","round":4,"home":"FC Juárez","hg":1,"ag":2,"away":"América"},{"date":"21/jul/24","round":4,"home":"Pumas","hg":2,"ag":0,"away":"Pachuca"},{"date":"21/jul/24","round":4,"home":"León","hg":1,"ag":1,"away":"Necaxa"},{"date":"23/ago/24","round":5,"home":"Querétaro","hg":0,"ag":2,"away":"Cruz Azul"},{"date":"23/ago/24","round":5,"home":"Mazatlán","hg":3,"ag":0,"away":"Pachuca"},{"date":"23/ago/24","round":5,"home":"Tijuana","hg":2,"ag":2,"away":"Monterrey"},{"date":"24/ago/24","round":5,"home":"Necaxa","hg":3,"ag":0,"away":"FC Juárez"},{"date":"24/ago/24","round":5,"home":"León","hg":1,"ag":1,"away":"Santos"},{"date":"24/ago/24","round":5,"home":"Atlas","hg":2,"ag":1,"away":"Pumas"},{"date":"24/ago/24","round":5,"home":"Tigres","hg":1,"ag":1,"away":"Guadalajara"},{"date":"24/ago/24","round":5,"home":"América","hg":0,"ag":1,"away":"Puebla"},{"date":"25/ago/24","round":5,"home":"Toluca","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"30/ago/24","round":6,"home":"Atl. San Luis","hg":2,"ag":1,"away":"Atlas"},{"date":"30/ago/24","round":6,"home":"Mazatlán","hg":1,"ag":1,"away":"Puebla"},{"date":"30/ago/24","round":6,"home":"Tijuana","hg":2,"ag":1,"away":"León"},{"date":"31/ago/24","round":6,"home":"Pachuca","hg":1,"ag":1,"away":"Querétaro"},{"date":"31/ago/24","round":6,"home":"Guadalajara","hg":5,"ag":0,"away":"FC Juárez"},{"date":"31/ago/24","round":6,"home":"Monterrey","hg":1,"ag":2,"away":"Toluca"},{"date":"31/ago/24","round":6,"home":"Cruz Azul","hg":4,"ag":1,"away":"América"},{"date":"01/sep/24","round":6,"home":"Pumas","hg":1,"ag":3,"away":"Tigres"},{"date":"01/sep/24","round":6,"home":"Santos","hg":3,"ag":2,"away":"Necaxa"},{"date":"13/sep/24","round":7,"home":"Puebla","hg":2,"ag":1,"away":"Querétaro"},{"date":"13/sep/24","round":7,"home":"Atlas","hg":2,"ag":0,"away":"Pachuca"},{"date":"13/sep/24","round":7,"home":"FC Juárez","hg":1,"ag":0,"away":"Mazatlán"},{"date":"13/sep/24","round":7,"home":"Tigres","hg":1,"ag":0,"away":"Atl. San Luis"},{"date":"14/sep/24","round":7,"home":"Necaxa","hg":0,"ag":0,"away":"Pumas"},{"date":"14/sep/24","round":7,"home":"Toluca","hg":4,"ag":0,"away":"Tijuana"},{"date":"14/sep/24","round":7,"home":"América","hg":1,"ag":0,"away":"Guadalajara"},{"date":"14/sep/24","round":7,"home":"León","hg":1,"ag":2,"away":"Cruz Azul"},{"date":"14/sep/24","round":7,"home":"Santos","hg":0,"ag":2,"away":"Monterrey"},{"date":"17/sep/24","round":8,"home":"Atl. San Luis","hg":3,"ag":1,"away":"Cruz Azul"},{"date":"17/sep/24","round":8,"home":"Pachuca","hg":2,"ag":2,"away":"Toluca"},{"date":"17/sep/24","round":8,"home":"América","hg":3,"ag":0,"away":"Atlas"},{"date":"17/sep/24","round":8,"home":"Pumas","hg":1,"ag":0,"away":"Puebla"},{"date":"17/sep/24","round":8,"home":"Querétaro","hg":1,"ag":0,"away":"Tigres"},{"date":"18/sep/24","round":8,"home":"Guadalajara","hg":2,"ag":0,"away":"León"},{"date":"18/sep/24","round":8,"home":"Mazatlán","hg":0,"ag":0,"away":"Necaxa"},{"date":"18/sep/24","round":8,"home":"Monterrey","hg":3,"ag":2,"away":"FC Juárez"},{"date":"18/sep/24","round":8,"home":"Tijuana","hg":3,"ag":1,"away":"Santos"},{"date":"20/sep/24","round":9,"home":"Atlas","hg":0,"ag":1,"away":"Querétaro"},{"date":"20/sep/24","round":9,"home":"Puebla","hg":2,"ag":3,"away":"Pachuca"},{"date":"21/sep/24","round":9,"home":"León","hg":1,"ag":0,"away":"Atl. San Luis"},{"date":"21/sep/24","round":9,"home":"Necaxa","hg":0,"ag":0,"away":"América"},{"date":"21/sep/24","round":9,"home":"Monterrey","hg":0,"ag":0,"away":"Mazatlán"},{"date":"21/sep/24","round":9,"home":"Cruz Azul","hg":1,"ag":0,"away":"Guadalajara"},{"date":"22/sep/24","round":9,"home":"Pumas","hg":1,"ag":0,"away":"Tijuana"},{"date":"22/sep/24","round":9,"home":"Santos","hg":0,"ag":2,"away":"Toluca"},{"date":"22/sep/24","round":9,"home":"FC Juárez","hg":0,"ag":1,"away":"Tigres"},{"date":"27/sep/24","round":10,"home":"Puebla","hg":2,"ag":3,"away":"FC Juárez"},{"date":"27/sep/24","round":10,"home":"Querétaro","hg":0,"ag":1,"away":"Necaxa"},{"date":"27/sep/24","round":10,"home":"Tigres","hg":2,"ag":2,"away":"León"},{"date":"27/sep/24","round":10,"home":"Tijuana","hg":1,"ag":0,"away":"Mazatlán"},{"date":"28/sep/24","round":10,"home":"Toluca","hg":4,"ag":1,"away":"Atlas"},{"date":"28/sep/24","round":10,"home":"Pachuca","hg":2,"ag":4,"away":"Cruz Azul"},{"date":"28/sep/24","round":10,"home":"Guadalajara","hg":1,"ag":1,"away":"Monterrey"},{"date":"29/sep/24","round":10,"home":"Atl. San Luis","hg":1,"ag":0,"away":"Santos"},{"date":"29/sep/24","round":10,"home":"América","hg":0,"ag":1,"away":"Pumas"},{"date":"04/oct/24","round":11,"home":"Mazatlán","hg":2,"ag":2,"away":"Querétaro"},{"date":"04/oct/24","round":11,"home":"Tijuana","hg":2,"ag":1,"away":"Pachuca"},{"date":"05/oct/24","round":11,"home":"Tigres","hg":1,"ag":0,"away":"Puebla"},{"date":"05/oct/24","round":11,"home":"Atl. San Luis","hg":1,"ag":0,"away":"Monterrey"},{"date":"05/oct/24","round":11,"home":"Cruz Azul","hg":3,"ag":0,"away":"Necaxa"},{"date":"05/oct/24","round":11,"home":"Atlas","hg":2,"ag":3,"away":"Guadalajara"},{"date":"05/oct/24","round":11,"home":"León","hg":1,"ag":1,"away":"América"},{"date":"06/oct/24","round":11,"home":"Toluca","hg":1,"ag":1,"away":"Pumas"},{"date":"06/oct/24","round":11,"home":"Santos","hg":0,"ag":2,"away":"FC Juárez"},{"date":"18/oct/24","round":12,"home":"Querétaro","hg":0,"ag":1,"away":"Mazatlán"},{"date":"18/oct/24","round":12,"home":"Atlas","hg":0,"ag":0,"away":"Mazatlán"},{"date":"18/oct/24","round":12,"home":"Puebla","hg":1,"ag":2,"away":"Cruz Azul"},{"date":"18/oct/24","round":12,"home":"Necaxa","hg":1,"ag":2,"away":"Tijuana"},{"date":"19/oct/24","round":12,"home":"Pachuca","hg":0,"ag":2,"away":"Guadalajara"},{"date":"19/oct/24","round":12,"home":"América","hg":3,"ag":0,"away":"Santos"},{"date":"19/oct/24","round":12,"home":"FC Juárez","hg":2,"ag":3,"away":"León"},{"date":"19/oct/24","round":12,"home":"Monterrey","hg":4,"ag":2,"away":"Tigres"},{"date":"20/oct/24","round":12,"home":"Pumas","hg":3,"ag":0,"away":"Atl. San Luis"},{"date":"22/oct/24","round":13,"home":"Atl. San Luis","hg":4,"ag":0,"away":"Querétaro"},{"date":"22/oct/24","round":13,"home":"Guadalajara","hg":3,"ag":2,"away":"Necaxa"},{"date":"22/oct/24","round":13,"home":"Mazatlán","hg":0,"ag":5,"away":"Tigres"},{"date":"22/oct/24","round":13,"home":"Toluca","hg":5,"ag":0,"away":"Puebla"},{"date":"23/oct/24","round":13,"home":"Cruz Azul","hg":4,"ag":0,"away":"FC Juárez"},{"date":"23/oct/24","round":13,"home":"Monterrey","hg":0,"ag":0,"away":"Pumas"},{"date":"23/oct/24","round":13,"home":"León","hg":0,"ag":0,"away":"Atlas"},{"date":"23/oct/24","round":13,"home":"Tijuana","hg":2,"ag":2,"away":"América"},{"date":"23/oct/24","round":13,"home":"Santos","hg":1,"ag":1,"away":"Pachuca"},{"date":"25/oct/24","round":14,"home":"Santos","hg":0,"ag":0,"away":"Mazatlán"},{"date":"25/oct/24","round":14,"home":"Puebla","hg":1,"ag":0,"away":"Guadalajara"},{"date":"26/oct/24","round":14,"home":"León","hg":4,"ag":0,"away":"Querétaro"},{"date":"26/oct/24","round":14,"home":"Pumas","hg":0,"ag":2,"away":"Cruz Azul"},{"date":"26/oct/24","round":14,"home":"Tigres","hg":2,"ag":1,"away":"Pachuca"},{"date":"26/oct/24","round":14,"home":"Atlas","hg":0,"ag":0,"away":"Tijuana"},{"date":"27/oct/24","round":14,"home":"Necaxa","hg":1,"ag":3,"away":"Toluca"},{"date":"27/oct/24","round":14,"home":"FC Juárez","hg":2,"ag":4,"away":"Atl. San Luis"},{"date":"27/oct/24","round":14,"home":"América","hg":2,"ag":1,"away":"Monterrey"},{"date":"01/nov/24","round":15,"home":"Querétaro","hg":1,"ag":2,"away":"FC Juárez"},{"date":"01/nov/24","round":15,"home":"Mazatlán","hg":0,"ag":5,"away":"América"},{"date":"01/nov/24","round":15,"home":"Tijuana","hg":0,"ag":3,"away":"Tigres"},{"date":"02/nov/24","round":15,"home":"Atl. San Luis","hg":2,"ag":0,"away":"Puebla"},{"date":"02/nov/24","round":15,"home":"Toluca","hg":2,"ag":2,"away":"León"},{"date":"02/nov/24","round":15,"home":"Guadalajara","hg":0,"ag":0,"away":"Pumas"},{"date":"02/nov/24","round":15,"home":"Monterrey","hg":4,"ag":0,"away":"Atlas"},{"date":"02/nov/24","round":15,"home":"Pachuca","hg":6,"ag":2,"away":"Necaxa"},{"date":"02/nov/24","round":15,"home":"Cruz Azul","hg":2,"ag":0,"away":"Santos"},{"date":"05/nov/24","round":16,"home":"Puebla","hg":1,"ag":2,"away":"Monterrey"},{"date":"05/nov/24","round":16,"home":"León","hg":0,"ag":0,"away":"Mazatlán"},{"date":"05/nov/24","round":16,"home":"Santos","hg":0,"ag":2,"away":"Guadalajara"},{"date":"05/nov/24","round":16,"home":"Pumas","hg":2,"ag":0,"away":"Querétaro"},{"date":"06/nov/24","round":16,"home":"América","hg":2,"ag":1,"away":"Pachuca"},{"date":"06/nov/24","round":16,"home":"Tigres","hg":1,"ag":1,"away":"Toluca"},{"date":"06/nov/24","round":16,"home":"Necaxa","hg":0,"ag":0,"away":"Atl. San Luis"},{"date":"06/nov/24","round":16,"home":"Atlas","hg":2,"ag":2,"away":"Cruz Azul"},{"date":"06/nov/24","round":16,"home":"FC Juárez","hg":1,"ag":1,"away":"Tijuana"},{"date":"08/nov/24","round":17,"home":"Querétaro","hg":3,"ag":2,"away":"Santos"},{"date":"08/nov/24","round":17,"home":"Mazatlán","hg":0,"ag":1,"away":"Pumas"},{"date":"09/nov/24","round":17,"home":"Guadalajara","hg":0,"ag":1,"away":"Atl. San Luis"},{"date":"09/nov/24","round":17,"home":"Pachuca","hg":0,"ag":1,"away":"FC Juárez"},{"date":"09/nov/24","round":17,"home":"Toluca","hg":4,"ag":0,"away":"América"},{"date":"09/nov/24","round":17,"home":"Cruz Azul","hg":1,"ag":1,"away":"Tigres"},{"date":"10/nov/24","round":17,"home":"Necaxa","hg":0,"ag":0,"away":"Atlas"},{"date":"10/nov/24","round":17,"home":"Monterrey","hg":2,"ag":1,"away":"León"},{"date":"10/nov/24","round":17,"home":"Tijuana","hg":2,"ag":1,"away":"Puebla"}],"Clausura 2025":[{"date":"10/ene/25","round":1,"home":"Querétaro","hg":0,"ag":1,"away":"América"},{"date":"10/ene/25","round":1,"home":"Mazatlán","hg":1,"ag":1,"away":"FC Juárez"},{"date":"10/ene/25","round":1,"home":"Tijuana","hg":2,"ag":4,"away":"Toluca"},{"date":"11/ene/25","round":1,"home":"Atl. San Luis","hg":1,"ag":3,"away":"Tigres"},{"date":"11/ene/25","round":1,"home":"Guadalajara","hg":1,"ag":0,"away":"Santos"},{"date":"11/ene/25","round":1,"home":"Cruz Azul","hg":1,"ag":1,"away":"Atlas"},{"date":"12/ene/25","round":1,"home":"Pumas","hg":2,"ag":1,"away":"Necaxa"},{"date":"12/ene/25","round":1,"home":"Monterrey","hg":1,"ag":1,"away":"Puebla"},{"date":"05/feb/25","round":1,"home":"Pachuca","hg":1,"ag":2,"away":"León"},{"date":"16/ene/25","round":2,"home":"América","hg":1,"ag":0,"away":"Tijuana"},{"date":"17/ene/25","round":2,"home":"Puebla","hg":0,"ag":1,"away":"Atl. San Luis"},{"date":"17/ene/25","round":2,"home":"Mazatlán","hg":1,"ag":2,"away":"Cruz Azul"},{"date":"17/ene/25","round":2,"home":"Atlas","hg":1,"ag":2,"away":"Tigres"},{"date":"18/ene/25","round":2,"home":"Toluca","hg":2,"ag":1,"away":"Guadalajara"},{"date":"18/ene/25","round":2,"home":"Pachuca","hg":1,"ag":0,"away":"Monterrey"},{"date":"18/ene/25","round":2,"home":"FC Juárez","hg":0,"ag":1,"away":"Pumas"},{"date":"19/ene/25","round":2,"home":"Santos","hg":0,"ag":1,"away":"León"},{"date":"20/ene/25","round":2,"home":"Necaxa","hg":1,"ag":0,"away":"Querétaro"},{"date":"24/ene/25","round":3,"home":"Atl. San Luis","hg":2,"ag":1,"away":"Necaxa"},{"date":"24/ene/25","round":3,"home":"Tijuana","hg":3,"ag":2,"away":"Querétaro"},{"date":"24/ene/25","round":3,"home":"FC Juárez","hg":1,"ag":1,"away":"Santos"},{"date":"25/ene/25","round":3,"home":"Cruz Azul","hg":2,"ag":0,"away":"Pachuca"},{"date":"25/ene/25","round":3,"home":"Guadalajara","hg":1,"ag":1,"away":"Tigres"},{"date":"25/ene/25","round":3,"home":"Monterrey","hg":2,"ag":1,"away":"América"},{"date":"26/ene/25","round":3,"home":"Pumas","hg":1,"ag":1,"away":"Atlas"},{"date":"26/ene/25","round":3,"home":"León","hg":2,"ag":0,"away":"Puebla"},{"date":"26/ene/25","round":3,"home":"Mazatlán","hg":0,"ag":3,"away":"Toluca"},{"date":"28/ene/25","round":4,"home":"América","hg":2,"ag":0,"away":"Atl. San Luis"},{"date":"28/ene/25","round":4,"home":"Puebla","hg":1,"ag":2,"away":"Guadalajara"},{"date":"28/ene/25","round":4,"home":"Atlas","hg":0,"ag":1,"away":"Monterrey"},{"date":"28/ene/25","round":4,"home":"Mazatlán","hg":1,"ag":1,"away":"León"},{"date":"29/ene/25","round":4,"home":"Tigres","hg":2,"ag":1,"away":"Querétaro"},{"date":"29/ene/25","round":4,"home":"Necaxa","hg":1,"ag":2,"away":"Cruz Azul"},{"date":"29/ene/25","round":4,"home":"Pachuca","hg":0,"ag":2,"away":"Pumas"},{"date":"29/ene/25","round":4,"home":"Santos","hg":1,"ag":2,"away":"Toluca"},{"date":"29/ene/25","round":4,"home":"Tijuana","hg":2,"ag":1,"away":"FC Juárez"},{"date":"31/ene/25","round":5,"home":"Querétaro","hg":1,"ag":1,"away":"Puebla"},{"date":"31/ene/25","round":5,"home":"Atlas","hg":1,"ag":0,"away":"Mazatlán"},{"date":"01/feb/25","round":5,"home":"Toluca","hg":3,"ag":1,"away":"Pachuca"},{"date":"01/feb/25","round":5,"home":"Guadalajara","hg":2,"ag":1,"away":"América"},{"date":"01/feb/25","round":5,"home":"Monterrey","hg":1,"ag":0,"away":"Tijuana"},{"date":"01/feb/25","round":5,"home":"Tigres","hg":1,"ag":1,"away":"Cruz Azul"},{"date":"02/feb/25","round":5,"home":"Pumas","hg":1,"ag":0,"away":"Atl. San Luis"},{"date":"02/feb/25","round":5,"home":"León","hg":2,"ag":1,"away":"FC Juárez"},{"date":"03/feb/25","round":5,"home":"Santos","hg":0,"ag":0,"away":"Necaxa"},{"date":"07/feb/25","round":6,"home":"Mazatlán","hg":2,"ag":1,"away":"Querétaro"},{"date":"07/feb/25","round":6,"home":"Tijuana","hg":1,"ag":1,"away":"Atlas"},{"date":"07/feb/25","round":6,"home":"Puebla","hg":0,"ag":2,"away":"Tigres"},{"date":"08/feb/25","round":6,"home":"Cruz Azul","hg":3,"ag":0,"away":"Pumas"},{"date":"08/feb/25","round":6,"home":"Pachuca","hg":1,"ag":1,"away":"Guadalajara"},{"date":"08/feb/25","round":6,"home":"América","hg":2,"ag":1,"away":"Santos"},{"date":"08/feb/25","round":6,"home":"Atl. San Luis","hg":0,"ag":2,"away":"Monterrey"},{"date":"09/feb/25","round":6,"home":"FC Juárez","hg":1,"ag":3,"away":"Toluca"},{"date":"09/feb/25","round":6,"home":"Necaxa","hg":0,"ag":1,"away":"León"},{"date":"14/feb/25","round":7,"home":"Atlas","hg":2,"ag":0,"away":"Puebla"},{"date":"14/feb/25","round":7,"home":"Querétaro","hg":0,"ag":0,"away":"Pachuca"},{"date":"15/feb/25","round":7,"home":"Toluca","hg":2,"ag":0,"away":"América"},{"date":"15/feb/25","round":7,"home":"Monterrey","hg":3,"ag":0,"away":"Mazatlán"},{"date":"15/feb/25","round":7,"home":"Cruz Azul","hg":1,"ag":0,"away":"Guadalajara"},{"date":"15/feb/25","round":7,"home":"Tigres","hg":1,"ag":0,"away":"Necaxa"},{"date":"16/feb/25","round":7,"home":"Pumas","hg":2,"ag":2,"away":"León"},{"date":"16/feb/25","round":7,"home":"Santos","hg":1,"ag":1,"away":"Atl. San Luis"},{"date":"16/feb/25","round":7,"home":"Tijuana","hg":2,"ag":0,"away":"FC Juárez"},{"date":"21/feb/25","round":8,"home":"Puebla","hg":1,"ag":1,"away":"Mazatlán"},{"date":"21/feb/25","round":8,"home":"Necaxa","hg":0,"ag":2,"away":"Atlas"},{"date":"21/feb/25","round":8,"home":"FC Juárez","hg":1,"ag":4,"away":"Monterrey"},{"date":"22/feb/25","round":8,"home":"León","hg":0,"ag":1,"away":"Cruz Azul"},{"date":"22/feb/25","round":8,"home":"Guadalajara","hg":2,"ag":0,"away":"Pumas"},{"date":"22/feb/25","round":8,"home":"América","hg":3,"ag":1,"away":"Pachuca"},{"date":"22/feb/25","round":8,"home":"Atl. San Luis","hg":1,"ag":1,"away":"Toluca"},{"date":"23/feb/25","round":8,"home":"Santos","hg":1,"ag":0,"away":"Querétaro"},{"date":"23/feb/25","round":8,"home":"Tigres","hg":3,"ag":1,"away":"Tijuana"},{"date":"28/feb/25","round":9,"home":"Querétaro","hg":0,"ag":2,"away":"Monterrey"},{"date":"28/feb/25","round":9,"home":"Mazatlán","hg":1,"ag":2,"away":"Necaxa"},{"date":"28/feb/25","round":9,"home":"Tijuana","hg":0,"ag":0,"away":"Puebla"},{"date":"01/mar/25","round":9,"home":"Toluca","hg":4,"ag":0,"away":"Atlas"},{"date":"01/mar/25","round":9,"home":"Pachuca","hg":1,"ag":2,"away":"Tigres"},{"date":"01/mar/25","round":9,"home":"América","hg":1,"ag":1,"away":"Cruz Azul"},{"date":"01/mar/25","round":9,"home":"Guadalajara","hg":3,"ag":1,"away":"León"},{"date":"02/mar/25","round":9,"home":"Pumas","hg":2,"ag":0,"away":"Santos"},{"date":"02/mar/25","round":9,"home":"FC Juárez","hg":0,"ag":1,"away":"Atl. San Luis"},{"date":"07/mar/25","round":10,"home":"Puebla","hg":1,"ag":3,"away":"América"},{"date":"07/mar/25","round":10,"home":"Atl. San Luis","hg":2,"ag":0,"away":"Querétaro"},{"date":"07/mar/25","round":10,"home":"Necaxa","hg":1,"ag":1,"away":"FC Juárez"},{"date":"08/mar/25","round":10,"home":"Monterrey","hg":2,"ag":1,"away":"Guadalajara"},{"date":"08/mar/25","round":10,"home":"Cruz Azul","hg":4,"ag":1,"away":"Tijuana"},{"date":"08/mar/25","round":10,"home":"Tigres","hg":0,"ag":0,"away":"Toluca"},{"date":"08/mar/25","round":10,"home":"León","hg":2,"ag":2,"away":"Pachuca"},{"date":"09/mar/25","round":10,"home":"Pumas","hg":1,"ag":0,"away":"Mazatlán"},{"date":"09/mar/25","round":10,"home":"Santos","hg":0,"ag":1,"away":"Atlas"},{"date":"14/mar/25","round":11,"home":"Mazatlán","hg":0,"ag":0,"away":"Santos"},{"date":"14/mar/25","round":11,"home":"Tijuana","hg":1,"ag":1,"away":"Pumas"},{"date":"15/mar/25","round":11,"home":"Toluca","hg":2,"ag":0,"away":"Monterrey"},{"date":"15/mar/25","round":11,"home":"Pachuca","hg":2,"ag":1,"away":"Puebla"},{"date":"15/mar/25","round":11,"home":"América","hg":1,"ag":0,"away":"Tigres"},{"date":"15/mar/25","round":11,"home":"Guadalajara","hg":0,"ag":0,"away":"Cruz Azul"},{"date":"16/mar/25","round":11,"home":"Atlas","hg":1,"ag":0,"away":"León"},{"date":"16/mar/25","round":11,"home":"Querétaro","hg":1,"ag":2,"away":"FC Juárez"},{"date":"16/mar/25","round":11,"home":"Necaxa","hg":0,"ag":2,"away":"Atl. San Luis"},{"date":"21/mar/25","round":12,"home":"Puebla","hg":1,"ag":0,"away":"Necaxa"},{"date":"21/mar/25","round":12,"home":"FC Juárez","hg":1,"ag":1,"away":"Guadalajara"},{"date":"21/mar/25","round":12,"home":"Atl. San Luis","hg":2,"ag":2,"away":"Tijuana"},{"date":"22/mar/25","round":12,"home":"León","hg":1,"ag":1,"away":"América"},{"date":"22/mar/25","round":12,"home":"Monterrey","hg":1,"ag":2,"away":"Tigres"},{"date":"22/mar/25","round":12,"home":"Cruz Azul","hg":3,"ag":0,"away":"Querétaro"},{"date":"22/mar/25","round":12,"home":"Pachuca","hg":0,"ag":0,"away":"Atlas"},{"date":"23/mar/25","round":12,"home":"Pumas","hg":0,"ag":2,"away":"Toluca"},{"date":"23/mar/25","round":12,"home":"Santos","hg":2,"ag":1,"away":"Mazatlán"},{"date":"28/mar/25","round":13,"home":"Querétaro","hg":1,"ag":1,"away":"Pumas"},{"date":"28/mar/25","round":13,"home":"Tijuana","hg":2,"ag":0,"away":"Santos"},{"date":"29/mar/25","round":13,"home":"Toluca","hg":3,"ag":1,"away":"Puebla"},{"date":"29/mar/25","round":13,"home":"Guadalajara","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"29/mar/25","round":13,"home":"Monterrey","hg":4,"ag":0,"away":"León"},{"date":"29/mar/25","round":13,"home":"Tigres","hg":1,"ag":0,"away":"Cruz Azul"},{"date":"30/mar/25","round":13,"home":"Atlas","hg":0,"ag":2,"away":"América"},{"date":"30/mar/25","round":13,"home":"Necaxa","hg":1,"ag":0,"away":"Pachuca"},{"date":"30/mar/25","round":13,"home":"FC Juárez","hg":1,"ag":2,"away":"Mazatlán"},{"date":"04/abr/25","round":14,"home":"Puebla","hg":0,"ag":0,"away":"FC Juárez"},{"date":"04/abr/25","round":14,"home":"Mazatlán","hg":1,"ag":3,"away":"Tijuana"},{"date":"05/abr/25","round":14,"home":"León","hg":1,"ag":0,"away":"Toluca"},{"date":"05/abr/25","round":14,"home":"Pachuca","hg":2,"ag":1,"away":"América"},{"date":"05/abr/25","round":14,"home":"Cruz Azul","hg":2,"ag":0,"away":"Monterrey"},{"date":"05/abr/25","round":14,"home":"Tigres","hg":2,"ag":2,"away":"Atlas"},{"date":"06/abr/25","round":14,"home":"Pumas","hg":1,"ag":1,"away":"Guadalajara"},{"date":"06/abr/25","round":14,"home":"Santos","hg":0,"ag":1,"away":"Necaxa"},{"date":"06/abr/25","round":14,"home":"Querétaro","hg":0,"ag":2,"away":"Atl. San Luis"},{"date":"11/abr/25","round":15,"home":"Tijuana","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"11/abr/25","round":15,"home":"Necaxa","hg":3,"ag":5,"away":"Pachuca"},{"date":"11/abr/25","round":15,"home":"Mazatlán","hg":1,"ag":1,"away":"Guadalajara"},{"date":"12/abr/25","round":15,"home":"Pumas","hg":0,"ag":0,"away":"FC Juárez"},{"date":"12/abr/25","round":15,"home":"León","hg":1,"ag":0,"away":"Puebla"},{"date":"12/abr/25","round":15,"home":"Tigres","hg":2,"ag":1,"away":"Monterrey"},{"date":"12/abr/25","round":15,"home":"Atlas","hg":2,"ag":3,"away":"Toluca"},{"date":"12/abr/25","round":15,"home":"América","hg":0,"ag":0,"away":"Cruz Azul"},{"date":"13/abr/25","round":15,"home":"Santos","hg":1,"ag":2,"away":"Querétaro"},{"date":"15/abr/25","round":16,"home":"Pachuca","hg":0,"ag":0,"away":"Tigres"},{"date":"15/abr/25","round":16,"home":"Guadalajara","hg":1,"ag":0,"away":"Puebla"},{"date":"15/abr/25","round":16,"home":"FC Juárez","hg":2,"ag":2,"away":"Necaxa"},{"date":"15/abr/25","round":16,"home":"Cruz Azul","hg":2,"ag":1,"away":"León"},{"date":"16/abr/25","round":16,"home":"Monterrey","hg":1,"ag":0,"away":"América"},{"date":"16/abr/25","round":16,"home":"Querétaro","hg":1,"ag":2,"away":"Atlas"},{"date":"16/abr/25","round":16,"home":"Atl. San Luis","hg":1,"ag":0,"away":"Toluca"},{"date":"16/abr/25","round":16,"home":"Mazatlán","hg":0,"ag":2,"away":"Tijuana"},{"date":"16/abr/25","round":16,"home":"Pumas","hg":2,"ag":0,"away":"Santos"},{"date":"18/abr/25","round":17,"home":"Puebla","hg":0,"ag":1,"away":"Necaxa"},{"date":"19/abr/25","round":17,"home":"América","hg":5,"ag":0,"away":"Mazatlán"},{"date":"19/abr/25","round":17,"home":"Toluca","hg":2,"ag":2,"away":"Cruz Azul"},{"date":"19/abr/25","round":17,"home":"Tigres","hg":2,"ag":1,"away":"Pumas"},{"date":"19/abr/25","round":17,"home":"Atlas","hg":1,"ag":1,"away":"Guadalajara"},{"date":"20/abr/25","round":17,"home":"Santos","hg":0,"ag":4,"away":"Tijuana"},{"date":"20/abr/25","round":17,"home":"Atl. San Luis","hg":2,"ag":1,"away":"Pachuca"},{"date":"20/abr/25","round":17,"home":"León","hg":0,"ag":2,"away":"Monterrey"},{"date":"20/abr/25","round":17,"home":"FC Juárez","hg":0,"ag":2,"away":"Querétaro"}],"Apertura 2025":[{"date":"11/Jul/25","round":1,"home":"Puebla","hg":2,"ag":3,"away":"Atlas"},{"date":"11/Jul/25","round":1,"home":"FC Juárez","hg":1,"ag":1,"away":"América"},{"date":"11/Jul/25","round":1,"home":"Tijuana","hg":1,"ag":0,"away":"Querétaro"},{"date":"12/Jul/25","round":1,"home":"Santos","hg":3,"ag":0,"away":"Pumas"},{"date":"12/Jul/25","round":1,"home":"Toluca","hg":3,"ag":1,"away":"Necaxa"},{"date":"12/Jul/25","round":1,"home":"Cruz Azul","hg":0,"ag":0,"away":"Mazatlán"},{"date":"13/Jul/25","round":1,"home":"Pachuca","hg":3,"ag":0,"away":"Monterrey"},{"date":"13/Jul/25","round":1,"home":"León","hg":0,"ag":1,"away":"Atl. San Luis"},{"date":"17/Sep/25","round":1,"home":"Guadalajara","hg":0,"ag":0,"away":"Tigres"},{"date":"16/Jul/25","round":2,"home":"América","hg":3,"ag":1,"away":"Tijuana"},{"date":"16/Jul/25","round":2,"home":"Santos","hg":2,"ag":4,"away":"Toluca"},{"date":"18/Jul/25","round":2,"home":"Necaxa","hg":3,"ag":1,"away":"Querétaro"},{"date":"18/Jul/25","round":2,"home":"Atl. San Luis","hg":0,"ag":1,"away":"Monterrey"},{"date":"18/Jul/25","round":2,"home":"Mazatlán","hg":2,"ag":1,"away":"Puebla"},{"date":"19/Jul/25","round":2,"home":"León","hg":1,"ag":0,"away":"Guadalajara"},{"date":"19/Jul/25","round":2,"home":"Tigres","hg":1,"ag":0,"away":"FC Juárez"},{"date":"19/Jul/25","round":2,"home":"Atlas","hg":3,"ag":3,"away":"Cruz Azul"},{"date":"20/Jul/25","round":2,"home":"Pumas","hg":2,"ag":3,"away":"Pachuca"},{"date":"25/Jul/25","round":3,"home":"Querétaro","hg":0,"ag":2,"away":"Pumas"},{"date":"25/Jul/25","round":3,"home":"Puebla","hg":1,"ag":0,"away":"Santos"},{"date":"25/Jul/25","round":3,"home":"Tijuana","hg":1,"ag":1,"away":"FC Juárez"},{"date":"26/Jul/25","round":3,"home":"Pachuca","hg":1,"ag":0,"away":"Mazatlán"},{"date":"26/Jul/25","round":3,"home":"Guadalajara","hg":4,"ag":3,"away":"Atl. San Luis"},{"date":"26/Jul/25","round":3,"home":"Monterrey","hg":3,"ag":1,"away":"Atlas"},{"date":"26/Jul/25","round":3,"home":"Cruz Azul","hg":4,"ag":1,"away":"León"},{"date":"26/Jul/25","round":3,"home":"Toluca","hg":3,"ag":4,"away":"Tigres"},{"date":"26/Jul/25","round":3,"home":"Necaxa","hg":1,"ag":1,"away":"América"},{"date":"08/Ago/25","round":4,"home":"Tigres","hg":7,"ag":0,"away":"Puebla"},{"date":"09/Ago/25","round":4,"home":"América","hg":1,"ag":0,"away":"Querétaro"},{"date":"09/Ago/25","round":4,"home":"Mazatlán","hg":2,"ag":2,"away":"Tijuana"},{"date":"09/Ago/25","round":4,"home":"Atlas","hg":0,"ag":3,"away":"Pachuca"},{"date":"10/Ago/25","round":4,"home":"Pumas","hg":1,"ag":1,"away":"Necaxa"},{"date":"10/Ago/25","round":4,"home":"Santos","hg":1,"ag":0,"away":"Guadalajara"},{"date":"11/Ago/25","round":4,"home":"León","hg":1,"ag":3,"away":"Monterrey"},{"date":"11/Ago/25","round":4,"home":"FC Juárez","hg":0,"ag":2,"away":"Toluca"},{"date":"11/Ago/25","round":4,"home":"Atl. San Luis","hg":1,"ag":2,"away":"Cruz Azul"},{"date":"15/Ago/25","round":5,"home":"Puebla","hg":0,"ag":2,"away":"Atl. San Luis"},{"date":"15/Ago/25","round":5,"home":"Necaxa","hg":0,"ag":1,"away":"León"},{"date":"16/Ago/25","round":5,"home":"Guadalajara","hg":1,"ag":2,"away":"FC Juárez"},{"date":"16/Ago/25","round":5,"home":"Tigres","hg":1,"ag":3,"away":"América"},{"date":"16/Ago/25","round":5,"home":"Cruz Azul","hg":3,"ag":2,"away":"Santos"},{"date":"16/Ago/25","round":5,"home":"Pachuca","hg":0,"ag":2,"away":"Tijuana"},{"date":"16/Ago/25","round":5,"home":"Toluca","hg":1,"ag":1,"away":"Pumas"},{"date":"17/Ago/25","round":5,"home":"Querétaro","hg":3,"ag":3,"away":"Atlas"},{"date":"17/Ago/25","round":5,"home":"Monterrey","hg":3,"ag":2,"away":"Mazatlán"},{"date":"22/Ago/25","round":6,"home":"FC Juárez","hg":2,"ag":1,"away":"Santos"},{"date":"22/Ago/25","round":6,"home":"Querétaro","hg":3,"ag":2,"away":"Atl. San Luis"},{"date":"22/Ago/25","round":6,"home":"Tijuana","hg":3,"ag":3,"away":"Guadalajara"},{"date":"23/Ago/25","round":6,"home":"León","hg":1,"ag":1,"away":"Pachuca"},{"date":"23/Ago/25","round":6,"home":"Monterrey","hg":3,"ag":0,"away":"Necaxa"},{"date":"23/Ago/25","round":6,"home":"Mazatlán","hg":2,"ag":2,"away":"Tigres"},{"date":"23/Ago/25","round":6,"home":"Cruz Azul","hg":1,"ag":0,"away":"Toluca"},{"date":"24/Ago/25","round":6,"home":"Pumas","hg":0,"ag":0,"away":"Puebla"},{"date":"24/Ago/25","round":6,"home":"Atlas","hg":2,"ag":4,"away":"América"},{"date":"29/Ago/25","round":7,"home":"FC Juárez","hg":1,"ag":0,"away":"Mazatlán"},{"date":"29/Ago/25","round":7,"home":"Atl. San Luis","hg":1,"ag":3,"away":"Toluca"},{"date":"29/Ago/25","round":7,"home":"Puebla","hg":2,"ag":4,"away":"Monterrey"},{"date":"30/Ago/25","round":7,"home":"León","hg":3,"ag":0,"away":"Querétaro"},{"date":"30/Ago/25","round":7,"home":"Santos","hg":0,"ag":1,"away":"Tigres"},{"date":"30/Ago/25","round":7,"home":"Guadalajara","hg":1,"ag":2,"away":"Cruz Azul"},{"date":"30/Ago/25","round":7,"home":"América","hg":2,"ag":0,"away":"Pachuca"},{"date":"31/Ago/25","round":7,"home":"Pumas","hg":1,"ag":0,"away":"Atlas"},{"date":"31/Ago/25","round":7,"home":"Tijuana","hg":3,"ag":0,"away":"Necaxa"},{"date":"12/Sep/25","round":8,"home":"Necaxa","hg":1,"ag":1,"away":"FC Juárez"},{"date":"12/Sep/25","round":8,"home":"Mazatlán","hg":1,"ag":4,"away":"Pumas"},{"date":"13/Sep/25","round":8,"home":"Pachuca","hg":0,"ag":1,"away":"Cruz Azul"},{"date":"13/Sep/25","round":8,"home":"Tigres","hg":0,"ag":0,"away":"León"},{"date":"13/Sep/25","round":8,"home":"Atlas","hg":2,"ag":2,"away":"Santos"},{"date":"13/Sep/25","round":8,"home":"Toluca","hg":3,"ag":1,"away":"Puebla"},{"date":"13/Sep/25","round":8,"home":"América","hg":1,"ag":2,"away":"Guadalajara"},{"date":"14/Sep/25","round":8,"home":"Querétaro","hg":0,"ag":1,"away":"Monterrey"},{"date":"14/Sep/25","round":8,"home":"Atl. San Luis","hg":1,"ag":1,"away":"Tijuana"},{"date":"19/Sep/25","round":9,"home":"Cruz Azul","hg":3,"ag":2,"away":"FC Juárez"},{"date":"19/Sep/25","round":9,"home":"Necaxa","hg":1,"ag":0,"away":"Puebla"},{"date":"19/Sep/25","round":9,"home":"Mazatlán","hg":1,"ag":1,"away":"Atlas"},{"date":"19/Sep/25","round":9,"home":"Tijuana","hg":5,"ag":0,"away":"León"},{"date":"20/Sep/25","round":9,"home":"Pachuca","hg":0,"ag":2,"away":"Querétaro"},{"date":"20/Sep/25","round":9,"home":"Pumas","hg":1,"ag":1,"away":"Tigres"},{"date":"20/Sep/25","round":9,"home":"Guadalajara","hg":0,"ag":3,"away":"Toluca"},{"date":"20/Sep/25","round":9,"home":"Monterrey","hg":2,"ag":2,"away":"América"},{"date":"21/Sep/25","round":9,"home":"Santos","hg":1,"ag":4,"away":"Atl. San Luis"},{"date":"23/Sep/25","round":10,"home":"Puebla","hg":2,"ag":2,"away":"Pachuca"},{"date":"23/Sep/25","round":10,"home":"Guadalajara","hg":3,"ag":1,"away":"Necaxa"},{"date":"23/Sep/25","round":10,"home":"FC Juárez","hg":3,"ag":1,"away":"Pumas"},{"date":"23/Sep/25","round":10,"home":"León","hg":2,"ag":2,"away":"Mazatlán"},{"date":"24/Sep/25","round":10,"home":"Cruz Azul","hg":2,"ag":2,"away":"Querétaro"},{"date":"24/Sep/25","round":10,"home":"Tigres","hg":2,"ag":0,"away":"Atlas"},{"date":"24/Sep/25","round":10,"home":"Toluca","hg":6,"ag":2,"away":"Monterrey"},{"date":"24/Sep/25","round":10,"home":"Atl. San Luis","hg":0,"ag":1,"away":"América"},{"date":"24/Sep/25","round":10,"home":"Santos","hg":1,"ag":0,"away":"Tijuana"},{"date":"26/Sep/25","round":11,"home":"FC Juárez","hg":2,"ag":0,"away":"León"},{"date":"27/Sep/25","round":11,"home":"Puebla","hg":0,"ag":2,"away":"Guadalajara"},{"date":"27/Sep/25","round":11,"home":"Pachuca","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"27/Sep/25","round":11,"home":"Atlas","hg":3,"ag":2,"away":"Necaxa"},{"date":"27/Sep/25","round":11,"home":"Monterrey","hg":1,"ag":0,"away":"Santos"},{"date":"27/Sep/25","round":11,"home":"Toluca","hg":3,"ag":1,"away":"Mazatlán"},{"date":"27/Sep/25","round":11,"home":"América","hg":4,"ag":1,"away":"Pumas"},{"date":"28/Sep/25","round":11,"home":"Querétaro","hg":0,"ag":2,"away":"Tigres"},{"date":"28/Sep/25","round":11,"home":"Tijuana","hg":2,"ag":0,"away":"Cruz Azul"},{"date":"03/Oct/25","round":12,"home":"Necaxa","hg":0,"ag":1,"away":"Pachuca"},{"date":"03/Oct/25","round":12,"home":"Mazatlán","hg":2,"ag":1,"away":"Atl. San Luis"},{"date":"03/Oct/25","round":12,"home":"Atlas","hg":3,"ag":1,"away":"FC Juárez"},{"date":"04/Oct/25","round":12,"home":"Querétaro","hg":3,"ag":1,"away":"Puebla"},{"date":"04/Oct/25","round":12,"home":"León","hg":2,"ag":4,"away":"Toluca"},{"date":"04/Oct/25","round":12,"home":"Tigres","hg":1,"ag":1,"away":"Cruz Azul"},{"date":"04/Oct/25","round":12,"home":"América","hg":3,"ag":0,"away":"Santos"},{"date":"05/Oct/25","round":12,"home":"Pumas","hg":1,"ag":2,"away":"Guadalajara"},{"date":"05/Oct/25","round":12,"home":"Tijuana","hg":2,"ag":2,"away":"Monterrey"},{"date":"17/Oct/25","round":13,"home":"Puebla","hg":4,"ag":3,"away":"Tijuana"},{"date":"17/Oct/25","round":13,"home":"Atl. San Luis","hg":2,"ag":0,"away":"Atlas"},{"date":"17/Oct/25","round":13,"home":"Tigres","hg":5,"ag":3,"away":"Necaxa"},{"date":"18/Oct/25","round":13,"home":"Santos","hg":2,"ag":0,"away":"León"},{"date":"18/Oct/25","round":13,"home":"FC Juárez","hg":2,"ag":2,"away":"Pachuca"},{"date":"18/Oct/25","round":13,"home":"Toluca","hg":4,"ag":0,"away":"Querétaro"},{"date":"18/Oct/25","round":13,"home":"Monterrey","hg":1,"ag":1,"away":"Pumas"},{"date":"18/Oct/25","round":13,"home":"Guadalajara","hg":2,"ag":0,"away":"Mazatlán"},{"date":"18/Oct/25","round":13,"home":"Cruz Azul","hg":2,"ag":1,"away":"América"},{"date":"21/Oct/25","round":14,"home":"América","hg":2,"ag":1,"away":"Puebla"},{"date":"21/Oct/25","round":14,"home":"Necaxa","hg":1,"ag":1,"away":"Cruz Azul"},{"date":"21/Oct/25","round":14,"home":"Mazatlán","hg":2,"ag":2,"away":"Santos"},{"date":"21/Oct/25","round":14,"home":"Monterrey","hg":4,"ag":2,"away":"FC Juárez"},{"date":"22/Oct/25","round":14,"home":"Pachuca","hg":1,"ag":2,"away":"Tigres"},{"date":"22/Oct/25","round":14,"home":"Querétaro","hg":1,"ag":0,"away":"Guadalajara"},{"date":"22/Oct/25","round":14,"home":"Tijuana","hg":0,"ag":0,"away":"Toluca"},{"date":"22/Oct/25","round":14,"home":"Atlas","hg":2,"ag":0,"away":"León"},{"date":"22/Oct/25","round":14,"home":"Pumas","hg":0,"ag":1,"away":"Atl. San Luis"},{"date":"24/Oct/25","round":15,"home":"FC Juárez","hg":4,"ag":4,"away":"Puebla"},{"date":"24/Oct/25","round":15,"home":"Mazatlán","hg":2,"ag":2,"away":"América"},{"date":"25/Oct/25","round":15,"home":"Tigres","hg":2,"ag":0,"away":"Tijuana"},{"date":"25/Oct/25","round":15,"home":"León","hg":1,"ag":1,"away":"Pumas"},{"date":"25/Oct/25","round":15,"home":"Guadalajara","hg":4,"ag":1,"away":"Atlas"},{"date":"25/Oct/25","round":15,"home":"Cruz Azul","hg":2,"ag":0,"away":"Monterrey"},{"date":"26/Oct/25","round":15,"home":"Atl. San Luis","hg":3,"ag":4,"away":"Necaxa"},{"date":"26/Oct/25","round":15,"home":"Toluca","hg":2,"ag":2,"away":"Pachuca"},{"date":"26/Oct/25","round":15,"home":"Santos","hg":3,"ag":1,"away":"Querétaro"},{"date":"31/Oct/25","round":16,"home":"Necaxa","hg":4,"ag":1,"away":"Santos"},{"date":"31/Oct/25","round":16,"home":"Atl. San Luis","hg":1,"ag":2,"away":"FC Juárez"},{"date":"31/Oct/25","round":16,"home":"Puebla","hg":0,"ag":3,"away":"Cruz Azul"},{"date":"01/Nov/25","round":16,"home":"Atlas","hg":0,"ag":0,"away":"Toluca"},{"date":"01/Nov/25","round":16,"home":"Monterrey","hg":1,"ag":1,"away":"Tigres"},{"date":"01/Nov/25","round":16,"home":"América","hg":2,"ag":0,"away":"León"},{"date":"02/Nov/25","round":16,"home":"Pumas","hg":4,"ag":1,"away":"Tijuana"},{"date":"02/Nov/25","round":16,"home":"Querétaro","hg":1,"ag":0,"away":"Mazatlán"},{"date":"02/Nov/25","round":16,"home":"Pachuca","hg":0,"ag":1,"away":"Guadalajara"},{"date":"07/Nov/25","round":17,"home":"FC Juárez","hg":1,"ag":2,"away":"Querétaro"},{"date":"07/Nov/25","round":17,"home":"Tijuana","hg":2,"ag":0,"away":"Atlas"},{"date":"07/Nov/25","round":17,"home":"Mazatlán","hg":1,"ag":1,"away":"Necaxa"},{"date":"08/Nov/25","round":17,"home":"Tigres","hg":3,"ag":1,"away":"Atl. San Luis"},{"date":"08/Nov/25","round":17,"home":"Pumas","hg":2,"ag":3,"away":"Cruz Azul"},{"date":"08/Nov/25","round":17,"home":"Santos","hg":1,"ag":0,"away":"Pachuca"},{"date":"08/Nov/25","round":17,"home":"León","hg":1,"ag":2,"away":"Puebla"},{"date":"09/Nov/25","round":17,"home":"Guadalajara","hg":4,"ag":2,"away":"Monterrey"},{"date":"09/Nov/25","round":17,"home":"Toluca","hg":2,"ag":0,"away":"América"}]};
 
+const C2026 = [
+{round:1,date:'09/ene/26',home:'Mazatlán',hg:1,ag:2,away:'FC Juárez'},
+{round:1,date:'09/ene/26',home:'Pachuca',hg:0,ag:2,away:'Guadalajara'},
+{round:1,date:'09/ene/26',home:'Toluca',hg:1,ag:0,away:'Monterrey'},
+{round:1,date:'10/ene/26',home:'Cruz Azul',hg:0,ag:1,away:'Tigres'},
+{round:1,date:'10/ene/26',home:'América',hg:0,ag:1,away:'Necaxa'},
+{round:1,date:'10/ene/26',home:'León',hg:2,ag:0,away:'Querétaro'},
+{round:1,date:'11/ene/26',home:'Santos',hg:0,ag:2,away:'Atlas'},
+{round:1,date:'11/ene/26',home:'Tijuana',hg:0,ag:1,away:'Pumas'},
+{round:1,date:'12/ene/26',home:'Atl. San Luis',hg:0,ag:2,away:'Puebla'},
+{round:2,date:'16/ene/26',home:'Tigres',hg:1,ag:0,away:'Santos'},
+{round:2,date:'16/ene/26',home:'FC Juárez',hg:1,ag:1,away:'Cruz Azul'},
+{round:2,date:'16/ene/26',home:'Guadalajara',hg:2,ag:0,away:'Tijuana'},
+{round:2,date:'17/ene/26',home:'Pumas',hg:2,ag:1,away:'Mazatlán'},
+{round:2,date:'17/ene/26',home:'Monterrey',hg:1,ag:2,away:'América'},
+{round:2,date:'17/ene/26',home:'Puebla',hg:0,ag:0,away:'León'},
+{round:2,date:'18/ene/26',home:'Atlas',hg:1,ag:1,away:'Toluca'},
+{round:2,date:'18/ene/26',home:'Querétaro',hg:0,ag:3,away:'Pachuca'},
+{round:2,date:'18/ene/26',home:'Necaxa',hg:2,ag:1,away:'Atl. San Luis'},
+{round:3,date:'23/ene/26',home:'Cruz Azul',hg:3,ag:1,away:'Santos'},
+{round:3,date:'23/ene/26',home:'Toluca',hg:3,ag:0,away:'Pumas'},
+{round:3,date:'23/ene/26',home:'América',hg:2,ag:0,away:'FC Juárez'},
+{round:3,date:'24/ene/26',home:'Mazatlán',hg:0,ag:0,away:'Querétaro'},
+{round:3,date:'24/ene/26',home:'Tijuana',hg:0,ag:1,away:'Monterrey'},
+{round:3,date:'24/ene/26',home:'Atl. San Luis',hg:1,ag:0,away:'Tigres'},
+{round:3,date:'25/ene/26',home:'Pachuca',hg:1,ag:1,away:'Necaxa'},
+{round:3,date:'25/ene/26',home:'León',hg:1,ag:1,away:'Atlas'},
+{round:3,date:'26/ene/26',home:'Puebla',hg:1,ag:2,away:'Guadalajara'},
+{round:4,date:'30/ene/26',home:'FC Juárez',hg:3,ag:4,away:'Cruz Azul'},
+{round:4,date:'30/ene/26',home:'Santos',hg:0,ag:1,away:'Toluca'},
+{round:4,date:'31/ene/26',home:'Pumas',hg:1,ag:0,away:'León'},
+{round:4,date:'31/ene/26',home:'Querétaro',hg:1,ag:1,away:'Tijuana'},
+{round:4,date:'31/ene/26',home:'Monterrey',hg:2,ag:1,away:'Pachuca'},
+{round:4,date:'01/feb/26',home:'Guadalajara',hg:3,ag:1,away:'Atl. San Luis'},
+{round:4,date:'01/feb/26',home:'Tigres',hg:2,ag:1,away:'América'},
+{round:4,date:'01/feb/26',home:'Necaxa',hg:1,ag:1,away:'Mazatlán'},
+{round:4,date:'02/feb/26',home:'Atlas',hg:2,ag:1,away:'Puebla'},
+{round:5,date:'06/feb/26',home:'Cruz Azul',hg:2,ag:0,away:'Querétaro'},
+{round:5,date:'06/feb/26',home:'Toluca',hg:2,ag:1,away:'Guadalajara'},
+{round:5,date:'07/feb/26',home:'León',hg:1,ag:2,away:'Tijuana'},
+{round:5,date:'07/feb/26',home:'Puebla',hg:1,ag:2,away:'Santos'},
+{round:5,date:'07/feb/26',home:'Atl. San Luis',hg:2,ag:1,away:'FC Juárez'},
+{round:5,date:'07/feb/26',home:'Pachuca',hg:1,ag:0,away:'Pumas'},
+{round:5,date:'08/feb/26',home:'América',hg:1,ag:1,away:'Atlas'},
+{round:5,date:'08/feb/26',home:'Mazatlán',hg:0,ag:2,away:'Monterrey'},
+{round:5,date:'09/feb/26',home:'Necaxa',hg:0,ag:1,away:'Tigres'},
+{round:6,date:'13/feb/26',home:'Querétaro',hg:1,ag:2,away:'Santos'},
+{round:6,date:'13/feb/26',home:'Guadalajara',hg:2,ag:1,away:'Cruz Azul'},
+{round:6,date:'14/feb/26',home:'Pumas',hg:0,ag:0,away:'América'},
+{round:6,date:'14/feb/26',home:'Atlas',hg:2,ag:2,away:'Atl. San Luis'},
+{round:6,date:'14/feb/26',home:'Tijuana',hg:1,ag:3,away:'Toluca'},
+{round:6,date:'14/feb/26',home:'Monterrey',hg:1,ag:2,away:'León'},
+{round:6,date:'15/feb/26',home:'Tigres',hg:3,ag:1,away:'Pachuca'},
+{round:6,date:'15/feb/26',home:'Santos',hg:2,ag:0,away:'Necaxa'},
+{round:6,date:'16/feb/26',home:'FC Juárez',hg:1,ag:1,away:'Mazatlán'},
+{round:7,date:'20/feb/26',home:'Cruz Azul',hg:1,ag:0,away:'Pumas'},
+{round:7,date:'20/feb/26',home:'Toluca',hg:3,ag:1,away:'Atlas'},
+{round:7,date:'21/feb/26',home:'América',hg:2,ag:0,away:'Guadalajara'},
+{round:7,date:'21/feb/26',home:'León',hg:1,ag:0,away:'Tigres'},
+{round:7,date:'21/feb/26',home:'Atl. San Luis',hg:3,ag:1,away:'Santos'},
+{round:7,date:'22/feb/26',home:'Pachuca',hg:2,ag:1,away:'FC Juárez'},
+{round:7,date:'22/feb/26',home:'Necaxa',hg:0,ag:1,away:'Querétaro'},
+{round:7,date:'22/feb/26',home:'Mazatlán',hg:0,ag:0,away:'Tijuana'},
+{round:7,date:'22/feb/26',home:'Monterrey',hg:0,ag:1,away:'Puebla'},
+{round:8,date:'27/feb/26',home:'Pumas',hg:2,ag:1,away:'Toluca'},
+{round:8,date:'27/feb/26',home:'Guadalajara',hg:2,ag:1,away:'León'},
+{round:8,date:'28/feb/26',home:'Santos',hg:1,ag:2,away:'Cruz Azul'},
+{round:8,date:'28/feb/26',home:'Atlas',hg:1,ag:2,away:'América'},
+{round:8,date:'28/feb/26',home:'Querétaro',hg:1,ag:1,away:'Atl. San Luis'},
+{round:8,date:'01/mar/26',home:'Tijuana',hg:0,ag:1,away:'Pachuca'},
+{round:8,date:'01/mar/26',home:'Tigres',hg:2,ag:1,away:'Monterrey'},
+{round:8,date:'01/mar/26',home:'Puebla',hg:0,ag:1,away:'Necaxa'},
+{round:8,date:'01/mar/26',home:'FC Juárez',hg:1,ag:2,away:'Mazatlán'},
+{round:9,date:'06/mar/26',home:'Toluca',hg:3,ag:2,away:'Cruz Azul'},
+{round:9,date:'06/mar/26',home:'América',hg:1,ag:0,away:'Santos'},
+{round:9,date:'07/mar/26',home:'León',hg:1,ag:1,away:'Querétaro'},
+{round:9,date:'07/mar/26',home:'Pachuca',hg:2,ag:1,away:'Atlas'},
+{round:9,date:'07/mar/26',home:'Atl. San Luis',hg:2,ag:1,away:'Pumas'},
+{round:9,date:'08/mar/26',home:'Monterrey',hg:0,ag:1,away:'Guadalajara'},
+{round:9,date:'08/mar/26',home:'Necaxa',hg:1,ag:2,away:'Tijuana'},
+{round:9,date:'08/mar/26',home:'Mazatlán',hg:0,ag:2,away:'Tigres'},
+{round:9,date:'08/mar/26',home:'Puebla',hg:1,ag:0,away:'FC Juárez'},
+{round:10,date:'13/mar/26',home:'Santos',hg:0,ag:3,away:'Pumas'},
+{round:10,date:'13/mar/26',home:'Cruz Azul',hg:2,ag:1,away:'León'},
+{round:10,date:'14/mar/26',home:'Guadalajara',hg:3,ag:1,away:'Toluca'},
+{round:10,date:'14/mar/26',home:'Atlas',hg:1,ag:1,away:'Necaxa'},
+{round:10,date:'14/mar/26',home:'Querétaro',hg:0,ag:0,away:'América'},
+{round:10,date:'14/mar/26',home:'FC Juárez',hg:2,ag:1,away:'Tigres'},
+{round:10,date:'15/mar/26',home:'Tijuana',hg:1,ag:2,away:'Atl. San Luis'},
+{round:10,date:'15/mar/26',home:'Pachuca',hg:2,ag:2,away:'Monterrey'},
+{round:10,date:'15/mar/26',home:'Mazatlán',hg:0,ag:1,away:'Puebla'},
+{round:11,date:'19/mar/26',home:'Pumas',hg:1,ag:0,away:'Guadalajara'},
+{round:11,date:'20/mar/26',home:'Toluca',hg:2,ag:0,away:'Santos'},
+{round:11,date:'20/mar/26',home:'León',hg:1,ag:1,away:'Pachuca'},
+{round:11,date:'20/mar/26',home:'Tigres',hg:1,ag:1,away:'Atlas'},
+{round:11,date:'20/mar/26',home:'América',hg:1,ag:0,away:'Mazatlán'},
+{round:11,date:'21/mar/26',home:'Necaxa',hg:1,ag:1,away:'Cruz Azul'},
+{round:11,date:'21/mar/26',home:'Atl. San Luis',hg:1,ag:1,away:'Querétaro'},
+{round:11,date:'21/mar/26',home:'FC Juárez',hg:0,ag:1,away:'Tijuana'},
+{round:11,date:'22/mar/26',home:'Puebla',hg:1,ag:2,away:'Monterrey'},
+{round:12,date:'21/mar/26',home:'Monterrey',hg:2,ag:3,away:'Guadalajara'},
+{round:12,date:'22/mar/26',home:'Pumas',hg:1,ag:0,away:'América'},
+{round:12,date:'22/mar/26',home:'Cruz Azul',hg:1,ag:1,away:'Mazatlán'},
+{round:12,date:'22/mar/26',home:'Santos',hg:0,ag:1,away:'Atl. San Luis'},
+{round:12,date:'22/mar/26',home:'Atlas',hg:0,ag:0,away:'Querétaro'},
+{round:12,date:'23/mar/26',home:'Toluca',hg:2,ag:2,away:'Pachuca'},
+{round:12,date:'23/mar/26',home:'Tijuana',hg:1,ag:0,away:'Necaxa'},
+{round:12,date:'23/mar/26',home:'FC Juárez',hg:0,ag:1,away:'Tigres'},
+{round:12,date:'23/mar/26',home:'León',hg:0,ag:2,away:'Puebla'},
+{round:13,date:'03/abr/26',home:'Puebla',hg:1,ag:1,away:'FC Juárez'},
+{round:13,date:'03/abr/26',home:'Necaxa',hg:2,ag:1,away:'Mazatlán'},
+{round:13,date:'03/abr/26',home:'Tijuana',hg:1,ag:0,away:'Tigres'},
+{round:13,date:'04/abr/26',home:'Querétaro',hg:1,ag:0,away:'Toluca'},
+{round:13,date:'04/abr/26',home:'Santos',hg:1,ag:1,away:'América'},
+{round:13,date:'04/abr/26',home:'Pachuca',hg:2,ag:1,away:'Cruz Azul'},
+{round:13,date:'04/abr/26',home:'León',hg:2,ag:0,away:'Atlas'},
+{round:13,date:'04/abr/26',home:'Atl. San Luis',hg:2,ag:1,away:'Monterrey'},
+{round:13,date:'05/abr/26',home:'Guadalajara',hg:2,ag:2,away:'Pumas'},
+];
 
+const UPCOMING = [
+{round:14,date:'11/abr/26',home:'Puebla',away:'León'},
+{round:14,date:'11/abr/26',home:'FC Juárez',away:'Tijuana'},
+{round:14,date:'12/abr/26',home:'Querétaro',away:'Necaxa'},
+{round:14,date:'12/abr/26',home:'Tigres',away:'Guadalajara'},
+{round:14,date:'12/abr/26',home:'Atlas',away:'Monterrey'},
+{round:14,date:'12/abr/26',home:'Pachuca',away:'Santos'},
+{round:14,date:'12/abr/26',home:'América',away:'Cruz Azul'},
+{round:14,date:'12/abr/26',home:'Pumas',away:'Mazatlán'},
+{round:14,date:'13/abr/26',home:'Toluca',away:'Atl. San Luis'},
+{round:15,date:'18/abr/26',home:'Atl. San Luis',away:'Pumas'},
+{round:15,date:'18/abr/26',home:'Mazatlán',away:'Querétaro'},
+{round:15,date:'18/abr/26',home:'Necaxa',away:'Tigres'},
+{round:15,date:'19/abr/26',home:'Cruz Azul',away:'Tijuana'},
+{round:15,date:'19/abr/26',home:'Monterrey',away:'Pachuca'},
+{round:15,date:'19/abr/26',home:'Guadalajara',away:'Santos'},
+{round:15,date:'19/abr/26',home:'León',away:'Atlas'},
+{round:15,date:'19/abr/26',home:'FC Juárez',away:'Toluca'},
+{round:15,date:'20/abr/26',home:'América',away:'Puebla'},
+{round:16,date:'25/abr/26',home:'Santos',away:'FC Juárez'},
+{round:16,date:'25/abr/26',home:'Tijuana',away:'Cruz Azul'},
+{round:16,date:'25/abr/26',home:'Atlas',away:'Pumas'},
+{round:16,date:'25/abr/26',home:'Monterrey',away:'Querétaro'},
+{round:16,date:'26/abr/26',home:'Guadalajara',away:'León'},
+{round:16,date:'26/abr/26',home:'Toluca',away:'Tigres'},
+{round:16,date:'26/abr/26',home:'Pachuca',away:'América'},
+{round:16,date:'26/abr/26',home:'Puebla',away:'Atl. San Luis'},
+{round:16,date:'26/abr/26',home:'Necaxa',away:'Mazatlán'},
+{round:17,date:'02/may/26',home:'León',away:'Monterrey'},
+{round:17,date:'02/may/26',home:'Cruz Azul',away:'Guadalajara'},
+{round:17,date:'02/may/26',home:'Querétaro',away:'Santos'},
+{round:17,date:'02/may/26',home:'Pumas',away:'Necaxa'},
+{round:17,date:'03/may/26',home:'Tigres',away:'Toluca'},
+{round:17,date:'03/may/26',home:'América',away:'Tijuana'},
+{round:17,date:'03/may/26',home:'Atl. San Luis',away:'Atlas'},
+{round:17,date:'03/may/26',home:'Mazatlán',away:'Pachuca'},
+{round:17,date:'03/may/26',home:'FC Juárez',away:'Puebla'},
+];
 
 const TEAMS = ['América','Atlas','Atl. San Luis','Cruz Azul','FC Juárez','Guadalajara',
   'León','Mazatlán','Monterrey','Necaxa','Pachuca','Puebla','Pumas','Querétaro',
@@ -50,19 +207,6 @@ function checkAdminPass() {
   if (val === ADMIN_PASS) {
     closeAdminModal();
     document.getElementById('adminPanel').style.display='block';
-    // Populate admin selects now that panel is visible
-    const sortedT = [...TEAMS].sort();
-    ['updHome','updAway','fxHome','fxAway'].forEach(id=>{
-      const el = document.getElementById(id);
-      if(!el || el.options.length > 0) return; // already populated
-      sortedT.forEach(t=>{
-        const o=document.createElement('option');
-        o.value=t; o.textContent=t;
-        el.appendChild(o);
-      });
-    });
-    const uh = document.getElementById('updHome'); if(uh) uh.value='América';
-    const ua = document.getElementById('updAway'); if(ua) ua.value='Guadalajara';
     renderUpcoming();
     renderAdminFixtures();
   } else {
@@ -140,72 +284,47 @@ function getFeatures(homeTeam, awayTeam) {
 //  NEURAL NETWORK
 // 
 
-// ═══════════════════════════════════════
-// PREDICCIÓN ELO FALLBACK (sin TensorFlow)
-// Se usa si TF.js no carga o tarda demasiado
-// ═══════════════════════════════════════
-function eloPredict(homeTeam, awayTeam) {
-  const rH = (eloRatings[homeTeam] || BASE_ELO) + HOME_ADV;
-  const rA = eloRatings[awayTeam]  || BASE_ELO;
-  const expH = 1 / (1 + Math.pow(10, (rA - rH) / 400));
-  const expA = 1 - expH;
-  // Convert to W/D/L probabilities
-  const winH  = Math.min(0.75, Math.max(0.10, expH * 0.88));
-  const winA  = Math.min(0.75, Math.max(0.10, expA * 0.88));
-  const draw  = Math.max(0.12, 1 - winH - winA);
-  const total = winH + draw + winA;
-  return { winH: winH/total, draw: draw/total, winA: winA/total };
+function eloPredict(home, away) {
+  buildElo(getAllMatches());
+  const rH = (eloRatings[home]||BASE_ELO) + HOME_ADV;
+  const rA =  eloRatings[away]||BASE_ELO;
+  const expH = 1/(1+Math.pow(10,(rA-rH)/400));
+  const winH = Math.min(0.75,Math.max(0.10,expH*0.88));
+  const winA = Math.min(0.75,Math.max(0.10,(1-expH)*0.88));
+  const draw = Math.max(0.12,1-winH-winA);
+  const t = winH+draw+winA;
+  return {winH:winH/t, draw:draw/t, winA:winA/t};
 }
 
 const MODEL_KEY = 'indexeddb://score-guardians-nn-v1';
 
 async function cargarModeloGuardado() {
-  try {
-    const modelo = await tf.loadLayersModel(MODEL_KEY);
-    return modelo;
-  } catch(e) {
-    return null; // No hay modelo guardado
-  }
+  try { return await tf.loadLayersModel(MODEL_KEY); } catch(e) { return null; }
 }
 
-async function trainNN(allMatches, forceRetrain = false) {
-  // ── 1. Intentar cargar modelo guardado ──
-  if (!forceRetrain) {
-    setNNStatus('training', 'Buscando modelo guardado…', 10);
-    await tf.nextFrame();
-    const modeloGuardado = await cargarModeloGuardado();
-    if (modeloGuardado) {
-      nnModel = modeloGuardado;
-      // Rebuild ELO and stats (needed for predictions)
-      buildElo(allMatches);
-      buildStats(allMatches);
-      nnReady = true;
-      document.getElementById('btnPredict').disabled = false;
-      document.getElementById('btnMonte').disabled = false;
-      const ps = document.getElementById('predictStatus');
-      if(ps) ps.textContent = 'Red neuronal lista — haz clic para predecir';
-      setNNStatus('ready', 'Modelo cargado desde memoria local — listo', 100);
-      const sa = document.getElementById('statAcc');
-      if(sa) sa.textContent = 'Cargado';
-      runMontecarlo();
-      renderCharts();
-      renderUpcomingCards();
-      renderAdminFixtures();
-      return; // No necesitamos reentrenar
-    }
-    setNNStatus('training', 'No hay modelo guardado — iniciando entrenamiento…', 15);
-  } else {
-    setNNStatus('training', 'Reentrenando modelo desde cero…', 5);
-    // Borrar modelo anterior
-    try { await tf.io.removeModel(MODEL_KEY); } catch(e) {}
-  }
-
-  // ── 2. Entrenar desde cero ──
+async function trainNN(allMatches) {
+  // Try cached model first
+  setNNStatus('training','Buscando modelo guardado…',10);
   await tf.nextFrame();
+  const cached = await cargarModeloGuardado();
+  if (cached) {
+    nnModel = cached;
+    buildElo(allMatches); buildStats(allMatches);
+    nnReady = true;
+    document.getElementById('btnPredict').disabled = false;
+    document.getElementById('btnMonte').disabled = false;
+    const ps=document.getElementById('predictStatus'); if(ps) ps.textContent='Red neuronal lista — haz clic para predecir';
+    const bar=document.getElementById('nnLoadBar'); if(bar){bar.style.opacity='0';setTimeout(()=>bar.style.display='none',600);}
+    setNNStatus('ready','Modelo cargado — listo',100);
+    runMontecarlo(); renderCharts(); renderUpcomingCards(); renderAdminFixtures();
+    return;
+  }
+  setNNStatus('training','Preparando dataset de entrenamiento…',5);
 
   const xs = [], ys = [];
   const sorted = [...allMatches].sort((a, b) => a.round - b.round);
 
+  // Build ELO/stats incrementally to avoid data leakage
   let eloSnap = {};
   TEAMS.forEach(t => eloSnap[t] = BASE_ELO);
   let statsSnap = {};
@@ -216,10 +335,10 @@ async function trainNN(allMatches, forceRetrain = false) {
     const eA = eloSnap[m.away] || BASE_ELO;
     const sH = statsSnap[m.home] || {};
     const sA = statsSnap[m.away] || {};
-    const homeGFpg = sH.homeN ? sH.homeGF/sH.homeN : 1.2;
-    const homeGApg = sH.homeN ? sH.homeGA/sH.homeN : 1.2;
-    const awayGFpg = sA.awayN ? sA.awayGF/sA.awayN : 1.0;
-    const awayGApg = sA.awayN ? sA.awayGA/sA.awayN : 1.2;
+    const homeGFpg = sH.homeN ? sH.homeGF / sH.homeN : 1.2;
+    const homeGApg = sH.homeN ? sH.homeGA / sH.homeN : 1.2;
+    const awayGFpg = sA.awayN ? sA.awayGF / sA.awayN : 1.0;
+    const awayGApg = sA.awayN ? sA.awayGA / sA.awayN : 1.2;
     const formH = (sH.form||[]).slice(-5).reduce((s,v)=>s+v,0)/5;
     const formA = (sA.form||[]).slice(-5).reduce((s,v)=>s+v,0)/5;
 
@@ -239,11 +358,11 @@ async function trainNN(allMatches, forceRetrain = false) {
     const sHval = m.hg>m.ag?1:m.hg<m.ag?0:0.5;
     eloSnap[m.home] = rH2 + K_ELO*(sHval-expH);
     eloSnap[m.away] = rA2 + K_ELO*((1-sHval)-(1-expH));
-    if(statsSnap[m.home]){statsSnap[m.home].homeGF+=m.hg;statsSnap[m.home].homeGA+=m.ag;statsSnap[m.home].homeN++;statsSnap[m.home].form.push(m.hg>m.ag?1:m.hg<m.ag?-1:0);}
-    if(statsSnap[m.away]){statsSnap[m.away].awayGF+=m.ag;statsSnap[m.away].awayGA+=m.hg;statsSnap[m.away].awayN++;statsSnap[m.away].form.push(m.ag>m.hg?1:m.ag<m.hg?-1:0);}
+    if (statsSnap[m.home]) { statsSnap[m.home].homeGF+=m.hg; statsSnap[m.home].homeGA+=m.ag; statsSnap[m.home].homeN++; statsSnap[m.home].form.push(m.hg>m.ag?1:m.hg<m.ag?-1:0); }
+    if (statsSnap[m.away]) { statsSnap[m.away].awayGF+=m.ag; statsSnap[m.away].awayGA+=m.hg; statsSnap[m.away].awayN++; statsSnap[m.away].form.push(m.ag>m.hg?1:m.ag<m.hg?-1:0); }
   }
 
-  setNNStatus('training', 'Construyendo modelo (' + xs.length + ' partidos)…', 20);
+  setNNStatus('training', `Construyendo modelo (${xs.length} partidos)…`, 20);
   await tf.nextFrame();
 
   const xTensor = tf.tensor2d(xs);
@@ -251,10 +370,11 @@ async function trainNN(allMatches, forceRetrain = false) {
 
   nnModel = tf.sequential({
     layers: [
-      tf.layers.dense({ inputShape:[8], units:16, activation:'relu', kernelInitializer:'glorotUniform' }),
-      tf.layers.dropout({ rate:0.2 }),
-      tf.layers.dense({ units:8, activation:'relu' }),
-      tf.layers.dense({ units:3, activation:'softmax' })
+      tf.layers.dense({ inputShape: [8], units: 16, activation: 'relu',
+        kernelInitializer: 'glorotUniform' }),
+      tf.layers.dropout({ rate: 0.2 }),
+      tf.layers.dense({ units: 8, activation: 'relu' }),
+      tf.layers.dense({ units: 3, activation: 'softmax' })
     ]
   });
 
@@ -275,10 +395,11 @@ async function trainNN(allMatches, forceRetrain = false) {
     validationSplit: 0.1,
     callbacks: {
       onEpochEnd: async (epoch, logs) => {
-        const pct = 30 + Math.round((epoch/50)*60);
+        const pct = 30 + Math.round((epoch / 50) * 65);
         lastAcc = logs.acc || logs.accuracy || 0;
         setNNStatus('training',
-          'Entrenando época ' + (epoch+1) + '/50 — Precisión: ' + (lastAcc*100).toFixed(1) + '%', pct);
+          `Entrenando época ${epoch+1}/50 — Loss: ${logs.loss.toFixed(4)} — Prec: ${(lastAcc*100).toFixed(1)}%`,
+          pct);
         await tf.nextFrame();
       }
     }
@@ -286,36 +407,35 @@ async function trainNN(allMatches, forceRetrain = false) {
 
   xTensor.dispose(); yTensor.dispose();
 
-  // ── 3. Guardar modelo en IndexedDB ──
-  setNNStatus('training', 'Guardando modelo en memoria local…', 93);
-  await tf.nextFrame();
-  try {
-    await nnModel.save(MODEL_KEY);
-    console.log('Modelo guardado en IndexedDB correctamente');
-  } catch(e) {
-    console.warn('No se pudo guardar el modelo:', e);
-  }
+  setNNStatus('ready',
+    ` Red neuronal lista — Precisión: ${(lastAcc*100).toFixed(1)}% — ${xs.length} partidos entrenados`,
+    100);
 
-  const accText = (lastAcc*100).toFixed(1) + '%';
-  setNNStatus('ready', 'Red neuronal lista — Precisión: ' + accText + ' — ' + xs.length + ' partidos entrenados', 100);
-
-  // statAcc removed from UI
-  const am = document.getElementById('archMatches'); if(am) am.textContent = xs.length;
+  document.getElementById('statAcc').textContent = (lastAcc*100).toFixed(1)+'%';
+  document.getElementById('archMatches') && (document.getElementById('archMatches').textContent = xs.length);
   nnReady = true;
   document.getElementById('btnPredict').disabled = false;
   document.getElementById('btnMonte').disabled = false;
-  const ps = document.getElementById('predictStatus');
-  if(ps) ps.textContent = 'Red neuronal lista — haz clic para predecir';
 
+  // Save model to IndexedDB
+  try { await nnModel.save(MODEL_KEY); console.log('[SG] Model saved'); } catch(e){ console.warn('[SG] Save failed:', e); }
+  
   buildElo(allMatches);
   buildStats(allMatches);
-
   runMontecarlo();
   renderCharts();
   renderUpcomingCards();
   renderAdminFixtures();
 }
 
+function setNNStatus(state, msg, pct) {
+  const dot = document.getElementById('nnDot');
+  if(dot) dot.className = 'nn-dot ' + state;
+  const st = document.getElementById('nnStatusTxt'); if(st) st.textContent = msg;
+  const pf = document.getElementById('nnProgressFill'); if(pf) pf.style.width = pct + '%';
+  const ps = document.getElementById('predictStatus');
+  if(ps) ps.textContent = state === 'ready' ? 'Red neuronal lista — haz clic para predecir' : state === 'error' ? 'Error al entrenar' : 'Entrenando red neuronal...';
+}
 
 async function nnPredict(homeTeam, awayTeam) {
   if (!nnModel) return null;
@@ -333,18 +453,11 @@ async function nnPredict(homeTeam, awayTeam) {
 async function runPrediction() {
   const home = document.getElementById('homeTeam').value;
   const away = document.getElementById('awayTeam').value;
-  if (!home || !away) { alert('Selecciona los equipos'); return; }
   if (home === away) { alert('Selecciona equipos diferentes'); return; }
-
   let res;
-  if (nnReady) {
-    res = await nnPredict(home, away);
-  } else if (eloFallbackReady) {
-    res = eloPredict(home, away);
-  } else {
-    alert('El modelo aún está cargando. Espera unos segundos e intenta de nuevo.');
-    return;
-  }
+  if (nnReady) { res = await nnPredict(home, away); }
+  else if (eloFallbackReady) { res = eloPredict(home, away); }
+  else { alert('Cargando modelo, espera unos segundos...'); return; }
   if (!res) return;
 
   const ph = (res.winH*100).toFixed(1)+'%';
@@ -452,8 +565,7 @@ async function runMontecarlo() {
   for (const m of remaining) {
     const key = `${m.home}|${m.away}`;
     if (!predCache[key]) {
-      if (nnReady) predCache[key] = await nnPredict(m.home, m.away);
-      else if (eloFallbackReady) predCache[key] = eloPredict(m.home, m.away);
+      predCache[key] = nnReady ? await nnPredict(m.home,m.away) : eloPredict(m.home,m.away);
     }
   }
 
@@ -602,40 +714,9 @@ async function applyQueue(){
 }
 
 function exportJSON(){
-  // Genera el nuevo datos.js completo con todos los resultados actualizados
-  const allC2026 = [...C2026, ...pendingMatches];
-  
-  const c2026Lines = allC2026.map(m =>
-    `{round:${m.round},date:'${m.date}',home:'${m.home}',hg:${m.hg},ag:${m.ag},away:'${m.away}'}`
-  ).join(',\n');
-  
-  const upcomingLines = customUpcoming.map(m =>
-    `{round:${m.round},date:'${m.date}',home:'${m.home}',away:'${m.away}'}`
-  ).join(',\n');
-
-  const contenido = `// ╔══════════════════════════════════════════════════════╗
-// ║  SCORE GUARDIANS — Archivo de Datos Clausura 2026    ║
-// ║  Actualizado: ${new Date().toLocaleDateString('es-MX')} — J${Math.max(...allC2026.map(m=>m.round))} completada  ║
-// ╚══════════════════════════════════════════════════════╝
-
-const C2026 = [
-${c2026Lines}
-];
-
-const UPCOMING = [
-${upcomingLines}
-];
-
-const ACTUALIZACIONES = [];
-`;
-
-  const blob = new Blob([contenido], {type: 'text/javascript'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'datos.js';
-  a.click();
-  
-  alert('✅ Archivo datos.js descargado.\nReemplaza el archivo datos.js en tu carpeta del proyecto.');
+  const d={c2026_base:C2026,c2026_actualizaciones:pendingMatches};
+  const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='clausura2026.json';a.click();
 }
 
 function renderUpcoming(){
@@ -667,126 +748,78 @@ Chart.defaults.color='rgba(139,149,176,0.9)';
 Chart.defaults.font={family:'Barlow,sans-serif',size:11};
 
 function renderCharts(){
-  if (typeof Chart === 'undefined') { setTimeout(renderCharts, 1000); return; }
-  
-  // Force all canvases to have explicit dimensions so Chart.js renders correctly
-  ['cPoints','cGoals','cElo','cDist'].forEach(id => {
-    const canvas = document.getElementById(id);
-    if (!canvas) return;
-    const parent = canvas.parentElement;
-    if (parent) {
-      const h = parent.offsetHeight || 260;
-      const w = parent.offsetWidth  || parent.clientWidth || 400;
-      canvas.height = h;
-      canvas.width  = w;
-    }
-  });
-
-  const TOURNS = ['Apertura 2021','Clausura 2022','Apertura 2022','Clausura 2023',
+  const TOURNS=['Apertura 2021','Clausura 2022','Apertura 2022','Clausura 2023',
     'Apertura 2023','Clausura 2024','Apertura 2024','Clausura 2025','Apertura 2025','Clausura 2026'];
-  const lbls = TOURNS.map(t => t.replace('Apertura','A.').replace('Clausura','C.').replace(' 20',"'"));
+  const labels=TOURNS.map(t=>t.replace('Apertura','A.').replace('Clausura','C.').replace(' 20','\''));
+  const TOP6=['Guadalajara','Cruz Azul','Toluca','América','Tigres','Pumas'];
+  const colors=['#00e5ff','#ff3b5c','#ffd600','#00c853','#aa44ff','#ff8800'];
 
-  // Destroy old charts
-  ['pts','goals','elo','dist'].forEach(k => {
-    try { if(charts[k]) { charts[k].destroy(); charts[k]=null; } } catch(e){}
+  // Points chart
+  if(charts.pts) charts.pts.destroy();
+  charts.pts=new Chart(document.getElementById('cPoints'),{
+    type:'line',
+    data:{labels,datasets:TOP6.map((t,i)=>({
+      label:t,
+      data:TOURNS.map(tn=>{const s=computeStandings(getTournamentMatches(tn));return s.find(r=>r.team===t)?.pts||0;}),
+      borderColor:colors[i],backgroundColor:'transparent',tension:.35,pointRadius:3,borderWidth:2
+    }))},
+    options:{responsive:true,maintainAspectRatio:false,
+      scales:{x:{grid:{color:'rgba(42,48,69,.7)'}},y:{grid:{color:'rgba(42,48,69,.7)'},min:0}},
+      plugins:{legend:{position:'bottom',labels:{boxWidth:10,padding:12}}}}
   });
 
-  const grid = {color:'rgba(42,48,69,.7)'};
-  const legOpts = {position:'bottom', labels:{boxWidth:10, padding:10, color:'rgba(200,210,230,.8)'}};
+  // Goals chart
+  const avgG=TOURNS.map(t=>{const m=getTournamentMatches(t);if(!m.length)return 0;return(m.reduce((s,x)=>s+x.hg+x.ag,0)/m.length).toFixed(2);});
+  if(charts.goals) charts.goals.destroy();
+  charts.goals=new Chart(document.getElementById('cGoals'),{
+    type:'bar',
+    data:{labels,datasets:[{label:'Goles por partido',data:avgG,
+      backgroundColor:TOURNS.map((_,i)=>i===TOURNS.length-1?'rgba(0,229,255,.85)':'rgba(0,229,255,.3)'),
+      borderColor:'rgba(0,229,255,.8)',borderWidth:1}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      scales:{x:{grid:{color:'rgba(42,48,69,.7)'}},y:{grid:{color:'rgba(42,48,69,.7)'},min:1.5}},
+      plugins:{legend:{display:false}}}
+  });
 
-  // ── Chart 1: Points top 6 ──
-  try {
-    const TOP6 = ['Guadalajara','Cruz Azul','Toluca','América','Tigres','Pumas'];
-    const COLS = ['#00e5ff','#ff3b5c','#ffd600','#00c853','#aa44ff','#ff8800'];
-    charts.pts = new Chart(document.getElementById('cPoints'),{
-      type:'line',
-      data:{
-        labels: lbls,
-        datasets: TOP6.map((t,i) => ({
-          label: t,
-          data: TOURNS.map(tn => { try { return computeStandings(getTournamentMatches(tn)).find(r=>r.team===t)?.pts||0; } catch(e){return 0;} }),
-          borderColor: COLS[i], backgroundColor:'transparent',
-          tension:.3, pointRadius:3, borderWidth:2
-        }))
-      },
-      options:{responsive:true, maintainAspectRatio:false,
-        scales:{x:{grid},y:{grid,min:0}},
-        plugins:{legend:legOpts}}
-    });
-  } catch(e){ console.error('Chart1 error:',e); }
+  // Elo chart
+  const eloArr=TEAMS.map(t=>({team:t,elo:eloRatings[t]||BASE_ELO})).sort((a,b)=>b.elo-a.elo);
+  if(charts.elo) charts.elo.destroy();
+  charts.elo=new Chart(document.getElementById('cElo'),{
+    type:'bar',
+    data:{labels:eloArr.map(x=>x.team),datasets:[{label:'Elo',data:eloArr.map(x=>x.elo.toFixed(0)),
+      backgroundColor:eloArr.map(x=>(TEAM_COLORS[x.team]||'#555')+'99'),
+      borderColor:eloArr.map(x=>TEAM_COLORS[x.team]||'#555'),borderWidth:1}]},
+    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      scales:{x:{grid:{color:'rgba(42,48,69,.7)'},min:1300},y:{grid:{color:'rgba(42,48,69,.7)'},ticks:{font:{size:10}}}},
+      plugins:{legend:{display:false}}}
+  });
 
-  // ── Chart 2: Avg goals ──
-  try {
-    charts.goals = new Chart(document.getElementById('cGoals'),{
-      type:'bar',
-      data:{
-        labels: lbls,
-        datasets:[{
-          label:'Goles/partido',
-          data: TOURNS.map(tn => { try { const m=getTournamentMatches(tn); return m.length ? +(m.reduce((s,x)=>s+x.hg+x.ag,0)/m.length).toFixed(2) : 0; } catch(e){return 0;} }),
-          backgroundColor: TOURNS.map((_,i) => i===TOURNS.length-1 ? 'rgba(0,229,255,.8)' : 'rgba(0,229,255,.25)'),
-          borderColor:'rgba(0,229,255,.8)', borderWidth:1
-        }]
-      },
-      options:{responsive:true, maintainAspectRatio:false,
-        scales:{x:{grid},y:{grid,min:1.5}},
-        plugins:{legend:{display:false}}}
-    });
-  } catch(e){ console.error('Chart2 error:',e); }
-
-  // ── Chart 3: Elo ranking ──
-  try {
-    const eloArr = TEAMS.map(t=>({team:t, elo:eloRatings[t]||BASE_ELO})).sort((a,b)=>b.elo-a.elo);
-    charts.elo = new Chart(document.getElementById('cElo'),{
-      type:'bar',
-      data:{
-        labels: eloArr.map(x=>x.team),
-        datasets:[{
-          label:'Elo',
-          data: eloArr.map(x=>+x.elo.toFixed(0)),
-          backgroundColor: eloArr.map(x=>(TEAM_COLORS[x.team]||'#555')+'99'),
-          borderColor: eloArr.map(x=>TEAM_COLORS[x.team]||'#555'),
-          borderWidth:1
-        }]
-      },
-      options:{responsive:true, maintainAspectRatio:false, indexAxis:'y',
-        scales:{x:{grid,min:1300}, y:{grid,ticks:{font:{size:10},color:'rgba(200,210,230,.8)'}}},
-        plugins:{legend:{display:false}}}
-    });
-  } catch(e){ console.error('Chart3 error:',e); }
-
-  // ── Chart 4: Win distribution doughnut ──
-  try {
-    const all = getAllMatches();
-    let hw=0,aw=0,dr=0;
-    all.forEach(m=>{if(m.hg>m.ag)hw++;else if(m.hg<m.ag)aw++;else dr++;});
-    const tot = all.length||1;
-    charts.dist = new Chart(document.getElementById('cDist'),{
-      type:'doughnut',
-      data:{
-        labels:['Victoria Local','Empate','Victoria Visitante'],
-        datasets:[{
-          data:[(hw/tot*100).toFixed(1),(dr/tot*100).toFixed(1),(aw/tot*100).toFixed(1)],
-          backgroundColor:['rgba(0,200,83,.8)','rgba(255,171,0,.8)','rgba(255,59,92,.8)'],
-          borderColor:['#00c853','#ffab00','#ff3b5c'],
-          borderWidth:2
-        }]
-      },
-      options:{responsive:true, maintainAspectRatio:false,
-        plugins:{legend:legOpts}}
-    });
-  } catch(e){ console.error('Chart4 error:',e); }
-
-  console.log('[SG] Charts rendered OK');
+  // Win distribution
+  const all=getAllMatches();
+  let hw=0,aw=0,dr=0;
+  all.forEach(m=>{if(m.hg>m.ag)hw++;else if(m.hg<m.ag)aw++;else dr++;});
+  const tot=all.length;
+  if(charts.dist) charts.dist.destroy();
+  charts.dist=new Chart(document.getElementById('cDist'),{
+    type:'doughnut',
+    data:{labels:['Victoria Local','Empate','Victoria Visitante'],
+      datasets:[{data:[(hw/tot*100).toFixed(1),(dr/tot*100).toFixed(1),(aw/tot*100).toFixed(1)],
+        backgroundColor:['rgba(0,200,83,.85)','rgba(255,171,0,.85)','rgba(255,59,92,.85)'],
+        borderColor:['#00c853','#ffab00','#ff3b5c'],borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:14}}}}
+  });
 }
 
+// 
+//  UTILS
+// 
 function getAllMatches(){
   let all=[];
   ['Apertura 2021','Clausura 2022','Apertura 2022','Clausura 2023',
    'Apertura 2023','Clausura 2024','Apertura 2024','Clausura 2025','Apertura 2025']
     .forEach(t=>all=all.concat(HIST[t]||[]));
-  const c26 = (typeof C2026 !== 'undefined') ? C2026 : [];
-  return all.concat(c26).concat(pendingMatches);
+  return all.concat(C2026).concat(pendingMatches);
 }
 function getTournamentMatches(t){
   if(t==='Clausura 2026') return [...C2026,...pendingMatches];
@@ -803,33 +836,19 @@ function switchTab(e, paneId){
 //  INIT
 // 
 function init(){
-  // Initialize data from datos.js
-  console.log('[SG] init() started');
-  if (typeof ACTUALIZACIONES !== 'undefined') pendingMatches = [...ACTUALIZACIONES];
-  if (typeof UPCOMING !== 'undefined') customUpcoming = JSON.parse(JSON.stringify(UPCOMING));
-
-  // Populate main page selects
+  // Populate selects
   const sortedTeams=[...TEAMS].sort();
-  // Only selects that are always visible in the DOM
-  const mainSelects = ['homeTeam','awayTeam','h2hT1','h2hT2'];
   sortedTeams.forEach(t=>{
-    mainSelects.forEach(id=>{
-      const el = document.getElementById(id);
-      if(!el) return;
-      const o=document.createElement('option');
-      o.value=t; o.textContent=t;
+    ['homeTeam','awayTeam','h2hT1','h2hT2'].forEach(id=>{
+      const el=document.getElementById(id); if(!el) return;
+      const o=document.createElement('option');o.value=t;o.textContent=t;
       el.appendChild(o);
     });
   });
-  const awayEl = document.getElementById('awayTeam');
-  if(awayEl) awayEl.value='Guadalajara';
-  const h2t2 = document.getElementById('h2hT2');
-  if(h2t2) h2t2.value='Guadalajara';
+  document.getElementById('awayTeam').value='Guadalajara';
   // Set initial logos
-  const htEl = document.getElementById('homeTeam');
-  const atEl = document.getElementById('awayTeam');
-  const initHome = htEl ? htEl.value : 'América';
-  const initAway = atEl ? atEl.value : 'Guadalajara';
+  const initHome = document.getElementById('homeTeam').value;
+  const initAway = document.getElementById('awayTeam').value;
   const lh = document.getElementById('logoHome'); if(lh) lh.innerHTML = logoSVG(initHome,80);
   const la = document.getElementById('logoAway'); if(la) la.innerHTML = logoSVG(initAway,80);
   document.getElementById('h2hT2').value='Guadalajara';
@@ -860,59 +879,35 @@ function init(){
   renderStandings('Clausura 2026');
   renderHistory('Clausura 2026');
 
-  // Render charts and upcoming (retry if Chart.js not yet loaded)
-  buildElo(getAllMatches());
-  buildStats(getAllMatches());
-  // Render charts after layout is painted (avoids canvas height=0 issue)
-  requestAnimationFrame(() => {
-    setTimeout(() => {
-      if (typeof Chart !== 'undefined') {
-        renderCharts();
-      } else {
-        const iv = setInterval(()=>{ if(typeof Chart!=='undefined'){ clearInterval(iv); renderCharts(); } }, 500);
-        setTimeout(()=>clearInterval(iv), 10000);
-      }
-    }, 300);
-  });
+  // Render upcoming cards without predictions first
   renderUpcomingCards();
   
   // Train NN
   const allM=getAllMatches();
-  // Start NN training
-  setTimeout(()=>trainNN(allM).catch(e=>{
-    console.error('NN training error:', e);
-    setNNStatus('error', 'Error NN — usando modelo Elo', 100);
-    // Fallback: enable button with Elo model
-    buildElo(allM);
-    buildStats(allM);
-    nnReady = false; // keep false so we use eloPredict
-    eloFallbackReady = true;
-    const btn = document.getElementById('btnPredict');
-    if(btn) btn.disabled = false;
-    const ps = document.getElementById('predictStatus');
-    if(ps) ps.textContent = 'Modelo Elo listo — haz clic para predecir';
-    const bar = document.getElementById('nnLoadBar');
-    if(bar) bar.style.display = 'none';
-    runMontecarlo();
-    renderCharts();
-    renderUpcomingCards();
-  }), 200);
-  
-  // Safety timeout: if TF.js fails to load in 20s, use Elo fallback
-  setTimeout(()=>{
-    if(!nnReady && !eloFallbackReady) {
-      console.warn('[SG] TF.js timeout — activating Elo fallback');
-      buildElo(allM);
-      buildStats(allM);
+  const _allM = allM;
+  setTimeout(async ()=>{
+    try {
+      await trainNN(_allM);
+    } catch(e) {
+      console.error('[SG] NN error:', e);
+      buildElo(_allM); buildStats(_allM);
       eloFallbackReady = true;
-      const btn = document.getElementById('btnPredict');
-      if(btn) btn.disabled = false;
-      const ps = document.getElementById('predictStatus');
-      if(ps) ps.textContent = 'Modelo Elo listo (TF.js cargando...) — haz clic para predecir';
-      const bar = document.getElementById('nnLoadBar');
-      if(bar) bar.style.display = 'none';
-      runMontecarlo();
-      renderUpcomingCards();
+      const btn=document.getElementById('btnPredict'); if(btn) btn.disabled=false;
+      const ps=document.getElementById('predictStatus'); if(ps) ps.textContent='Modelo Elo listo';
+      const bar=document.getElementById('nnLoadBar'); if(bar) bar.style.display='none';
+      setNNStatus('error','Usando modelo Elo (TF.js no disponible)',100);
+      runMontecarlo(); renderCharts(); renderUpcomingCards();
+    }
+  }, 200);
+  // Safety: enable Elo after 20s if NN not ready
+  setTimeout(()=>{
+    if(!nnReady && !eloFallbackReady){
+      buildElo(_allM); buildStats(_allM);
+      eloFallbackReady=true;
+      const btn=document.getElementById('btnPredict'); if(btn) btn.disabled=false;
+      const ps=document.getElementById('predictStatus'); if(ps) ps.textContent='Modelo Elo listo — clic para predecir';
+      const bar=document.getElementById('nnLoadBar'); if(bar) bar.style.display='none';
+      runMontecarlo(); renderCharts(); renderUpcomingCards();
     }
   }, 20000);
 }
@@ -950,81 +945,28 @@ const TEAM_GRADIENT = {
   'Toluca':      ['#CC0000','#880000'],
 };
 
-const TEAM_IMAGES = {
-  'América': 'img/america.png',
-  'Atlas': 'img/atlas.png',
-  'Atl. San Luis': 'img/atlanticodesanluis.png',
-  'Cruz Azul': 'img/cruzazul.png',
-  'FC Juárez': 'img/cfjuarez.png',
-  'Guadalajara': 'img/guadalajara.png',
-  'León': 'img/leon.png',
-  'Mazatlán': 'img/mazatlanfc.png',
-  'Monterrey': 'img/monterrey.png',
-  'Necaxa': 'img/necaxa.png',
-  'Pachuca': 'img/pachuca.png',
-  'Puebla': 'img/puebla.png',
-  'Pumas': 'img/pumas.png',
-  'Querétaro': 'img/gallosblancos.png',
-  'Santos': 'img/santoslaguna.png',
-  'Tigres': 'img/tigres.png',
-  'Tijuana': 'img/tijuana.png',
-  'Toluca': 'img/toluca.png',
-};
-
-// Función auxiliar de fallback — se llama desde onerror del <img>
-function logoFallback(imgEl) {
-  var team = imgEl.getAttribute('data-team') || '';
-  var size = parseInt(imgEl.getAttribute('data-size') || '56');
-  const g    = TEAM_GRADIENT[team] || ['#444','#222'];
-  const abbr = TEAM_ABBR[team] || team.slice(0,3).toUpperCase();
-  const fs   = size > 45 ? 11 : 8;
-  const id   = 'gf' + Math.random().toString(36).slice(2,6);
-  const svg  = '<svg width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '" xmlns="http://www.w3.org/2000/svg">' +
-    '<defs><linearGradient id="' + id + '" x1="0%" y1="0%" x2="100%" y2="100%">' +
-      '<stop offset="0%" stop-color="' + g[0] + '"/>' +
-      '<stop offset="100%" stop-color="' + g[1] + '"/>' +
-    '</linearGradient></defs>' +
-    '<circle cx="' + (size/2) + '" cy="' + (size/2) + '" r="' + (size/2-1) + '" fill="url(#' + id + ')" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>' +
-    '<text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" ' +
-      'font-family="Barlow Condensed,sans-serif" font-weight="700" ' +
-      'font-size="' + fs + '" fill="white">' + abbr + '</text>' +
-  '</svg>';
-  imgEl.outerHTML = svg;
-}
-
-function logoSVG(team, size) {
-  size = size || 56;
-  const src  = TEAM_IMAGES[team];
-  const g    = TEAM_GRADIENT[team] || ['#444','#222'];
-  const abbr = TEAM_ABBR[team] || team.slice(0,3).toUpperCase();
-  const fs   = size > 45 ? 11 : 8;
-
-  if (src) {
-    // Imagen real con fallback SVG via data attribute
-    return '<img src="' + src + '" width="' + size + '" height="' + size + '" '
-         + 'data-team="' + team + '" data-size="' + size + '" '
-         + 'style="border-radius:50%;object-fit:contain;background:#fff;padding:4px;border:2px solid rgba(255,255,255,.2);" '
-         + 'alt="' + team + '" '
-         + 'onerror="logoFallback(this)">';
-  }
-
-  // Sin imagen: SVG de color directamente
-  var id = 'gs' + Math.random().toString(36).slice(2,6);
-  return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '" xmlns="http://www.w3.org/2000/svg">'
-       + '<defs><linearGradient id="' + id + '" x1="0%" y1="0%" x2="100%" y2="100%">'
-       + '<stop offset="0%" stop-color="' + g[0] + '"/>'
-       + '<stop offset="100%" stop-color="' + g[1] + '"/>'
-       + '</linearGradient></defs>'
-       + '<circle cx="' + (size/2) + '" cy="' + (size/2) + '" r="' + (size/2-1) + '" fill="url(#' + id + ')" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>'
-       + '<text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" '
-       + 'font-family="Barlow Condensed,sans-serif" font-weight="700" '
-       + 'font-size="' + fs + '" fill="white">' + abbr + '</text>'
-       + '</svg>';
+function logoSVG(team, size=56) {
+  const abbr  = TEAM_ABBR[team] || team.slice(0,3).toUpperCase();
+  const grad  = TEAM_GRADIENT[team] || ['#333','#111'];
+  const fs    = size > 50 ? 11 : 9;
+  const id    = 'g' + Math.random().toString(36).slice(2,7);
+  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="${id}" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="${grad[0]}"/>
+        <stop offset="100%" stop-color="${grad[1]}"/>
+      </linearGradient>
+    </defs>
+    <circle cx="${size/2}" cy="${size/2}" r="${size/2-1}" fill="url(#${id})" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+    <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
+      font-family="'Barlow Condensed',sans-serif" font-weight="700"
+      font-size="${fs}" fill="white" letter-spacing="0.5">${abbr}</text>
+  </svg>`;
 }
 // ═══════════════════════════════════════
 // UPCOMING MATCHES SECTION — card design
 // ═══════════════════════════════════════
-let customUpcoming = [];
+let customUpcoming = JSON.parse(JSON.stringify(UPCOMING));
 
 async function renderUpcomingCards() {
   const container = document.getElementById('upcomingCards');
@@ -1036,7 +978,7 @@ async function renderUpcomingCards() {
     let predBox = `<div style="margin-top:14px;text-align:center;font-size:11px;color:var(--text3);letter-spacing:1px;font-family:'Barlow Condensed',sans-serif;padding:10px 0;">PREDICCIONES CARGANDO...</div>`;
     
     if (nnReady || eloFallbackReady) {
-      const p = nnReady ? await nnPredict(m.home, m.away) : eloPredict(m.home, m.away);
+      const p = nnReady ? await nnPredict(m.home,m.away) : eloPredict(m.home,m.away);
       if (p) {
         const fav = p.winH > p.winA && p.winH > p.draw ? 'L' :
                     p.winA > p.winH && p.winA > p.draw ? 'V' : 'E';
@@ -1125,14 +1067,77 @@ function updateLogoAway(team) {
   if (el) { el.innerHTML = logoSVG(team || 'América', 80); el.style.transform='scale(1.05)'; setTimeout(()=>el.style.transform='scale(1)',200); }
 }
 
-// Fuerza reentrenamiento completo y borra el modelo guardado
-async function reentrenarModelo() {
-  if (!confirm('Reentrenar el modelo borrará el guardado actual y puede tardar ~1 minuto. ¿Continuar?')) return;
-  nnReady = false;
-  document.getElementById('btnPredict').disabled = true;
-  document.getElementById('btnMonte').disabled = true;
-  await trainNN(getAllMatches(), true); // forceRetrai
-  console.log('[SG] init() completed');n = true
+// ── TEAM IMAGES (from img/ folder) ──
+const TEAM_IMAGES = {
+  'América':'img/america.png','Atlas':'img/atlas.png',
+  'Atl. San Luis':'img/atlanticodesanluis.png','Cruz Azul':'img/cruzazul.png',
+  'FC Juárez':'img/cfjuarez.png','Guadalajara':'img/guadalajara.png',
+  'León':'img/leon.png','Mazatlán':'img/mazatlanfc.png',
+  'Monterrey':'img/monterrey.png','Necaxa':'img/necaxa.png',
+  'Pachuca':'img/pachuca.png','Puebla':'img/puebla.png',
+  'Pumas':'img/pumas.png','Querétaro':'img/gallosblancos.png',
+  'Santos':'img/santoslaguna.png','Tigres':'img/tigres.png',
+  'Tijuana':'img/tijuana.png','Toluca':'img/toluca.png',
+};
+
+const TEAM_ABBR = {
+  'América':'AME','Atlas':'ATL','Atl. San Luis':'SLU','Cruz Azul':'CAZ',
+  'FC Juárez':'JUA','Guadalajara':'GDL','León':'LEO','Mazatlán':'MAZ',
+  'Monterrey':'MTY','Necaxa':'NEC','Pachuca':'PAC','Puebla':'PUE',
+  'Pumas':'PUM','Querétaro':'QRO','Santos':'SAN','Tigres':'TIG',
+  'Tijuana':'TIJ','Toluca':'TOL'
+};
+
+const TEAM_GRADIENT = {
+  'América':['#FFD700','#FF8C00'],'Atlas':['#CC2200','#8B0000'],
+  'Atl. San Luis':['#003087','#0055CC'],'Cruz Azul':['#1E90FF','#0050AA'],
+  'FC Juárez':['#FF6600','#CC4400'],'Guadalajara':['#CC0000','#880000'],
+  'León':['#006400','#003300'],'Mazatlán':['#003366','#001133'],
+  'Monterrey':['#003DA5','#001F55'],'Necaxa':['#CC1111','#880000'],
+  'Pachuca':['#0066CC','#003366'],'Puebla':['#003087','#001855'],
+  'Pumas':['#D4A017','#8B6914'],'Querétaro':['#00A0DC','#0066AA'],
+  'Santos':['#228822','#115511'],'Tigres':['#FFD700','#CC9900'],
+  'Tijuana':['#880000','#440000'],'Toluca':['#CC0000','#880000'],
+};
+
+function logoFallback(imgEl) {
+  var team = imgEl.getAttribute('data-team')||'';
+  var size = parseInt(imgEl.getAttribute('data-size')||'56');
+  var g = TEAM_GRADIENT[team]||['#444','#222'];
+  var abbr = TEAM_ABBR[team]||team.slice(0,3).toUpperCase();
+  var fs = size>45?11:8;
+  var id = 'gf'+Math.random().toString(36).slice(2,6);
+  imgEl.outerHTML = '<svg width="'+size+'" height="'+size+'" viewBox="0 0 '+size+' '+size+'" xmlns="http://www.w3.org/2000/svg">'
+    +'<defs><linearGradient id="'+id+'" x1="0%" y1="0%" x2="100%" y2="100%">'
+    +'<stop offset="0%" stop-color="'+g[0]+'"/><stop offset="100%" stop-color="'+g[1]+'"/>'
+    +'</linearGradient></defs>'
+    +'<circle cx="'+(size/2)+'" cy="'+(size/2)+'" r="'+(size/2-1)+'" fill="url(#'+id+')" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>'
+    +'<text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" '
+    +'font-family="Barlow Condensed,sans-serif" font-weight="700" font-size="'+fs+'" fill="white">'+abbr+'</text>'
+    +'</svg>';
+}
+
+function logoSVG(team, size) {
+  size = size||56;
+  var src = TEAM_IMAGES[team];
+  var g = TEAM_GRADIENT[team]||['#444','#222'];
+  var abbr = TEAM_ABBR[team]||team.slice(0,3).toUpperCase();
+  var fs = size>45?11:8;
+  if (src) {
+    return '<img src="'+src+'" width="'+size+'" height="'+size+'" '
+      +'data-team="'+team+'" data-size="'+size+'" '
+      +'style="border-radius:50%;object-fit:contain;background:#fff;padding:4px;border:2px solid rgba(255,255,255,.2);" '
+      +'alt="'+team+'" onerror="logoFallback(this)">';
+  }
+  var id='gs'+Math.random().toString(36).slice(2,6);
+  return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 '+size+' '+size+'" xmlns="http://www.w3.org/2000/svg">'
+    +'<defs><linearGradient id="'+id+'" x1="0%" y1="0%" x2="100%" y2="100%">'
+    +'<stop offset="0%" stop-color="'+g[0]+'"/><stop offset="100%" stop-color="'+g[1]+'"/>'
+    +'</linearGradient></defs>'
+    +'<circle cx="'+(size/2)+'" cy="'+(size/2)+'" r="'+(size/2-1)+'" fill="url(#'+id+')" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>'
+    +'<text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" '
+    +'font-family="Barlow Condensed,sans-serif" font-weight="700" font-size="'+fs+'" fill="white">'+abbr+'</text>'
+    +'</svg>';
 }
 
 window.addEventListener('DOMContentLoaded',init);
