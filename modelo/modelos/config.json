@@ -1,0 +1,26 @@
+{
+  "alpha": 0.5500000000000002,
+  "precision_test": 0.4533333480358124,
+  "total_partidos": 1495,
+  "torneos": 10,
+  "equipos": [
+    "América",
+    "Atl. San Luis",
+    "Atlas",
+    "Cruz Azul",
+    "FC Juárez",
+    "Guadalajara",
+    "León",
+    "Mazatlán",
+    "Monterrey",
+    "Necaxa",
+    "Pachuca",
+    "Puebla",
+    "Pumas",
+    "Querétaro",
+    "Santos",
+    "Tigres",
+    "Tijuana",
+    "Toluca"
+  ]
+}

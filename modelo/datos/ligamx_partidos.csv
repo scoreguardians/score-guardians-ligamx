@@ -1,0 +1,1496 @@
+tournament,round,date,home,hg,ag,away,resultado,resultado_num,total_goles
+Apertura 2021,1,22/jul/21,Querétaro,0,0,América,E,1,0
+Apertura 2021,1,23/jul/21,Necaxa,0,3,Santos,V,2,3
+Apertura 2021,1,23/jul/21,FC Juárez,1,3,Toluca,V,2,4
+Apertura 2021,1,24/jul/21,Pachuca,4,0,León,L,0,4
+Apertura 2021,1,24/jul/21,Guadalajara,1,2,Atl. San Luis,V,2,3
+Apertura 2021,1,25/jul/21,Pumas,0,0,Atlas,E,1,0
+Apertura 2021,1,25/jul/21,Monterrey,1,1,Puebla,E,1,2
+Apertura 2021,1,25/jul/21,Tijuana,1,2,Tigres,V,2,3
+Apertura 2021,1,26/jul/21,Cruz Azul,0,2,Mazatlán,V,2,2
+Apertura 2021,2,30/jul/21,Mazatlán,2,1,Pachuca,L,0,3
+Apertura 2021,2,30/jul/21,Puebla,0,2,Guadalajara,V,2,2
+Apertura 2021,2,31/jul/21,León,2,1,Tijuana,L,0,3
+Apertura 2021,2,31/jul/21,América,2,1,Necaxa,L,0,3
+Apertura 2021,2,31/jul/21,Monterrey,2,0,Pumas,L,0,2
+Apertura 2021,2,31/jul/21,Atlas,2,0,FC Juárez,L,0,2
+Apertura 2021,2,01/ago/21,Toluca,3,1,Tigres,L,0,4
+Apertura 2021,2,01/ago/21,Santos,1,1,Cruz Azul,E,1,2
+Apertura 2021,2,02/ago/21,Atl. San Luis,1,1,Querétaro,E,1,2
+Apertura 2021,3,05/ago/21,Querétaro,0,1,León,V,2,1
+Apertura 2021,3,06/ago/21,Mazatlán,1,1,Monterrey,E,1,2
+Apertura 2021,3,06/ago/21,Necaxa,1,2,Cruz Azul,V,2,3
+Apertura 2021,3,06/ago/21,Tijuana,0,2,Toluca,V,2,2
+Apertura 2021,3,07/ago/21,Guadalajara,2,2,FC Juárez,E,1,4
+Apertura 2021,3,07/ago/21,América,2,0,Puebla,L,0,2
+Apertura 2021,3,07/ago/21,Tigres,1,1,Santos,E,1,2
+Apertura 2021,3,08/ago/21,Pumas,1,3,Atl. San Luis,V,2,4
+Apertura 2021,3,09/ago/21,Pachuca,0,1,Atlas,V,2,1
+Apertura 2021,4,12/ago/21,Atl. San Luis,0,2,Necaxa,V,2,2
+Apertura 2021,4,13/ago/21,Puebla,1,1,Tigres,E,1,2
+Apertura 2021,4,13/ago/21,FC Juárez,1,1,Tijuana,E,1,2
+Apertura 2021,4,14/ago/21,Pumas,0,0,Querétaro,E,1,0
+Apertura 2021,4,14/ago/21,León,3,0,Mazatlán,L,0,3
+Apertura 2021,4,14/ago/21,Cruz Azul,4,0,Toluca,L,0,4
+Apertura 2021,4,14/ago/21,Monterrey,3,1,Pachuca,L,0,4
+Apertura 2021,4,15/ago/21,Atlas,0,1,América,V,2,1
+Apertura 2021,4,15/ago/21,Santos,0,0,Guadalajara,E,1,0
+Apertura 2021,5,17/ago/21,Toluca,2,2,Mazatlán,E,1,4
+Apertura 2021,5,17/ago/21,Tigres,3,0,Querétaro,L,0,3
+Apertura 2021,5,18/ago/21,Cruz Azul,1,1,Monterrey,E,1,2
+Apertura 2021,5,18/ago/21,Santos,1,1,Atlas,E,1,2
+Apertura 2021,5,18/ago/21,Guadalajara,0,3,León,V,2,3
+Apertura 2021,5,18/ago/21,FC Juárez,1,2,América,V,2,3
+Apertura 2021,5,19/ago/21,Pumas,2,0,Puebla,L,0,2
+Apertura 2021,5,28/sep/21,Necaxa,3,0,Tijuana,L,0,3
+Apertura 2021,5,03/nov/21,Pachuca,0,0,Atl. San Luis,E,1,0
+Apertura 2021,6,20/ago/21,Mazatlán,0,3,Tigres,V,2,3
+Apertura 2021,6,21/ago/21,Atlas,0,0,Toluca,E,1,0
+Apertura 2021,6,21/ago/21,León,1,1,Santos,E,1,2
+Apertura 2021,6,21/ago/21,Atl. San Luis,0,0,Cruz Azul,E,1,0
+Apertura 2021,6,21/ago/21,Monterrey,0,0,Guadalajara,E,1,0
+Apertura 2021,6,22/ago/21,Pumas,2,0,Puebla,L,0,2
+Apertura 2021,6,22/ago/21,América,2,0,Tijuana,L,0,2
+Apertura 2021,6,22/ago/21,Necaxa,1,0,FC Juárez,L,0,1
+Apertura 2021,6,22/ago/21,Querétaro,0,2,Pachuca,V,2,2
+Apertura 2021,7,27/ago/21,Mazatlán,2,2,Atl. San Luis,E,1,4
+Apertura 2021,7,27/ago/21,Puebla,1,0,Querétaro,L,0,1
+Apertura 2021,7,27/ago/21,Tijuana,2,2,Monterrey,E,1,4
+Apertura 2021,7,28/ago/21,Guadalajara,2,1,Necaxa,L,0,3
+Apertura 2021,7,28/ago/21,Tigres,1,1,Atlas,E,1,2
+Apertura 2021,7,28/ago/21,León,1,1,América,E,1,2
+Apertura 2021,7,29/ago/21,Toluca,2,1,Pumas,L,0,3
+Apertura 2021,7,29/ago/21,Santos,2,0,FC Juárez,L,0,2
+Apertura 2021,7,29/ago/21,Cruz Azul,1,1,Pachuca,E,1,2
+Apertura 2021,8,10/sep/21,Puebla,2,2,Atl. San Luis,E,1,4
+Apertura 2021,8,10/sep/21,FC Juárez,2,1,Cruz Azul,L,0,3
+Apertura 2021,8,10/sep/21,Tijuana,2,1,Santos,L,0,3
+Apertura 2021,8,11/sep/21,Atlas,2,1,Monterrey,L,0,3
+Apertura 2021,8,11/sep/21,Tigres,2,2,León,E,1,4
+Apertura 2021,8,11/sep/21,América,2,0,Mazatlán,L,0,2
+Apertura 2021,8,12/sep/21,Pumas,0,0,Guadalajara,E,1,0
+Apertura 2021,8,12/sep/21,Querétaro,3,0,Necaxa,L,0,3
+Apertura 2021,8,13/sep/21,Pachuca,1,2,Toluca,V,2,3
+Apertura 2021,9,16/sep/21,Atl. San Luis,4,1,Tijuana,L,0,5
+Apertura 2021,9,17/sep/21,Necaxa,0,3,Atlas,V,2,3
+Apertura 2021,9,18/sep/21,León,0,1,FC Juárez,V,2,1
+Apertura 2021,9,18/sep/21,Toluca,3,1,América,L,0,4
+Apertura 2021,9,18/sep/21,Guadalajara,1,0,Pachuca,L,0,1
+Apertura 2021,9,18/sep/21,Mazatlán,2,2,Pumas,E,1,4
+Apertura 2021,9,19/sep/21,Cruz Azul,2,0,Querétaro,L,0,2
+Apertura 2021,9,19/sep/21,Monterrey,2,0,Tigres,L,0,2
+Apertura 2021,9,19/sep/21,Santos,1,1,Puebla,E,1,2
+Apertura 2021,10,23/sep/21,Pachuca,1,0,Necaxa,L,0,1
+Apertura 2021,10,24/sep/21,Puebla,1,1,Cruz Azul,E,1,2
+Apertura 2021,10,24/sep/21,Tijuana,0,0,Mazatlán,E,1,0
+Apertura 2021,10,25/sep/21,Atlas,2,0,León,L,0,2
+Apertura 2021,10,25/sep/21,Tigres,0,0,Pumas,E,1,0
+Apertura 2021,10,25/sep/21,América,0,0,Guadalajara,E,1,0
+Apertura 2021,10,26/sep/21,Toluca,1,2,Atl. San Luis,V,2,3
+Apertura 2021,10,26/sep/21,Santos,1,2,Monterrey,V,2,3
+Apertura 2021,10,30/sep/21,FC Juárez,0,0,Querétaro,E,1,0
+Apertura 2021,11,22/sep/21,Monterrey,2,0,Toluca,L,0,2
+Apertura 2021,11,28/sep/21,Necaxa,3,0,Tijuana,L,0,3
+Apertura 2021,11,28/sep/21,Mazatlán,3,1,FC Juárez,L,0,4
+Apertura 2021,11,28/sep/21,Atlas,0,1,Puebla,V,2,1
+Apertura 2021,11,28/sep/21,Pachuca,1,1,América,E,1,2
+Apertura 2021,11,29/sep/21,Atl. San Luis,0,3,Tigres,V,2,3
+Apertura 2021,11,29/sep/21,Querétaro,1,0,Guadalajara,L,0,1
+Apertura 2021,11,03/nov/21,Cruz Azul,0,1,León,V,2,1
+Apertura 2021,11,04/nov/21,Pumas,0,3,Santos,V,2,3
+Apertura 2021,12,01/oct/21,Puebla,1,2,Pachuca,V,2,3
+Apertura 2021,12,01/oct/21,FC Juárez,3,1,Monterrey,L,0,4
+Apertura 2021,12,02/oct/21,León,0,0,Atl. San Luis,E,1,0
+Apertura 2021,12,02/oct/21,Santos,1,0,Mazatlán,L,0,1
+Apertura 2021,12,02/oct/21,Guadalajara,0,1,Atlas,V,2,1
+Apertura 2021,12,03/oct/21,América,2,0,Pumas,L,0,2
+Apertura 2021,12,03/oct/21,Toluca,1,1,Querétaro,E,1,2
+Apertura 2021,12,03/oct/21,Tigres,0,0,Necaxa,E,1,0
+Apertura 2021,12,03/oct/21,Tijuana,0,1,Cruz Azul,V,2,1
+Apertura 2021,13,14/oct/21,Querétaro,1,1,Tijuana,E,1,2
+Apertura 2021,13,15/oct/21,Necaxa,0,1,Puebla,V,2,1
+Apertura 2021,13,15/oct/21,Mazatlán,1,0,Atlas,L,0,1
+Apertura 2021,13,16/oct/21,Monterrey,0,1,León,V,2,1
+Apertura 2021,13,16/oct/21,Atl. San Luis,0,1,América,V,2,1
+Apertura 2021,13,16/oct/21,Cruz Azul,1,1,Tigres,E,1,2
+Apertura 2021,13,17/oct/21,Pumas,1,0,FC Juárez,L,0,1
+Apertura 2021,13,17/oct/21,Guadalajara,2,0,Toluca,L,0,2
+Apertura 2021,13,18/oct/21,Pachuca,1,1,Santos,E,1,2
+Apertura 2021,14,19/oct/21,Querétaro,1,0,Monterrey,L,0,1
+Apertura 2021,14,19/oct/21,Puebla,2,0,Mazatlán,L,0,2
+Apertura 2021,14,19/oct/21,América,2,1,Santos,L,0,3
+Apertura 2021,14,19/oct/21,Atlas,0,0,Cruz Azul,E,1,0
+Apertura 2021,14,20/oct/21,Toluca,1,1,Necaxa,E,1,2
+Apertura 2021,14,20/oct/21,Tigres,3,0,Pachuca,L,0,3
+Apertura 2021,14,20/oct/21,Tijuana,0,0,Guadalajara,E,1,0
+Apertura 2021,14,20/oct/21,Pumas,1,2,León,V,2,3
+Apertura 2021,14,21/oct/21,FC Juárez,1,0,Atl. San Luis,L,0,1
+Apertura 2021,15,22/oct/21,Mazatlán,2,1,Querétaro,L,0,3
+Apertura 2021,15,23/oct/21,Puebla,0,1,León,V,2,1
+Apertura 2021,15,23/oct/21,Monterrey,0,1,Necaxa,V,2,1
+Apertura 2021,15,23/oct/21,América,1,0,Tigres,L,0,1
+Apertura 2021,15,23/oct/21,Guadalajara,1,1,Cruz Azul,E,1,2
+Apertura 2021,15,24/oct/21,Pumas,3,1,Tijuana,L,0,4
+Apertura 2021,15,24/oct/21,Atl. San Luis,2,6,Atlas,V,2,8
+Apertura 2021,15,24/oct/21,Santos,2,2,Toluca,E,1,4
+Apertura 2021,15,25/oct/21,Pachuca,1,1,FC Juárez,E,1,2
+Apertura 2021,16,28/oct/21,Atlas,0,2,Tijuana,V,2,2
+Apertura 2021,16,29/oct/21,Necaxa,2,1,Mazatlán,L,0,3
+Apertura 2021,16,29/oct/21,FC Juárez,0,2,Puebla,V,2,2
+Apertura 2021,16,30/oct/21,Querétaro,2,3,Santos,V,2,5
+Apertura 2021,16,30/oct/21,Pachuca,1,1,Pumas,E,1,2
+Apertura 2021,16,30/oct/21,Tigres,2,1,Guadalajara,L,0,3
+Apertura 2021,16,31/oct/21,Toluca,0,0,León,E,1,0
+Apertura 2021,16,31/oct/21,Cruz Azul,2,1,América,L,0,3
+Apertura 2021,16,31/oct/21,Atl. San Luis,1,1,Monterrey,E,1,2
+Apertura 2021,17,04/nov/21,Atlas,2,0,Querétaro,L,0,2
+Apertura 2021,17,05/nov/21,Puebla,1,0,Toluca,L,0,1
+Apertura 2021,17,05/nov/21,Mazatlán,0,1,Guadalajara,V,2,1
+Apertura 2021,17,06/nov/21,León,3,0,Necaxa,L,0,3
+Apertura 2021,17,06/nov/21,América,0,0,Monterrey,E,1,0
+Apertura 2021,17,06/nov/21,Tigres,3,0,FC Juárez,L,0,3
+Apertura 2021,17,07/nov/21,Tijuana,3,2,Pachuca,L,0,5
+Apertura 2021,17,07/nov/21,Pumas,4,3,Cruz Azul,L,0,7
+Apertura 2021,17,07/nov/21,Santos,0,0,Atl. San Luis,E,1,0
+Clausura 2022,1,06/ene/22,Atl. San Luis,0,2,Pachuca,V,2,2
+Clausura 2022,1,07/ene/22,FC Juárez,2,1,Necaxa,L,0,3
+Clausura 2022,1,07/ene/22,Puebla,1,1,América,E,1,2
+Clausura 2022,1,08/ene/22,Monterrey,0,0,Querétaro,E,1,0
+Clausura 2022,1,08/ene/22,Cruz Azul,2,0,Tijuana,L,0,2
+Clausura 2022,1,08/ene/22,Guadalajara,3,0,Mazatlán,L,0,3
+Clausura 2022,1,09/ene/22,Pumas,5,0,Toluca,L,0,5
+Clausura 2022,1,12/ene/22,Santos,1,1,Tigres,E,1,2
+Clausura 2022,1,19/ene/22,León,1,1,Atlas,E,1,2
+Clausura 2022,2,14/ene/22,Querétaro,0,0,Pumas,E,1,0
+Clausura 2022,2,14/ene/22,Necaxa,0,4,Monterrey,V,2,4
+Clausura 2022,2,15/ene/22,Atlas,1,0,Atl. San Luis,L,0,1
+Clausura 2022,2,15/ene/22,Tigres,0,2,Puebla,V,2,2
+Clausura 2022,2,15/ene/22,Cruz Azul,1,0,FC Juárez,L,0,1
+Clausura 2022,2,15/ene/22,Tijuana,1,1,León,E,1,2
+Clausura 2022,2,16/ene/22,Toluca,3,1,Santos,L,0,4
+Clausura 2022,2,16/ene/22,Pachuca,2,1,Guadalajara,L,0,3
+Clausura 2022,2,16/feb/22,Mazatlán,2,1,América,L,0,3
+Clausura 2022,3,20/ene/22,Atl. San Luis,1,0,FC Juárez,L,0,1
+Clausura 2022,3,21/ene/22,Mazatlán,1,2,Toluca,V,2,3
+Clausura 2022,3,22/ene/22,Guadalajara,1,1,Querétaro,E,1,2
+Clausura 2022,3,22/ene/22,León,2,1,Pachuca,L,0,3
+Clausura 2022,3,22/ene/22,América,0,2,Atlas,V,2,2
+Clausura 2022,3,22/ene/22,Monterrey,2,2,Cruz Azul,E,1,4
+Clausura 2022,3,23/ene/22,Pumas,1,2,Tigres,V,2,3
+Clausura 2022,3,23/ene/22,Santos,1,4,Necaxa,V,2,5
+Clausura 2022,3,28/ene/22,Puebla,3,1,Tijuana,L,0,4
+Clausura 2022,4,05/feb/22,Necaxa,1,3,Pachuca,V,2,4
+Clausura 2022,4,05/feb/22,América,2,3,Atl. San Luis,V,2,5
+Clausura 2022,4,05/feb/22,Tijuana,1,0,Pumas,L,0,1
+Clausura 2022,4,05/feb/22,Tigres,4,3,Mazatlán,L,0,7
+Clausura 2022,4,05/feb/22,León,0,1,Cruz Azul,V,2,1
+Clausura 2022,4,06/feb/22,Querétaro,0,2,Puebla,V,2,2
+Clausura 2022,4,06/feb/22,Atlas,2,1,Santos,L,0,3
+Clausura 2022,4,06/feb/22,Tigres,4,3,Mazatlán,L,0,7
+Clausura 2022,4,09/feb/22,FC Juárez,1,3,Guadalajara,V,2,4
+Clausura 2022,4,06/abr/22,Toluca,2,2,Monterrey,E,1,4
+Clausura 2022,5,11/feb/22,Mazatlán,2,0,Tijuana,L,0,2
+Clausura 2022,5,11/feb/22,Puebla,1,1,Atlas,E,1,2
+Clausura 2022,5,12/feb/22,Atl. San Luis,0,1,Toluca,V,2,1
+Clausura 2022,5,12/feb/22,Guadalajara,1,3,Tigres,V,2,4
+Clausura 2022,5,12/feb/22,Cruz Azul,1,2,Necaxa,V,2,3
+Clausura 2022,5,12/feb/22,Santos,2,3,América,V,2,5
+Clausura 2022,5,13/feb/22,Pumas,2,1,León,L,0,3
+Clausura 2022,5,14/feb/22,Pachuca,2,2,Querétaro,E,1,4
+Clausura 2022,5,08/mar/22,Monterrey,3,0,FC Juárez,L,0,3
+Clausura 2022,6,18/fev/22,Puebla,1,0,Monterrey,L,0,1
+Clausura 2022,6,18/feb/22,FC Juárez,0,0,Santos,E,1,0
+Clausura 2022,6,18/feb/22,Tijuana,1,1,Necaxa,E,1,2
+Clausura 2022,6,19/feb/22,Querétaro,1,1,Mazatlán,E,1,2
+Clausura 2022,6,19/feb/22,Tigres,2,1,Atl. San Luis,L,0,3
+Clausura 2022,6,19/feb/22,León,2,1,Guadalajara,L,0,3
+Clausura 2022,6,20/feb/22,América,1,3,Pachuca,V,2,4
+Clausura 2022,6,20/feb/22,Toluca,1,4,Cruz Azul,V,2,5
+Clausura 2022,6,20/feb/22,Atlas,0,0,Pumas,E,1,0
+Clausura 2022,7,24/feb/22,Pachuca,3,1,Mazatlán,L,0,4
+Clausura 2022,7,24/feb/22,Querétaro,1,1,Toluca,E,1,2
+Clausura 2022,7,25/feb/22,Necaxa,0,1,León,V,2,1
+Clausura 2022,7,25/feb/22,FC Juárez,2,3,Tigres,V,2,5
+Clausura 2022,7,25/feb/22,Tijuana,2,0,Atlas,L,0,2
+Clausura 2022,7,26/feb/22,Monterrey,0,2,Atl. San Luis,V,2,2
+Clausura 2022,7,26/feb/22,Guadalajara,2,3,Puebla,V,2,5
+Clausura 2022,7,26/feb/22,Pumas,0,0,América,E,1,0
+Clausura 2022,7,27/feb/22,Cruz Azul,1,2,Santos,V,2,3
+Clausura 2022,8,01/mar/22,Puebla,1,1,FC Juárez,E,1,2
+Clausura 2022,8,01/mar/22,León,0,0,Monterrey,E,1,0
+Clausura 2022,8,01/mar/22,América,1,1,Querétaro,E,1,2
+Clausura 2022,8,01/mar/22,Mazatlán,0,0,Necaxa,E,1,0
+Clausura 2022,8,02/mar/22,Atlas,0,1,Pachuca,V,2,1
+Clausura 2022,8,02/mar/22,Tigres,2,2,Cruz Azul,E,1,4
+Clausura 2022,8,02/mar/22,Atl. San Luis,2,2,Guadalajara,E,1,4
+Clausura 2022,8,02/mar/22,Santos,3,2,Pumas,L,0,5
+Clausura 2022,8,03/mar/22,Toluca,1,2,Tijuana,V,2,3
+Clausura 2022,9,04/mar/22,Necaxa,0,1,Toluca,V,2,1
+Clausura 2022,9,04/mar/22,FC Juárez,0,1,Atlas,V,2,1
+Clausura 2022,9,05/mar/22,Monterrey,2,1,América,L,0,3
+Clausura 2022,9,05/mar/22,Cruz Azul,1,3,Puebla,V,2,4
+Clausura 2022,9,05/mar/22,Guadalajara,1,0,Santos,L,0,1
+Clausura 2022,9,06/mar/22,Pumas,1,1,Mazatlán,E,1,2
+Clausura 2022,9,06/mar/22,Pachuca,2,1,Tigres,L,0,3
+Clausura 2022,9,06/mar/22,Tijuana,2,1,Atl. San Luis,L,0,3
+Clausura 2022,10,11/mar/22,Necaxa,1,0,Querétaro,L,0,1
+Clausura 2022,10,11/mar/22,FC Juárez,1,2,León,V,2,3
+Clausura 2022,10,12/mar/22,León,0,3,Tigres,V,2,3
+Clausura 2022,10,12/mar/22,Cruz Azul,2,1,Pumas,L,0,3
+Clausura 2022,10,12/mar/22,Guadalajara,0,0,América,E,1,0
+Clausura 2022,10,13/mar/22,Toluca,0,3,Pachuca,V,2,3
+Clausura 2022,10,13/mar/22,Atl. San Luis,2,1,Puebla,L,0,3
+Clausura 2022,10,13/mar/22,Santos,4,0,Tijuana,L,0,4
+Clausura 2022,10,20/mar/22,Mazatlán,1,2,Monterrey,V,2,3
+Clausura 2022,11,17/mar/22,Querétaro,2,1,Atl. San Luis,L,0,3
+Clausura 2022,11,18/mar/22,Puebla,2,2,Santos,E,1,4
+Clausura 2022,11,20/mar/22,Pumas,1,3,Necaxa,V,2,4
+Clausura 2022,11,20/mar/22,América,3,0,Toluca,L,0,3
+Clausura 2022,11,20/mar/22,Atlas,1,1,Guadalajara,E,1,2
+Clausura 2022,11,20/mar/22,Mazatlán,1,0,León,L,0,1
+Clausura 2022,11,20/mar/22,Tigres,2,0,Monterrey,L,0,2
+Clausura 2022,11,20/mar/22,Pachuca,1,0,Cruz Azul,L,0,1
+Clausura 2022,11,20/mar/22,Tijuana,1,0,FC Juárez,L,0,1
+Clausura 2022,12,01/abr/22,Atl. San Luis,1,0,Mazatlán,L,0,1
+Clausura 2022,12,02/abr/22,Cruz Azul,1,0,Atlas,L,0,1
+Clausura 2022,12,02/abr/22,Necaxa,0,1,América,V,2,1
+Clausura 2022,12,02/abr/22,FC Juárez,0,1,Pumas,V,2,1
+Clausura 2022,12,03/abr/22,Toluca,2,1,Puebla,L,0,3
+Clausura 2022,12,03/abr/22,León,1,1,Querétaro,E,1,2
+Clausura 2022,12,03/abr/22,Tigres,2,0,Tijuana,L,0,2
+Clausura 2022,12,03/abr/22,Santos,3,1,Pachuca,L,0,4
+Clausura 2022,12,13/abr/22,Guadalajara,1,3,Monterrey,V,2,4
+Clausura 2022,13,07/abr/22,Atlas,2,1,Necaxa,L,0,3
+Clausura 2022,13,08/abr/22,Puebla,2,2,Pumas,E,1,4
+Clausura 2022,13,08/abr/22,Mazatlán,1,1,Cruz Azul,E,1,2
+Clausura 2022,13,09/abr/22,Atl. San Luis,2,0,León,L,0,2
+Clausura 2022,13,09/abr/22,Toluca,1,1,Guadalajara,E,1,2
+Clausura 2022,13,09/abr/22,Monterrey,1,0,Santos,L,0,1
+Clausura 2022,13,09/abr/22,América,3,0,FC Juárez,L,0,3
+Clausura 2022,13,10/abr/22,Querétaro,0,1,Tigres,V,2,1
+Clausura 2022,13,11/abr/22,Pachuca,0,0,Tijuana,E,1,0
+Clausura 2022,14,14/abr/22,Atlas,1,2,Mazatlán,V,2,3
+Clausura 2022,14,15/abr/22,Necaxa,4,2,Atl. San Luis,L,0,6
+Clausura 2022,14,15/abr/22,FC Juárez,1,2,Pachuca,V,2,3
+Clausura 2022,14,15/abr/22,Tijuana,1,3,América,V,2,4
+Clausura 2022,14,16/abr/22,León,0,1,Puebla,V,2,1
+Clausura 2022,14,16/abr/22,Santos,1,1,Querétaro,E,1,2
+Clausura 2022,14,16/abr/22,Tigres,3,0,Toluca,L,0,3
+Clausura 2022,14,16/abr/22,Cruz Azul,0,1,Guadalajara,V,2,1
+Clausura 2022,14,17/abr/22,Pumas,2,0,Monterrey,L,0,2
+Clausura 2022,15,19/abr/22,Pachuca,1,0,Puebla,L,0,1
+Clausura 2022,15,19/abr/22,Necaxa,2,0,Tigres,L,0,2
+Clausura 2022,15,19/abr/22,Mazatlán,1,0,Santos,L,0,1
+Clausura 2022,15,19/abr/22,Guadalajara,2,1,Tijuana,L,0,3
+Clausura 2022,15,20/abr/22,Atl. San Luis,2,0,Pumas,L,0,2
+Clausura 2022,15,20/abr/22,América,2,0,León,L,0,2
+Clausura 2022,15,20/abr/22,Monterrey,0,0,Atlas,E,1,0
+Clausura 2022,15,21/abr/22,Querétaro,0,1,Cruz Azul,V,2,1
+Clausura 2022,15,22/abr/22,FC Juárez,0,1,Toluca,V,2,1
+Clausura 2022,16,22/abr/22,Puebla,0,1,Necaxa,V,2,1
+Clausura 2022,16,22/abr/22,FC Juárez,0,2,Mazatlán,V,2,2
+Clausura 2022,16,23/abr/22,Pachuca,3,0,Monterrey,L,0,3
+Clausura 2022,16,23/abr/22,Tigres,0,2,América,V,2,2
+Clausura 2022,16,23/abr/22,Guadalajara,2,1,Pumas,L,0,3
+Clausura 2022,16,24/abr/22,Toluca,2,4,Atlas,V,2,6
+Clausura 2022,16,24/abr/22,Cruz Azul,0,1,Atl. San Luis,V,2,1
+Clausura 2022,16,24/abr/22,Santos,1,1,León,E,1,2
+Clausura 2022,16,24/abr/22,Tijuana,2,2,Querétaro,E,1,4
+Clausura 2022,17,29/abr/22,Necaxa,0,1,Guadalajara,V,2,1
+Clausura 2022,17,29/abr/22,Mazatlán,2,1,Puebla,L,0,3
+Clausura 2022,17,30/abr/22,Querétaro,4,1,FC Juárez,L,0,5
+Clausura 2022,17,30/abr/22,Atlas,1,1,Tigres,E,1,2
+Clausura 2022,17,30/abr/22,Monterrey,2,0,Tijuana,L,0,2
+Clausura 2022,17,30/abr/22,América,0,0,Cruz Azul,E,1,0
+Clausura 2022,17,01/may/22,Pumas,2,0,Pachuca,L,0,2
+Clausura 2022,17,01/may/22,Atl. San Luis,1,3,Santos,V,2,4
+Clausura 2022,17,01/may/22,León,4,4,Toluca,E,1,8
+Apertura 2022,1,01/jul/22,Necaxa,1,3,Toluca,V,2,4
+Apertura 2022,1,01/jul/22,Mazatlán,2,4,Puebla,V,2,6
+Apertura 2022,1,02/jul/22,Guadalajara,0,0,FC Juárez,E,1,0
+Apertura 2022,1,02/jul/22,Tigres,2,3,Cruz Azul,V,2,5
+Apertura 2022,1,02/jul/22,América,0,0,Atlas,E,1,0
+Apertura 2022,1,03/jul/22,Pumas,1,1,Tijuana,E,1,2
+Apertura 2022,1,03/jul/22,Atl. San Luis,1,2,León,V,2,3
+Apertura 2022,1,03/jul/22,Santos,4,3,Monterrey,L,0,7
+Apertura 2022,1,04/jul/22,Pachuca,2,0,Querétaro,L,0,2
+Apertura 2022,2,08/jul/22,Mazatlán,0,1,Tigres,V,2,1
+Apertura 2022,2,08/jul/22,Puebla,1,0,Santos,L,0,1
+Apertura 2022,2,08/jul/22,Tijuana,0,2,FC Juárez,V,2,2
+Apertura 2022,2,09/jul/22,León,3,3,Pumas,E,1,6
+Apertura 2022,2,09/jul/22,Guadalajara,0,1,Atl. San Luis,V,2,1
+Apertura 2022,2,09/jul/22,Cruz Azul,1,2,Pachuca,V,2,3
+Apertura 2022,2,09/jul/22,Monterrey,3,2,América,L,0,5
+Apertura 2022,2,10/jul/22,Toluca,3,2,Atlas,L,0,5
+Apertura 2022,2,10/jul/22,Querétaro,1,2,Necaxa,V,2,3
+Apertura 2022,3,13/jul/22,América,1,0,Toluca,L,0,1
+Apertura 2022,3,13/jul/22,Puebla,1,1,León,E,1,2
+Apertura 2022,3,13/jul/22,FC Juárez,1,1,Querétaro,E,1,2
+Apertura 2022,3,14/jul/22,Atlas,3,2,Cruz Azul,L,0,5
+Apertura 2022,3,15/jul/22,Querétaro,0,3,Monterrey,V,2,3
+Apertura 2022,3,16/jul/22,Atlas,3,2,Cruz Azul,L,0,5
+Apertura 2022,3,16/jul/22,Santos,1,1,Guadalajara,E,1,2
+Apertura 2022,3,17/jul/22,Pumas,1,0,Necaxa,L,0,1
+Apertura 2022,3,17/jul/22,Tigres,1,0,Tijuana,L,0,1
+Apertura 2022,3,17/jul/22,Pachuca,1,1,Mazatlán,E,1,2
+Apertura 2022,4,20/jul/22,Guadalajara,0,0,León,E,1,0
+Apertura 2022,4,21/jul/22,Querétaro,0,3,Monterrey,V,2,3
+Apertura 2022,4,22/jul/22,Mazatlán,1,1,Pumas,E,1,2
+Apertura 2022,4,22/jul/22,Necaxa,1,0,FC Juárez,L,0,1
+Apertura 2022,4,23/jul/22,Toluca,2,1,Santos,L,0,3
+Apertura 2022,4,23/jul/22,Cruz Azul,2,2,Puebla,E,1,4
+Apertura 2022,4,23/jul/22,Tijuana,2,0,América,L,0,2
+Apertura 2022,4,23/jul/22,Tigres,2,0,Atlas,L,0,2
+Apertura 2022,4,24/jul/22,Pachuca,0,0,Atl. San Luis,E,1,0
+Apertura 2022,5,26/jul/22,Monterrey,1,0,Puebla,L,0,1
+Apertura 2022,5,26/jul/22,FC Juárez,0,1,Tigres,V,2,1
+Apertura 2022,5,26/jul/22,Atlas,1,2,Tijuana,V,2,3
+Apertura 2022,5,26/jul/22,Atl. San Luis,0,0,Cruz Azul,E,1,0
+Apertura 2022,5,26/jul/22,León,0,1,Toluca,V,2,1
+Apertura 2022,5,27/jul/22,Querétaro,2,2,Guadalajara,E,1,4
+Apertura 2022,5,27/jul/22,Necaxa,2,0,Pachuca,L,0,2
+Apertura 2022,5,27/jul/22,Pumas,1,1,Mazatlán,E,1,2
+Apertura 2022,5,14/sep/22,América,3,3,Santos,E,1,6
+Apertura 2022,6,29/jul/22,FC Juárez,1,1,Toluca,E,1,2
+Apertura 2022,6,30/jul/22,Cruz Azul,1,0,Necaxa,L,0,1
+Apertura 2022,6,30/jul/22,Tigres,2,1,Querétaro,L,0,3
+Apertura 2022,6,30/jul/22,Guadalajara,0,0,Pachuca,E,1,0
+Apertura 2022,6,30/jul/22,Puebla,0,0,Atl. San Luis,E,1,0
+Apertura 2022,6,31/jul/22,Pumas,1,1,Monterrey,E,1,2
+Apertura 2022,6,31/jul/22,Santos,1,0,Atlas,L,0,1
+Apertura 2022,6,31/jul/22,León,3,2,América,L,0,5
+Apertura 2022,6,01/ago/22,Mazatlán,2,0,Tijuana,L,0,2
+Apertura 2022,7,04/ago/22,Atlas,1,2,Querétaro,V,2,3
+Apertura 2022,7,05/ago/22,Mazatlán,2,1,Guadalajara,L,0,3
+Apertura 2022,7,06/ago/22,Monterrey,5,1,León,L,0,6
+Apertura 2022,7,06/ago/22,Santos,4,0,Cruz Azul,L,0,4
+Apertura 2022,7,07/ago/22,Toluca,3,1,Tijuana,L,0,4
+Apertura 2022,7,07/ago/22,Atl. San Luis,1,2,Necaxa,V,2,3
+Apertura 2022,7,07/ago/22,Pachuca,2,0,Tigres,L,0,2
+Apertura 2022,7,07/ago/22,América,2,1,FC Juárez,L,0,3
+Apertura 2022,7,23/sep/22,Puebla,2,2,Pumas,E,1,4
+Apertura 2022,8,11/ago/22,Querétaro,1,1,Atl. San Luis,E,1,2
+Apertura 2022,8,12/ago/22,Necaxa,1,2,Monterrey,V,2,3
+Apertura 2022,8,12/ago/22,Tijuana,3,3,Puebla,E,1,6
+Apertura 2022,8,13/ago/22,León,0,3,Mazatlán,V,2,3
+Apertura 2022,8,13/ago/22,Pumas,0,3,América,V,2,3
+Apertura 2022,8,13/ago/22,Guadalajara,1,1,Atlas,E,1,2
+Apertura 2022,8,14/ago/22,Cruz Azul,2,3,Tijuana,V,2,5
+Apertura 2022,8,14/ago/22,Tigres,2,0,Santos,L,0,2
+Apertura 2022,8,14/ago/22,Toluca,3,1,Pachuca,L,0,4
+Apertura 2022,9,16/ago/22,Atlas,0,1,FC Juárez,V,2,1
+Apertura 2022,9,16/ago/22,Mazatlán,1,1,Querétaro,E,1,2
+Apertura 2022,9,16/ago/22,Puebla,2,2,Necaxa,E,1,4
+Apertura 2022,9,17/ago/22,Toluca,1,4,Monterrey,V,2,5
+Apertura 2022,9,17/ago/22,Cruz Azul,1,2,Tijuana,V,2,3
+Apertura 2022,9,17/ago/22,Pachuca,0,3,América,V,2,3
+Apertura 2022,9,17/ago/22,Santos,2,1,León,L,0,3
+Apertura 2022,9,18/ago/22,Atl. San Luis,2,0,Pumas,L,0,2
+Apertura 2022,9,13/sep/22,Guadalajara,1,4,Tigres,V,2,5
+Apertura 2022,10,19/ago/22,Necaxa,0,4,Guadalajara,V,2,4
+Apertura 2022,10,20/ago/22,Querétaro,1,1,Tijuana,E,1,2
+Apertura 2022,10,20/ago/22,Atlas,1,1,Puebla,E,1,2
+Apertura 2022,10,20/ago/22,Monterrey,0,0,Tigres,E,1,0
+Apertura 2022,10,20/ago/22,América,7,0,Cruz Azul,L,0,7
+Apertura 2022,10,20/ago/22,FC Juárez,1,1,Mazatlán,E,1,2
+Apertura 2022,10,21/ago/22,Pumas,1,5,Santos,V,2,6
+Apertura 2022,10,21/ago/22,Atl. San Luis,1,0,Toluca,L,0,1
+Apertura 2022,10,21/ago/22,Pachuca,1,0,León,L,0,1
+Apertura 2022,11,26/ago/22,Puebla,1,1,FC Juárez,E,1,2
+Apertura 2022,11,26/ago/22,Mazatlán,1,3,América,V,2,4
+Apertura 2022,11,27/ago/22,Cruz Azul,2,1,Querétaro,L,0,3
+Apertura 2022,11,27/ago/22,Tigres,0,0,Necaxa,E,1,0
+Apertura 2022,11,27/ago/22,Guadalajara,3,1,Pumas,L,0,4
+Apertura 2022,11,28/ago/22,Toluca,1,4,Pachuca,V,2,5
+Apertura 2022,11,28/ago/22,León,4,2,Atlas,L,0,6
+Apertura 2022,11,28/ago/22,Santos,4,1,Atl. San Luis,L,0,5
+Apertura 2022,11,28/ago/22,Tijuana,0,3,Monterrey,V,2,3
+Apertura 2022,12,01/sep/22,Querétaro,1,1,Puebla,E,1,2
+Apertura 2022,12,02/sep/22,Necaxa,3,2,León,L,0,5
+Apertura 2022,12,02/sep/22,FC Juárez,2,2,Cruz Azul,E,1,4
+Apertura 2022,12,03/sep/22,Pachuca,2,0,Santos,L,0,2
+Apertura 2022,12,03/sep/22,Monterrey,0,0,Mazatlán,E,1,0
+Apertura 2022,12,03/sep/22,Atlas,0,0,Pumas,E,1,0
+Apertura 2022,12,03/sep/22,América,2,1,Tigres,L,0,3
+Apertura 2022,12,04/sep/22,Toluca,0,0,Guadalajara,E,1,0
+Apertura 2022,12,04/sep/22,Atl. San Luis,0,0,Tijuana,E,1,0
+Apertura 2022,13,06/sep/22,León,1,0,FC Juárez,L,0,1
+Apertura 2022,13,06/sep/22,Santos,3,1,Necaxa,L,0,4
+Apertura 2022,13,06/sep/22,Monterrey,3,2,Cruz Azul,L,0,5
+Apertura 2022,13,06/sep/22,América,3,0,Atl. San Luis,L,0,3
+Apertura 2022,13,07/sep/22,Puebla,2,2,Pachuca,E,1,4
+Apertura 2022,13,07/sep/22,Tigres,3,1,Toluca,L,0,4
+Apertura 2022,13,07/sep/22,Mazatlán,1,0,Atlas,L,0,1
+Apertura 2022,13,07/sep/22,Pumas,4,1,Querétaro,L,0,5
+Apertura 2022,13,07/sep/22,Tijuana,1,2,Guadalajara,V,2,3
+Apertura 2022,14,09/sep/22,FC Juárez,0,1,Monterrey,V,2,1
+Apertura 2022,14,10/sep/22,Querétaro,3,3,Santos,E,1,6
+Apertura 2022,14,10/sep/22,Necaxa,1,2,América,V,2,3
+Apertura 2022,14,10/sep/22,Tigres,0,1,León,V,2,1
+Apertura 2022,14,10/sep/22,Toluca,2,2,Pumas,E,1,4
+Apertura 2022,14,10/sep/22,Guadalajara,1,0,Puebla,L,0,1
+Apertura 2022,14,11/sep/22,Cruz Azul,2,0,Mazatlán,L,0,2
+Apertura 2022,14,11/sep/22,Atlas,1,3,Atl. San Luis,V,2,4
+Apertura 2022,14,11/sep/22,Pachuca,6,1,Tijuana,L,0,7
+Apertura 2022,15,16/sep/22,Puebla,2,1,Tigres,L,0,3
+Apertura 2022,15,16/sep/22,Mazatlán,1,1,Toluca,E,1,2
+Apertura 2022,15,17/sep/22,Monterrey,2,0,Atlas,L,0,2
+Apertura 2022,15,17/sep/22,América,2,1,Guadalajara,L,0,3
+Apertura 2022,15,18/sep/22,Pumas,1,2,Cruz Azul,V,2,3
+Apertura 2022,15,18/sep/22,Santos,2,0,FC Juárez,L,0,2
+Apertura 2022,15,18/sep/22,León,3,1,Querétaro,L,0,4
+Apertura 2022,15,18/sep/22,Atl. San Luis,1,2,Pachuca,V,2,3
+Apertura 2022,15,18/sep/22,Tijuana,1,1,Necaxa,E,1,2
+Apertura 2022,16,02/ago/22,Toluca,1,1,Puebla,E,1,2
+Apertura 2022,16,23/ago/22,Guadalajara,1,0,Monterrey,L,0,1
+Apertura 2022,16,24/ago/22,Querétaro,0,1,América,V,2,1
+Apertura 2022,16,24/ago/22,Pumas,1,1,Tigres,E,1,2
+Apertura 2022,16,22/sep/22,Necaxa,2,2,Mazatlán,E,1,4
+Apertura 2022,16,24/sep/22,Atlas,1,0,Necaxa,L,0,1
+Apertura 2022,16,24/sep/22,Tigres,2,1,Atl. San Luis,L,0,3
+Apertura 2022,16,25/sep/22,Cruz Azul,2,1,Guadalajara,L,0,3
+Apertura 2022,16,30/sep/22,FC Juárez,3,1,Pumas,L,0,4
+Apertura 2022,17,30/sep/22,Puebla,1,2,América,V,2,3
+Apertura 2022,17,30/sep/22,FC Juárez,3,1,Pumas,L,0,4
+Apertura 2022,17,01/oct/22,Atl. San Luis,0,3,Tigres,V,2,3
+Apertura 2022,17,01/oct/22,Monterrey,0,0,Pachuca,E,1,0
+Apertura 2022,17,01/oct/22,Atlas,1,0,Necaxa,L,0,1
+Apertura 2022,17,01/oct/22,Cruz Azul,2,1,Guadalajara,L,0,3
+Apertura 2022,17,02/oct/22,Toluca,4,1,Querétaro,L,0,5
+Apertura 2022,17,02/oct/22,Santos,3,0,Mazatlán,L,0,3
+Apertura 2022,17,02/oct/22,León,2,2,Tijuana,E,1,4
+Clausura 2023,1,06/ene/23,Necaxa,2,3,Atl. San Luis,V,2,5
+Clausura 2023,1,07/ene/23,América,0,0,Querétaro,E,1,0
+Clausura 2023,1,07/ene/23,Monterrey,0,1,Guadalajara,V,2,1
+Clausura 2023,1,08/ene/23,Pumas,2,1,FC Juárez,L,0,3
+Clausura 2023,1,08/ene/23,Santos,0,3,Tigres,V,2,3
+Clausura 2023,1,08/ene/23,Tijuana,1,1,Cruz Azul,E,1,2
+Clausura 2023,1,09/ene/23,Pachuca,5,1,Puebla,L,0,6
+Clausura 2023,1,01/feb/23,Atlas,0,0,Toluca,E,1,0
+Clausura 2023,1,24/mar/23,Mazatlán,1,2,León,V,2,3
+Clausura 2023,2,12/ene/23,Atlas,2,1,Mazatlán,L,0,3
+Clausura 2023,2,13/ene/23,Atl. San Luis,0,0,Guadalajara,E,1,0
+Clausura 2023,2,13/ene/23,Puebla,2,0,Querétaro,L,0,2
+Clausura 2023,2,14/ene/23,Cruz Azul,2,3,Monterrey,V,2,5
+Clausura 2023,2,14/ene/23,Toluca,2,2,América,E,1,4
+Clausura 2023,2,14/ene/23,FC Juárez,3,0,Tijuana,L,0,3
+Clausura 2023,2,14/ene/23,Santos,3,0,Pumas,L,0,3
+Clausura 2023,2,15/ene/23,Tigres,4,1,Pachuca,L,0,5
+Clausura 2023,2,16/ene/23,León,2,1,Necaxa,L,0,3
+Clausura 2023,3,20/ene/23,Mazatlán,1,2,Santos,V,2,3
+Clausura 2023,3,20/ene/23,Tijuana,1,1,Tigres,E,1,2
+Clausura 2023,3,21/ene/23,Monterrey,3,1,Atl. San Luis,L,0,4
+Clausura 2023,3,21/ene/23,América,2,2,Puebla,E,1,4
+Clausura 2023,3,21/ene/23,Guadalajara,1,2,Toluca,V,2,3
+Clausura 2023,3,21/ene/23,Necaxa,1,0,Cruz Azul,L,0,1
+Clausura 2023,3,22/ene/23,Pumas,4,1,León,L,0,5
+Clausura 2023,3,22/ene/23,Querétaro,3,3,Atlas,E,1,6
+Clausura 2023,3,22/ene/23,Pachuca,4,1,FC Juárez,L,0,5
+Clausura 2023,4,26/ene/23,Atlas,2,2,Santos,E,1,4
+Clausura 2023,4,27/ene/23,Puebla,1,2,Monterrey,V,2,3
+Clausura 2023,4,27/ene/23,Tijuana,0,0,Pumas,E,1,0
+Clausura 2023,4,28/ene/23,Tigres,0,0,Atl. San Luis,E,1,0
+Clausura 2023,4,28/ene/23,FC Juárez,1,2,Guadalajara,V,2,3
+Clausura 2023,4,28/ene/23,América,6,0,Mazatlán,L,0,6
+Clausura 2023,4,29/ene/23,Toluca,0,0,León,E,1,0
+Clausura 2023,4,29/ene/23,Pachuca,2,1,Necaxa,L,0,3
+Clausura 2023,4,29/mar/23,Querétaro,2,2,Cruz Azul,E,1,4
+Clausura 2023,5,02/feb/23,Atl. San Luis,2,0,Puebla,L,0,2
+Clausura 2023,5,03/feb/23,Necaxa,1,1,Tijuana,E,1,2
+Clausura 2023,5,03/feb/23,Mazatlán,2,3,FC Juárez,V,2,5
+Clausura 2023,5,04/feb/23,León,0,1,Pachuca,V,2,1
+Clausura 2023,5,04/feb/23,Cruz Azul,0,1,Tigres,V,2,1
+Clausura 2023,5,04/feb/23,Santos,2,2,América,E,1,4
+Clausura 2023,5,05/feb/23,Pumas,2,2,Atlas,E,1,4
+Clausura 2023,5,05/feb/23,Guadalajara,1,1,Querétaro,E,1,2
+Clausura 2023,5,05/feb/23,Monterrey,2,1,Toluca,L,0,3
+Clausura 2023,6,09/feb/23,Atlas,0,2,Monterrey,V,2,2
+Clausura 2023,6,09/feb/23,Querétaro,0,3,León,V,2,3
+Clausura 2023,6,10/feb/23,Puebla,3,1,Mazatlán,L,0,4
+Clausura 2023,6,10/feb/23,Tijuana,1,0,Atl. San Luis,L,0,1
+Clausura 2023,6,11/feb/23,América,2,1,Necaxa,L,0,3
+Clausura 2023,6,11/feb/23,Tigres,4,2,Pumas,L,0,6
+Clausura 2023,6,11/feb/23,FC Juárez,0,0,Santos,E,1,0
+Clausura 2023,6,11/feb/23,Pachuca,1,1,Guadalajara,E,1,2
+Clausura 2023,6,12/feb/23,Toluca,3,1,Cruz Azul,L,0,4
+Clausura 2023,7,14/feb/23,León,2,0,Puebla,L,0,2
+Clausura 2023,7,14/feb/23,Tigres,0,0,FC Juárez,E,1,0
+Clausura 2023,7,14/feb/23,Atl. San Luis,1,3,América,V,2,4
+Clausura 2023,7,15/feb/23,Monterrey,2,0,Querétaro,L,0,2
+Clausura 2023,7,15/feb/23,Guadalajara,2,1,Tijuana,L,0,3
+Clausura 2023,7,15/feb/23,Necaxa,3,1,Pumas,L,0,4
+Clausura 2023,7,16/feb/23,Mazatlán,2,3,Pachuca,V,2,5
+Clausura 2023,7,22/feb/23,Cruz Azul,1,0,Atlas,L,0,1
+Clausura 2023,7,23/feb/23,Santos,0,5,Toluca,V,2,5
+Clausura 2023,8,17/feb/23,FC Juárez,0,0,León,E,1,0
+Clausura 2023,8,17/feb/23,Puebla,1,3,Cruz Azul,V,2,4
+Clausura 2023,8,18/feb/23,Atl. San Luis,1,1,Santos,E,1,2
+Clausura 2023,8,18/feb/23,Monterrey,2,1,Necaxa,L,0,3
+Clausura 2023,8,18/feb/23,Atlas,0,1,Tigres,V,2,1
+Clausura 2023,8,18/feb/23,Pumas,1,2,Guadalajara,V,2,3
+Clausura 2023,8,19/feb/23,Querétaro,1,1,Mazatlán,E,1,2
+Clausura 2023,8,19/feb/23,América,2,1,Tijuana,L,0,3
+Clausura 2023,8,19/feb/23,Pachuca,1,2,Toluca,V,2,3
+Clausura 2023,9,24/feb/23,Necaxa,1,1,Querétaro,E,1,2
+Clausura 2023,9,24/feb/23,Mazatlán,1,2,Pumas,V,2,3
+Clausura 2023,9,25/feb/23,Cruz Azul,1,0,FC Juárez,L,0,1
+Clausura 2023,9,25/feb/23,Tigres,1,2,Guadalajara,V,2,3
+Clausura 2023,9,25/feb/23,Atlas,2,2,América,E,1,4
+Clausura 2023,9,26/feb/23,Toluca,2,0,Atl. San Luis,L,0,2
+Clausura 2023,9,26/feb/23,Santos,3,2,Puebla,L,0,5
+Clausura 2023,9,26/feb/23,Tijuana,2,0,Pachuca,L,0,2
+Clausura 2023,9,27/feb/23,León,1,1,Monterrey,E,1,2
+Clausura 2023,10,03/mar/23,Necaxa,0,1,Tigres,V,2,1
+Clausura 2023,10,03/mar/23,Mazatlán,1,2,Cruz Azul,V,2,3
+Clausura 2023,10,03/mar/23,Tijuana,1,1,Atlas,E,1,2
+Clausura 2023,10,04/mar/23,León,2,0,Atl. San Luis,L,0,2
+Clausura 2023,10,04/mar/23,Monterrey,3,0,FC Juárez,L,0,3
+Clausura 2023,10,04/mar/23,América,0,3,Pachuca,V,2,3
+Clausura 2023,10,04/mar/23,Guadalajara,2,0,Santos,L,0,2
+Clausura 2023,10,05/mar/23,Pumas,2,4,Puebla,V,2,6
+Clausura 2023,10,05/mar/23,Querétaro,1,0,Toluca,L,0,1
+Clausura 2023,11,10/mar/23,Atl. San Luis,2,0,Querétaro,L,0,2
+Clausura 2023,11,10/mar/23,Puebla,1,0,Guadalajara,L,0,1
+Clausura 2023,11,10/mar/23,FC Juárez,1,1,Necaxa,E,1,2
+Clausura 2023,11,11/mar/23,Atlas,0,1,León,V,2,1
+Clausura 2023,11,11/mar/23,Cruz Azul,1,0,Pumas,L,0,1
+Clausura 2023,11,11/mar/23,Tigres,0,2,América,V,2,2
+Clausura 2023,11,12/mar/23,Toluca,4,1,Mazatlán,L,0,5
+Clausura 2023,11,12/mar/23,Pachuca,1,2,Monterrey,V,2,3
+Clausura 2023,11,12/mar/23,Santos,3,2,Tijuana,L,0,5
+Clausura 2023,12,17/mar/23,Puebla,0,4,Atlas,V,2,4
+Clausura 2023,12,17/mar/23,Mazatlán,0,1,Necaxa,V,2,1
+Clausura 2023,12,17/mar/23,Tijuana,3,3,Toluca,E,1,6
+Clausura 2023,12,18/mar/23,Cruz Azul,1,0,Atl. San Luis,L,0,1
+Clausura 2023,12,18/mar/23,Tigres,0,1,Monterrey,V,2,1
+Clausura 2023,12,18/mar/23,Guadalajara,2,4,América,V,2,6
+Clausura 2023,12,19/mar/23,Pumas,0,2,Pachuca,V,2,2
+Clausura 2023,12,19/mar/23,Querétaro,2,2,FC Juárez,E,1,4
+Clausura 2023,12,19/mar/23,León,4,1,Santos,L,0,5
+Clausura 2023,13,31/mar/23,Necaxa,0,0,Santos,E,1,0
+Clausura 2023,13,31/mar/23,FC Juárez,0,2,Puebla,V,2,2
+Clausura 2023,13,01/abr/23,Pachuca,0,2,Cruz Azul,V,2,2
+Clausura 2023,13,01/abr/23,América,2,2,León,E,1,4
+Clausura 2023,13,01/abr/23,Monterrey,4,0,Tijuana,L,0,4
+Clausura 2023,13,01/abr/23,Atlas,3,3,Guadalajara,E,1,6
+Clausura 2023,13,02/abr/23,Toluca,3,2,Tigres,L,0,5
+Clausura 2023,13,02/abr/23,Atl. San Luis,2,1,Mazatlán,L,0,3
+Clausura 2023,13,02/abr/23,Querétaro,1,0,Pumas,L,0,1
+Clausura 2023,14,07/abr/23,Puebla,1,2,Toluca,V,2,3
+Clausura 2023,14,07/abr/23,Tijuana,1,2,Querétaro,V,2,3
+Clausura 2023,14,08/abr/23,León,0,0,Cruz Azul,E,1,0
+Clausura 2023,14,08/abr/23,Tigres,1,2,Mazatlán,V,2,3
+Clausura 2023,14,08/abr/23,Guadalajara,1,0,Necaxa,L,0,1
+Clausura 2023,14,08/abr/23,América,2,1,Monterrey,L,0,3
+Clausura 2023,14,09/abr/23,Pumas,3,1,Atl. San Luis,L,0,4
+Clausura 2023,14,09/abr/23,Santos,1,4,Pachuca,V,2,5
+Clausura 2023,14,09/abr/23,FC Juárez,1,1,Atlas,E,1,2
+Clausura 2023,15,13/abr/23,Atl. San Luis,2,0,FC Juárez,L,0,2
+Clausura 2023,15,14/abr/23,Necaxa,1,1,Puebla,E,1,2
+Clausura 2023,15,14/abr/23,Mazatlán,1,2,Tijuana,V,2,3
+Clausura 2023,15,15/abr/23,Atlas,4,1,Pachuca,L,0,5
+Clausura 2023,15,15/abr/23,León,0,2,Guadalajara,V,2,2
+Clausura 2023,15,15/abr/23,Cruz Azul,1,3,América,V,2,4
+Clausura 2023,15,16/abr/23,Pumas,3,1,Toluca,L,0,4
+Clausura 2023,15,16/abr/23,Querétaro,0,0,Tigres,E,1,0
+Clausura 2023,15,16/abr/23,Monterrey,1,2,Santos,V,2,3
+Clausura 2023,16,20/abr/23,Tigres,1,0,Puebla,L,0,1
+Clausura 2023,16,21/abr/23,Mazatlán,0,2,Monterrey,V,2,2
+Clausura 2023,16,21/abr/23,Necaxa,1,3,Atlas,V,2,4
+Clausura 2023,16,21/abr/23,Tijuana,0,0,León,E,1,0
+Clausura 2023,16,22/abr/23,Pachuca,2,1,Atl. San Luis,L,0,3
+Clausura 2023,16,22/abr/23,Guadalajara,2,1,Cruz Azul,L,0,3
+Clausura 2023,16,22/abr/23,América,1,1,Pumas,E,1,2
+Clausura 2023,16,23/abr/23,Toluca,1,1,FC Juárez,E,1,2
+Clausura 2023,16,23/abr/23,Santos,0,2,Querétaro,V,2,2
+Clausura 2023,17,28/abr/23,Puebla,5,2,Tijuana,L,0,7
+Clausura 2023,17,28/abr/23,FC Juárez,0,1,América,V,2,1
+Clausura 2023,17,29/abr/23,Atl. San Luis,0,0,Atlas,E,1,0
+Clausura 2023,17,29/abr/23,Monterrey,4,1,Pumas,L,0,5
+Clausura 2023,17,29/abr/23,Guadalajara,4,1,Mazatlán,L,0,5
+Clausura 2023,17,29/abr/23,Cruz Azul,3,2,Santos,L,0,5
+Clausura 2023,17,30/abr/23,Toluca,3,0,Necaxa,L,0,3
+Clausura 2023,17,30/abr/23,Querétaro,0,1,Pachuca,V,2,1
+Clausura 2023,17,30/abr/23,León,3,0,Tigres,L,0,3
+Apertura 2023,1,30/jun/23,América,1,2,FC Juárez,V,2,3
+Apertura 2023,1,30/jun/23,Mazatlán,1,1,Pachuca,E,1,2
+Apertura 2023,1,30/jun/23,Tijuana,2,3,Pumas,V,2,5
+Apertura 2023,1,01/jul/23,Atl. San Luis,1,1,Monterrey,E,1,2
+Apertura 2023,1,01/jul/23,Tigres,1,1,Puebla,E,1,2
+Apertura 2023,1,01/jul/23,Atlas,2,0,Cruz Azul,L,0,2
+Apertura 2023,1,02/jul/23,Toluca,0,0,Necaxa,E,1,0
+Apertura 2023,1,02/jul/23,Santos,0,2,Querétaro,V,2,2
+Apertura 2023,1,03/jul/23,León,1,2,Guadalajara,V,2,3
+Apertura 2023,2,07/jul/23,Puebla,2,3,Santos,V,2,5
+Apertura 2023,2,07/jul/23,Necaxa,1,1,Tijuana,E,1,2
+Apertura 2023,2,08/jul/23,Cruz Azul,0,2,Toluca,V,2,2
+Apertura 2023,2,08/jul/23,Guadalajara,3,1,Atl. San Luis,L,0,4
+Apertura 2023,2,08/jul/23,FC Juárez,1,1,Tigres,E,1,2
+Apertura 2023,2,09/jul/23,Pumas,0,0,Mazatlán,E,1,0
+Apertura 2023,2,09/jul/23,Monterrey,1,0,Atlas,L,0,1
+Apertura 2023,2,10/jul/23,León,4,0,Pachuca,L,0,4
+Apertura 2023,2,20/sep/23,Querétaro,1,2,América,V,2,3
+Apertura 2023,3,13/jul/23,Santos,0,0,Atlas,E,1,0
+Apertura 2023,3,13/jul/23,Guadalajara,2,0,Necaxa,L,0,2
+Apertura 2023,3,14/jul/23,Mazatlán,0,3,Monterrey,V,2,3
+Apertura 2023,3,14/jul/23,Tijuana,2,1,Cruz Azul,L,0,3
+Apertura 2023,3,15/jul/23,Atl. San Luis,4,1,Querétaro,L,0,5
+Apertura 2023,3,15/jul/23,América,3,0,Puebla,L,0,3
+Apertura 2023,3,15/jul/23,Tigres,1,0,León,L,0,1
+Apertura 2023,3,16/jul/23,Toluca,2,4,FC Juárez,V,2,6
+Apertura 2023,3,16/jul/23,Pachuca,1,1,Pumas,E,1,2
+Apertura 2023,4,18/ago/23,León,1,1,Mazatlán,E,1,2
+Apertura 2023,4,18/ago/23,Pumas,1,1,Tigres,E,1,2
+Apertura 2023,4,18/ago/23,Puebla,1,2,Atl. San Luis,V,2,3
+Apertura 2023,4,18/ago/23,FC Juárez,1,1,Guadalajara,E,1,2
+Apertura 2023,4,20/ago/23,Cruz Azul,2,2,Santos,E,1,4
+Apertura 2023,4,20/ago/23,Querétaro,1,1,Pachuca,E,1,2
+Apertura 2023,4,20/ago/23,Atlas,0,0,América,E,1,0
+Apertura 2023,4,20/ago/23,Necaxa,0,3,Tigres,V,2,3
+Apertura 2023,4,30/ago/23,Toluca,1,0,Monterrey,L,0,1
+Apertura 2023,5,22/ago/23,Guadalajara,1,0,Tijuana,L,0,1
+Apertura 2023,5,22/ago/23,Mazatlán,1,0,Puebla,L,0,1
+Apertura 2023,5,22/ago/23,FC Juárez,4,1,Pumas,L,0,5
+Apertura 2023,5,23/ago/23,América,3,2,Necaxa,L,0,5
+Apertura 2023,5,23/ago/23,Pachuca,1,0,Cruz Azul,L,0,1
+Apertura 2023,5,23/ago/23,Atl. San Luis,3,0,León,L,0,3
+Apertura 2023,5,30/ago/23,Tigres,3,2,Santos,L,0,5
+Apertura 2023,5,30/ago/23,Querétaro,1,2,Atlas,V,2,3
+Apertura 2023,5,25/oct/23,Monterrey,3,1,Tijuana,L,0,4
+Apertura 2023,6,25/ago/23,Puebla,1,0,FC Juárez,L,0,1
+Apertura 2023,6,25/ago/23,Tijuana,1,1,Mazatlán,E,1,2
+Apertura 2023,6,26/ago/23,Atlas,0,0,Toluca,E,1,0
+Apertura 2023,6,26/ago/23,América,1,1,León,E,1,2
+Apertura 2023,6,26/ago/23,Santos,2,1,Guadalajara,L,0,3
+Apertura 2023,6,27/ago/23,Necaxa,0,1,Querétaro,V,2,1
+Apertura 2023,6,27/ago/23,Pumas,2,1,Tigres,L,0,3
+Apertura 2023,6,27/ago/23,Monterrey,1,2,Cruz Azul,V,2,3
+Apertura 2023,6,28/ago/23,Pachuca,0,2,Atl. San Luis,V,2,2
+Apertura 2023,7,01/sep/23,FC Juárez,3,1,Mazatlán,L,0,4
+Apertura 2023,7,01/sep/23,Puebla,3,0,Tijuana,L,0,3
+Apertura 2023,7,02/sep/23,León,1,1,Necaxa,E,1,2
+Apertura 2023,7,02/sep/23,Santos,2,1,Pumas,L,0,3
+Apertura 2023,7,02/sep/23,Tigres,5,0,Querétaro,L,0,5
+Apertura 2023,7,02/sep/23,Cruz Azul,2,3,América,V,2,5
+Apertura 2023,7,03/sep/23,Toluca,5,0,Pachuca,L,0,5
+Apertura 2023,7,03/sep/23,Guadalajara,1,2,Monterrey,V,2,3
+Apertura 2023,7,03/sep/23,Atl. San Luis,2,0,Atlas,L,0,2
+Apertura 2023,8,15/sep/23,Mazatlán,2,2,Cruz Azul,E,1,4
+Apertura 2023,8,15/sep/23,Tijuana,2,1,Toluca,L,0,3
+Apertura 2023,8,16/sep/23,Necaxa,1,1,FC Juárez,E,1,2
+Apertura 2023,8,16/sep/23,Monterrey,3,1,León,L,0,4
+Apertura 2023,8,16/sep/23,América,4,0,Guadalajara,L,0,4
+Apertura 2023,8,17/sep/23,Pumas,3,2,Atl. San Luis,L,0,5
+Apertura 2023,8,17/sep/23,Querétaro,1,2,Puebla,V,2,3
+Apertura 2023,8,17/sep/23,Atlas,2,0,Tigres,L,0,2
+Apertura 2023,8,18/sep/23,Pachuca,3,2,Santos,L,0,5
+Apertura 2023,9,22/sep/23,Atl. San Luis,3,2,Mazatlán,L,0,5
+Apertura 2023,9,22/sep/23,FC Juárez,1,2,Atlas,V,2,3
+Apertura 2023,9,23/sep/23,León,1,0,Tijuana,L,0,1
+Apertura 2023,9,23/sep/23,Guadalajara,0,0,Pachuca,E,1,0
+Apertura 2023,9,23/sep/23,Tigres,3,0,Monterrey,L,0,3
+Apertura 2023,9,24/sep/23,Toluca,1,1,América,E,1,2
+Apertura 2023,9,24/sep/23,Cruz Azul,1,3,Querétaro,V,2,4
+Apertura 2023,9,24/sep/23,Santos,2,5,Necaxa,V,2,7
+Apertura 2023,9,24/sep/23,Pumas,0,2,Puebla,V,2,2
+Apertura 2023,10,28/sep/23,Atlas,2,3,Puebla,V,2,5
+Apertura 2023,10,29/sep/23,Querétaro,1,1,León,E,1,2
+Apertura 2023,10,29/sep/23,Tijuana,5,1,FC Juárez,L,0,6
+Apertura 2023,10,30/sep/23,Pachuca,1,1,Necaxa,E,1,2
+Apertura 2023,10,30/sep/23,América,1,0,Pumas,L,0,1
+Apertura 2023,10,30/sep/23,Mazatlán,2,3,Tigres,V,2,5
+Apertura 2023,10,01/oct/23,Toluca,3,1,Guadalajara,L,0,4
+Apertura 2023,10,01/oct/23,Cruz Azul,2,1,Atl. San Luis,L,0,3
+Apertura 2023,10,08/nov/23,Monterrey,3,0,Santos,L,0,3
+Apertura 2023,11,03/oct/23,Puebla,1,1,Monterrey,E,1,2
+Apertura 2023,11,03/oct/23,América,4,0,Pachuca,L,0,4
+Apertura 2023,11,03/oct/23,Guadalajara,4,1,Mazatlán,L,0,5
+Apertura 2023,11,04/oct/23,Necaxa,1,3,Cruz Azul,V,2,4
+Apertura 2023,11,04/oct/23,Pumas,4,0,Querétaro,L,0,4
+Apertura 2023,11,04/oct/23,Tigres,2,2,Toluca,E,1,4
+Apertura 2023,11,04/oct/23,León,1,1,Atlas,E,1,2
+Apertura 2023,11,04/oct/23,Santos,2,1,Tijuana,L,0,3
+Apertura 2023,11,25/oct/23,FC Juárez,0,1,Atl. San Luis,V,2,1
+Apertura 2023,12,06/oct/23,Mazatlán,1,2,América,V,2,3
+Apertura 2023,12,07/oct/23,Monterrey,3,1,FC Juárez,L,0,4
+Apertura 2023,12,07/oct/23,Pachuca,1,1,Tigres,E,1,2
+Apertura 2023,12,07/oct/23,Guadalajara,4,1,Atlas,L,0,5
+Apertura 2023,12,07/oct/23,Cruz Azul,1,4,Pumas,V,2,5
+Apertura 2023,12,08/oct/23,Toluca,3,1,Querétaro,L,0,4
+Apertura 2023,12,08/oct/23,Necaxa,1,2,Puebla,V,2,3
+Apertura 2023,12,08/oct/23,Santos,0,2,León,V,2,2
+Apertura 2023,12,08/oct/23,Tijuana,2,1,Atl. San Luis,L,0,3
+Apertura 2023,13,20/oct/23,Atlas,1,3,Mazatlán,V,2,4
+Apertura 2023,13,20/oct/23,FC Juárez,0,1,Pachuca,V,2,1
+Apertura 2023,13,20/oct/23,Puebla,0,2,Guadalajara,V,2,2
+Apertura 2023,13,21/oct/23,León,1,0,Toluca,L,0,1
+Apertura 2023,13,21/oct/23,América,1,0,Santos,L,0,1
+Apertura 2023,13,21/oct/23,Querétaro,1,0,Tijuana,L,0,1
+Apertura 2023,13,21/oct/23,Tigres,2,1,Cruz Azul,L,0,3
+Apertura 2023,13,22/oct/23,Pumas,0,1,Monterrey,V,2,1
+Apertura 2023,13,22/oct/23,Atl. San Luis,4,0,Necaxa,L,0,4
+Apertura 2023,14,27/oct/23,Necaxa,1,0,Pumas,L,0,1
+Apertura 2023,14,27/oct/23,Mazatlán,3,0,Querétaro,L,0,3
+Apertura 2023,14,28/oct/23,Cruz Azul,1,0,León,L,0,1
+Apertura 2023,14,28/oct/23,Pachuca,1,1,Puebla,E,1,2
+Apertura 2023,14,28/oct/23,Guadalajara,0,4,Tigres,V,2,4
+Apertura 2023,14,28/oct/23,Monterrey,0,3,América,V,2,3
+Apertura 2023,14,29/oct/23,Toluca,3,1,Atl. San Luis,L,0,4
+Apertura 2023,14,29/oct/23,Santos,5,1,FC Juárez,L,0,6
+Apertura 2023,14,29/oct/23,Tijuana,2,0,Atlas,L,0,2
+Apertura 2023,15,31/oct/23,Toluca,0,1,Puebla,V,2,1
+Apertura 2023,15,31/oct/23,Querétaro,1,2,Guadalajara,V,2,3
+Apertura 2023,15,31/oct/23,León,1,1,Pumas,E,1,2
+Apertura 2023,15,31/oct/23,Monterrey,3,0,Necaxa,L,0,3
+Apertura 2023,15,31/oct/23,Tigres,4,0,Tijuana,L,0,4
+Apertura 2023,15,01/nov/23,Atlas,0,2,Pachuca,V,2,2
+Apertura 2023,15,01/nov/23,Cruz Azul,2,0,FC Juárez,L,0,2
+Apertura 2023,15,01/nov/23,Atl. San Luis,0,1,América,V,2,1
+Apertura 2023,15,01/nov/23,Mazatlán,3,1,Santos,L,0,4
+Apertura 2023,16,03/nov/23,Puebla,5,4,León,L,0,9
+Apertura 2023,16,04/nov/23,Tigres,2,2,Atl. San Luis,E,1,4
+Apertura 2023,16,04/nov/23,América,3,0,Tijuana,L,0,3
+Apertura 2023,16,04/nov/23,Pachuca,0,2,Monterrey,V,2,2
+Apertura 2023,16,04/nov/23,Guadalajara,1,0,Cruz Azul,L,0,1
+Apertura 2023,16,05/nov/23,Pumas,3,0,Atlas,L,0,3
+Apertura 2023,16,05/nov/23,Necaxa,4,0,Mazatlán,L,0,4
+Apertura 2023,16,05/nov/23,Santos,3,1,Toluca,L,0,4
+Apertura 2023,16,05/nov/23,FC Juárez,0,3,Querétaro,V,2,3
+Apertura 2023,17,10/nov/23,Atlas,0,0,Necaxa,E,1,0
+Apertura 2023,17,10/nov/23,Mazatlán,1,0,Toluca,L,0,1
+Apertura 2023,17,10/nov/23,Tijuana,2,3,Pachuca,V,2,5
+Apertura 2023,17,11/nov/23,Atl. San Luis,0,2,Santos,V,2,2
+Apertura 2023,17,11/nov/23,Querétaro,0,0,Monterrey,E,1,0
+Apertura 2023,17,11/nov/23,Pumas,1,0,Guadalajara,L,0,1
+Apertura 2023,17,11/nov/23,Tigres,0,0,América,E,1,0
+Apertura 2023,17,12/nov/23,Cruz Azul,1,2,Puebla,V,2,3
+Apertura 2023,17,12/nov/23,León,2,1,FC Juárez,L,0,3
+Clausura 2024,1,12/ene/24,Querétaro,2,2,Toluca,E,1,4
+Clausura 2024,1,12/ene/24,Mazatlán,0,1,Atl. San Luis,V,2,1
+Clausura 2024,1,13/ene/24,Cruz Azul,0,1,Pachuca,V,2,1
+Clausura 2024,1,13/ene/24,Guadalajara,1,1,Santos,E,1,2
+Clausura 2024,1,13/ene/24,Monterrey,2,0,Puebla,L,0,2
+Clausura 2024,1,13/ene/24,Tijuana,0,2,América,V,2,2
+Clausura 2024,1,14/ene/24,Pumas,1,0,FC Juárez,L,0,1
+Clausura 2024,1,14/ene/24,Necaxa,2,1,Atlas,L,0,3
+Clausura 2024,1,17/ene/24,León,1,2,Tigres,V,2,3
+Clausura 2024,2,19/ene/24,Puebla,1,2,Necaxa,V,2,3
+Clausura 2024,2,19/ene/24,FC Juárez,0,0,Cruz Azul,E,1,0
+Clausura 2024,2,20/ene/24,Atl. San Luis,3,1,Pumas,L,0,4
+Clausura 2024,2,20/ene/24,América,2,0,Querétaro,L,0,2
+Clausura 2024,2,20/ene/24,Toluca,4,1,Mazatlán,L,0,5
+Clausura 2024,2,20/ene/24,Atlas,0,0,Tijuana,E,1,0
+Clausura 2024,2,21/ene/24,Tigres,1,0,Guadalajara,L,0,1
+Clausura 2024,2,21/ene/24,Santos,0,2,Monterrey,V,2,2
+Clausura 2024,2,21/ene/24,Pachuca,3,2,León,L,0,5
+Clausura 2024,3,26/ene/24,Puebla,1,1,Toluca,E,1,2
+Clausura 2024,3,26/ene/24,Tijuana,1,1,Guadalajara,E,1,2
+Clausura 2024,3,27/ene/24,Cruz Azul,2,1,Mazatlán,L,0,3
+Clausura 2024,3,27/ene/24,León,3,2,Santos,L,0,5
+Clausura 2024,3,27/ene/24,Monterrey,3,1,Atl. San Luis,L,0,4
+Clausura 2024,3,27/ene/24,Necaxa,0,0,América,E,1,0
+Clausura 2024,3,28/ene/24,Pumas,3,1,Pachuca,L,0,4
+Clausura 2024,3,28/ene/24,Atlas,2,1,FC Juárez,L,0,3
+Clausura 2024,3,28/ene/24,Querétaro,1,1,Tigres,E,1,2
+Clausura 2024,4,30/ene/24,Cruz Azul,1,0,Tijuana,L,0,1
+Clausura 2024,4,30/ene/24,Mazatlán,2,2,León,E,1,4
+Clausura 2024,4,30/ene/24,Guadalajara,3,2,Toluca,L,0,5
+Clausura 2024,4,31/ene/24,Pachuca,4,3,Atlas,L,0,7
+Clausura 2024,4,31/ene/24,Pumas,2,2,Necaxa,E,1,4
+Clausura 2024,4,24/ene/24,Atl. San Luis,1,2,Tigres,V,2,3
+Clausura 2024,4,24/ene/24,Monterrey,1,1,Querétaro,E,1,2
+Clausura 2024,4,24/ene/24,FC Juárez,0,2,América,V,2,2
+Clausura 2024,4,21/feb/24,Santos,3,0,Puebla,L,0,3
+Clausura 2024,5,02/feb/24,Querétaro,1,3,Cruz Azul,V,2,4
+Clausura 2024,5,02/feb/24,Puebla,3,2,Mazatlán,L,0,5
+Clausura 2024,5,03/feb/24,Toluca,4,1,León,L,0,5
+Clausura 2024,5,03/feb/24,FC Juárez,2,2,Necaxa,E,1,4
+Clausura 2024,5,03/feb/24,Tigres,2,2,Pumas,E,1,4
+Clausura 2024,5,03/feb/24,Pachuca,3,2,Tijuana,L,0,5
+Clausura 2024,5,03/feb/24,América,1,1,Monterrey,E,1,2
+Clausura 2024,5,04/feb/24,Atlas,3,0,Santos,L,0,3
+Clausura 2024,5,04/feb/24,Atl. San Luis,0,2,Guadalajara,V,2,2
+Clausura 2024,6,09/feb/24,Mazatlán,2,0,Atlas,L,0,2
+Clausura 2024,6,09/feb/24,Tijuana,1,1,Querétaro,E,1,2
+Clausura 2024,6,10/feb/24,Necaxa,3,3,Toluca,E,1,6
+Clausura 2024,6,10/feb/24,Guadalajara,2,1,FC Juárez,L,0,3
+Clausura 2024,6,10/feb/24,León,0,1,América,V,2,1
+Clausura 2024,6,10/feb/24,Cruz Azul,3,0,Atl. San Luis,L,0,3
+Clausura 2024,6,10/feb/24,Monterrey,3,2,Pachuca,L,0,5
+Clausura 2024,6,10/feb/24,Santos,0,3,Tigres,V,2,3
+Clausura 2024,6,11/feb/24,Pumas,3,0,Puebla,L,0,3
+Clausura 2024,7,16/feb/24,Querétaro,1,1,Necaxa,E,1,2
+Clausura 2024,7,16/feb/24,Mazatlán,2,2,Guadalajara,E,1,4
+Clausura 2024,7,17/feb/24,Atl. San Luis,3,3,Tijuana,E,1,6
+Clausura 2024,7,17/feb/24,FC Juárez,0,3,Monterrey,V,2,3
+Clausura 2024,7,17/feb/24,Pachuca,2,1,América,L,0,3
+Clausura 2024,7,17/feb/24,Cruz Azul,1,0,Tigres,L,0,1
+Clausura 2024,7,18/feb/24,Atlas,0,1,León,V,2,1
+Clausura 2024,7,18/feb/24,Pumas,3,0,Santos,L,0,3
+Clausura 2024,7,20/feb/24,Puebla,1,4,Toluca,V,2,5
+Clausura 2024,8,23/feb/24,Puebla,0,2,Querétaro,V,2,2
+Clausura 2024,8,23/feb/24,Necaxa,1,1,Pachuca,E,1,2
+Clausura 2024,8,23/feb/24,FC Juárez,0,3,Mazatlán,V,2,3
+Clausura 2024,8,24/feb/24,León,1,0,Atl. San Luis,L,0,1
+Clausura 2024,8,24/feb/24,Tigres,1,1,Atlas,E,1,2
+Clausura 2024,8,24/feb/24,Guadalajara,3,1,Pumas,L,0,4
+Clausura 2024,8,24/feb/24,América,1,0,Cruz Azul,L,0,1
+Clausura 2024,8,25/feb/24,Toluca,1,0,Tijuana,L,0,1
+Clausura 2024,8,25/feb/24,Santos,0,3,Monterrey,V,2,3
+Clausura 2024,9,20/feb/24,Puebla,1,4,Toluca,V,2,5
+Clausura 2024,9,21/feb/24,América,2,2,Mazatlán,E,1,4
+Clausura 2024,9,21/feb/24,León,0,0,Cruz Azul,E,1,0
+Clausura 2024,9,21/feb/24,Necaxa,1,1,Guadalajara,E,1,2
+Clausura 2024,9,27/feb/24,Querétaro,4,1,Atl. San Luis,L,0,5
+Clausura 2024,9,28/feb/24,Tigres,1,0,FC Juárez,L,0,1
+Clausura 2024,9,28/feb/24,Tijuana,1,1,Monterrey,E,1,2
+Clausura 2024,9,01/mar/24,Atlas,1,5,América,V,2,6
+Clausura 2024,9,02/mar/24,Pachuca,3,2,FC Juárez,L,0,5
+Clausura 2024,10,01/mar/24,Atl. San Luis,4,0,Puebla,L,0,4
+Clausura 2024,10,01/mar/24,Mazatlán,2,1,Necaxa,L,0,3
+Clausura 2024,10,02/mar/24,Toluca,2,1,Tigres,L,0,3
+Clausura 2024,10,02/mar/24,Pachuca,1,1,FC Juárez,E,1,2
+Clausura 2024,10,02/mar/24,Cruz Azul,3,0,Guadalajara,L,0,3
+Clausura 2024,10,02/mar/24,Atlas,1,5,América,V,2,6
+Clausura 2024,10,03/mar/24,Monterrey,3,0,Pumas,L,0,3
+Clausura 2024,10,03/mar/24,Tijuana,1,1,León,E,1,2
+Clausura 2024,10,01/mar/24,Querétaro,0,1,Santos,V,2,1
+Clausura 2024,11,08/mar/24,Puebla,2,2,Atlas,E,1,4
+Clausura 2024,11,08/mar/24,FC Juárez,1,1,Toluca,E,1,2
+Clausura 2024,11,08/mar/24,Necaxa,3,1,Atl. San Luis,L,0,4
+Clausura 2024,11,08/mar/24,Mazatlán,1,2,Monterrey,V,2,3
+Clausura 2024,11,09/mar/24,Guadalajara,1,2,León,V,2,3
+Clausura 2024,11,09/mar/24,Santos,3,0,Cruz Azul,L,0,3
+Clausura 2024,11,09/mar/24,América,2,0,Tigres,L,0,2
+Clausura 2024,11,10/mar/24,Pumas,3,3,Tijuana,E,1,6
+Clausura 2024,11,09/mar/24,Pachuca,1,2,Querétaro,V,2,3
+Clausura 2024,12,15/mar/24,Querétaro,1,0,FC Juárez,L,0,1
+Clausura 2024,12,15/mar/24,Tijuana,2,2,Santos,E,1,4
+Clausura 2024,12,16/mar/24,Cruz Azul,1,2,Necaxa,V,2,3
+Clausura 2024,12,16/mar/24,León,1,0,Puebla,L,0,1
+Clausura 2024,12,16/mar/24,Tigres,5,1,Mazatlán,L,0,6
+Clausura 2024,12,16/mar/24,Guadalajara,0,0,América,E,1,0
+Clausura 2024,12,17/mar/24,Atlas,1,2,Monterrey,V,2,3
+Clausura 2024,12,17/mar/24,Atl. San Luis,2,1,Pachuca,L,0,3
+Clausura 2024,12,17/mar/24,Toluca,3,0,Pumas,L,0,3
+Clausura 2024,13,29/mar/24,Puebla,2,3,Tigres,V,2,5
+Clausura 2024,13,29/mar/24,Mazatlán,2,0,Tijuana,L,0,2
+Clausura 2024,13,30/mar/24,Pachuca,2,3,Toluca,V,2,5
+Clausura 2024,13,30/mar/24,Monterrey,0,2,Guadalajara,V,2,2
+Clausura 2024,13,30/mar/24,Pumas,0,0,Cruz Azul,E,1,0
+Clausura 2024,13,31/mar/24,Atlas,2,3,Querétaro,V,2,5
+Clausura 2024,13,31/mar/24,Necaxa,1,2,León,V,2,3
+Clausura 2024,13,31/mar/24,FC Juárez,2,1,Santos,L,0,3
+Clausura 2024,13,29/mar/24,América,2,1,Atl. San Luis,L,0,3
+Clausura 2024,14,05/abr/24,Mazatlán,0,4,Pumas,V,2,4
+Clausura 2024,14,05/abr/24,Tijuana,2,3,Necaxa,V,2,5
+Clausura 2024,14,06/abr/24,León,0,2,Querétaro,V,2,2
+Clausura 2024,14,06/abr/24,Tigres,0,3,Pachuca,V,2,3
+Clausura 2024,14,06/abr/24,Guadalajara,3,2,Puebla,L,0,5
+Clausura 2024,14,06/abr/24,Cruz Azul,2,1,Monterrey,L,0,3
+Clausura 2024,14,06/abr/24,Santos,1,1,América,E,1,2
+Clausura 2024,14,07/abr/24,Toluca,4,1,Atl. San Luis,L,0,5
+Clausura 2024,14,07/abr/24,FC Juárez,2,1,Atlas,L,0,3
+Clausura 2024,15,12/abr/24,Querétaro,0,2,Mazatlán,V,2,2
+Clausura 2024,15,12/abr/24,Necaxa,2,0,Santos,L,0,2
+Clausura 2024,15,12/abr/24,Puebla,0,1,Cruz Azul,V,2,1
+Clausura 2024,15,13/abr/24,Pachuca,0,1,Guadalajara,V,2,1
+Clausura 2024,15,13/abr/24,América,5,1,Toluca,L,0,6
+Clausura 2024,15,13/abr/24,Monterrey,3,3,Tigres,E,1,6
+Clausura 2024,15,14/abr/24,Atlas,2,1,Atl. San Luis,L,0,3
+Clausura 2024,15,14/abr/24,Pumas,1,0,León,L,0,1
+Clausura 2024,15,14/abr/24,FC Juárez,0,1,Tijuana,V,2,1
+Clausura 2024,16,19/abr/24,Mazatlán,0,2,FC Juárez,V,2,2
+Clausura 2024,16,19/abr/24,Atl. San Luis,1,5,Toluca,V,2,6
+Clausura 2024,16,19/abr/24,Tijuana,3,1,Puebla,L,0,4
+Clausura 2024,16,20/abr/24,León,2,0,Monterrey,L,0,2
+Clausura 2024,16,20/abr/24,Tigres,5,2,Necaxa,L,0,7
+Clausura 2024,16,20/abr/24,Guadalajara,2,0,Querétaro,L,0,2
+Clausura 2024,16,20/abr/24,Santos,0,2,Pachuca,V,2,2
+Clausura 2024,16,20/abr/24,Pumas,2,1,América,L,0,3
+Clausura 2024,16,21/abr/24,Cruz Azul,2,2,Atlas,E,1,4
+Clausura 2024,17,26/abr/24,Puebla,1,2,América,V,2,3
+Clausura 2024,17,26/abr/24,Querétaro,1,1,Pumas,E,1,2
+Clausura 2024,17,27/abr/24,FC Juárez,1,1,León,E,1,2
+Clausura 2024,17,27/abr/24,Tigres,4,1,Tijuana,L,0,5
+Clausura 2024,17,27/abr/24,Pachuca,1,1,Mazatlán,E,1,2
+Clausura 2024,17,27/abr/24,Toluca,0,1,Cruz Azul,V,2,1
+Clausura 2024,17,27/abr/24,Atlas,0,1,Guadalajara,V,2,1
+Clausura 2024,17,28/abr/24,Necaxa,2,5,Monterrey,V,2,7
+Clausura 2024,17,28/abr/24,Santos,0,3,Atl. San Luis,V,2,3
+Apertura 2024,1,05/jul/24,Querétaro,1,2,Tijuana,V,2,3
+Apertura 2024,1,05/jul/24,Puebla,1,0,Santos,L,0,1
+Apertura 2024,1,05/jul/24,FC Juárez,2,2,Atlas,E,1,4
+Apertura 2024,1,06/jul/24,Atl. San Luis,2,1,América,L,0,3
+Apertura 2024,1,06/jul/24,Tigres,1,0,Necaxa,L,0,1
+Apertura 2024,1,06/jul/24,Guadalajara,0,0,Mazatlán,E,1,0
+Apertura 2024,1,06/jul/24,Cruz Azul,1,0,Mazatlán,L,0,1
+Apertura 2024,1,07/jul/24,Pumas,4,1,León,L,0,5
+Apertura 2024,1,07/jul/24,Pachuca,0,1,Monterrey,V,2,1
+Apertura 2024,2,12/jul/24,Mazatlán,2,2,Atl. San Luis,E,1,4
+Apertura 2024,2,12/jul/24,Tijuana,1,1,Guadalajara,E,1,2
+Apertura 2024,2,12/jul/24,Atlas,1,1,Tigres,E,1,2
+Apertura 2024,2,13/jul/24,León,0,0,Pachuca,E,1,0
+Apertura 2024,2,13/jul/24,Necaxa,4,1,Puebla,L,0,5
+Apertura 2024,2,13/jul/24,Santos,1,1,Pumas,E,1,2
+Apertura 2024,2,13/jul/24,Monterrey,0,4,Cruz Azul,V,2,4
+Apertura 2024,2,14/jul/24,Querétaro,0,2,Guadalajara,V,2,2
+Apertura 2024,2,14/jul/24,América,3,1,Querétaro,L,0,4
+Apertura 2024,3,16/jul/24,Querétaro,0,2,Guadalajara,V,2,2
+Apertura 2024,3,16/jul/24,Atlas,1,0,Santos,L,0,1
+Apertura 2024,3,16/jul/24,Pachuca,2,0,Atl. San Luis,L,0,2
+Apertura 2024,3,16/jul/24,Cruz Azul,3,0,Tijuana,L,0,3
+Apertura 2024,3,17/jul/24,FC Juárez,1,2,Pumas,V,2,3
+Apertura 2024,3,17/jul/24,Puebla,2,2,León,E,1,4
+Apertura 2024,3,17/jul/24,Tigres,1,0,América,L,0,1
+Apertura 2024,3,17/jul/24,Necaxa,0,1,Monterrey,V,2,1
+Apertura 2024,3,17/jul/24,Mazatlán,0,2,Guadalajara,V,2,2
+Apertura 2024,4,19/jul/24,Atl. San Luis,1,1,Tijuana,E,1,2
+Apertura 2024,4,19/jul/24,Puebla,1,2,Atlas,V,2,3
+Apertura 2024,4,20/jul/24,Guadalajara,2,0,Mazatlán,L,0,2
+Apertura 2024,4,20/jul/24,Santos,0,3,Tigres,V,2,3
+Apertura 2024,4,20/jul/24,Monterrey,2,1,Querétaro,L,0,3
+Apertura 2024,4,20/jul/24,Cruz Azul,1,1,Toluca,E,1,2
+Apertura 2024,4,20/jul/24,FC Juárez,1,2,América,V,2,3
+Apertura 2024,4,21/jul/24,Pumas,2,0,Pachuca,L,0,2
+Apertura 2024,4,21/jul/24,León,1,1,Necaxa,E,1,2
+Apertura 2024,5,23/ago/24,Querétaro,0,2,Cruz Azul,V,2,2
+Apertura 2024,5,23/ago/24,Mazatlán,3,0,Pachuca,L,0,3
+Apertura 2024,5,23/ago/24,Tijuana,2,2,Monterrey,E,1,4
+Apertura 2024,5,24/ago/24,Necaxa,3,0,FC Juárez,L,0,3
+Apertura 2024,5,24/ago/24,León,1,1,Santos,E,1,2
+Apertura 2024,5,24/ago/24,Atlas,2,1,Pumas,L,0,3
+Apertura 2024,5,24/ago/24,Tigres,1,1,Guadalajara,E,1,2
+Apertura 2024,5,24/ago/24,América,0,1,Puebla,V,2,1
+Apertura 2024,5,25/ago/24,Toluca,2,1,Atl. San Luis,L,0,3
+Apertura 2024,6,30/ago/24,Atl. San Luis,2,1,Atlas,L,0,3
+Apertura 2024,6,30/ago/24,Mazatlán,1,1,Puebla,E,1,2
+Apertura 2024,6,30/ago/24,Tijuana,2,1,León,L,0,3
+Apertura 2024,6,31/ago/24,Pachuca,1,1,Querétaro,E,1,2
+Apertura 2024,6,31/ago/24,Guadalajara,5,0,FC Juárez,L,0,5
+Apertura 2024,6,31/ago/24,Monterrey,1,2,Toluca,V,2,3
+Apertura 2024,6,31/ago/24,Cruz Azul,4,1,América,L,0,5
+Apertura 2024,6,01/sep/24,Pumas,1,3,Tigres,V,2,4
+Apertura 2024,6,01/sep/24,Santos,3,2,Necaxa,L,0,5
+Apertura 2024,7,13/sep/24,Puebla,2,1,Querétaro,L,0,3
+Apertura 2024,7,13/sep/24,Atlas,2,0,Pachuca,L,0,2
+Apertura 2024,7,13/sep/24,FC Juárez,1,0,Mazatlán,L,0,1
+Apertura 2024,7,13/sep/24,Tigres,1,0,Atl. San Luis,L,0,1
+Apertura 2024,7,14/sep/24,Necaxa,0,0,Pumas,E,1,0
+Apertura 2024,7,14/sep/24,Toluca,4,0,Tijuana,L,0,4
+Apertura 2024,7,14/sep/24,América,1,0,Guadalajara,L,0,1
+Apertura 2024,7,14/sep/24,León,1,2,Cruz Azul,V,2,3
+Apertura 2024,7,14/sep/24,Santos,0,2,Monterrey,V,2,2
+Apertura 2024,8,17/sep/24,Atl. San Luis,3,1,Cruz Azul,L,0,4
+Apertura 2024,8,17/sep/24,Pachuca,2,2,Toluca,E,1,4
+Apertura 2024,8,17/sep/24,América,3,0,Atlas,L,0,3
+Apertura 2024,8,17/sep/24,Pumas,1,0,Puebla,L,0,1
+Apertura 2024,8,17/sep/24,Querétaro,1,0,Tigres,L,0,1
+Apertura 2024,8,18/sep/24,Guadalajara,2,0,León,L,0,2
+Apertura 2024,8,18/sep/24,Mazatlán,0,0,Necaxa,E,1,0
+Apertura 2024,8,18/sep/24,Monterrey,3,2,FC Juárez,L,0,5
+Apertura 2024,8,18/sep/24,Tijuana,3,1,Santos,L,0,4
+Apertura 2024,9,20/sep/24,Atlas,0,1,Querétaro,V,2,1
+Apertura 2024,9,20/sep/24,Puebla,2,3,Pachuca,V,2,5
+Apertura 2024,9,21/sep/24,León,1,0,Atl. San Luis,L,0,1
+Apertura 2024,9,21/sep/24,Necaxa,0,0,América,E,1,0
+Apertura 2024,9,21/sep/24,Monterrey,0,0,Mazatlán,E,1,0
+Apertura 2024,9,21/sep/24,Cruz Azul,1,0,Guadalajara,L,0,1
+Apertura 2024,9,22/sep/24,Pumas,1,0,Tijuana,L,0,1
+Apertura 2024,9,22/sep/24,Santos,0,2,Toluca,V,2,2
+Apertura 2024,9,22/sep/24,FC Juárez,0,1,Tigres,V,2,1
+Apertura 2024,10,27/sep/24,Puebla,2,3,FC Juárez,V,2,5
+Apertura 2024,10,27/sep/24,Querétaro,0,1,Necaxa,V,2,1
+Apertura 2024,10,27/sep/24,Tigres,2,2,León,E,1,4
+Apertura 2024,10,27/sep/24,Tijuana,1,0,Mazatlán,L,0,1
+Apertura 2024,10,28/sep/24,Toluca,4,1,Atlas,L,0,5
+Apertura 2024,10,28/sep/24,Pachuca,2,4,Cruz Azul,V,2,6
+Apertura 2024,10,28/sep/24,Guadalajara,1,1,Monterrey,E,1,2
+Apertura 2024,10,29/sep/24,Atl. San Luis,1,0,Santos,L,0,1
+Apertura 2024,10,29/sep/24,América,0,1,Pumas,V,2,1
+Apertura 2024,11,04/oct/24,Mazatlán,2,2,Querétaro,E,1,4
+Apertura 2024,11,04/oct/24,Tijuana,2,1,Pachuca,L,0,3
+Apertura 2024,11,05/oct/24,Tigres,1,0,Puebla,L,0,1
+Apertura 2024,11,05/oct/24,Atl. San Luis,1,0,Monterrey,L,0,1
+Apertura 2024,11,05/oct/24,Cruz Azul,3,0,Necaxa,L,0,3
+Apertura 2024,11,05/oct/24,Atlas,2,3,Guadalajara,V,2,5
+Apertura 2024,11,05/oct/24,León,1,1,América,E,1,2
+Apertura 2024,11,06/oct/24,Toluca,1,1,Pumas,E,1,2
+Apertura 2024,11,06/oct/24,Santos,0,2,FC Juárez,V,2,2
+Apertura 2024,12,18/oct/24,Querétaro,0,1,Mazatlán,V,2,1
+Apertura 2024,12,18/oct/24,Atlas,0,0,Mazatlán,E,1,0
+Apertura 2024,12,18/oct/24,Puebla,1,2,Cruz Azul,V,2,3
+Apertura 2024,12,18/oct/24,Necaxa,1,2,Tijuana,V,2,3
+Apertura 2024,12,19/oct/24,Pachuca,0,2,Guadalajara,V,2,2
+Apertura 2024,12,19/oct/24,América,3,0,Santos,L,0,3
+Apertura 2024,12,19/oct/24,FC Juárez,2,3,León,V,2,5
+Apertura 2024,12,19/oct/24,Monterrey,4,2,Tigres,L,0,6
+Apertura 2024,12,20/oct/24,Pumas,3,0,Atl. San Luis,L,0,3
+Apertura 2024,13,22/oct/24,Atl. San Luis,4,0,Querétaro,L,0,4
+Apertura 2024,13,22/oct/24,Guadalajara,3,2,Necaxa,L,0,5
+Apertura 2024,13,22/oct/24,Mazatlán,0,5,Tigres,V,2,5
+Apertura 2024,13,22/oct/24,Toluca,5,0,Puebla,L,0,5
+Apertura 2024,13,23/oct/24,Cruz Azul,4,0,FC Juárez,L,0,4
+Apertura 2024,13,23/oct/24,Monterrey,0,0,Pumas,E,1,0
+Apertura 2024,13,23/oct/24,León,0,0,Atlas,E,1,0
+Apertura 2024,13,23/oct/24,Tijuana,2,2,América,E,1,4
+Apertura 2024,13,23/oct/24,Santos,1,1,Pachuca,E,1,2
+Apertura 2024,14,25/oct/24,Santos,0,0,Mazatlán,E,1,0
+Apertura 2024,14,25/oct/24,Puebla,1,0,Guadalajara,L,0,1
+Apertura 2024,14,26/oct/24,León,4,0,Querétaro,L,0,4
+Apertura 2024,14,26/oct/24,Pumas,0,2,Cruz Azul,V,2,2
+Apertura 2024,14,26/oct/24,Tigres,2,1,Pachuca,L,0,3
+Apertura 2024,14,26/oct/24,Atlas,0,0,Tijuana,E,1,0
+Apertura 2024,14,27/oct/24,Necaxa,1,3,Toluca,V,2,4
+Apertura 2024,14,27/oct/24,FC Juárez,2,4,Atl. San Luis,V,2,6
+Apertura 2024,14,27/oct/24,América,2,1,Monterrey,L,0,3
+Apertura 2024,15,01/nov/24,Querétaro,1,2,FC Juárez,V,2,3
+Apertura 2024,15,01/nov/24,Mazatlán,0,5,América,V,2,5
+Apertura 2024,15,01/nov/24,Tijuana,0,3,Tigres,V,2,3
+Apertura 2024,15,02/nov/24,Atl. San Luis,2,0,Puebla,L,0,2
+Apertura 2024,15,02/nov/24,Toluca,2,2,León,E,1,4
+Apertura 2024,15,02/nov/24,Guadalajara,0,0,Pumas,E,1,0
+Apertura 2024,15,02/nov/24,Monterrey,4,0,Atlas,L,0,4
+Apertura 2024,15,02/nov/24,Pachuca,6,2,Necaxa,L,0,8
+Apertura 2024,15,02/nov/24,Cruz Azul,2,0,Santos,L,0,2
+Apertura 2024,16,05/nov/24,Puebla,1,2,Monterrey,V,2,3
+Apertura 2024,16,05/nov/24,León,0,0,Mazatlán,E,1,0
+Apertura 2024,16,05/nov/24,Santos,0,2,Guadalajara,V,2,2
+Apertura 2024,16,05/nov/24,Pumas,2,0,Querétaro,L,0,2
+Apertura 2024,16,06/nov/24,América,2,1,Pachuca,L,0,3
+Apertura 2024,16,06/nov/24,Tigres,1,1,Toluca,E,1,2
+Apertura 2024,16,06/nov/24,Necaxa,0,0,Atl. San Luis,E,1,0
+Apertura 2024,16,06/nov/24,Atlas,2,2,Cruz Azul,E,1,4
+Apertura 2024,16,06/nov/24,FC Juárez,1,1,Tijuana,E,1,2
+Apertura 2024,17,08/nov/24,Querétaro,3,2,Santos,L,0,5
+Apertura 2024,17,08/nov/24,Mazatlán,0,1,Pumas,V,2,1
+Apertura 2024,17,09/nov/24,Guadalajara,0,1,Atl. San Luis,V,2,1
+Apertura 2024,17,09/nov/24,Pachuca,0,1,FC Juárez,V,2,1
+Apertura 2024,17,09/nov/24,Toluca,4,0,América,L,0,4
+Apertura 2024,17,09/nov/24,Cruz Azul,1,1,Tigres,E,1,2
+Apertura 2024,17,10/nov/24,Necaxa,0,0,Atlas,E,1,0
+Apertura 2024,17,10/nov/24,Monterrey,2,1,León,L,0,3
+Apertura 2024,17,10/nov/24,Tijuana,2,1,Puebla,L,0,3
+Clausura 2025,1,10/ene/25,Querétaro,0,1,América,V,2,1
+Clausura 2025,1,10/ene/25,Mazatlán,1,1,FC Juárez,E,1,2
+Clausura 2025,1,10/ene/25,Tijuana,2,4,Toluca,V,2,6
+Clausura 2025,1,11/ene/25,Atl. San Luis,1,3,Tigres,V,2,4
+Clausura 2025,1,11/ene/25,Guadalajara,1,0,Santos,L,0,1
+Clausura 2025,1,11/ene/25,Cruz Azul,1,1,Atlas,E,1,2
+Clausura 2025,1,12/ene/25,Pumas,2,1,Necaxa,L,0,3
+Clausura 2025,1,12/ene/25,Monterrey,1,1,Puebla,E,1,2
+Clausura 2025,1,05/feb/25,Pachuca,1,2,León,V,2,3
+Clausura 2025,2,16/ene/25,América,1,0,Tijuana,L,0,1
+Clausura 2025,2,17/ene/25,Puebla,0,1,Atl. San Luis,V,2,1
+Clausura 2025,2,17/ene/25,Mazatlán,1,2,Cruz Azul,V,2,3
+Clausura 2025,2,17/ene/25,Atlas,1,2,Tigres,V,2,3
+Clausura 2025,2,18/ene/25,Toluca,2,1,Guadalajara,L,0,3
+Clausura 2025,2,18/ene/25,Pachuca,1,0,Monterrey,L,0,1
+Clausura 2025,2,18/ene/25,FC Juárez,0,1,Pumas,V,2,1
+Clausura 2025,2,19/ene/25,Santos,0,1,León,V,2,1
+Clausura 2025,2,20/ene/25,Necaxa,1,0,Querétaro,L,0,1
+Clausura 2025,3,24/ene/25,Atl. San Luis,2,1,Necaxa,L,0,3
+Clausura 2025,3,24/ene/25,Tijuana,3,2,Querétaro,L,0,5
+Clausura 2025,3,24/ene/25,FC Juárez,1,1,Santos,E,1,2
+Clausura 2025,3,25/ene/25,Cruz Azul,2,0,Pachuca,L,0,2
+Clausura 2025,3,25/ene/25,Guadalajara,1,1,Tigres,E,1,2
+Clausura 2025,3,25/ene/25,Monterrey,2,1,América,L,0,3
+Clausura 2025,3,26/ene/25,Pumas,1,1,Atlas,E,1,2
+Clausura 2025,3,26/ene/25,León,2,0,Puebla,L,0,2
+Clausura 2025,3,26/ene/25,Mazatlán,0,3,Toluca,V,2,3
+Clausura 2025,4,28/ene/25,América,2,0,Atl. San Luis,L,0,2
+Clausura 2025,4,28/ene/25,Puebla,1,2,Guadalajara,V,2,3
+Clausura 2025,4,28/ene/25,Atlas,0,1,Monterrey,V,2,1
+Clausura 2025,4,28/ene/25,Mazatlán,1,1,León,E,1,2
+Clausura 2025,4,29/ene/25,Tigres,2,1,Querétaro,L,0,3
+Clausura 2025,4,29/ene/25,Necaxa,1,2,Cruz Azul,V,2,3
+Clausura 2025,4,29/ene/25,Pachuca,0,2,Pumas,V,2,2
+Clausura 2025,4,29/ene/25,Santos,1,2,Toluca,V,2,3
+Clausura 2025,4,29/ene/25,Tijuana,2,1,FC Juárez,L,0,3
+Clausura 2025,5,31/ene/25,Querétaro,1,1,Puebla,E,1,2
+Clausura 2025,5,31/ene/25,Atlas,1,0,Mazatlán,L,0,1
+Clausura 2025,5,01/feb/25,Toluca,3,1,Pachuca,L,0,4
+Clausura 2025,5,01/feb/25,Guadalajara,2,1,América,L,0,3
+Clausura 2025,5,01/feb/25,Monterrey,1,0,Tijuana,L,0,1
+Clausura 2025,5,01/feb/25,Tigres,1,1,Cruz Azul,E,1,2
+Clausura 2025,5,02/feb/25,Pumas,1,0,Atl. San Luis,L,0,1
+Clausura 2025,5,02/feb/25,León,2,1,FC Juárez,L,0,3
+Clausura 2025,5,03/feb/25,Santos,0,0,Necaxa,E,1,0
+Clausura 2025,6,07/feb/25,Mazatlán,2,1,Querétaro,L,0,3
+Clausura 2025,6,07/feb/25,Tijuana,1,1,Atlas,E,1,2
+Clausura 2025,6,07/feb/25,Puebla,0,2,Tigres,V,2,2
+Clausura 2025,6,08/feb/25,Cruz Azul,3,0,Pumas,L,0,3
+Clausura 2025,6,08/feb/25,Pachuca,1,1,Guadalajara,E,1,2
+Clausura 2025,6,08/feb/25,América,2,1,Santos,L,0,3
+Clausura 2025,6,08/feb/25,Atl. San Luis,0,2,Monterrey,V,2,2
+Clausura 2025,6,09/feb/25,FC Juárez,1,3,Toluca,V,2,4
+Clausura 2025,6,09/feb/25,Necaxa,0,1,León,V,2,1
+Clausura 2025,7,14/feb/25,Atlas,2,0,Puebla,L,0,2
+Clausura 2025,7,14/feb/25,Querétaro,0,0,Pachuca,E,1,0
+Clausura 2025,7,15/feb/25,Toluca,2,0,América,L,0,2
+Clausura 2025,7,15/feb/25,Monterrey,3,0,Mazatlán,L,0,3
+Clausura 2025,7,15/feb/25,Cruz Azul,1,0,Guadalajara,L,0,1
+Clausura 2025,7,15/feb/25,Tigres,1,0,Necaxa,L,0,1
+Clausura 2025,7,16/feb/25,Pumas,2,2,León,E,1,4
+Clausura 2025,7,16/feb/25,Santos,1,1,Atl. San Luis,E,1,2
+Clausura 2025,7,16/feb/25,Tijuana,2,0,FC Juárez,L,0,2
+Clausura 2025,8,21/feb/25,Puebla,1,1,Mazatlán,E,1,2
+Clausura 2025,8,21/feb/25,Necaxa,0,2,Atlas,V,2,2
+Clausura 2025,8,21/feb/25,FC Juárez,1,4,Monterrey,V,2,5
+Clausura 2025,8,22/feb/25,León,0,1,Cruz Azul,V,2,1
+Clausura 2025,8,22/feb/25,Guadalajara,2,0,Pumas,L,0,2
+Clausura 2025,8,22/feb/25,América,3,1,Pachuca,L,0,4
+Clausura 2025,8,22/feb/25,Atl. San Luis,1,1,Toluca,E,1,2
+Clausura 2025,8,23/feb/25,Santos,1,0,Querétaro,L,0,1
+Clausura 2025,8,23/feb/25,Tigres,3,1,Tijuana,L,0,4
+Clausura 2025,9,28/feb/25,Querétaro,0,2,Monterrey,V,2,2
+Clausura 2025,9,28/feb/25,Mazatlán,1,2,Necaxa,V,2,3
+Clausura 2025,9,28/feb/25,Tijuana,0,0,Puebla,E,1,0
+Clausura 2025,9,01/mar/25,Toluca,4,0,Atlas,L,0,4
+Clausura 2025,9,01/mar/25,Pachuca,1,2,Tigres,V,2,3
+Clausura 2025,9,01/mar/25,América,1,1,Cruz Azul,E,1,2
+Clausura 2025,9,01/mar/25,Guadalajara,3,1,León,L,0,4
+Clausura 2025,9,02/mar/25,Pumas,2,0,Santos,L,0,2
+Clausura 2025,9,02/mar/25,FC Juárez,0,1,Atl. San Luis,V,2,1
+Clausura 2025,10,07/mar/25,Puebla,1,3,América,V,2,4
+Clausura 2025,10,07/mar/25,Atl. San Luis,2,0,Querétaro,L,0,2
+Clausura 2025,10,07/mar/25,Necaxa,1,1,FC Juárez,E,1,2
+Clausura 2025,10,08/mar/25,Monterrey,2,1,Guadalajara,L,0,3
+Clausura 2025,10,08/mar/25,Cruz Azul,4,1,Tijuana,L,0,5
+Clausura 2025,10,08/mar/25,Tigres,0,0,Toluca,E,1,0
+Clausura 2025,10,08/mar/25,León,2,2,Pachuca,E,1,4
+Clausura 2025,10,09/mar/25,Pumas,1,0,Mazatlán,L,0,1
+Clausura 2025,10,09/mar/25,Santos,0,1,Atlas,V,2,1
+Clausura 2025,11,14/mar/25,Mazatlán,0,0,Santos,E,1,0
+Clausura 2025,11,14/mar/25,Tijuana,1,1,Pumas,E,1,2
+Clausura 2025,11,15/mar/25,Toluca,2,0,Monterrey,L,0,2
+Clausura 2025,11,15/mar/25,Pachuca,2,1,Puebla,L,0,3
+Clausura 2025,11,15/mar/25,América,1,0,Tigres,L,0,1
+Clausura 2025,11,15/mar/25,Guadalajara,0,0,Cruz Azul,E,1,0
+Clausura 2025,11,16/mar/25,Atlas,1,0,León,L,0,1
+Clausura 2025,11,16/mar/25,Querétaro,1,2,FC Juárez,V,2,3
+Clausura 2025,11,16/mar/25,Necaxa,0,2,Atl. San Luis,V,2,2
+Clausura 2025,12,21/mar/25,Puebla,1,0,Necaxa,L,0,1
+Clausura 2025,12,21/mar/25,FC Juárez,1,1,Guadalajara,E,1,2
+Clausura 2025,12,21/mar/25,Atl. San Luis,2,2,Tijuana,E,1,4
+Clausura 2025,12,22/mar/25,León,1,1,América,E,1,2
+Clausura 2025,12,22/mar/25,Monterrey,1,2,Tigres,V,2,3
+Clausura 2025,12,22/mar/25,Cruz Azul,3,0,Querétaro,L,0,3
+Clausura 2025,12,22/mar/25,Pachuca,0,0,Atlas,E,1,0
+Clausura 2025,12,23/mar/25,Pumas,0,2,Toluca,V,2,2
+Clausura 2025,12,23/mar/25,Santos,2,1,Mazatlán,L,0,3
+Clausura 2025,13,28/mar/25,Querétaro,1,1,Pumas,E,1,2
+Clausura 2025,13,28/mar/25,Tijuana,2,0,Santos,L,0,2
+Clausura 2025,13,29/mar/25,Toluca,3,1,Puebla,L,0,4
+Clausura 2025,13,29/mar/25,Guadalajara,2,1,Atl. San Luis,L,0,3
+Clausura 2025,13,29/mar/25,Monterrey,4,0,León,L,0,4
+Clausura 2025,13,29/mar/25,Tigres,1,0,Cruz Azul,L,0,1
+Clausura 2025,13,30/mar/25,Atlas,0,2,América,V,2,2
+Clausura 2025,13,30/mar/25,Necaxa,1,0,Pachuca,L,0,1
+Clausura 2025,13,30/mar/25,FC Juárez,1,2,Mazatlán,V,2,3
+Clausura 2025,14,04/abr/25,Puebla,0,0,FC Juárez,E,1,0
+Clausura 2025,14,04/abr/25,Mazatlán,1,3,Tijuana,V,2,4
+Clausura 2025,14,05/abr/25,León,1,0,Toluca,L,0,1
+Clausura 2025,14,05/abr/25,Pachuca,2,1,América,L,0,3
+Clausura 2025,14,05/abr/25,Cruz Azul,2,0,Monterrey,L,0,2
+Clausura 2025,14,05/abr/25,Tigres,2,2,Atlas,E,1,4
+Clausura 2025,14,06/abr/25,Pumas,1,1,Guadalajara,E,1,2
+Clausura 2025,14,06/abr/25,Santos,0,1,Necaxa,V,2,1
+Clausura 2025,14,06/abr/25,Querétaro,0,2,Atl. San Luis,V,2,2
+Clausura 2025,15,11/abr/25,Tijuana,2,1,Atl. San Luis,L,0,3
+Clausura 2025,15,11/abr/25,Necaxa,3,5,Pachuca,V,2,8
+Clausura 2025,15,11/abr/25,Mazatlán,1,1,Guadalajara,E,1,2
+Clausura 2025,15,12/abr/25,Pumas,0,0,FC Juárez,E,1,0
+Clausura 2025,15,12/abr/25,León,1,0,Puebla,L,0,1
+Clausura 2025,15,12/abr/25,Tigres,2,1,Monterrey,L,0,3
+Clausura 2025,15,12/abr/25,Atlas,2,3,Toluca,V,2,5
+Clausura 2025,15,12/abr/25,América,0,0,Cruz Azul,E,1,0
+Clausura 2025,15,13/abr/25,Santos,1,2,Querétaro,V,2,3
+Clausura 2025,16,15/abr/25,Pachuca,0,0,Tigres,E,1,0
+Clausura 2025,16,15/abr/25,Guadalajara,1,0,Puebla,L,0,1
+Clausura 2025,16,15/abr/25,FC Juárez,2,2,Necaxa,E,1,4
+Clausura 2025,16,15/abr/25,Cruz Azul,2,1,León,L,0,3
+Clausura 2025,16,16/abr/25,Monterrey,1,0,América,L,0,1
+Clausura 2025,16,16/abr/25,Querétaro,1,2,Atlas,V,2,3
+Clausura 2025,16,16/abr/25,Atl. San Luis,1,0,Toluca,L,0,1
+Clausura 2025,16,16/abr/25,Mazatlán,0,2,Tijuana,V,2,2
+Clausura 2025,16,16/abr/25,Pumas,2,0,Santos,L,0,2
+Clausura 2025,17,18/abr/25,Puebla,0,1,Necaxa,V,2,1
+Clausura 2025,17,19/abr/25,América,5,0,Mazatlán,L,0,5
+Clausura 2025,17,19/abr/25,Toluca,2,2,Cruz Azul,E,1,4
+Clausura 2025,17,19/abr/25,Tigres,2,1,Pumas,L,0,3
+Clausura 2025,17,19/abr/25,Atlas,1,1,Guadalajara,E,1,2
+Clausura 2025,17,20/abr/25,Santos,0,4,Tijuana,V,2,4
+Clausura 2025,17,20/abr/25,Atl. San Luis,2,1,Pachuca,L,0,3
+Clausura 2025,17,20/abr/25,León,0,2,Monterrey,V,2,2
+Clausura 2025,17,20/abr/25,FC Juárez,0,2,Querétaro,V,2,2
+Apertura 2025,1,11/Jul/25,Puebla,2,3,Atlas,V,2,5
+Apertura 2025,1,11/Jul/25,FC Juárez,1,1,América,E,1,2
+Apertura 2025,1,11/Jul/25,Tijuana,1,0,Querétaro,L,0,1
+Apertura 2025,1,12/Jul/25,Santos,3,0,Pumas,L,0,3
+Apertura 2025,1,12/Jul/25,Toluca,3,1,Necaxa,L,0,4
+Apertura 2025,1,12/Jul/25,Cruz Azul,0,0,Mazatlán,E,1,0
+Apertura 2025,1,13/Jul/25,Pachuca,3,0,Monterrey,L,0,3
+Apertura 2025,1,13/Jul/25,León,0,1,Atl. San Luis,V,2,1
+Apertura 2025,1,17/Sep/25,Guadalajara,0,0,Tigres,E,1,0
+Apertura 2025,2,16/Jul/25,América,3,1,Tijuana,L,0,4
+Apertura 2025,2,16/Jul/25,Santos,2,4,Toluca,V,2,6
+Apertura 2025,2,18/Jul/25,Necaxa,3,1,Querétaro,L,0,4
+Apertura 2025,2,18/Jul/25,Atl. San Luis,0,1,Monterrey,V,2,1
+Apertura 2025,2,18/Jul/25,Mazatlán,2,1,Puebla,L,0,3
+Apertura 2025,2,19/Jul/25,León,1,0,Guadalajara,L,0,1
+Apertura 2025,2,19/Jul/25,Tigres,1,0,FC Juárez,L,0,1
+Apertura 2025,2,19/Jul/25,Atlas,3,3,Cruz Azul,E,1,6
+Apertura 2025,2,20/Jul/25,Pumas,2,3,Pachuca,V,2,5
+Apertura 2025,3,25/Jul/25,Querétaro,0,2,Pumas,V,2,2
+Apertura 2025,3,25/Jul/25,Puebla,1,0,Santos,L,0,1
+Apertura 2025,3,25/Jul/25,Tijuana,1,1,FC Juárez,E,1,2
+Apertura 2025,3,26/Jul/25,Pachuca,1,0,Mazatlán,L,0,1
+Apertura 2025,3,26/Jul/25,Guadalajara,4,3,Atl. San Luis,L,0,7
+Apertura 2025,3,26/Jul/25,Monterrey,3,1,Atlas,L,0,4
+Apertura 2025,3,26/Jul/25,Cruz Azul,4,1,León,L,0,5
+Apertura 2025,3,26/Jul/25,Toluca,3,4,Tigres,V,2,7
+Apertura 2025,3,26/Jul/25,Necaxa,1,1,América,E,1,2
+Apertura 2025,4,08/Ago/25,Tigres,7,0,Puebla,L,0,7
+Apertura 2025,4,09/Ago/25,América,1,0,Querétaro,L,0,1
+Apertura 2025,4,09/Ago/25,Mazatlán,2,2,Tijuana,E,1,4
+Apertura 2025,4,09/Ago/25,Atlas,0,3,Pachuca,V,2,3
+Apertura 2025,4,10/Ago/25,Pumas,1,1,Necaxa,E,1,2
+Apertura 2025,4,10/Ago/25,Santos,1,0,Guadalajara,L,0,1
+Apertura 2025,4,11/Ago/25,León,1,3,Monterrey,V,2,4
+Apertura 2025,4,11/Ago/25,FC Juárez,0,2,Toluca,V,2,2
+Apertura 2025,4,11/Ago/25,Atl. San Luis,1,2,Cruz Azul,V,2,3
+Apertura 2025,5,15/Ago/25,Puebla,0,2,Atl. San Luis,V,2,2
+Apertura 2025,5,15/Ago/25,Necaxa,0,1,León,V,2,1
+Apertura 2025,5,16/Ago/25,Guadalajara,1,2,FC Juárez,V,2,3
+Apertura 2025,5,16/Ago/25,Tigres,1,3,América,V,2,4
+Apertura 2025,5,16/Ago/25,Cruz Azul,3,2,Santos,L,0,5
+Apertura 2025,5,16/Ago/25,Pachuca,0,2,Tijuana,V,2,2
+Apertura 2025,5,16/Ago/25,Toluca,1,1,Pumas,E,1,2
+Apertura 2025,5,17/Ago/25,Querétaro,3,3,Atlas,E,1,6
+Apertura 2025,5,17/Ago/25,Monterrey,3,2,Mazatlán,L,0,5
+Apertura 2025,6,22/Ago/25,FC Juárez,2,1,Santos,L,0,3
+Apertura 2025,6,22/Ago/25,Querétaro,3,2,Atl. San Luis,L,0,5
+Apertura 2025,6,22/Ago/25,Tijuana,3,3,Guadalajara,E,1,6
+Apertura 2025,6,23/Ago/25,León,1,1,Pachuca,E,1,2
+Apertura 2025,6,23/Ago/25,Monterrey,3,0,Necaxa,L,0,3
+Apertura 2025,6,23/Ago/25,Mazatlán,2,2,Tigres,E,1,4
+Apertura 2025,6,23/Ago/25,Cruz Azul,1,0,Toluca,L,0,1
+Apertura 2025,6,24/Ago/25,Pumas,0,0,Puebla,E,1,0
+Apertura 2025,6,24/Ago/25,Atlas,2,4,América,V,2,6
+Apertura 2025,7,29/Ago/25,FC Juárez,1,0,Mazatlán,L,0,1
+Apertura 2025,7,29/Ago/25,Atl. San Luis,1,3,Toluca,V,2,4
+Apertura 2025,7,29/Ago/25,Puebla,2,4,Monterrey,V,2,6
+Apertura 2025,7,30/Ago/25,León,3,0,Querétaro,L,0,3
+Apertura 2025,7,30/Ago/25,Santos,0,1,Tigres,V,2,1
+Apertura 2025,7,30/Ago/25,Guadalajara,1,2,Cruz Azul,V,2,3
+Apertura 2025,7,30/Ago/25,América,2,0,Pachuca,L,0,2
+Apertura 2025,7,31/Ago/25,Pumas,1,0,Atlas,L,0,1
+Apertura 2025,7,31/Ago/25,Tijuana,3,0,Necaxa,L,0,3
+Apertura 2025,8,12/Sep/25,Necaxa,1,1,FC Juárez,E,1,2
+Apertura 2025,8,12/Sep/25,Mazatlán,1,4,Pumas,V,2,5
+Apertura 2025,8,13/Sep/25,Pachuca,0,1,Cruz Azul,V,2,1
+Apertura 2025,8,13/Sep/25,Tigres,0,0,León,E,1,0
+Apertura 2025,8,13/Sep/25,Atlas,2,2,Santos,E,1,4
+Apertura 2025,8,13/Sep/25,Toluca,3,1,Puebla,L,0,4
+Apertura 2025,8,13/Sep/25,América,1,2,Guadalajara,V,2,3
+Apertura 2025,8,14/Sep/25,Querétaro,0,1,Monterrey,V,2,1
+Apertura 2025,8,14/Sep/25,Atl. San Luis,1,1,Tijuana,E,1,2
+Apertura 2025,9,19/Sep/25,Cruz Azul,3,2,FC Juárez,L,0,5
+Apertura 2025,9,19/Sep/25,Necaxa,1,0,Puebla,L,0,1
+Apertura 2025,9,19/Sep/25,Mazatlán,1,1,Atlas,E,1,2
+Apertura 2025,9,19/Sep/25,Tijuana,5,0,León,L,0,5
+Apertura 2025,9,20/Sep/25,Pachuca,0,2,Querétaro,V,2,2
+Apertura 2025,9,20/Sep/25,Pumas,1,1,Tigres,E,1,2
+Apertura 2025,9,20/Sep/25,Guadalajara,0,3,Toluca,V,2,3
+Apertura 2025,9,20/Sep/25,Monterrey,2,2,América,E,1,4
+Apertura 2025,9,21/Sep/25,Santos,1,4,Atl. San Luis,V,2,5
+Apertura 2025,10,23/Sep/25,Puebla,2,2,Pachuca,E,1,4
+Apertura 2025,10,23/Sep/25,Guadalajara,3,1,Necaxa,L,0,4
+Apertura 2025,10,23/Sep/25,FC Juárez,3,1,Pumas,L,0,4
+Apertura 2025,10,23/Sep/25,León,2,2,Mazatlán,E,1,4
+Apertura 2025,10,24/Sep/25,Cruz Azul,2,2,Querétaro,E,1,4
+Apertura 2025,10,24/Sep/25,Tigres,2,0,Atlas,L,0,2
+Apertura 2025,10,24/Sep/25,Toluca,6,2,Monterrey,L,0,8
+Apertura 2025,10,24/Sep/25,Atl. San Luis,0,1,América,V,2,1
+Apertura 2025,10,24/Sep/25,Santos,1,0,Tijuana,L,0,1
+Apertura 2025,11,26/Sep/25,FC Juárez,2,0,León,L,0,2
+Apertura 2025,11,27/Sep/25,Puebla,0,2,Guadalajara,V,2,2
+Apertura 2025,11,27/Sep/25,Pachuca,2,1,Atl. San Luis,L,0,3
+Apertura 2025,11,27/Sep/25,Atlas,3,2,Necaxa,L,0,5
+Apertura 2025,11,27/Sep/25,Monterrey,1,0,Santos,L,0,1
+Apertura 2025,11,27/Sep/25,Toluca,3,1,Mazatlán,L,0,4
+Apertura 2025,11,27/Sep/25,América,4,1,Pumas,L,0,5
+Apertura 2025,11,28/Sep/25,Querétaro,0,2,Tigres,V,2,2
+Apertura 2025,11,28/Sep/25,Tijuana,2,0,Cruz Azul,L,0,2
+Apertura 2025,12,03/Oct/25,Necaxa,0,1,Pachuca,V,2,1
+Apertura 2025,12,03/Oct/25,Mazatlán,2,1,Atl. San Luis,L,0,3
+Apertura 2025,12,03/Oct/25,Atlas,3,1,FC Juárez,L,0,4
+Apertura 2025,12,04/Oct/25,Querétaro,3,1,Puebla,L,0,4
+Apertura 2025,12,04/Oct/25,León,2,4,Toluca,V,2,6
+Apertura 2025,12,04/Oct/25,Tigres,1,1,Cruz Azul,E,1,2
+Apertura 2025,12,04/Oct/25,América,3,0,Santos,L,0,3
+Apertura 2025,12,05/Oct/25,Pumas,1,2,Guadalajara,V,2,3
+Apertura 2025,12,05/Oct/25,Tijuana,2,2,Monterrey,E,1,4
+Apertura 2025,13,17/Oct/25,Puebla,4,3,Tijuana,L,0,7
+Apertura 2025,13,17/Oct/25,Atl. San Luis,2,0,Atlas,L,0,2
+Apertura 2025,13,17/Oct/25,Tigres,5,3,Necaxa,L,0,8
+Apertura 2025,13,18/Oct/25,Santos,2,0,León,L,0,2
+Apertura 2025,13,18/Oct/25,FC Juárez,2,2,Pachuca,E,1,4
+Apertura 2025,13,18/Oct/25,Toluca,4,0,Querétaro,L,0,4
+Apertura 2025,13,18/Oct/25,Monterrey,1,1,Pumas,E,1,2
+Apertura 2025,13,18/Oct/25,Guadalajara,2,0,Mazatlán,L,0,2
+Apertura 2025,13,18/Oct/25,Cruz Azul,2,1,América,L,0,3
+Apertura 2025,14,21/Oct/25,América,2,1,Puebla,L,0,3
+Apertura 2025,14,21/Oct/25,Necaxa,1,1,Cruz Azul,E,1,2
+Apertura 2025,14,21/Oct/25,Mazatlán,2,2,Santos,E,1,4
+Apertura 2025,14,21/Oct/25,Monterrey,4,2,FC Juárez,L,0,6
+Apertura 2025,14,22/Oct/25,Pachuca,1,2,Tigres,V,2,3
+Apertura 2025,14,22/Oct/25,Querétaro,1,0,Guadalajara,L,0,1
+Apertura 2025,14,22/Oct/25,Tijuana,0,0,Toluca,E,1,0
+Apertura 2025,14,22/Oct/25,Atlas,2,0,León,L,0,2
+Apertura 2025,14,22/Oct/25,Pumas,0,1,Atl. San Luis,V,2,1
+Apertura 2025,15,24/Oct/25,FC Juárez,4,4,Puebla,E,1,8
+Apertura 2025,15,24/Oct/25,Mazatlán,2,2,América,E,1,4
+Apertura 2025,15,25/Oct/25,Tigres,2,0,Tijuana,L,0,2
+Apertura 2025,15,25/Oct/25,León,1,1,Pumas,E,1,2
+Apertura 2025,15,25/Oct/25,Guadalajara,4,1,Atlas,L,0,5
+Apertura 2025,15,25/Oct/25,Cruz Azul,2,0,Monterrey,L,0,2
+Apertura 2025,15,26/Oct/25,Atl. San Luis,3,4,Necaxa,V,2,7
+Apertura 2025,15,26/Oct/25,Toluca,2,2,Pachuca,E,1,4
+Apertura 2025,15,26/Oct/25,Santos,3,1,Querétaro,L,0,4
+Apertura 2025,16,31/Oct/25,Necaxa,4,1,Santos,L,0,5
+Apertura 2025,16,31/Oct/25,Atl. San Luis,1,2,FC Juárez,V,2,3
+Apertura 2025,16,31/Oct/25,Puebla,0,3,Cruz Azul,V,2,3
+Apertura 2025,16,01/Nov/25,Atlas,0,0,Toluca,E,1,0
+Apertura 2025,16,01/Nov/25,Monterrey,1,1,Tigres,E,1,2
+Apertura 2025,16,01/Nov/25,América,2,0,León,L,0,2
+Apertura 2025,16,02/Nov/25,Pumas,4,1,Tijuana,L,0,5
+Apertura 2025,16,02/Nov/25,Querétaro,1,0,Mazatlán,L,0,1
+Apertura 2025,16,02/Nov/25,Pachuca,0,1,Guadalajara,V,2,1
+Apertura 2025,17,07/Nov/25,FC Juárez,1,2,Querétaro,V,2,3
+Apertura 2025,17,07/Nov/25,Tijuana,2,0,Atlas,L,0,2
+Apertura 2025,17,07/Nov/25,Mazatlán,1,1,Necaxa,E,1,2
+Apertura 2025,17,08/Nov/25,Tigres,3,1,Atl. San Luis,L,0,4
+Apertura 2025,17,08/Nov/25,Pumas,2,3,Cruz Azul,V,2,5
+Apertura 2025,17,08/Nov/25,Santos,1,0,Pachuca,L,0,1
+Apertura 2025,17,08/Nov/25,León,1,2,Puebla,V,2,3
+Apertura 2025,17,09/Nov/25,Guadalajara,4,2,Monterrey,L,0,6
+Apertura 2025,17,09/Nov/25,Toluca,2,0,América,L,0,2
+Clausura 2026,1,09/ene/26,Mazatlán,1,2,FC Juárez,V,2,3
+Clausura 2026,1,09/ene/26,Pachuca,0,2,Guadalajara,V,2,2
+Clausura 2026,1,09/ene/26,Toluca,1,0,Monterrey,L,0,1
+Clausura 2026,1,10/ene/26,Cruz Azul,0,1,Tigres,V,2,1
+Clausura 2026,1,10/ene/26,América,0,1,Necaxa,V,2,1
+Clausura 2026,1,10/ene/26,León,2,0,Querétaro,L,0,2
+Clausura 2026,1,11/ene/26,Santos,0,2,Atlas,V,2,2
+Clausura 2026,1,11/ene/26,Tijuana,0,1,Pumas,V,2,1
+Clausura 2026,1,12/ene/26,Atl. San Luis,0,2,Puebla,V,2,2
+Clausura 2026,2,16/ene/26,Tigres,1,0,Santos,L,0,1
+Clausura 2026,2,16/ene/26,FC Juárez,1,1,Cruz Azul,E,1,2
+Clausura 2026,2,16/ene/26,Guadalajara,2,0,Tijuana,L,0,2
+Clausura 2026,2,17/ene/26,Pumas,2,1,Mazatlán,L,0,3
+Clausura 2026,2,17/ene/26,Monterrey,1,2,América,V,2,3
+Clausura 2026,2,17/ene/26,Puebla,0,0,León,E,1,0
+Clausura 2026,2,18/ene/26,Atlas,1,1,Toluca,E,1,2
+Clausura 2026,2,18/ene/26,Querétaro,0,3,Pachuca,V,2,3
+Clausura 2026,2,18/ene/26,Necaxa,2,1,Atl. San Luis,L,0,3
+Clausura 2026,3,23/ene/26,Cruz Azul,3,1,Santos,L,0,4
+Clausura 2026,3,23/ene/26,Toluca,3,0,Pumas,L,0,3
+Clausura 2026,3,23/ene/26,América,2,0,FC Juárez,L,0,2
+Clausura 2026,3,24/ene/26,Mazatlán,0,0,Querétaro,E,1,0
+Clausura 2026,3,24/ene/26,Tijuana,0,1,Monterrey,V,2,1
+Clausura 2026,3,24/ene/26,Atl. San Luis,1,0,Tigres,L,0,1
+Clausura 2026,3,25/ene/26,Pachuca,1,1,Necaxa,E,1,2
+Clausura 2026,3,25/ene/26,León,1,1,Atlas,E,1,2
+Clausura 2026,3,26/ene/26,Puebla,1,2,Guadalajara,V,2,3
+Clausura 2026,4,30/ene/26,FC Juárez,3,4,Cruz Azul,V,2,7
+Clausura 2026,4,30/ene/26,Santos,0,1,Toluca,V,2,1
+Clausura 2026,4,31/ene/26,Pumas,1,0,León,L,0,1
+Clausura 2026,4,31/ene/26,Querétaro,1,1,Tijuana,E,1,2
+Clausura 2026,4,31/ene/26,Monterrey,2,1,Pachuca,L,0,3
+Clausura 2026,4,01/feb/26,Guadalajara,3,1,Atl. San Luis,L,0,4
+Clausura 2026,4,01/feb/26,Tigres,2,1,América,L,0,3
+Clausura 2026,4,01/feb/26,Necaxa,1,1,Mazatlán,E,1,2
+Clausura 2026,4,02/feb/26,Atlas,2,1,Puebla,L,0,3
+Clausura 2026,5,06/feb/26,Cruz Azul,2,0,Querétaro,L,0,2
+Clausura 2026,5,06/feb/26,Toluca,2,1,Guadalajara,L,0,3
+Clausura 2026,5,07/feb/26,León,1,2,Tijuana,V,2,3
+Clausura 2026,5,07/feb/26,Puebla,1,2,Santos,V,2,3
+Clausura 2026,5,07/feb/26,Atl. San Luis,2,1,FC Juárez,L,0,3
+Clausura 2026,5,07/feb/26,Pachuca,1,0,Pumas,L,0,1
+Clausura 2026,5,08/feb/26,América,1,1,Atlas,E,1,2
+Clausura 2026,5,08/feb/26,Mazatlán,0,2,Monterrey,V,2,2
+Clausura 2026,5,09/feb/26,Necaxa,0,1,Tigres,V,2,1
+Clausura 2026,6,13/feb/26,Querétaro,1,2,Santos,V,2,3
+Clausura 2026,6,13/feb/26,Guadalajara,2,1,Cruz Azul,L,0,3
+Clausura 2026,6,14/feb/26,Pumas,0,0,América,E,1,0
+Clausura 2026,6,14/feb/26,Atlas,2,2,Atl. San Luis,E,1,4
+Clausura 2026,6,14/feb/26,Tijuana,1,3,Toluca,V,2,4
+Clausura 2026,6,14/feb/26,Monterrey,1,2,León,V,2,3
+Clausura 2026,6,15/feb/26,Tigres,3,1,Pachuca,L,0,4
+Clausura 2026,6,15/feb/26,Santos,2,0,Necaxa,L,0,2
+Clausura 2026,6,16/feb/26,FC Juárez,1,1,Mazatlán,E,1,2
+Clausura 2026,7,20/feb/26,Cruz Azul,1,0,Pumas,L,0,1
+Clausura 2026,7,20/feb/26,Toluca,3,1,Atlas,L,0,4
+Clausura 2026,7,21/feb/26,América,2,0,Guadalajara,L,0,2
+Clausura 2026,7,21/feb/26,León,1,0,Tigres,L,0,1
+Clausura 2026,7,21/feb/26,Atl. San Luis,3,1,Santos,L,0,4
+Clausura 2026,7,22/feb/26,Pachuca,2,1,FC Juárez,L,0,3
+Clausura 2026,7,22/feb/26,Necaxa,0,1,Querétaro,V,2,1
+Clausura 2026,7,22/feb/26,Mazatlán,0,0,Tijuana,E,1,0
+Clausura 2026,7,22/feb/26,Monterrey,0,1,Puebla,V,2,1
+Clausura 2026,8,27/feb/26,Pumas,2,1,Toluca,L,0,3
+Clausura 2026,8,27/feb/26,Guadalajara,2,1,León,L,0,3
+Clausura 2026,8,28/feb/26,Santos,1,2,Cruz Azul,V,2,3
+Clausura 2026,8,28/feb/26,Atlas,1,2,América,V,2,3
+Clausura 2026,8,28/feb/26,Querétaro,1,1,Atl. San Luis,E,1,2
+Clausura 2026,8,01/mar/26,Tijuana,0,1,Pachuca,V,2,1
+Clausura 2026,8,01/mar/26,Tigres,2,1,Monterrey,L,0,3
+Clausura 2026,8,01/mar/26,Puebla,0,1,Necaxa,V,2,1
+Clausura 2026,8,01/mar/26,FC Juárez,1,2,Mazatlán,V,2,3
+Clausura 2026,9,06/mar/26,Toluca,3,2,Cruz Azul,L,0,5
+Clausura 2026,9,06/mar/26,América,1,0,Santos,L,0,1
+Clausura 2026,9,07/mar/26,León,1,1,Querétaro,E,1,2
+Clausura 2026,9,07/mar/26,Pachuca,2,1,Atlas,L,0,3
+Clausura 2026,9,07/mar/26,Atl. San Luis,2,1,Pumas,L,0,3
+Clausura 2026,9,08/mar/26,Monterrey,0,1,Guadalajara,V,2,1
+Clausura 2026,9,08/mar/26,Necaxa,1,2,Tijuana,V,2,3
+Clausura 2026,9,08/mar/26,Mazatlán,0,2,Tigres,V,2,2
+Clausura 2026,9,08/mar/26,Puebla,1,0,FC Juárez,L,0,1
+Clausura 2026,10,13/mar/26,Santos,0,3,Pumas,V,2,3
+Clausura 2026,10,13/mar/26,Cruz Azul,2,1,León,L,0,3
+Clausura 2026,10,14/mar/26,Guadalajara,3,1,Toluca,L,0,4
+Clausura 2026,10,14/mar/26,Atlas,1,1,Necaxa,E,1,2
+Clausura 2026,10,14/mar/26,Querétaro,0,0,América,E,1,0
+Clausura 2026,10,14/mar/26,FC Juárez,2,1,Tigres,L,0,3
+Clausura 2026,10,15/mar/26,Tijuana,1,2,Atl. San Luis,V,2,3
+Clausura 2026,10,15/mar/26,Pachuca,2,2,Monterrey,E,1,4
+Clausura 2026,10,15/mar/26,Mazatlán,0,1,Puebla,V,2,1
+Clausura 2026,11,19/mar/26,Pumas,1,0,Guadalajara,L,0,1
+Clausura 2026,11,20/mar/26,Toluca,2,0,Santos,L,0,2
+Clausura 2026,11,20/mar/26,León,1,1,Pachuca,E,1,2
+Clausura 2026,11,20/mar/26,Tigres,1,1,Atlas,E,1,2
+Clausura 2026,11,20/mar/26,América,1,0,Mazatlán,L,0,1
+Clausura 2026,11,21/mar/26,Necaxa,1,1,Cruz Azul,E,1,2
+Clausura 2026,11,21/mar/26,Atl. San Luis,1,1,Querétaro,E,1,2
+Clausura 2026,11,21/mar/26,FC Juárez,0,1,Tijuana,V,2,1
+Clausura 2026,11,22/mar/26,Puebla,1,2,Monterrey,V,2,3
+Clausura 2026,12,21/mar/26,Monterrey,2,3,Guadalajara,V,2,5
+Clausura 2026,12,22/mar/26,Pumas,1,0,América,L,0,1
+Clausura 2026,12,22/mar/26,Cruz Azul,1,1,Mazatlán,E,1,2
+Clausura 2026,12,22/mar/26,Santos,0,1,Atl. San Luis,V,2,1
+Clausura 2026,12,22/mar/26,Atlas,0,0,Querétaro,E,1,0
+Clausura 2026,12,23/mar/26,Toluca,2,2,Pachuca,E,1,4
+Clausura 2026,12,23/mar/26,Tijuana,1,0,Necaxa,L,0,1
+Clausura 2026,12,23/mar/26,FC Juárez,0,1,Tigres,V,2,1
+Clausura 2026,12,23/mar/26,León,0,2,Puebla,V,2,2
+Clausura 2026,13,03/abr/26,Puebla,1,1,FC Juárez,E,1,2
+Clausura 2026,13,03/abr/26,Necaxa,2,1,Mazatlán,L,0,3
+Clausura 2026,13,03/abr/26,Tijuana,1,0,Tigres,L,0,1
+Clausura 2026,13,04/abr/26,Querétaro,1,0,Toluca,L,0,1
+Clausura 2026,13,04/abr/26,Santos,1,1,América,E,1,2
+Clausura 2026,13,04/abr/26,Pachuca,2,1,Cruz Azul,L,0,3
+Clausura 2026,13,04/abr/26,León,2,0,Atlas,L,0,2
+Clausura 2026,13,04/abr/26,Atl. San Luis,2,1,Monterrey,L,0,3
+Clausura 2026,13,05/abr/26,Guadalajara,2,2,Pumas,E,1,4
