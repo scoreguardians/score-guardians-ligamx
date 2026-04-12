@@ -1679,26 +1679,6 @@ const TEAM_IMAGES = {
   'Tijuana':'img/tijuana.png','Toluca':'img/toluca.png',
 };
 
-const TEAM_ABBR = {
-  'América':'AME','Atlas':'ATL','Atl. San Luis':'SLU','Cruz Azul':'CAZ',
-  'FC Juárez':'JUA','Guadalajara':'GDL','León':'LEO','Mazatlán':'MAZ',
-  'Monterrey':'MTY','Necaxa':'NEC','Pachuca':'PAC','Puebla':'PUE',
-  'Pumas':'PUM','Querétaro':'QRO','Santos':'SAN','Tigres':'TIG',
-  'Tijuana':'TIJ','Toluca':'TOL'
-};
-
-const TEAM_GRADIENT = {
-  'América':['#FFD700','#FF8C00'],'Atlas':['#CC2200','#8B0000'],
-  'Atl. San Luis':['#003087','#0055CC'],'Cruz Azul':['#1E90FF','#0050AA'],
-  'FC Juárez':['#FF6600','#CC4400'],'Guadalajara':['#CC0000','#880000'],
-  'León':['#006400','#003300'],'Mazatlán':['#003366','#001133'],
-  'Monterrey':['#003DA5','#001F55'],'Necaxa':['#CC1111','#880000'],
-  'Pachuca':['#0066CC','#003366'],'Puebla':['#003087','#001855'],
-  'Pumas':['#D4A017','#8B6914'],'Querétaro':['#00A0DC','#0066AA'],
-  'Santos':['#228822','#115511'],'Tigres':['#FFD700','#CC9900'],
-  'Tijuana':['#880000','#440000'],'Toluca':['#CC0000','#880000'],
-};
-
 function logoFallback(imgEl) {
   var team = imgEl.getAttribute('data-team')||'';
   var size = parseInt(imgEl.getAttribute('data-size')||'56');
