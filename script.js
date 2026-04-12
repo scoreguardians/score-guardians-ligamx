@@ -845,19 +845,8 @@ function init(){
     if (typeof UPCOMING !== 'undefined') customUpcoming = JSON.parse(JSON.stringify(UPCOMING));
   } catch(e){ console.error('[SG] datos.js init error:', e); }
 
-  // Populate selects
-  try {
-  const sortedTeams=[...TEAMS].sort();
-  // Populate selects
-  const sortedTeams=[...TEAMS].sort();
-  sortedTeams.forEach(t=>{
-    ['homeTeam','awayTeam','h2hT1','h2hT2'].forEach(id=>{
-      const el=document.getElementById(id); if(!el) return;
-      const o=document.createElement('option');o.value=t;o.textContent=t;
-      el.appendChild(o);
-    });
-  });
-  document.getElementById('awayTeam').value='Guadalajara';
+  // Options already in HTML — just set default values
+  const _aw = document.getElementById('awayTeam'); if(_aw) _aw.value='Guadalajara';
   // Set initial logos
   const initHome = document.getElementById('homeTeam').value;
   const initAway = document.getElementById('awayTeam').value;
@@ -955,8 +944,6 @@ const TEAM_GRADIENT = {
   'Tigres':      ['#FFD700','#CC9900'],
   'Tijuana':     ['#880000','#440000'],
   'Toluca':      ['#CC0000','#880000'],
-  } catch(e){ console.error('[SG] init() error:', e); }
-  console.log('[SG] init() done');
 }
 function logoSVG(team, size=56) {
   const abbr  = TEAM_ABBR[team] || team.slice(0,3).toUpperCase();
