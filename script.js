@@ -267,7 +267,7 @@ async function trainNN(allMatches, forceRetrain = false) {
   const accText = (lastAcc*100).toFixed(1) + '%';
   setNNStatus('ready', 'Red neuronal lista — Precisión: ' + accText + ' — ' + xs.length + ' partidos entrenados', 100);
 
-  const sa = document.getElementById('statAcc'); if(sa) sa.textContent = accText;
+  // statAcc removed from UI
   const am = document.getElementById('archMatches'); if(am) am.textContent = xs.length;
   nnReady = true;
   document.getElementById('btnPredict').disabled = false;

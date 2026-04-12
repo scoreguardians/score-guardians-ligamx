@@ -181,9 +181,7 @@ if (window.location.protocol === 'file:') {
       <div class="stat-card"><div class="stat-num" id="statMatches">1,495</div><div class="stat-lbl">Partidos</div></div>
       <div class="stat-card"><div class="stat-num">10</div><div class="stat-lbl">Torneos</div></div>
       <div class="stat-card"><div class="stat-num">18</div><div class="stat-lbl">Equipos</div></div>
-      <div class="stat-card"><div class="stat-num" id="statAcc">—</div><div class="stat-lbl">Precisión NN</div></div>
-      <div class="stat-card"><div class="stat-num">8</div><div class="stat-lbl">Características</div></div>
-      <div class="stat-card"><div class="stat-num">50</div><div class="stat-lbl">Épocas</div></div>
+      
     </div>
   </div>
 </div>
@@ -237,7 +235,12 @@ if (window.location.protocol === 'file:') {
         Predecir Resultado
       </button>
     </div>
-    <div style="text-align:center;font-size:12px;color:var(--text3);margin-bottom:28px;" id="predictStatus">Entrenando red neuronal...</div>
+    <!-- Barra de carga de la red neuronal -->
+    <div id="nnLoadBar" style="margin:0 auto 28px auto;max-width:420px;">
+      <div style="height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;">
+        <div id="nnProgressFill2" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;transition:width .4s ease;"></div>
+      </div>
+    </div>
 
     <!-- Result -->
     <div id="predResult" style="display:none;" class="pred-result">
@@ -273,14 +276,11 @@ if (window.location.protocol === 'file:') {
     <div class="section-line"></div>
     <span class="section-tag">NN + Montecarlo</span>
   </div>
-  <div class="info-box" style="margin-bottom:18px;">
-    <strong> Metodología:</strong> 5,000 simulaciones de Montecarlo usando las predicciones de la <strong>Red Neuronal</strong> para cada partido restante. Solo se evalúa posición #1 al final de la J17 (fase regular).
-  </div>
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px;">
     <div class="t-tabs" id="champTabs" style="margin-bottom:0;"></div>
     <button class="btn" style="padding:7px 18px;font-size:11px;" id="btnMonte" onclick="runMontecarlo()" disabled> Recalcular</button>
   </div>
-  <div class="champ-grid" id="champGrid"><div class="loading">Entrenando red neuronal…</div></div>
+  <div class="champ-grid" id="champGrid"></div>
 </section>
 
 <section id="proximos">
@@ -289,11 +289,7 @@ if (window.location.protocol === 'file:') {
     <div class="section-line"></div>
     <span class="section-tag">Clausura 2026</span>
   </div>
-  <div class="info-box" style="margin-bottom:18px;font-size:13px;color:var(--text2);">
-    Predicciones de la red neuronal para los próximos 9 partidos de la fase regular.
-    Las probabilidades se actualizan automáticamente al re-entrenar el modelo.
-  </div>
-  <div id="upcomingCards"><div class="loading">Cargando predicciones...</div></div>
+    <div id="upcomingCards"><div class="loading">Cargando predicciones...</div></div>
 </section>
 
 <section id="charts">
