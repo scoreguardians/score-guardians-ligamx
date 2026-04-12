@@ -592,8 +592,11 @@ input:focus{outline:none;border-color:var(--accent);}
     </div>
     <!-- Barra de carga de la red neuronal -->
     <div id="nnLoadBar" style="margin:0 auto 28px auto;max-width:420px;">
-      <div style="height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;">
-        <div id="nnProgressFill2" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;transition:width .4s ease;"></div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="height:6px;background:var(--bg3);border-radius:3px;flex:1;overflow:hidden;">
+          <div id="nnProgressFill2" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;transition:width .3s ease;"></div>
+        </div>
+        <span id="nnPctLabel" style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--accent);min-width:36px;text-align:right;">0%</span>
       </div>
     </div>
 
@@ -1032,47 +1035,24 @@ function setNNStatus(state, msg, pct) {
   if(dot) dot.className = 'nn-dot ' + state;
   const st = document.getElementById('nnStatusTxt'); if(st) st.textContent = msg;
   const pf = document.getElementById('nnProgressFill'); if(pf) pf.style.width = pct + '%';
-  const ps = document.getElementById('predictStatus');
-  if(ps) ps.textContent = state === 'ready' ? 'Red neuronal lista — haz clic para predecir' : state === 'error' ? 'Error al entrenar' : 'Entrenando red neuronal...';
-}
-
-async function nnPredict(homeTeam, awayTeam) {
-  if (!nnModel) return null;
-  const feat = getFeatures(homeTeam, awayTeam);
-  const input = tf.tensor2d([feat]);
-  const out = nnModel.predict(input);
-  const probs = await out.data();
-  input.dispose(); out.dispose();
-  return { winH: probs[0], draw: probs[1], winA: probs[2] };
-}
-
-// 
-//  PREDICTION UI
-// 
-async function runPrediction() {
-  const home = document.getElementById('homeTeam').value;
-  const away = document.getElementById('awayTeam').value;
-  if (home === away) { alert('Selecciona equipos diferentes'); return; }
-  let res;
-  if (nnReady) { res = await nnPredict(home, away); }
-  else if (eloFallbackReady) { res = eloPredict(home, away); }
-  else { alert('Cargando modelo, espera unos segundos...'); return; }
-  if (!res) return;
-
-  const ph = (res.winH*100).toFixed(1)+'%';
-  const pd = (res.draw*100).toFixed(1)+'%';
-  const pa = (res.winA*100).toFixed(1)+'%';
-
-  const el = document.getElementById('predResult');
-  el.style.display = 'block';
-  document.getElementById('predMatchupTxt').textContent = `${home}  vs  ${away}`;
-  document.getElementById('pHome').textContent = ph;
-  document.getElementById('pDraw').textContent = pd;
-  document.getElementById('pAway').textContent = pa;
-  setTimeout(() => {
-    document.getElementById('bHome').style.width = ph;
-    document.getElementById('bDraw').style.width = pd;
-    document.getElementById('bAway').style.width = pa;
+  const pf2 = document.getElementById('nnProgressFill2'); if(pf2) pf2.style.width = pct + '%';
+  const lbl = document.getElementById('nnPctLabel');
+  if(lbl) {
+    lbl.textContent = Math.round(pct) + '%';
+    if(state === 'ready') { lbl.style.color='#00c853'; if(pf2) pf2.style.background='#00c853'; }
+    else if(state === 'error') lbl.style.color = 'var(--red)';
+    else lbl.style.color = 'var(--accent)';
+  }
+  if(state === 'ready') {
+    setTimeout(()=>{
+      const bar=document.getElementById('nnLoadBar');
+      if(bar){bar.style.opacity='0';bar.style.transition='opacity .6s';setTimeout(()=>bar.style.display='none',600);}
+    }, 800);
+    const ps=document.getElementById('predictStatus'); if(ps) ps.textContent='Red neuronal lista — haz clic para predecir';
+  }
+  if(state === 'error') {
+    const bar=document.getElementById('nnLoadBar'); if(bar) bar.style.display='none';
+  }
   }, 60);
 
   const eloH = (eloRatings[home]||BASE_ELO).toFixed(0);
