@@ -822,7 +822,9 @@ const TEAM_IMAGES = {
 };
 
 // Función auxiliar de fallback — se llama desde onerror del <img>
-function logoFallback(imgEl, team, size) {
+function logoFallback(imgEl) {
+  var team = imgEl.getAttribute('data-team') || '';
+  var size = parseInt(imgEl.getAttribute('data-size') || '56');
   const g    = TEAM_GRADIENT[team] || ['#444','#222'];
   const abbr = TEAM_ABBR[team] || team.slice(0,3).toUpperCase();
   const fs   = size > 45 ? 11 : 8;
@@ -848,25 +850,26 @@ function logoSVG(team, size) {
   const fs   = size > 45 ? 11 : 8;
 
   if (src) {
-    // Usa imagen real; si falla carga el SVG de color
-    return '<img src="' + src + '" width="' + size + '" height="' + size + '" ' +
-      'style="border-radius:50%;object-fit:contain;background:#fff;padding:4px;border:2px solid rgba(255,255,255,.2);" ' +
-      'alt="' + team + '" ' +
-      'onerror="logoFallback(this,'' + team.replace("'","\'") + '',' + size + ')">';
+    // Imagen real con fallback SVG via data attribute
+    return '<img src="' + src + '" width="' + size + '" height="' + size + '" '
+         + 'data-team="' + team + '" data-size="' + size + '" '
+         + 'style="border-radius:50%;object-fit:contain;background:#fff;padding:4px;border:2px solid rgba(255,255,255,.2);" '
+         + 'alt="' + team + '" '
+         + 'onerror="logoFallback(this)">';
   }
 
-  // Sin imagen: genera SVG directamente
-  const id = 'gs' + Math.random().toString(36).slice(2,6);
-  return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '" xmlns="http://www.w3.org/2000/svg">' +
-    '<defs><linearGradient id="' + id + '" x1="0%" y1="0%" x2="100%" y2="100%">' +
-      '<stop offset="0%" stop-color="' + g[0] + '"/>' +
-      '<stop offset="100%" stop-color="' + g[1] + '"/>' +
-    '</linearGradient></defs>' +
-    '<circle cx="' + (size/2) + '" cy="' + (size/2) + '" r="' + (size/2-1) + '" fill="url(#' + id + ')" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>' +
-    '<text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" ' +
-      'font-family="Barlow Condensed,sans-serif" font-weight="700" ' +
-      'font-size="' + fs + '" fill="white">' + abbr + '</text>' +
-  '</svg>';
+  // Sin imagen: SVG de color directamente
+  var id = 'gs' + Math.random().toString(36).slice(2,6);
+  return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '" xmlns="http://www.w3.org/2000/svg">'
+       + '<defs><linearGradient id="' + id + '" x1="0%" y1="0%" x2="100%" y2="100%">'
+       + '<stop offset="0%" stop-color="' + g[0] + '"/>'
+       + '<stop offset="100%" stop-color="' + g[1] + '"/>'
+       + '</linearGradient></defs>'
+       + '<circle cx="' + (size/2) + '" cy="' + (size/2) + '" r="' + (size/2-1) + '" fill="url(#' + id + ')" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>'
+       + '<text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" '
+       + 'font-family="Barlow Condensed,sans-serif" font-weight="700" '
+       + 'font-size="' + fs + '" fill="white">' + abbr + '</text>'
+       + '</svg>';
 }
 // ═══════════════════════════════════════
 // UPCOMING MATCHES SECTION — card design
