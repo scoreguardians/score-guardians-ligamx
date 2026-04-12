@@ -23,6 +23,7 @@ const TEAM_COLORS = {
 // 
 let nnModel = null;
 let nnReady = false;
+let eloFallbackReady = false;
 let eloRatings = {};
 let statsCache = {};
 let pendingMatches = [];
@@ -138,6 +139,24 @@ function getFeatures(homeTeam, awayTeam) {
 // 
 //  NEURAL NETWORK
 // 
+
+// ═══════════════════════════════════════
+// PREDICCIÓN ELO FALLBACK (sin TensorFlow)
+// Se usa si TF.js no carga o tarda demasiado
+// ═══════════════════════════════════════
+function eloPredict(homeTeam, awayTeam) {
+  const rH = (eloRatings[homeTeam] || BASE_ELO) + HOME_ADV;
+  const rA = eloRatings[awayTeam]  || BASE_ELO;
+  const expH = 1 / (1 + Math.pow(10, (rA - rH) / 400));
+  const expA = 1 - expH;
+  // Convert to W/D/L probabilities
+  const winH  = Math.min(0.75, Math.max(0.10, expH * 0.88));
+  const winA  = Math.min(0.75, Math.max(0.10, expA * 0.88));
+  const draw  = Math.max(0.12, 1 - winH - winA);
+  const total = winH + draw + winA;
+  return { winH: winH/total, draw: draw/total, winA: winA/total };
+}
+
 const MODEL_KEY = 'indexeddb://score-guardians-nn-v1';
 
 async function cargarModeloGuardado() {
@@ -314,10 +333,18 @@ async function nnPredict(homeTeam, awayTeam) {
 async function runPrediction() {
   const home = document.getElementById('homeTeam').value;
   const away = document.getElementById('awayTeam').value;
+  if (!home || !away) { alert('Selecciona los equipos'); return; }
   if (home === away) { alert('Selecciona equipos diferentes'); return; }
-  if (!nnReady) { alert('La red neuronal aún está entrenando. Espera unos segundos.'); return; }
 
-  const res = await nnPredict(home, away);
+  let res;
+  if (nnReady) {
+    res = await nnPredict(home, away);
+  } else if (eloFallbackReady) {
+    res = eloPredict(home, away);
+  } else {
+    alert('El modelo aún está cargando. Espera unos segundos e intenta de nuevo.');
+    return;
+  }
   if (!res) return;
 
   const ph = (res.winH*100).toFixed(1)+'%';
@@ -411,7 +438,7 @@ function renderStandings(tournament) {
 //  MONTECARLO (uses NN predictions)
 // 
 async function runMontecarlo() {
-  if (!nnReady) return;
+  if (!nnReady && !eloFallbackReady) return;
   const SIMS = 5000;
   const champCount = {};
   TEAMS.forEach(t => champCount[t] = 0);
@@ -424,7 +451,10 @@ async function runMontecarlo() {
   const predCache = {};
   for (const m of remaining) {
     const key = `${m.home}|${m.away}`;
-    if (!predCache[key]) predCache[key] = await nnPredict(m.home, m.away);
+    if (!predCache[key]) {
+      if (nnReady) predCache[key] = await nnPredict(m.home, m.away);
+      else if (eloFallbackReady) predCache[key] = eloPredict(m.home, m.away);
+    }
   }
 
   for (let s = 0; s < SIMS; s++) {
@@ -788,7 +818,43 @@ function init(){
   
   // Train NN
   const allM=getAllMatches();
-  setTimeout(()=>trainNN(allM).catch(e=>setNNStatus('error','Error en entrenamiento: '+e.message,0)), 200);
+  // Start NN training
+  setTimeout(()=>trainNN(allM).catch(e=>{
+    console.error('NN training error:', e);
+    setNNStatus('error', 'Error NN — usando modelo Elo', 100);
+    // Fallback: enable button with Elo model
+    buildElo(allM);
+    buildStats(allM);
+    nnReady = false; // keep false so we use eloPredict
+    eloFallbackReady = true;
+    const btn = document.getElementById('btnPredict');
+    if(btn) btn.disabled = false;
+    const ps = document.getElementById('predictStatus');
+    if(ps) ps.textContent = 'Modelo Elo listo — haz clic para predecir';
+    const bar = document.getElementById('nnLoadBar');
+    if(bar) bar.style.display = 'none';
+    runMontecarlo();
+    renderCharts();
+    renderUpcomingCards();
+  }), 200);
+  
+  // Safety timeout: if TF.js fails to load in 20s, use Elo fallback
+  setTimeout(()=>{
+    if(!nnReady && !eloFallbackReady) {
+      console.warn('[SG] TF.js timeout — activating Elo fallback');
+      buildElo(allM);
+      buildStats(allM);
+      eloFallbackReady = true;
+      const btn = document.getElementById('btnPredict');
+      if(btn) btn.disabled = false;
+      const ps = document.getElementById('predictStatus');
+      if(ps) ps.textContent = 'Modelo Elo listo (TF.js cargando...) — haz clic para predecir';
+      const bar = document.getElementById('nnLoadBar');
+      if(bar) bar.style.display = 'none';
+      runMontecarlo();
+      renderUpcomingCards();
+    }
+  }, 20000);
 }
 
 
@@ -909,8 +975,8 @@ async function renderUpcomingCards() {
   for (const m of next9) {
     let predBox = `<div style="margin-top:14px;text-align:center;font-size:11px;color:var(--text3);letter-spacing:1px;font-family:'Barlow Condensed',sans-serif;padding:10px 0;">PREDICCIONES CARGANDO...</div>`;
     
-    if (nnReady) {
-      const p = await nnPredict(m.home, m.away);
+    if (nnReady || eloFallbackReady) {
+      const p = nnReady ? await nnPredict(m.home, m.away) : eloPredict(m.home, m.away);
       if (p) {
         const fav = p.winH > p.winA && p.winH > p.draw ? 'L' :
                     p.winA > p.winH && p.winA > p.draw ? 'V' : 'E';
