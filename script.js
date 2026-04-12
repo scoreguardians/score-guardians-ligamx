@@ -25,8 +25,7 @@ let nnModel = null;
 let nnReady = false;
 let eloRatings = {};
 let statsCache = {};
-// pendingMatches se inicializa desde ACTUALIZACIONES en datos.js
-let pendingMatches = typeof ACTUALIZACIONES !== "undefined" ? [...ACTUALIZACIONES] : [];
+let pendingMatches = [];
 let updateQueue = [];
 const ADMIN_PASS = 'scoreguardians2026';
 const BASE_ELO = 1500;
@@ -126,13 +125,55 @@ function getFeatures(homeTeam, awayTeam) {
 // 
 //  NEURAL NETWORK
 // 
-async function trainNN(allMatches) {
-  setNNStatus('training', 'Preparando dataset de entrenamiento…', 5);
+const MODEL_KEY = 'indexeddb://score-guardians-nn-v1';
+
+async function cargarModeloGuardado() {
+  try {
+    const modelo = await tf.loadLayersModel(MODEL_KEY);
+    return modelo;
+  } catch(e) {
+    return null; // No hay modelo guardado
+  }
+}
+
+async function trainNN(allMatches, forceRetrain = false) {
+  // ── 1. Intentar cargar modelo guardado ──
+  if (!forceRetrain) {
+    setNNStatus('training', 'Buscando modelo guardado…', 10);
+    await tf.nextFrame();
+    const modeloGuardado = await cargarModeloGuardado();
+    if (modeloGuardado) {
+      nnModel = modeloGuardado;
+      // Rebuild ELO and stats (needed for predictions)
+      buildElo(allMatches);
+      buildStats(allMatches);
+      nnReady = true;
+      document.getElementById('btnPredict').disabled = false;
+      document.getElementById('btnMonte').disabled = false;
+      const ps = document.getElementById('predictStatus');
+      if(ps) ps.textContent = 'Red neuronal lista — haz clic para predecir';
+      setNNStatus('ready', 'Modelo cargado desde memoria local — listo', 100);
+      const sa = document.getElementById('statAcc');
+      if(sa) sa.textContent = 'Cargado';
+      runMontecarlo();
+      renderCharts();
+      renderUpcomingCards();
+      renderAdminFixtures();
+      return; // No necesitamos reentrenar
+    }
+    setNNStatus('training', 'No hay modelo guardado — iniciando entrenamiento…', 15);
+  } else {
+    setNNStatus('training', 'Reentrenando modelo desde cero…', 5);
+    // Borrar modelo anterior
+    try { await tf.io.removeModel(MODEL_KEY); } catch(e) {}
+  }
+
+  // ── 2. Entrenar desde cero ──
+  await tf.nextFrame();
 
   const xs = [], ys = [];
   const sorted = [...allMatches].sort((a, b) => a.round - b.round);
 
-  // Build ELO/stats incrementally to avoid data leakage
   let eloSnap = {};
   TEAMS.forEach(t => eloSnap[t] = BASE_ELO);
   let statsSnap = {};
@@ -143,10 +184,10 @@ async function trainNN(allMatches) {
     const eA = eloSnap[m.away] || BASE_ELO;
     const sH = statsSnap[m.home] || {};
     const sA = statsSnap[m.away] || {};
-    const homeGFpg = sH.homeN ? sH.homeGF / sH.homeN : 1.2;
-    const homeGApg = sH.homeN ? sH.homeGA / sH.homeN : 1.2;
-    const awayGFpg = sA.awayN ? sA.awayGF / sA.awayN : 1.0;
-    const awayGApg = sA.awayN ? sA.awayGA / sA.awayN : 1.2;
+    const homeGFpg = sH.homeN ? sH.homeGF/sH.homeN : 1.2;
+    const homeGApg = sH.homeN ? sH.homeGA/sH.homeN : 1.2;
+    const awayGFpg = sA.awayN ? sA.awayGF/sA.awayN : 1.0;
+    const awayGApg = sA.awayN ? sA.awayGA/sA.awayN : 1.2;
     const formH = (sH.form||[]).slice(-5).reduce((s,v)=>s+v,0)/5;
     const formA = (sA.form||[]).slice(-5).reduce((s,v)=>s+v,0)/5;
 
@@ -166,11 +207,11 @@ async function trainNN(allMatches) {
     const sHval = m.hg>m.ag?1:m.hg<m.ag?0:0.5;
     eloSnap[m.home] = rH2 + K_ELO*(sHval-expH);
     eloSnap[m.away] = rA2 + K_ELO*((1-sHval)-(1-expH));
-    if (statsSnap[m.home]) { statsSnap[m.home].homeGF+=m.hg; statsSnap[m.home].homeGA+=m.ag; statsSnap[m.home].homeN++; statsSnap[m.home].form.push(m.hg>m.ag?1:m.hg<m.ag?-1:0); }
-    if (statsSnap[m.away]) { statsSnap[m.away].awayGF+=m.ag; statsSnap[m.away].awayGA+=m.hg; statsSnap[m.away].awayN++; statsSnap[m.away].form.push(m.ag>m.hg?1:m.ag<m.hg?-1:0); }
+    if(statsSnap[m.home]){statsSnap[m.home].homeGF+=m.hg;statsSnap[m.home].homeGA+=m.ag;statsSnap[m.home].homeN++;statsSnap[m.home].form.push(m.hg>m.ag?1:m.hg<m.ag?-1:0);}
+    if(statsSnap[m.away]){statsSnap[m.away].awayGF+=m.ag;statsSnap[m.away].awayGA+=m.hg;statsSnap[m.away].awayN++;statsSnap[m.away].form.push(m.ag>m.hg?1:m.ag<m.hg?-1:0);}
   }
 
-  setNNStatus('training', `Construyendo modelo (${xs.length} partidos)…`, 20);
+  setNNStatus('training', 'Construyendo modelo (' + xs.length + ' partidos)…', 20);
   await tf.nextFrame();
 
   const xTensor = tf.tensor2d(xs);
@@ -178,11 +219,10 @@ async function trainNN(allMatches) {
 
   nnModel = tf.sequential({
     layers: [
-      tf.layers.dense({ inputShape: [8], units: 16, activation: 'relu',
-        kernelInitializer: 'glorotUniform' }),
-      tf.layers.dropout({ rate: 0.2 }),
-      tf.layers.dense({ units: 8, activation: 'relu' }),
-      tf.layers.dense({ units: 3, activation: 'softmax' })
+      tf.layers.dense({ inputShape:[8], units:16, activation:'relu', kernelInitializer:'glorotUniform' }),
+      tf.layers.dropout({ rate:0.2 }),
+      tf.layers.dense({ units:8, activation:'relu' }),
+      tf.layers.dense({ units:3, activation:'softmax' })
     ]
   });
 
@@ -203,11 +243,10 @@ async function trainNN(allMatches) {
     validationSplit: 0.1,
     callbacks: {
       onEpochEnd: async (epoch, logs) => {
-        const pct = 30 + Math.round((epoch / 50) * 65);
+        const pct = 30 + Math.round((epoch/50)*60);
         lastAcc = logs.acc || logs.accuracy || 0;
         setNNStatus('training',
-          `Entrenando época ${epoch+1}/50 — Loss: ${logs.loss.toFixed(4)} — Prec: ${(lastAcc*100).toFixed(1)}%`,
-          pct);
+          'Entrenando época ' + (epoch+1) + '/50 — Precisión: ' + (lastAcc*100).toFixed(1) + '%', pct);
         await tf.nextFrame();
       }
     }
@@ -215,17 +254,27 @@ async function trainNN(allMatches) {
 
   xTensor.dispose(); yTensor.dispose();
 
-  setNNStatus('ready',
-    ` Red neuronal lista — Precisión: ${(lastAcc*100).toFixed(1)}% — ${xs.length} partidos entrenados`,
-    100);
+  // ── 3. Guardar modelo en IndexedDB ──
+  setNNStatus('training', 'Guardando modelo en memoria local…', 93);
+  await tf.nextFrame();
+  try {
+    await nnModel.save(MODEL_KEY);
+    console.log('Modelo guardado en IndexedDB correctamente');
+  } catch(e) {
+    console.warn('No se pudo guardar el modelo:', e);
+  }
 
-  document.getElementById('statAcc').textContent = (lastAcc*100).toFixed(1)+'%';
-  document.getElementById('archMatches') && (document.getElementById('archMatches').textContent = xs.length);
+  const accText = (lastAcc*100).toFixed(1) + '%';
+  setNNStatus('ready', 'Red neuronal lista — Precisión: ' + accText + ' — ' + xs.length + ' partidos entrenados', 100);
+
+  const sa = document.getElementById('statAcc'); if(sa) sa.textContent = accText;
+  const am = document.getElementById('archMatches'); if(am) am.textContent = xs.length;
   nnReady = true;
   document.getElementById('btnPredict').disabled = false;
   document.getElementById('btnMonte').disabled = false;
+  const ps = document.getElementById('predictStatus');
+  if(ps) ps.textContent = 'Red neuronal lista — haz clic para predecir';
 
-  // Rebuild final ELO and stats on all matches
   buildElo(allMatches);
   buildStats(allMatches);
 
@@ -235,14 +284,6 @@ async function trainNN(allMatches) {
   renderAdminFixtures();
 }
 
-function setNNStatus(state, msg, pct) {
-  const dot = document.getElementById('nnDot');
-  if(dot) dot.className = 'nn-dot ' + state;
-  const st = document.getElementById('nnStatusTxt'); if(st) st.textContent = msg;
-  const pf = document.getElementById('nnProgressFill'); if(pf) pf.style.width = pct + '%';
-  const ps = document.getElementById('predictStatus');
-  if(ps) ps.textContent = state === 'ready' ? 'Red neuronal lista — haz clic para predecir' : state === 'error' ? 'Error al entrenar' : 'Entrenando red neuronal...';
-}
 
 async function nnPredict(homeTeam, awayTeam) {
   if (!nnModel) return null;
@@ -654,7 +695,8 @@ function getAllMatches(){
   ['Apertura 2021','Clausura 2022','Apertura 2022','Clausura 2023',
    'Apertura 2023','Clausura 2024','Apertura 2024','Clausura 2025','Apertura 2025']
     .forEach(t=>all=all.concat(HIST[t]||[]));
-  return all.concat(C2026).concat(pendingMatches);
+  const c26 = (typeof C2026 !== 'undefined') ? C2026 : [];
+  return all.concat(c26).concat(pendingMatches);
 }
 function getTournamentMatches(t){
   if(t==='Clausura 2026') return [...C2026,...pendingMatches];
@@ -671,6 +713,10 @@ function switchTab(e, paneId){
 //  INIT
 // 
 function init(){
+  // Initialize data from datos.js (loaded before this script)
+  if (typeof ACTUALIZACIONES !== 'undefined') pendingMatches = [...ACTUALIZACIONES];
+  if (typeof UPCOMING !== 'undefined') customUpcoming = JSON.parse(JSON.stringify(UPCOMING));
+
   // Populate selects
   const sortedTeams=[...TEAMS].sort();
   sortedTeams.forEach(t=>{
@@ -775,40 +821,57 @@ const TEAM_IMAGES = {
   'Toluca': 'img/toluca.png',
 };
 
-function logoSVG(team, size=56) {
-  const src = TEAM_IMAGES[team];
-  const col  = TEAM_GRADIENT[team] ? TEAM_GRADIENT[team][0] : '#555';
+// Función auxiliar de fallback — se llama desde onerror del <img>
+function logoFallback(imgEl, team, size) {
+  const g    = TEAM_GRADIENT[team] || ['#444','#222'];
   const abbr = TEAM_ABBR[team] || team.slice(0,3).toUpperCase();
+  const fs   = size > 45 ? 11 : 8;
+  const id   = 'gf' + Math.random().toString(36).slice(2,6);
+  const svg  = '<svg width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '" xmlns="http://www.w3.org/2000/svg">' +
+    '<defs><linearGradient id="' + id + '" x1="0%" y1="0%" x2="100%" y2="100%">' +
+      '<stop offset="0%" stop-color="' + g[0] + '"/>' +
+      '<stop offset="100%" stop-color="' + g[1] + '"/>' +
+    '</linearGradient></defs>' +
+    '<circle cx="' + (size/2) + '" cy="' + (size/2) + '" r="' + (size/2-1) + '" fill="url(#' + id + ')" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>' +
+    '<text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" ' +
+      'font-family="Barlow Condensed,sans-serif" font-weight="700" ' +
+      'font-size="' + fs + '" fill="white">' + abbr + '</text>' +
+  '</svg>';
+  imgEl.outerHTML = svg;
+}
+
+function logoSVG(team, size) {
+  size = size || 56;
+  const src  = TEAM_IMAGES[team];
+  const g    = TEAM_GRADIENT[team] || ['#444','#222'];
+  const abbr = TEAM_ABBR[team] || team.slice(0,3).toUpperCase();
+  const fs   = size > 45 ? 11 : 8;
+
   if (src) {
-    return `<img src="${src}" width="${size}" height="${size}"
-      style="border-radius:50%;object-fit:contain;background:#fff;padding:4px;border:2px solid rgba(255,255,255,.2);"
-      alt="${team}"
-      onerror="this.style.display='none';this.insertAdjacentHTML('afterend',
-        \`<svg width='${size}' height='${size}' viewBox='0 0 ${size} ${size}' xmlns='http://www.w3.org/2000/svg'>
-          <circle cx='${size/2}' cy='${size/2}' r='${size/2-1}' fill='${col}' stroke='rgba(255,255,255,.2)' stroke-width='1.5'/>
-          <text x='50%' y='50%' dominant-baseline='central' text-anchor='middle'
-            font-family='Barlow Condensed,sans-serif' font-weight='700'
-            font-size='${size>45?11:8}' fill='white'>${abbr}</text>
-        </svg>\`)">`;
+    // Usa imagen real; si falla carga el SVG de color
+    return '<img src="' + src + '" width="' + size + '" height="' + size + '" ' +
+      'style="border-radius:50%;object-fit:contain;background:#fff;padding:4px;border:2px solid rgba(255,255,255,.2);" ' +
+      'alt="' + team + '" ' +
+      'onerror="logoFallback(this,'' + team.replace("'","\'") + '',' + size + ')">';
   }
-  // Fallback SVG si no hay imagen
-  const id = 'g'+Math.random().toString(36).slice(2,6);
-  const g  = TEAM_GRADIENT[team] || ['#444','#222'];
-  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="${id}" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="${g[0]}"/>
-      <stop offset="100%" stop-color="${g[1]}"/>
-    </linearGradient></defs>
-    <circle cx="${size/2}" cy="${size/2}" r="${size/2-1}" fill="url(#${id})" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
-    <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
-      font-family="'Barlow Condensed',sans-serif" font-weight="700"
-      font-size="${size>45?11:8}" fill="white" letter-spacing="0.5">${abbr}</text>
-  </svg>`;
-}// ═══════════════════════════════════════
+
+  // Sin imagen: genera SVG directamente
+  const id = 'gs' + Math.random().toString(36).slice(2,6);
+  return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '" xmlns="http://www.w3.org/2000/svg">' +
+    '<defs><linearGradient id="' + id + '" x1="0%" y1="0%" x2="100%" y2="100%">' +
+      '<stop offset="0%" stop-color="' + g[0] + '"/>' +
+      '<stop offset="100%" stop-color="' + g[1] + '"/>' +
+    '</linearGradient></defs>' +
+    '<circle cx="' + (size/2) + '" cy="' + (size/2) + '" r="' + (size/2-1) + '" fill="url(#' + id + ')" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>' +
+    '<text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" ' +
+      'font-family="Barlow Condensed,sans-serif" font-weight="700" ' +
+      'font-size="' + fs + '" fill="white">' + abbr + '</text>' +
+  '</svg>';
+}
+// ═══════════════════════════════════════
 // UPCOMING MATCHES SECTION — card design
 // ═══════════════════════════════════════
-// customUpcoming se alimenta desde datos.js
-let customUpcoming = typeof UPCOMING !== "undefined" ? JSON.parse(JSON.stringify(UPCOMING)) : [];
+let customUpcoming = [];
 
 async function renderUpcomingCards() {
   const container = document.getElementById('upcomingCards');
@@ -908,4 +971,14 @@ function updateLogoAway(team) {
   const el = document.getElementById('logoAway');
   if (el) { el.innerHTML = logoSVG(team || 'América', 80); el.style.transform='scale(1.05)'; setTimeout(()=>el.style.transform='scale(1)',200); }
 }
+
+// Fuerza reentrenamiento completo y borra el modelo guardado
+async function reentrenarModelo() {
+  if (!confirm('Reentrenar el modelo borrará el guardado actual y puede tardar ~1 minuto. ¿Continuar?')) return;
+  nnReady = false;
+  document.getElementById('btnPredict').disabled = true;
+  document.getElementById('btnMonte').disabled = true;
+  await trainNN(getAllMatches(), true); // forceRetrain = true
+}
+
 window.addEventListener('DOMContentLoaded',init);

@@ -10,6 +10,18 @@
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 
+
+<script>
+// Detectar si se abre con file:// y mostrar advertencia
+if (window.location.protocol === 'file:') {
+  document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.createElement('div');
+    banner.style.cssText = 'position:fixed;top:60px;left:0;right:0;z-index:999;background:#ff3b5c;color:#fff;text-align:center;padding:12px 20px;font-family:Barlow Condensed,sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;box-shadow:0 4px 20px rgba(0,0,0,.5);';
+    banner.innerHTML = 'ABRE EL ARCHIVO CON UN SERVIDOR LOCAL &nbsp;|&nbsp; En Windows: doble clic en <strong>INICIAR_AQUI.bat</strong> &nbsp;|&nbsp; En Mac: ejecuta <strong>iniciar_mac_linux.sh</strong>';
+    document.body.appendChild(banner);
+  });
+}
+</script>
 </head>
 <body>
 
@@ -63,7 +75,10 @@
 
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
       <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.3);border-radius:4px;padding:4px 14px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent);">PANEL DE ADMINISTRADOR — RESTRINGIDO</div>
+      <div style="display:flex;gap:8px;">
+      <button onclick="reentrenarModelo()" style="background:rgba(255,214,0,.15);border:1px solid rgba(255,214,0,.4);color:#ffd600;border-radius:4px;padding:6px 16px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;cursor:pointer;" title="Fuerza reentrenamiento y actualiza el modelo guardado">REENTRENAR MODELO</button>
       <button onclick="logoutAdmin()" style="background:rgba(255,59,92,.15);border:1px solid rgba(255,59,92,.4);color:#ff3b5c;border-radius:4px;padding:6px 16px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;cursor:pointer;">CERRAR SESIÓN</button>
+    </div>
     </div>
 
     <!-- Actualización de resultados -->
