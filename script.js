@@ -836,6 +836,18 @@ function switchTab(e, paneId){
 //  INIT
 // 
 function init(){
+  console.log('[SG] init() started - TEAMS:', typeof TEAMS !== 'undefined' ? TEAMS.length : 'UNDEFINED');
+  console.log('[SG] datos.js loaded:', typeof C2026 !== 'undefined' ? 'YES ('+C2026.length+' matches)' : 'NO');
+  
+  // Init data from datos.js
+  try {
+    if (typeof ACTUALIZACIONES !== 'undefined') pendingMatches = [...ACTUALIZACIONES];
+    if (typeof UPCOMING !== 'undefined') customUpcoming = JSON.parse(JSON.stringify(UPCOMING));
+  } catch(e){ console.error('[SG] datos.js init error:', e); }
+
+  // Populate selects
+  try {
+  const sortedTeams=[...TEAMS].sort();
   // Populate selects
   const sortedTeams=[...TEAMS].sort();
   sortedTeams.forEach(t=>{
@@ -943,8 +955,9 @@ const TEAM_GRADIENT = {
   'Tigres':      ['#FFD700','#CC9900'],
   'Tijuana':     ['#880000','#440000'],
   'Toluca':      ['#CC0000','#880000'],
-};
-
+  } catch(e){ console.error('[SG] init() error:', e); }
+  console.log('[SG] init() done');
+}
 function logoSVG(team, size=56) {
   const abbr  = TEAM_ABBR[team] || team.slice(0,3).toUpperCase();
   const grad  = TEAM_GRADIENT[team] || ['#333','#111'];
