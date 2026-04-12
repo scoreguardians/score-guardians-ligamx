@@ -184,6 +184,7 @@ tbody td:nth-child(2){text-align:left;color:var(--text);font-weight:500;}
 
 /*  CHARTS  */
 .chart-wrap{position:relative;height:270px;}
+.chart-wrap canvas{position:absolute;top:0;left:0;width:100%!important;height:100%!important;}
 .charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
 
 /*  TABS  */
@@ -252,3 +253,4 @@ input:focus{outline:none;border-color:var(--accent);}
   .upcoming-grid{grid-template-columns:1fr;}
   .uc-teams{grid-template-columns:1fr 30px 1fr;}
 }
+#nnLoadBar { transition: opacity .6s ease; }

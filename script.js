@@ -667,111 +667,117 @@ Chart.defaults.color='rgba(139,149,176,0.9)';
 Chart.defaults.font={family:'Barlow,sans-serif',size:11};
 
 function renderCharts(){
-  // Guard: Chart.js must be loaded
-  if (typeof Chart === 'undefined') {
-    console.warn('[SG] Chart.js no cargó — reintentando en 2s');
-    setTimeout(renderCharts, 2000);
-    return;
-  }
-  // Guard: need Elo data
-  if (!Object.keys(eloRatings).length) {
-    console.warn('[SG] Elo no listo — reintentando en 1s');
-    setTimeout(renderCharts, 1000);
-    return;
-  }
-
-  try {
-  const TOURNS=['Apertura 2021','Clausura 2022','Apertura 2022','Clausura 2023',
-    'Apertura 2023','Clausura 2024','Apertura 2024','Clausura 2025','Apertura 2025','Clausura 2026'];
-  const labels=TOURNS.map(t=>t.replace('Apertura','A.').replace('Clausura','C.').replace(' 20','''));
-  const TOP6=['Guadalajara','Cruz Azul','Toluca','América','Tigres','Pumas'];
-  const colors=['#00e5ff','#ff3b5c','#ffd600','#00c853','#aa44ff','#ff8800'];
-
-  // Destroy existing charts to avoid "canvas already in use" error
-  ['pts','goals','elo','dist'].forEach(k => {
-    if(charts[k]) { try { charts[k].destroy(); } catch(e){} charts[k]=null; }
+  if (typeof Chart === 'undefined') { setTimeout(renderCharts, 1000); return; }
+  
+  // Force all canvases to have explicit dimensions so Chart.js renders correctly
+  ['cPoints','cGoals','cElo','cDist'].forEach(id => {
+    const canvas = document.getElementById(id);
+    if (!canvas) return;
+    const parent = canvas.parentElement;
+    if (parent) {
+      const h = parent.offsetHeight || 260;
+      const w = parent.offsetWidth  || parent.clientWidth || 400;
+      canvas.height = h;
+      canvas.width  = w;
+    }
   });
 
-  // ── Chart 1: Points per tournament ──
+  const TOURNS = ['Apertura 2021','Clausura 2022','Apertura 2022','Clausura 2023',
+    'Apertura 2023','Clausura 2024','Apertura 2024','Clausura 2025','Apertura 2025','Clausura 2026'];
+  const lbls = TOURNS.map(t => t.replace('Apertura','A.').replace('Clausura','C.').replace(' 20',"'"));
+
+  // Destroy old charts
+  ['pts','goals','elo','dist'].forEach(k => {
+    try { if(charts[k]) { charts[k].destroy(); charts[k]=null; } } catch(e){}
+  });
+
+  const grid = {color:'rgba(42,48,69,.7)'};
+  const legOpts = {position:'bottom', labels:{boxWidth:10, padding:10, color:'rgba(200,210,230,.8)'}};
+
+  // ── Chart 1: Points top 6 ──
   try {
+    const TOP6 = ['Guadalajara','Cruz Azul','Toluca','América','Tigres','Pumas'];
+    const COLS = ['#00e5ff','#ff3b5c','#ffd600','#00c853','#aa44ff','#ff8800'];
     charts.pts = new Chart(document.getElementById('cPoints'),{
       type:'line',
-      data:{labels,datasets:TOP6.map((t,i)=>({
-        label:t,
-        data:TOURNS.map(tn=>{
-          const s=computeStandings(getTournamentMatches(tn));
-          return s.find(r=>r.team===t)?.pts||0;
-        }),
-        borderColor:colors[i],backgroundColor:'transparent',
-        tension:.35,pointRadius:3,borderWidth:2
-      }))},
-      options:{responsive:true,maintainAspectRatio:false,
-        scales:{x:{grid:{color:'rgba(42,48,69,.7)'}},y:{grid:{color:'rgba(42,48,69,.7)'},min:0}},
-        plugins:{legend:{position:'bottom',labels:{boxWidth:10,padding:10,color:'rgba(139,149,176,.9)'}}}
-      }
+      data:{
+        labels: lbls,
+        datasets: TOP6.map((t,i) => ({
+          label: t,
+          data: TOURNS.map(tn => { try { return computeStandings(getTournamentMatches(tn)).find(r=>r.team===t)?.pts||0; } catch(e){return 0;} }),
+          borderColor: COLS[i], backgroundColor:'transparent',
+          tension:.3, pointRadius:3, borderWidth:2
+        }))
+      },
+      options:{responsive:true, maintainAspectRatio:false,
+        scales:{x:{grid},y:{grid,min:0}},
+        plugins:{legend:legOpts}}
     });
-  } catch(e){ console.error('Chart pts error:', e); }
+  } catch(e){ console.error('Chart1 error:',e); }
 
-  // ── Chart 2: Avg goals per tournament ──
+  // ── Chart 2: Avg goals ──
   try {
-    const avgG=TOURNS.map(t=>{
-      const m=getTournamentMatches(t);
-      if(!m.length) return 0;
-      return +(m.reduce((s,x)=>s+x.hg+x.ag,0)/m.length).toFixed(2);
-    });
     charts.goals = new Chart(document.getElementById('cGoals'),{
       type:'bar',
-      data:{labels,datasets:[{
-        label:'Goles/partido',data:avgG,
-        backgroundColor:TOURNS.map((_,i)=>i===TOURNS.length-1?'rgba(0,229,255,.85)':'rgba(0,229,255,.3)'),
-        borderColor:'rgba(0,229,255,.8)',borderWidth:1
-      }]},
-      options:{responsive:true,maintainAspectRatio:false,
-        scales:{x:{grid:{color:'rgba(42,48,69,.7)'}},y:{grid:{color:'rgba(42,48,69,.7)'},min:1.5}},
-        plugins:{legend:{display:false}}
-      }
-    });
-  } catch(e){ console.error('Chart goals error:', e); }
-
-  // ── Chart 3: Elo ratings ──
-  try {
-    const eloArr=TEAMS.map(t=>({team:t,elo:eloRatings[t]||BASE_ELO})).sort((a,b)=>b.elo-a.elo);
-    charts.elo = new Chart(document.getElementById('cElo'),{
-      type:'bar',
-      data:{labels:eloArr.map(x=>x.team),datasets:[{
-        label:'Elo',data:eloArr.map(x=>+x.elo.toFixed(0)),
-        backgroundColor:eloArr.map(x=>(TEAM_COLORS[x.team]||'#555')+'99'),
-        borderColor:eloArr.map(x=>TEAM_COLORS[x.team]||'#555'),borderWidth:1
-      }]},
-      options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
-        scales:{x:{grid:{color:'rgba(42,48,69,.7)'},min:1300},
-                y:{grid:{color:'rgba(42,48,69,.7)'},ticks:{font:{size:10},color:'rgba(139,149,176,.9)'}}},
-        plugins:{legend:{display:false}}
-      }
-    });
-  } catch(e){ console.error('Chart elo error:', e); }
-
-  // ── Chart 4: Win distribution ──
-  try {
-    const all=getAllMatches();
-    let hw=0,aw=0,dr=0;
-    all.forEach(m=>{if(m.hg>m.ag)hw++;else if(m.hg<m.ag)aw++;else dr++;});
-    const tot=all.length;
-    charts.dist = new Chart(document.getElementById('cDist'),{
-      type:'doughnut',
-      data:{labels:['Victoria Local','Empate','Victoria Visitante'],
-        datasets:[{data:[(hw/tot*100).toFixed(1),(dr/tot*100).toFixed(1),(aw/tot*100).toFixed(1)],
-          backgroundColor:['rgba(0,200,83,.85)','rgba(255,171,0,.85)','rgba(255,59,92,.85)'],
-          borderColor:['#00c853','#ffab00','#ff3b5c'],borderWidth:2
+      data:{
+        labels: lbls,
+        datasets:[{
+          label:'Goles/partido',
+          data: TOURNS.map(tn => { try { const m=getTournamentMatches(tn); return m.length ? +(m.reduce((s,x)=>s+x.hg+x.ag,0)/m.length).toFixed(2) : 0; } catch(e){return 0;} }),
+          backgroundColor: TOURNS.map((_,i) => i===TOURNS.length-1 ? 'rgba(0,229,255,.8)' : 'rgba(0,229,255,.25)'),
+          borderColor:'rgba(0,229,255,.8)', borderWidth:1
         }]
       },
-      options:{responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:12,color:'rgba(139,149,176,.9)'}}}
-      }
+      options:{responsive:true, maintainAspectRatio:false,
+        scales:{x:{grid},y:{grid,min:1.5}},
+        plugins:{legend:{display:false}}}
     });
-  } catch(e){ console.error('Chart dist error:', e); }
+  } catch(e){ console.error('Chart2 error:',e); }
 
-  } catch(globalErr){ console.error('[SG] renderCharts error:', globalErr); }
+  // ── Chart 3: Elo ranking ──
+  try {
+    const eloArr = TEAMS.map(t=>({team:t, elo:eloRatings[t]||BASE_ELO})).sort((a,b)=>b.elo-a.elo);
+    charts.elo = new Chart(document.getElementById('cElo'),{
+      type:'bar',
+      data:{
+        labels: eloArr.map(x=>x.team),
+        datasets:[{
+          label:'Elo',
+          data: eloArr.map(x=>+x.elo.toFixed(0)),
+          backgroundColor: eloArr.map(x=>(TEAM_COLORS[x.team]||'#555')+'99'),
+          borderColor: eloArr.map(x=>TEAM_COLORS[x.team]||'#555'),
+          borderWidth:1
+        }]
+      },
+      options:{responsive:true, maintainAspectRatio:false, indexAxis:'y',
+        scales:{x:{grid,min:1300}, y:{grid,ticks:{font:{size:10},color:'rgba(200,210,230,.8)'}}},
+        plugins:{legend:{display:false}}}
+    });
+  } catch(e){ console.error('Chart3 error:',e); }
+
+  // ── Chart 4: Win distribution doughnut ──
+  try {
+    const all = getAllMatches();
+    let hw=0,aw=0,dr=0;
+    all.forEach(m=>{if(m.hg>m.ag)hw++;else if(m.hg<m.ag)aw++;else dr++;});
+    const tot = all.length||1;
+    charts.dist = new Chart(document.getElementById('cDist'),{
+      type:'doughnut',
+      data:{
+        labels:['Victoria Local','Empate','Victoria Visitante'],
+        datasets:[{
+          data:[(hw/tot*100).toFixed(1),(dr/tot*100).toFixed(1),(aw/tot*100).toFixed(1)],
+          backgroundColor:['rgba(0,200,83,.8)','rgba(255,171,0,.8)','rgba(255,59,92,.8)'],
+          borderColor:['#00c853','#ffab00','#ff3b5c'],
+          borderWidth:2
+        }]
+      },
+      options:{responsive:true, maintainAspectRatio:false,
+        plugins:{legend:legOpts}}
+    });
+  } catch(e){ console.error('Chart4 error:',e); }
+
+  console.log('[SG] Charts rendered OK');
 }
 
 function getAllMatches(){
@@ -857,20 +863,17 @@ function init(){
   // Render charts and upcoming (retry if Chart.js not yet loaded)
   buildElo(getAllMatches());
   buildStats(getAllMatches());
-  // Chart.js CDN may still be loading — use retry mechanism
-  if (typeof Chart !== 'undefined') {
-    renderCharts();
-  } else {
-    // Wait for Chart.js to load then render
-    const chartInterval = setInterval(()=>{
+  // Render charts after layout is painted (avoids canvas height=0 issue)
+  requestAnimationFrame(() => {
+    setTimeout(() => {
       if (typeof Chart !== 'undefined') {
-        clearInterval(chartInterval);
         renderCharts();
+      } else {
+        const iv = setInterval(()=>{ if(typeof Chart!=='undefined'){ clearInterval(iv); renderCharts(); } }, 500);
+        setTimeout(()=>clearInterval(iv), 10000);
       }
-    }, 500);
-    // Give up after 10 seconds
-    setTimeout(()=>clearInterval(chartInterval), 10000);
-  }
+    }, 300);
+  });
   renderUpcomingCards();
   
   // Train NN
