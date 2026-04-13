@@ -1808,6 +1808,15 @@ function renderStandings(tournament) {
 // 
 
 window.addEventListener('DOMContentLoaded',init);
+// Also try renderCharts on full page load (after CDN scripts finish)
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    if(typeof Chart !== 'undefined' && (!charts.pts || !charts.goals)){
+      console.log('[SG] window.load: rendering charts');
+      renderCharts();
+    }
+  }, 200);
+});
   </script>
 </body>
 </html>
