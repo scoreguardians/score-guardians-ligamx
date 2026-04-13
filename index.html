@@ -1053,7 +1053,6 @@ function setNNStatus(state, msg, pct) {
   if(state === 'error') {
     const bar=document.getElementById('nnLoadBar'); if(bar) bar.style.display='none';
   }
-  }, 60);
 
   const eloH = (eloRatings[home]||BASE_ELO).toFixed(0);
   const eloA = (eloRatings[away]||BASE_ELO).toFixed(0);
