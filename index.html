@@ -1326,15 +1326,16 @@ Chart.defaults.color='rgba(139,149,176,0.9)';
 Chart.defaults.font={family:'Barlow,sans-serif',size:11};
 
 function renderCharts(){
-  // Wait for Chart.js CDN
-  if(typeof Chart === 'undefined'){
-    setTimeout(renderCharts, 800);
-    return;
-  }
-  // Wait for Elo data
-  if(!eloRatings || !Object.keys(eloRatings).length){
-    buildElo(getAllMatches());
-  }
+  if(typeof Chart === 'undefined'){ setTimeout(renderCharts, 800); return; }
+  if(!eloRatings || !Object.keys(eloRatings).length){ buildElo(getAllMatches()); }
+  // Force canvas containers to have height before Chart.js measures them
+  ['cPoints','cGoals','cElo','cDist'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el && el.parentElement){
+      const p = el.parentElement;
+      if(!p.style.height) p.style.height = '270px';
+    }
+  });
 
   const TOURNS=['Apertura 2021','Clausura 2022','Apertura 2022','Clausura 2023',
     'Apertura 2023','Clausura 2024','Apertura 2024','Clausura 2025','Apertura 2025','Clausura 2026'];
@@ -1517,7 +1518,9 @@ function init(){
       setNNStatus('error','Usando modelo Elo (TF.js no disponible)',100);
       runMontecarlo(); buildElo(getAllMatches());
   buildStats(getAllMatches());
-  renderCharts(); renderUpcomingCards();
+  // Delay charts to ensure CSS layout is complete
+  setTimeout(renderCharts, 500);
+  renderUpcomingCards();
     }
   }, 200);
   // Safety: enable Elo after 20s if NN not ready
