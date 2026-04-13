@@ -1701,6 +1701,112 @@ function logoSVG(team, size) {
     +'</svg>';
 }
 
+async function runPrediction() {
+  const home = document.getElementById('homeTeam').value;
+  const away = document.getElementById('awayTeam').value;
+  if (home === away) { alert('Selecciona equipos diferentes'); return; }
+  let res;
+  if (nnReady) {
+    res = await nnPredict(home, away);
+  } else if (eloFallbackReady) {
+    res = eloPredict(home, away);
+  } else {
+    alert('El modelo está cargando, espera unos segundos...');
+    return;
+  }
+  if (!res) return;
+
+  const ph = (res.winH*100).toFixed(1)+'%';
+  const pd = (res.draw*100).toFixed(1)+'%';
+  const pa = (res.winA*100).toFixed(1)+'%';
+
+  const el = document.getElementById('predResult');
+  el.style.display = 'block';
+  document.getElementById('predMatchupTxt').textContent = `${home}  vs  ${away}`;
+  document.getElementById('pHome').textContent = ph;
+  document.getElementById('pDraw').textContent = pd;
+  document.getElementById('pAway').textContent = pa;
+  setTimeout(() => {
+    document.getElementById('bHome').style.width = ph;
+    document.getElementById('bDraw').style.width = pd;
+    document.getElementById('bAway').style.width = pa;
+  }, 60);
+
+  const eloH = (eloRatings[home]||BASE_ELO).toFixed(0);
+  const eloA = (eloRatings[away]||BASE_ELO).toFixed(0);
+  document.getElementById('predChips').innerHTML = `
+    <div class="model-tag tag-nn"> Red Neuronal</div>
+    <div class="info-chip">ELO ${home}: <span>${eloH}</span></div>
+    <div class="info-chip">ELO ${away}: <span>${eloA}</span></div>
+  `;
+
+  const fav = res.winH > res.winA && res.winH > res.draw ? home :
+              res.winA > res.winH && res.winA > res.draw ? away : 'Empate';
+  const conf = Math.max(res.winH, res.draw, res.winA);
+  document.getElementById('predInterpret').innerHTML =
+    `<strong>Predicción:</strong> El modelo neural estima que <strong style="color:var(--accent)">${fav}</strong> ` +
+    `es el resultado más probable (confianza: <strong>${(conf*100).toFixed(1)}%</strong>). ` +
+    `${res.winH > 0.5 ? `${home} tiene una fuerte ventaja en casa respaldada por su historial y Elo.` :
+       res.winA > 0.5 ? `${away} tiene ventaja pese a jugar de visitante.` :
+       'El partido está muy equilibrado.'}`;
+
+  const h2h = getH2H(home, away);
+  document.getElementById('predH2H').innerHTML =
+    ` H2H histórico: <strong>${home}</strong> ${h2h.w1}V — ${h2h.draws}E — ${h2h.w2}V <strong>${away}</strong> (${h2h.total} partidos)`;
+}
+
+function clearPred() {
+  document.getElementById('predResult').style.display = 'none';
+}
+
+// 
+//  STANDINGS
+// 
+function computeStandings(matches) {
+  const tbl = {};
+  TEAMS.forEach(t => tbl[t]={team:t,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
+  [...matches].sort((a,b)=>a.round-b.round).forEach(m => {
+    const h = tbl[m.home]||(tbl[m.home]={team:m.home,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
+    const a = tbl[m.away]||(tbl[m.away]={team:m.away,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
+    h.pj++; a.pj++; h.gf+=m.hg; h.gc+=m.ag; a.gf+=m.ag; a.gc+=m.hg;
+    if(m.hg>m.ag){h.g++;h.pts+=3;h.form.push('W');a.p++;a.form.push('L');}
+    else if(m.hg<m.ag){a.g++;a.pts+=3;a.form.push('W');h.p++;h.form.push('L');}
+    else{h.e++;h.pts++;h.form.push('D');a.e++;a.pts++;a.form.push('D');}
+  });
+  return Object.values(tbl).sort((a,b)=>b.pts-a.pts||(b.gf-b.gc)-(a.gf-a.gc)||b.gf-a.gf);
+}
+
+function renderStandings(tournament) {
+  document.getElementById('standTag').textContent = tournament;
+  document.querySelectorAll('#standTabs .t-tab').forEach(t=>t.classList.toggle('active',t.dataset.t===tournament));
+  const matches = getTournamentMatches(tournament);
+  const rows = computeStandings(matches);
+  document.getElementById('standBody').innerHTML = rows.map((r,i) => {
+    const dg = r.gf - r.gc;
+    const formHtml = r.form.slice(-5).map(f=>`<div class="fd ${f}"></div>`).join('');
+    const col = TEAM_COLORS[r.team]||'#555';
+    return `<tr>
+      <td><span class="pos ${i<8?'top':''}">${i+1}</span></td>
+      <td><div class="team-cell">
+        ${logoSVG(r.team, 24)}
+        ${r.team}
+      </div></td>
+      <td>${r.pj}</td>
+      <td style="color:var(--green)">${r.g}</td>
+      <td style="color:var(--draw)">${r.e}</td>
+      <td style="color:var(--red)">${r.p}</td>
+      <td>${r.gf}</td><td>${r.gc}</td>
+      <td style="color:${dg>0?'var(--green)':dg<0?'var(--red)':'var(--text2)'}">${dg>0?'+':''}${dg}</td>
+      <td><span class="pts">${r.pts}</span></td>
+      <td><div class="form-row">${formHtml}</div></td>
+    </tr>`;
+  }).join('');
+}
+
+// 
+//  MONTECARLO (uses NN predictions)
+// 
+
 window.addEventListener('DOMContentLoaded',init);
   </script>
 </body>
