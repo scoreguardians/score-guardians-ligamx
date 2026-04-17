@@ -531,9 +531,31 @@ async function applyQueue(){
 }
 
 function exportJSON(){
-  const d={c2026_base:C2026,c2026_actualizaciones:pendingMatches};
-  const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='clausura2026.json';a.click();
+  // Merge base C2026 with new results from admin panel
+  const allMatches = [...C2026, ...pendingMatches];
+
+  // Build match lines for datos.js
+  const matchLines = allMatches.map(m =>
+    `  {round:${m.round},date:'${m.date}',home:'${m.home}',hg:${m.hg},ag:${m.ag},away:'${m.away}'}`
+  ).join(',\n');
+
+  // Build upcoming lines (remove matches that now have results)
+  const playedKeys = new Set(pendingMatches.map(m => `${m.home}-${m.away}-${m.round}`));
+  const remainingUpcoming = (typeof UPCOMING !== 'undefined' ? UPCOMING : [])
+    .filter(m => !playedKeys.has(`${m.home}-${m.away}-${m.round}`));
+  const upcomingLines = remainingUpcoming.map(m =>
+    `  {round:${m.round},date:'${m.date}',home:'${m.home}',away:'${m.away}'}`
+  ).join(',\n');
+
+  const js = `// SCORE GUARDIANS — Clausura 2026\n// Generado automaticamente desde panel admin\n\nconst C2026 = [\n${matchLines}\n];\n\nconst UPCOMING = [\n${upcomingLines}\n];\n\nconst ACTUALIZACIONES = [];\n`;
+
+  const b = new Blob([js], {type:'application/javascript'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(b);
+  a.download = 'datos.js';
+  a.click();
+
+  alert('datos.js descargado. Sube este archivo a GitHub para actualizar la pagina.');
 }
 
 function renderUpcoming(){
