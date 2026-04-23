@@ -1,7 +1,7 @@
-// ╔══════════════════════════════════════════════════════╗
-// ║  SCORE GUARDIANS — Clausura 2026                     ║
-// ║  Datos verificados J1-J14 + Próximos J15             ║
-// ╚══════════════════════════════════════════════════════╝
+﻿// â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+// â•‘  SCORE GUARDIANS â€” Clausura 2026                     â•‘
+// â•‘  Datos verificados J1-J14 + PrÃ³ximos J15             â•‘
+// â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 const C2026 = [
   {round:1,date:'09/ene/26',home:'Mazatlán',hg:1,ag:2,away:'FC Juárez'},
@@ -129,7 +129,20 @@ const C2026 = [
   {round:14,date:'12/abr/26',home:'Pachuca',hg:4,ag:2,away:'Santos'},
   {round:14,date:'12/abr/26',home:'América',hg:1,ag:1,away:'Cruz Azul'},
   {round:14,date:'12/abr/26',home:'UNAM',hg:3,ag:1,away:'Mazatlán'},
-  {round:14,date:'13/abr/26',home:'Toluca',hg:1,ag:1,away:'Atl. San Luis'}
+  {round:14,date:'13/abr/26',home:'Toluca',hg:1,ag:1,away:'Atl. San Luis'},
+  {round:15,date:'17/abr/26',home:'Atl. San Luis',hg:0,ag:2,away:'UNAM'},
+  {round:15,date:'17/abr/26',home:'Mazatlán',hg:1,ag:1,away:'Querétaro'},
+  {round:15,date:'18/abr/26',home:'Necaxa',hg:1,ag:1,away:'Tigres'},
+  {round:15,date:'18/abr/26',home:'Cruz Azul',hg:1,ag:1,away:'Tijuana'},
+  {round:15,date:'18/abr/26',home:'Monterrey',hg:1,ag:3,away:'Pachuca'},
+  {round:15,date:'18/abr/26',home:'Guadalajara',hg:5,ag:0,away:'Puebla'},
+  {round:15,date:'18/abr/26',home:'León',hg:3,ag:1,away:'FC Juárez'},
+  {round:15,date:'18/abr/26',home:'América',hg:2,ag:1,away:'Toluca'},
+  {round:15,date:'19/abr/26',home:'Santos',hg:0,ag:1,away:'Atlas'},
+  {round:16,date:'21/abr/26',home:'Querétaro',hg:1,ag:1,away:'Cruz Azul'},
+  {round:16,date:'21/abr/26',home:'UNAM',hg:4,ag:2,away:'FC Juárez'},
+  {round:16,date:'21/abr/26',home:'León',hg:2,ag:3,away:'América'},
+  {round:16,date:'21/abr/26',home:'Monterrey',hg:2,ag:1,away:'Puebla'}
 ];
 
 const UPCOMING = [
@@ -145,3 +158,7 @@ const UPCOMING = [
 ];
 
 const ACTUALIZACIONES = [];
+
+
+
+
