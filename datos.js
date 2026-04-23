@@ -146,18 +146,24 @@ const C2026 = [
 ];
 
 const UPCOMING = [
-  {round:15,date:'17/abr/26',home:'Atl. San Luis',away:'UNAM'},
-  {round:15,date:'17/abr/26',home:'Mazatlán',away:'Querétaro'},
-  {round:15,date:'18/abr/26',home:'Necaxa',away:'Tigres'},
-  {round:15,date:'18/abr/26',home:'Cruz Azul',away:'Tijuana'},
-  {round:15,date:'18/abr/26',home:'Monterrey',away:'Pachuca'},
-  {round:15,date:'18/abr/26',home:'Guadalajara',away:'Puebla'},
-  {round:15,date:'18/abr/26',home:'León',away:'FC Juárez'},
-  {round:15,date:'18/abr/26',home:'América',away:'Toluca'},
-  {round:15,date:'19/abr/26',home:'Santos',away:'Atlas'}
+  {round:16,date:'22/abr/26',home:'Atlas',away:'Tigres'},
+  {round:16,date:'22/abr/26',home:'Atl. San Luis',away:'Santos'},
+  {round:16,date:'22/abr/26',home:'Mazatlán',away:'Toluca'},
+  {round:16,date:'22/abr/26',home:'Necaxa',away:'Guadalajara'},
+  {round:16,date:'22/abr/26',home:'Tijuana',away:'Pachuca'},
+  {round:17,date:'24/abr/26',home:'Puebla',away:'Querétaro'},
+  {round:17,date:'25/abr/26',home:'Pachuca',away:'UNAM'},
+  {round:17,date:'25/abr/26',home:'Tigres',away:'Mazatlán'},
+  {round:17,date:'25/abr/26',home:'Guadalajara',away:'Tijuana'},
+  {round:17,date:'25/abr/26',home:'Toluca',away:'León'},
+  {round:17,date:'25/abr/26',home:'América',away:'Atlas'},
+  {round:17,date:'25/abr/26',home:'FC Juárez',away:'Atl. San Luis'},
+  {round:17,date:'26/abr/26',home:'Santos',away:'Monterrey'},
+  {round:17,date:'26/abr/26',home:'Cruz Azul',away:'Necaxa'}
 ];
 
 const ACTUALIZACIONES = [];
+
 
 
 

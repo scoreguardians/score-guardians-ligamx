@@ -143,7 +143,7 @@ async function cargarModeloGuardado() {
 
 async function trainNN(allMatches) {
   // Try cached model first
-  setNNStatus('training','Buscando modelo guardadoâ€¦',10);
+  setNNStatus('training','Buscando modelo guardado…',10);
   await tf.nextFrame();
   const cached = await cargarModeloGuardado();
   if (cached) {
@@ -158,7 +158,7 @@ async function trainNN(allMatches) {
     runMontecarlo(); renderCharts(); renderUpcomingCards(); renderAdminFixtures();
     return;
   }
-  setNNStatus('training','Preparando dataset de entrenamientoâ€¦',5);
+  setNNStatus('training','Preparando dataset de entrenamiento…',5);
 
   const xs = [], ys = [];
   const sorted = [...allMatches].sort((a, b) => a.round - b.round);
@@ -303,15 +303,15 @@ function setNNStatus(state, msg, pct) {
               res.winA > res.winH && res.winA > res.draw ? away : 'Empate';
   const conf = Math.max(res.winH, res.draw, res.winA);
   document.getElementById('predInterpret').innerHTML =
-    `<strong>PredicciÃ³n:</strong> El modelo neural estima que <strong style="color:var(--accent)">${fav}</strong> ` +
-    `es el resultado mÃ¡s probable (confianza: <strong>${(conf*100).toFixed(1)}%</strong>). ` +
+    `<strong>Predicción:</strong> El modelo neural estima que <strong style="color:var(--accent)">${fav}</strong> ` +
+    `es el resultado más probable (confianza: <strong>${(conf*100).toFixed(1)}%</strong>). ` +
     `${res.winH > 0.5 ? `${home} tiene una fuerte ventaja en casa respaldada por su historial y Elo.` :
        res.winA > 0.5 ? `${away} tiene ventaja pese a jugar de visitante.` :
-       'El partido estÃ¡ muy equilibrado.'}`;
+       'El partido está muy equilibrado.'}`;
 
   const h2h = getH2H(home, away);
   document.getElementById('predH2H').innerHTML =
-    ` H2H histÃ³rico: <strong>${home}</strong> ${h2h.w1}V â€” ${h2h.draws}E â€” ${h2h.w2}V <strong>${away}</strong> (${h2h.total} partidos)`;
+    ` H2H histórico: <strong>${home}</strong> ${h2h.w1}V â€” ${h2h.draws}E â€” ${h2h.w2}V <strong>${away}</strong> (${h2h.total} partidos)`;
 }
 
 function clearPred() {
@@ -459,12 +459,12 @@ async function showH2H() {
   const h2h=getH2H(t1,t2);
   let pred = '';
   if(nnReady){
-    const r=await nnPredict(t1,t2);
+    const res = eloPredict(t1, t2);
     pred=`<div class="info-box" style="margin-bottom:14px;">
-      <strong> PredicciÃ³n NN para ${t1} (local) vs ${t2}:</strong>
-      Victoria ${t1}: <strong style="color:var(--green)">${(r.winH*100).toFixed(1)}%</strong> |
-      Empate: <strong style="color:var(--draw)">${(r.draw*100).toFixed(1)}%</strong> |
-      Victoria ${t2}: <strong style="color:var(--red)">${(r.winA*100).toFixed(1)}%</strong>
+      <strong> Predicción NN para ${t1} (local) vs ${t2}:</strong>
+      Victoria ${t1}: <strong style="color:var(--green)">${(res.winH*100).toFixed(1)}%</strong> |
+      Empate: <strong style="color:var(--draw)">${(res.draw*100).toFixed(1)}%</strong> |
+      Victoria ${t2}: <strong style="color:var(--red)">${(res.winA*100).toFixed(1)}%</strong>
     </div>`;
   }
   let html = `
@@ -611,8 +611,7 @@ function renderCharts(){
   charts.goals=new Chart(document.getElementById('cGoals'),{
     type:'bar',
     data:{labels,datasets:[{label:'Goles por partido',data:avgG,
-      backgroundColor:TOURNS.map((_,i)=>i===TOURNS.length-1?'rgba(0,229,255,.85)':'rgba(0,229,255,.3)'),
-      borderColor:'rgba(0,229,255,.8)',borderWidth:1}]},
+      backgroundColor:TOURNS.map((_,i)=>i===TOURNS.length-1?'rgba(0,229,255,.85)':'rgba(0,229,255,.3)'),borderColor:'rgba(0,229,255,.8)',borderWidth:1,barPercentage:1.0,categoryPercentage:1.0}]},
     options:{responsive:true,maintainAspectRatio:false,
       scales:{x:{grid:{color:'rgba(42,48,69,.7)'}},y:{grid:{color:'rgba(42,48,69,.7)'},min:1.5}},
       plugins:{legend:{display:false}}}
@@ -644,8 +643,9 @@ function renderCharts(){
         backgroundColor:['rgba(0,200,83,.85)','rgba(255,171,0,.85)','rgba(255,59,92,.85)'],
         borderColor:['#00c853','#ffab00','#ff3b5c'],borderWidth:2}]},
     options:{responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:14}}}}
-  });
+      plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:14}}},
+      animation:{onComplete:function(){const chart=this;const ctx=chart.ctx;chart.data.datasets.forEach((dataset,i)=>{const meta=chart.getDatasetMeta(i);meta.data.forEach((arc,j)=>{const{x,y}=arc.tooltipPosition();ctx.save();ctx.fillStyle='#fff';ctx.font='bold 13px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(dataset.data[j]+'%',x,y);ctx.restore();});});}}
+  }});
 }
 
 // 
@@ -825,14 +825,14 @@ async function renderUpcomingCards() {
         const conf = Math.max(p.winH, p.draw, p.winA);
         predBox = `
           <div style="margin-top:14px;background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.15);border-radius:8px;padding:12px 10px;">
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:6px;">PredicciÃ³n del Modelo â€” Red Neuronal</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:6px;">Predicción del Modelo - Red Neuronal</div>
             <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:4px;">
               <span style="font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:700;color:${fav==='L'?'var(--green)':fav==='E'?'var(--draw)':'var(--text2)'};">${(p.winH*100).toFixed(0)}%</span>
-              <span style="color:var(--text3);font-size:18px;font-family:'Barlow Condensed',sans-serif;">â€”</span>
+              <span style="color:var(--text3);font-size:18px;font-family:'Barlow Condensed',sans-serif;">-</span>
               <span style="font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:700;color:${fav==='V'?'var(--green)':fav==='E'?'var(--draw)':'var(--text2)'};">${(p.winA*100).toFixed(0)}%</span>
             </div>
             <div style="font-size:11px;color:var(--accent);font-family:'Barlow Condensed',sans-serif;">Confianza: ${(conf*100).toFixed(1)}%</div>
-            <div style="font-size:10px;color:var(--text3);margin-top:3px;">L: ${(p.winH*100).toFixed(1)}%  Â·  E: ${(p.draw*100).toFixed(1)}%  Â·  V: ${(p.winA*100).toFixed(1)}%</div>
+            <div style="font-size:10px;color:var(--text3);margin-top:3px;">L: ${(p.winH*100).toFixed(1)}%  ·  E: ${(p.draw*100).toFixed(1)}%  ·  V: ${(p.winA*100).toFixed(1)}%</div>
           </div>`;
       }
     }
@@ -970,7 +970,7 @@ async function runPrediction() {
   } else if (eloFallbackReady) {
     res = eloPredict(home, away);
   } else {
-    alert('El modelo estÃ¡ cargando, espera unos segundos...');
+    alert('El modelo está cargando, espera unos segundos...');
     return;
   }
   if (!res) return;
@@ -1003,15 +1003,37 @@ async function runPrediction() {
               res.winA > res.winH && res.winA > res.draw ? away : 'Empate';
   const conf = Math.max(res.winH, res.draw, res.winA);
   document.getElementById('predInterpret').innerHTML =
-    `<strong>PredicciÃ³n:</strong> El modelo neural estima que <strong style="color:var(--accent)">${fav}</strong> ` +
-    `es el resultado mÃ¡s probable (confianza: <strong>${(conf*100).toFixed(1)}%</strong>). ` +
+    `<strong>Predicción:</strong> El modelo neural estima que <strong style="color:var(--accent)">${fav}</strong> ` +
+    `es el resultado más probable (confianza: <strong>${(conf*100).toFixed(1)}%</strong>). ` +
     `${res.winH > 0.5 ? `${home} tiene una fuerte ventaja en casa respaldada por su historial y Elo.` :
        res.winA > 0.5 ? `${away} tiene ventaja pese a jugar de visitante.` :
-       'El partido estÃ¡ muy equilibrado.'}`;
+       'El partido está muy equilibrado.'}`;
 
   const h2h = getH2H(home, away);
-  document.getElementById('predH2H').innerHTML =
-    ` H2H histÃ³rico: <strong>${home}</strong> ${h2h.w1}V â€” ${h2h.draws}E â€” ${h2h.w2}V <strong>${away}</strong> (${h2h.total} partidos)`;
+  let h2hHtml = `
+    <div style="margin-top:16px;border-top:1px solid var(--border);padding-top:16px;">
+      <div style="font-size:11px;color:var(--text2);letter-spacing:2px;margin-bottom:12px;">H2H HISTÓRICO</div>
+      <div style="display:flex;justify-content:center;gap:60px;margin-bottom:20px;text-align:center;">
+        <div><div style="font-size:52px;font-weight:700;color:var(--green);font-family:'Barlow Condensed',sans-serif">${h2h.w1}</div><div style="font-size:11px;color:var(--text2);margin-top:2px">V ${home}</div></div>
+        <div><div style="font-size:52px;font-weight:700;color:var(--draw);font-family:'Barlow Condensed',sans-serif">${h2h.draws}</div><div style="font-size:11px;color:var(--text2);margin-top:2px">Empates</div></div>
+        <div><div style="font-size:52px;font-weight:700;color:var(--red);font-family:'Barlow Condensed',sans-serif">${h2h.w2}</div><div style="font-size:11px;color:var(--text2);margin-top:2px">V ${away}</div></div>
+      </div>
+      <div style="font-size:11px;color:var(--text2);letter-spacing:2px;margin-bottom:8px;">ÚLTIMOS PARTIDOS</div>`;
+  if(h2h.matches.length){
+    h2h.matches.slice(-5).reverse().forEach(m=>{
+      const rv=m.hg>m.ag?'H':m.hg<m.ag?'A':'D';
+      const cH=rv==='H'?'var(--green)':rv==='D'?'var(--draw)':'var(--text2)';
+      const cA=rv==='A'?'var(--green)':rv==='D'?'var(--draw)':'var(--text2)';
+      h2hHtml+=`<div style="display:grid;grid-template-columns:100px 1fr auto 1fr;align-items:center;gap:8px;padding:8px 4px;border-bottom:1px solid rgba(255,255,255,0.1);font-size:13px;background:rgba(255,255,255,0.02);margin-bottom:2px;border-radius:4px;">
+        <span style="color:var(--text2)">${m.date||''} J${m.round}</span>
+        <span style="text-align:right;color:${cH};font-weight:${rv==='H'?'700':'400'}">${m.home}</span>
+        <span style="text-align:center;font-weight:700;background:rgba(255,255,255,0.05);padding:2px 8px;border-radius:4px;">${m.hg} - ${m.ag}</span>
+        <span style="text-align:left;color:${cA};font-weight:${rv==='A'?'700':'400'}">${m.away}</span>
+      </div>`;
+    });
+  } else { h2hHtml+=`<div style="color:var(--text2);font-size:12px;text-align:center;padding:8px">Sin partidos registrados</div>`; }
+  h2hHtml+='</div>';
+  document.getElementById('predH2H').innerHTML = h2hHtml;
 }
 
 function clearPred() {
@@ -1076,4 +1098,12 @@ window.addEventListener('load', function(){
     }
   }, 200);
 });
+
+
+
+
+
+
+
+
 
