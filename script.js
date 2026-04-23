@@ -966,7 +966,7 @@ async function runPrediction() {
   if (home === away) { alert('Selecciona equipos diferentes'); return; }
   let res;
   if (nnReady) {
-    res = await nnPredict(home, away);
+    res = eloPredict(home, away);
   } else if (eloFallbackReady) {
     res = eloPredict(home, away);
   } else {
