@@ -903,11 +903,32 @@ let customUpcoming = JSON.parse(JSON.stringify(UPCOMING));
 async function renderUpcomingCards() {
   const container = document.getElementById('upcomingCards');
   if (!container) return;
-  const next9 = customUpcoming.slice(0, 9);
+
+  // Si no hay proximos partidos, mostrar los ultimos 9 jugados (liguilla)
+  let matchList = customUpcoming.slice(0, 9);
+  let modoResultados = false;
+  if (matchList.length === 0) {
+    const allPlayed = [...getAllMatches()].filter(m => m.hg !== undefined);
+    matchList = allPlayed.slice(-9).reverse();
+    modoResultados = true;
+  }
+  const next9 = matchList;
   
   let cards = '';
   for (const m of next9) {
-    let predBox = `<div style="margin-top:14px;text-align:center;font-size:11px;color:var(--text3);letter-spacing:1px;font-family:'Barlow Condensed',sans-serif;padding:10px 0;">PREDICCIONES CARGANDO...</div>`;
+    // Modo resultados: mostrar marcador real
+    if (modoResultados && m.hg !== undefined) {
+      const resLabel = m.hg > m.ag ? m.home : m.hg < m.ag ? m.away : 'Empate';
+      const resColor = m.hg > m.ag ? 'var(--green)' : m.hg < m.ag ? 'var(--red)' : 'var(--draw)';
+      const faseTag = m.fase ? m.fase : roundLabel(m.round);
+      var predBox = `
+        <div style="margin-top:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 10px;text-align:center;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:8px;">RESULTADO FINAL · ${faseTag}</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:700;color:var(--accent);letter-spacing:4px;">${m.hg} - ${m.ag}</div>
+          <div style="font-size:11px;color:${resColor};margin-top:4px;font-weight:600;">${resLabel === 'Empate' ? 'Empate' : 'Ganador: ' + resLabel}</div>
+        </div>`;
+    } else {
+    var predBox = `<div style="margin-top:14px;text-align:center;font-size:11px;color:var(--text3);letter-spacing:1px;font-family:'Barlow Condensed',sans-serif;padding:10px 0;">PREDICCIONES CARGANDO...</div>`;
     
     if (nnReady || eloFallbackReady) {
       const p = eloPredict(m.home,m.away);
@@ -929,6 +950,8 @@ async function renderUpcomingCards() {
           </div>`;
       }
     }
+
+    } // end else (modo prediccion)
 
     cards += `
     <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 16px;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='rgba(0,229,255,.35)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
@@ -952,7 +975,10 @@ async function renderUpcomingCards() {
     </div>`;
   }
 
-  container.innerHTML = `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">${cards}</div>`;
+  const sectionTitle = modoResultados
+    ? `<div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;color:var(--text3);text-align:center;margin-bottom:16px;text-transform:uppercase;">Últimos partidos — Clausura 2026</div>`
+    : '';
+  container.innerHTML = sectionTitle + `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">${cards}</div>`;
 }
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // ADMIN: FIXTURE EDITOR
