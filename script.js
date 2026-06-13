@@ -123,16 +123,98 @@ function getFeatures(homeTeam, awayTeam) {
 //  NEURAL NETWORK
 // 
 
+// ══════════════════════════════════════════════════════
+//  POISSON DIXON-COLES — parámetros de ataque/defensa
+//  Derivados del ranking_equipos.csv del modelo Python
+// ══════════════════════════════════════════════════════
+const TEAM_STRENGTH = {
+  'América':       { atk:  0.264, def: -0.364 },
+  'Atlas':         { atk: -0.120, def:  0.038 },
+  'Atl. San Luis': { atk:  0.001, def:  0.049 },
+  'Cruz Azul':     { atk:  0.154, def: -0.116 },
+  'FC Juárez':     { atk: -0.274, def:  0.208 },
+  'Guadalajara':   { atk:  0.073, def: -0.242 },
+  'León':          { atk: -0.109, def: -0.031 },
+  'Mazatlán':      { atk: -0.222, def:  0.225 },
+  'Monterrey':     { atk:  0.240, def: -0.206 },
+  'Necaxa':        { atk: -0.148, def:  0.121 },
+  'Pachuca':       { atk:  0.094, def:  0.028 },
+  'Puebla':        { atk: -0.102, def:  0.203 },
+  'UNAM':          { atk: -0.013, def: -0.005 },
+  'Querétaro':     { atk: -0.345, def:  0.127 },
+  'Santos':        { atk: -0.070, def:  0.203 },
+  'Tigres':        { atk:  0.244, def: -0.294 },
+  'Tijuana':       { atk: -0.064, def:  0.176 },
+  'Toluca':        { atk:  0.395, def: -0.006 },
+};
+
+const AVG_GOALS_HOME = 1.55;
+const AVG_GOALS_AWAY = 1.25;
+const HOME_BOOST     = 0.15;
+
+function poissonProb(lambda, k) {
+  let p = Math.exp(-lambda);
+  for (let i = 1; i <= k; i++) p *= lambda / i;
+  return p;
+}
+
+function predictScore(home, away) {
+  const sH = TEAM_STRENGTH[home] || { atk: 0, def: 0 };
+  const sA = TEAM_STRENGTH[away] || { atk: 0, def: 0 };
+  const lambdaH = Math.max(0.3, AVG_GOALS_HOME * Math.exp(sH.atk - sA.def + HOME_BOOST));
+  const lambdaA = Math.max(0.3, AVG_GOALS_AWAY * Math.exp(sA.atk - sH.def));
+
+  let pHome = 0, pDraw = 0, pAway = 0;
+  let bestProb = -1, bestSH = 1, bestSA = 1;
+
+  for (let gh = 0; gh <= 5; gh++) {
+    for (let ga = 0; ga <= 5; ga++) {
+      const p = poissonProb(lambdaH, gh) * poissonProb(lambdaA, ga);
+      if (gh > ga) pHome += p;
+      else if (gh < ga) pAway += p;
+      else pDraw += p;
+      if (p > bestProb) { bestProb = p; bestSH = gh; bestSA = ga; }
+    }
+  }
+
+  return {
+    winH: pHome,
+    draw: pDraw,
+    winA: pAway,
+    marcador: `${bestSH}-${bestSA}`,
+    lambdaH: lambdaH.toFixed(2),
+    lambdaA: lambdaA.toFixed(2),
+  };
+}
+
 function eloPredict(home, away) {
   buildElo(getAllMatches());
-  const rH = (eloRatings[home]||BASE_ELO) + HOME_ADV;
-  const rA =  eloRatings[away]||BASE_ELO;
-  const expH = 1/(1+Math.pow(10,(rA-rH)/400));
-  const winH = Math.min(0.75,Math.max(0.10,expH*0.88));
-  const winA = Math.min(0.75,Math.max(0.10,(1-expH)*0.88));
-  const draw = Math.max(0.12,1-winH-winA);
-  const t = winH+draw+winA;
-  return {winH:winH/t, draw:draw/t, winA:winA/t};
+  const rH = (eloRatings[home] || BASE_ELO) + HOME_ADV;
+  const rA =  eloRatings[away] || BASE_ELO;
+  const expH = 1 / (1 + Math.pow(10, (rA - rH) / 400));
+  const eloWinH = Math.min(0.75, Math.max(0.10, expH * 0.88));
+  const eloWinA = Math.min(0.75, Math.max(0.10, (1 - expH) * 0.88));
+  const eloDraw = Math.max(0.12, 1 - eloWinH - eloWinA);
+  const eloT = eloWinH + eloDraw + eloWinA;
+
+  // Predicción Poisson para el marcador y probabilidades por goles
+  const poisson = predictScore(home, away);
+
+  // Mezcla híbrida: alpha=0.55 (peso NN/ELO) vs Poisson
+  const alpha = 0.55;
+  const winH = alpha * (eloWinH / eloT) + (1 - alpha) * poisson.winH;
+  const winA = alpha * (eloWinA / eloT) + (1 - alpha) * poisson.winA;
+  const draw  = alpha * (eloDraw  / eloT) + (1 - alpha) * poisson.draw;
+  const t = winH + draw + winA;
+
+  return {
+    winH: winH / t,
+    draw:  draw  / t,
+    winA: winA / t,
+    marcador:          poisson.marcador,
+    golesLocalEsp:     poisson.lambdaH,
+    golesVisitanteEsp: poisson.lambdaA,
+  };
 }
 
 const MODEL_KEY = 'indexeddb://score-guardians-nn-v1';
@@ -833,6 +915,7 @@ async function renderUpcomingCards() {
             </div>
             <div style="font-size:11px;color:var(--accent);font-family:'Barlow Condensed',sans-serif;">Confianza: ${(conf*100).toFixed(1)}%</div>
             <div style="font-size:10px;color:var(--text3);margin-top:3px;">L: ${(p.winH*100).toFixed(1)}%  ·  E: ${(p.draw*100).toFixed(1)}%  ·  V: ${(p.winA*100).toFixed(1)}%</div>
+            ${p.marcador ? `<div style="margin-top:8px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:1px;color:var(--text2);">Marcador probable: <strong style="color:var(--accent);font-size:16px;">${p.marcador}</strong></div><div style="font-size:10px;color:var(--text3);margin-top:2px;">Goles esp. local: ${p.golesLocalEsp} · visitante: ${p.golesVisitanteEsp}</div>` : ''}
           </div>`;
       }
     }
@@ -1001,13 +1084,19 @@ async function runPrediction() {
 
   const fav = res.winH > res.winA && res.winH > res.draw ? home :
               res.winA > res.winH && res.winA > res.draw ? away : 'Empate';
-  const conf = Math.max(res.winH, res.draw, res.winA);
+  const scoreHtml = res.marcador
+    ? `<div style="margin-top:10px;padding:8px 14px;background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);border-radius:8px;display:inline-block;">`
+      + `<span style="font-size:11px;color:var(--text3);letter-spacing:1.5px;font-family:'Barlow Condensed',sans-serif;">MARCADOR PROBABLE</span>`
+      + `<div style="font-size:28px;font-weight:700;color:var(--accent);font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;">${res.marcador}</div>`
+      + `<span style="font-size:10px;color:var(--text3);">Goles esperados &mdash; local: ${res.golesLocalEsp} &middot; visitante: ${res.golesVisitanteEsp}</span>`
+      + `</div>`
+    : '';
   document.getElementById('predInterpret').innerHTML =
-    `<strong>Predicción:</strong> El modelo neural estima que <strong style="color:var(--accent)">${fav}</strong> ` +
+    `<strong>Predicción:</strong> El modelo híbrido (Red Neuronal + Poisson) estima que <strong style="color:var(--accent)">${fav}</strong> ` +
     `es el resultado más probable (confianza: <strong>${(conf*100).toFixed(1)}%</strong>). ` +
     `${res.winH > 0.5 ? `${home} tiene una fuerte ventaja en casa respaldada por su historial y Elo.` :
        res.winA > 0.5 ? `${away} tiene ventaja pese a jugar de visitante.` :
-       'El partido está muy equilibrado.'}`;
+       'El partido está muy equilibrado.'}` + scoreHtml;
 
   const h2h = getH2H(home, away);
   let h2hHtml = `
