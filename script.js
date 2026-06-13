@@ -408,25 +408,6 @@ function clearPred() {
   document.getElementById('predResult').style.display = 'none';
 }
 
-// 
-//  STANDINGS
-// 
-function computeStandings(matches) {
-  const tbl = {};
-  TEAMS.forEach(t => tbl[t]={team:t,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
-  // Excluir liguilla (rounds >= 18) de la tabla de posiciones
-  const regularSeason = matches.filter(m => typeof m.round === 'number' && m.round <= 17);
-  [...regularSeason].sort((a,b)=>a.round-b.round).forEach(m => {
-    const h = tbl[m.home]||(tbl[m.home]={team:m.home,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
-    const a = tbl[m.away]||(tbl[m.away]={team:m.away,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
-    h.pj++; a.pj++; h.gf+=m.hg; h.gc+=m.ag; a.gf+=m.ag; a.gc+=m.hg;
-    if(m.hg>m.ag){h.g++;h.pts+=3;h.form.push('W');a.p++;a.form.push('L');}
-    else if(m.hg<m.ag){a.g++;a.pts+=3;a.form.push('W');h.p++;h.form.push('L');}
-    else{h.e++;h.pts++;h.form.push('D');a.e++;a.pts++;a.form.push('D');}
-  });
-  return Object.values(tbl).sort((a,b)=>b.pts-a.pts||(b.gf-b.gc)-(a.gf-a.gc)||b.gf-a.gf);
-}
-
 function renderStandings(tournament) {
   document.getElementById('standTag').textContent = tournament;
   document.querySelectorAll('#standTabs .t-tab').forEach(t=>t.classList.toggle('active',t.dataset.t===tournament));
@@ -877,24 +858,7 @@ const TEAM_GRADIENT = {
   'Tijuana':     ['#880000','#440000'],
   'Toluca':      ['#CC0000','#880000'],
 }
-function logoSVG(team, size=56) {
-  const abbr  = TEAM_ABBR[team] || team.slice(0,3).toUpperCase();
-  const grad  = TEAM_GRADIENT[team] || ['#333','#111'];
-  const fs    = size > 50 ? 11 : 9;
-  const id    = 'g' + Math.random().toString(36).slice(2,7);
-  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="${id}" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="${grad[0]}"/>
-        <stop offset="100%" stop-color="${grad[1]}"/>
-      </linearGradient>
-    </defs>
-    <circle cx="${size/2}" cy="${size/2}" r="${size/2-1}" fill="url(#${id})" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
-    <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
-      font-family="'Barlow Condensed',sans-serif" font-weight="700"
-      font-size="${fs}" fill="white" letter-spacing="0.5">${abbr}</text>
-  </svg>`;
-}
+
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // UPCOMING MATCHES SECTION â€” card design
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
@@ -1184,32 +1148,7 @@ function computeStandings(matches) {
   return Object.values(tbl).sort((a,b)=>b.pts-a.pts||(b.gf-b.gc)-(a.gf-a.gc)||b.gf-a.gf);
 }
 
-function renderStandings(tournament) {
-  document.getElementById('standTag').textContent = tournament;
-  document.querySelectorAll('#standTabs .t-tab').forEach(t=>t.classList.toggle('active',t.dataset.t===tournament));
-  const matches = getTournamentMatches(tournament);
-  const rows = computeStandings(matches);
-  document.getElementById('standBody').innerHTML = rows.map((r,i) => {
-    const dg = r.gf - r.gc;
-    const formHtml = r.form.slice(-5).map(f=>`<div class="fd ${f}"></div>`).join('');
-    const col = TEAM_COLORS[r.team]||'#555';
-    return `<tr>
-      <td><span class="pos ${i<8?'top':''}">${i+1}</span></td>
-      <td><div class="team-cell">
-        ${logoSVG(r.team, 24)}
-        ${r.team}
-      </div></td>
-      <td>${r.pj}</td>
-      <td style="color:var(--green)">${r.g}</td>
-      <td style="color:var(--draw)">${r.e}</td>
-      <td style="color:var(--red)">${r.p}</td>
-      <td>${r.gf}</td><td>${r.gc}</td>
-      <td style="color:${dg>0?'var(--green)':dg<0?'var(--red)':'var(--text2)'}">${dg>0?'+':''}${dg}</td>
-      <td><span class="pts">${r.pts}</span></td>
-      <td><div class="form-row">${formHtml}</div></td>
-    </tr>`;
-  }).join('');
-}
+
 
 // 
 //  MONTECARLO (uses NN predictions)
