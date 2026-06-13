@@ -123,6 +123,14 @@ function getFeatures(homeTeam, awayTeam) {
 //  NEURAL NETWORK
 // 
 
+// ── Etiqueta de jornada/fase ─────────────────────────────────
+function roundLabel(r) {
+  if (r === 18 || r === 19) return '4sF';
+  if (r === 20 || r === 21) return 'SF';
+  if (r === 22 || r === 23) return 'Final';
+  return 'J' + r;
+}
+
 // ══════════════════════════════════════════════════════
 //  POISSON DIXON-COLES — parámetros de ataque/defensa
 //  Derivados del ranking_equipos.csv del modelo Python
@@ -406,7 +414,9 @@ function clearPred() {
 function computeStandings(matches) {
   const tbl = {};
   TEAMS.forEach(t => tbl[t]={team:t,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
-  [...matches].sort((a,b)=>a.round-b.round).forEach(m => {
+  // Excluir liguilla (rounds >= 18) de la tabla de posiciones
+  const regularSeason = matches.filter(m => typeof m.round === 'number' && m.round <= 17);
+  [...regularSeason].sort((a,b)=>a.round-b.round).forEach(m => {
     const h = tbl[m.home]||(tbl[m.home]={team:m.home,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
     const a = tbl[m.away]||(tbl[m.away]={team:m.away,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
     h.pj++; a.pj++; h.gf+=m.hg; h.gc+=m.ag; a.gf+=m.ag; a.gc+=m.hg;
@@ -516,7 +526,7 @@ function renderHistory(tournament) {
         <div class="m-team home" style="color:${res==='H'?'var(--green)':res==='D'?'var(--draw)':'var(--text2)'};font-weight:${res==='H'?600:400}">${m.home}</div>
         <div class="m-score">${m.hg} - ${m.ag}</div>
         <div class="m-team away" style="color:${res==='A'?'var(--green)':res==='D'?'var(--draw)':'var(--text2)'};font-weight:${res==='A'?600:400}">${m.away}</div>
-        <div class="m-j">J${m.round}</div>
+        <div class="m-j">${roundLabel(m.round)}</div>
       </div>`;
     });
   });
@@ -568,7 +578,7 @@ async function showH2H() {
       <div class="m-team home" style="color:${res==='H'?'var(--green)':res==='D'?'var(--draw)':'var(--text2)'}">${m.home}</div>
       <div class="m-score">${m.hg} - ${m.ag}</div>
       <div class="m-team away" style="color:${res==='A'?'var(--green)':res==='D'?'var(--draw)':'var(--text2)'}">${m.away}</div>
-      <div class="m-j">J${m.round}</div>
+      <div class="m-j">${roundLabel(m.round)}</div>
     </div>`; }); }
   html+='</div>';
   document.getElementById('h2hOut').innerHTML=html;
@@ -592,7 +602,7 @@ function renderQueue(){
   if(!updateQueue.length){el.style.display='none';return;}
   el.style.display='block';
   el.innerHTML=`<div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;color:var(--text3);margin-bottom:8px">COLA (${updateQueue.length} resultados)</div>`+
-    updateQueue.map((m,i)=>`<div class="q-item"><span>J${m.round} â€” ${m.home} ${m.hg}-${m.ag} ${m.away}</span><button class="q-rm" onclick="removeQueue(${i})">Ã—</button></div>`).join('');
+    updateQueue.map((m,i)=>`<div class="q-item"><span>${roundLabel(m.round)} â€” ${m.home} ${m.hg}-${m.ag} ${m.away}</span><button class="q-rm" onclick="removeQueue(${i})">Ã—</button></div>`).join('');
 }
 function removeQueue(i){updateQueue.splice(i,1);renderQueue();}
 function clearQueue(){updateQueue=[];renderQueue();}
@@ -652,7 +662,7 @@ function renderUpcoming(){
         <div class="m-team home">${m.home}</div>
         <div class="m-score upcoming">vs</div>
         <div class="m-team away">${m.away}</div>
-        <div class="m-j">J${m.round}</div>
+        <div class="m-j">${roundLabel(m.round)}</div>
       </div>`;
     });
   });
@@ -923,7 +933,7 @@ async function renderUpcomingCards() {
     cards += `
     <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 16px;transition:border-color .2s,transform .2s;" onmouseover="this.style.borderColor='rgba(0,229,255,.35)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="text-align:center;margin-bottom:4px;">
-        <span style="display:inline-block;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.25);border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--accent);padding:2px 10px;">J${m.round}</span>
+        <span style="display:inline-block;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.25);border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--accent);padding:2px 10px;">${roundLabel(m.round)}</span>
       </div>
       <div style="text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;margin-bottom:16px;">${m.date}</div>
       
@@ -953,7 +963,7 @@ function renderAdminFixtures() {
   if (!customUpcoming.length) { el.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:10px;">Sin partidos registrados</div>'; return; }
   el.innerHTML = customUpcoming.map((m, i) => `
     <div style="display:grid;grid-template-columns:60px 1fr 1fr 80px;gap:8px;align-items:center;background:var(--bg2);border-radius:6px;padding:8px 12px;border:1px solid var(--border);font-size:13px;">
-      <span style="font-family:'Barlow Condensed',sans-serif;color:var(--accent);font-weight:700;font-size:14px;">J${m.round}</span>
+      <span style="font-family:'Barlow Condensed',sans-serif;color:var(--accent);font-weight:700;font-size:14px;">${roundLabel(m.round)}</span>
       <span style="color:var(--text)">${m.home}</span>
       <span style="color:var(--text2)">${m.away}</span>
       <button onclick="removeFixture(${i})" style="color:var(--red);cursor:pointer;background:rgba(255,59,92,.1);border:1px solid rgba(255,59,92,.3);border-radius:4px;padding:4px 8px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;">QUITAR</button>
@@ -1114,7 +1124,7 @@ async function runPrediction() {
       const cH=rv==='H'?'var(--green)':rv==='D'?'var(--draw)':'var(--text2)';
       const cA=rv==='A'?'var(--green)':rv==='D'?'var(--draw)':'var(--text2)';
       h2hHtml+=`<div style="display:grid;grid-template-columns:100px 1fr auto 1fr;align-items:center;gap:8px;padding:8px 4px;border-bottom:1px solid rgba(255,255,255,0.1);font-size:13px;background:rgba(255,255,255,0.02);margin-bottom:2px;border-radius:4px;">
-        <span style="color:var(--text2)">${m.date||''} J${m.round}</span>
+        <span style="color:var(--text2)">${m.date||''} ${roundLabel(m.round)}</span>
         <span style="text-align:right;color:${cH};font-weight:${rv==='H'?'700':'400'}">${m.home}</span>
         <span style="text-align:center;font-weight:700;background:rgba(255,255,255,0.05);padding:2px 8px;border-radius:4px;">${m.hg} - ${m.ag}</span>
         <span style="text-align:left;color:${cA};font-weight:${rv==='A'?'700':'400'}">${m.away}</span>
@@ -1135,7 +1145,9 @@ function clearPred() {
 function computeStandings(matches) {
   const tbl = {};
   TEAMS.forEach(t => tbl[t]={team:t,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
-  [...matches].sort((a,b)=>a.round-b.round).forEach(m => {
+  // Excluir liguilla (rounds >= 18) de la tabla de posiciones
+  const regularSeason = matches.filter(m => typeof m.round === 'number' && m.round <= 17);
+  [...regularSeason].sort((a,b)=>a.round-b.round).forEach(m => {
     const h = tbl[m.home]||(tbl[m.home]={team:m.home,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
     const a = tbl[m.away]||(tbl[m.away]={team:m.away,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
     h.pj++; a.pj++; h.gf+=m.hg; h.gc+=m.ag; a.gf+=m.ag; a.gc+=m.hg;
