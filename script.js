@@ -399,6 +399,13 @@ function setNNStatus(state, msg, pct) {
        res.winA > 0.5 ? `${away} tiene ventaja pese a jugar de visitante.` :
        'El partido está muy equilibrado.'}`;
 
+  // Mostrar botón de guardar predicción si el usuario está logueado
+  const favFinal = res.winH > res.winA && res.winH > res.draw ? 'L' :
+                   res.winA > res.winH && res.winA > res.draw ? 'V' : 'E';
+  if (typeof addSaveButtonToPredictor === 'function') {
+    addSaveButtonToPredictor(home, away, favFinal);
+  }
+
   const h2h = getH2H(home, away);
   document.getElementById('predH2H').innerHTML =
     ` H2H histórico: <strong>${home}</strong> ${h2h.w1}V â€” ${h2h.draws}E â€” ${h2h.w2}V <strong>${away}</strong> (${h2h.total} partidos)`;
