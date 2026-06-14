@@ -230,14 +230,25 @@ function showUserUI() {
 
 function switchAuthMode(mode) {
   const isLogin = mode === 'login';
-  document.getElementById('sgRegFields').style.display = isLogin ? 'none' : 'block';
-  document.getElementById('sgSubmitBtn').textContent  = isLogin ? 'Entrar' : 'Registrarse';
-  document.getElementById('sgSubmitBtn').dataset.label = isLogin ? 'Entrar' : 'Registrarse';
-  document.getElementById('sgSubmitBtn').onclick = isLogin ? sgLogin : sgRegister;
-  document.getElementById('sgModeTitle').textContent = isLogin ? 'Iniciar sesión' : 'Crear cuenta';
-  document.getElementById('sgAuthError').style.display = 'none';
-  document.getElementById('sgTabLogin').classList.toggle('sg-tab-active', isLogin);
-  document.getElementById('sgTabReg').classList.toggle('sg-tab-active', !isLogin);
+
+  const regFields = document.getElementById('sgRegFields');
+  const submitBtn = document.getElementById('sgSubmitBtn');
+  const modeTitle = document.getElementById('sgModeTitle');
+  const authErr   = document.getElementById('sgAuthError');
+  const tabLogin  = document.getElementById('sgTabLogin');
+  const tabReg    = document.getElementById('sgTabReg');
+
+  if (!regFields || !submitBtn || !modeTitle) return;
+
+  regFields.style.display = isLogin ? 'none' : 'block';
+  submitBtn.textContent   = isLogin ? 'Entrar' : 'Registrarse';
+  submitBtn.dataset.label = isLogin ? 'Entrar' : 'Registrarse';
+  submitBtn.disabled      = false;
+  submitBtn.onclick       = isLogin ? sgLogin : sgRegister;
+  modeTitle.textContent   = isLogin ? 'Iniciar sesión' : 'Crear cuenta';
+  if (authErr) { authErr.style.display = 'none'; authErr.style.color = 'var(--red)'; }
+  if (tabLogin) tabLogin.classList.toggle('sg-tab-active', isLogin);
+  if (tabReg)   tabReg.classList.toggle('sg-tab-active', !isLogin);
 }
 
 // ── Render mis predicciones ──────────────────────────────────
