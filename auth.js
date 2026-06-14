@@ -45,7 +45,7 @@ async function checkSession() {
 
 // ── Cargar perfil ────────────────────────────────────────────
 async function loadProfile() {
-  const { data } = await supabase
+  const { data } = await sgClient
     .from('profiles')
     .select('*')
     .eq('id', currentUser.id)
@@ -120,7 +120,7 @@ async function guardarPrediccion(home, away, prediccion, fechaPartido) {
 
   const partido = `${home} vs ${away}`;
   // Verificar si ya existe
-  const { data: existing } = await supabase
+  const { data: existing } = await sgClient
     .from('predicciones')
     .select('id')
     .eq('user_id', currentUser.id)
@@ -154,7 +154,7 @@ async function guardarPrediccion(home, away, prediccion, fechaPartido) {
 // ── Cargar mis predicciones ──────────────────────────────────
 async function getMisPredicciones() {
   if (!currentUser) return [];
-  const { data } = await supabase
+  const { data } = await sgClient
     .from('predicciones')
     .select('*')
     .eq('user_id', currentUser.id)
@@ -164,7 +164,7 @@ async function getMisPredicciones() {
 
 // ── Leaderboard ──────────────────────────────────────────────
 async function getLeaderboard() {
-  const { data } = await supabase
+  const { data } = await sgClient
     .from('predicciones')
     .select('username, acertó')
     .not('acertó', 'is', null);
