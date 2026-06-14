@@ -12,7 +12,7 @@ let sgMyPred  = null; // 'L' | 'E' | 'V'
 // ── Init ─────────────────────────────────────────────────────
 function initSupabase() {
   if (window.supabase && window.supabase.createClient) {
-    sgClient = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+    if (!sgClient) sgClient = window.supabase.createClient(SUPA_URL, SUPA_KEY);
     sgClient.auth.onAuthStateChange(async (_e, session) => {
       if (session) {
         sgUser = session.user;
@@ -378,4 +378,4 @@ function showToast(msg) {
 }
 
 // ── Boot ──────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => setTimeout(initSupabase, 400));
+document.addEventListener('DOMContentLoaded', () => setTimeout(initSupabase, 100));
