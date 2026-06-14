@@ -1,380 +1,373 @@
 // ══════════════════════════════════════════════════════════════
-//  SCORE GUARDIANS — Auth & Predicciones con Supabase
-//  Proyecto: ScoreGuardians | hkzulxvsnmczbomjklln
+//  SCORE GUARDIANS — Auth & Predicciones v5
 // ══════════════════════════════════════════════════════════════
-
 const SUPA_URL = 'https://hkzulxvsnmczbomjklln.supabase.co';
 const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhrenVseHZzbm1jemJvbWprbGxuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzODQyNTEsImV4cCI6MjA5Njk2MDI1MX0.9skguLAPgMS6oJ4gDiYTPaLEWGPqOVljflOnzjpACfs';
 
-let sgClient = null;
-let currentUser = null;
-let currentProfile = null;
+let sgClient  = null;
+let sgUser    = null;
+let sgProfile = null;
+let sgMyPred  = null; // 'L' | 'E' | 'V'
 
-// ── Inicializar Supabase ─────────────────────────────────────
+// ── Init ─────────────────────────────────────────────────────
 function initSupabase() {
   if (window.supabase && window.supabase.createClient) {
     sgClient = window.supabase.createClient(SUPA_URL, SUPA_KEY);
-    checkSession();
+    sgClient.auth.onAuthStateChange(async (_e, session) => {
+      if (session) {
+        sgUser = session.user;
+        await loadProfile();
+        onLoggedIn();
+      } else {
+        sgUser = null; sgProfile = null;
+        onLoggedOut();
+      }
+    });
+    sgClient.auth.getSession().then(({ data: { session } }) => {
+      if (session) { sgUser = session.user; loadProfile().then(onLoggedIn); }
+      else onLoggedOut();
+    });
   } else {
     setTimeout(initSupabase, 300);
   }
 }
 
-// ── Verificar sesión activa ──────────────────────────────────
-async function checkSession() {
-  const { data: { session } } = await sgClient.auth.getSession();
-  if (session) {
-    currentUser = session.user;
-    await loadProfile();
-    showUserUI();
-  } else {
-    showAuthUI();
-  }
-  sgClient.auth.onAuthStateChange(async (_event, session) => {
-    if (session) {
-      currentUser = session.user;
-      await loadProfile();
-      showUserUI();
-    } else {
-      currentUser = null;
-      currentProfile = null;
-      showAuthUI();
-    }
-  });
-}
-
-// ── Cargar perfil ────────────────────────────────────────────
 async function loadProfile() {
-  const { data } = await sgClient
-    .from('profiles')
-    .select('*')
-    .eq('id', currentUser.id)
-    .single();
-  currentProfile = data;
+  if (!sgUser) return;
+  const { data } = await sgClient.from('profiles').select('*').eq('id', sgUser.id).single();
+  sgProfile = data;
 }
 
-// ── Registro ─────────────────────────────────────────────────
+// ── Auth actions ──────────────────────────────────────────────
+async function sgLogin() {
+  const email = document.getElementById('sgEmail').value.trim();
+  const pass  = document.getElementById('sgPassword').value;
+  const err   = document.getElementById('sgAuthError');
+  if (!email || !pass) { showSgErr('Ingresa tu correo y contraseña.'); return; }
+  setBtn(true);
+  const { error } = await sgClient.auth.signInWithPassword({ email, password: pass });
+  if (error) { showSgErr('Correo o contraseña incorrectos.'); setBtn(false); }
+  else { closeSgModal('sgAuthModal'); }
+}
+
 async function sgRegister() {
   const email    = document.getElementById('sgEmail').value.trim();
-  const password = document.getElementById('sgPassword').value;
+  const pass     = document.getElementById('sgPassword').value;
   const username = document.getElementById('sgUsername').value.trim();
-  const err      = document.getElementById('sgAuthError');
-
-  if (!email || !password || !username) {
-    err.textContent = 'Completa todos los campos.'; err.style.display='block'; return;
-  }
-  if (password.length < 6) {
-    err.textContent = 'La contraseña debe tener al menos 6 caracteres.'; err.style.display='block'; return;
-  }
-
-  setBtnLoading('sgSubmitBtn', true);
-
-  const { data, error } = await sgClient.auth.signUp({ email, password });
-  if (error) { err.textContent = error.message; err.style.display='block'; setBtnLoading('sgSubmitBtn',false); return; }
-
-  // Crear perfil
-  const { error: profError } = await sgClient.from('profiles').insert({
-    id: data.user.id,
-    username: username
-  });
-  if (profError) {
-    err.textContent = 'Nombre de usuario ya en uso. Elige otro.';
-    err.style.display='block';
-    setBtnLoading('sgSubmitBtn',false);
-    return;
-  }
-
-  setBtnLoading('sgSubmitBtn',false);
-  err.style.color='var(--green)';
-  err.textContent = '¡Registro exitoso! Revisa tu correo para confirmar.';
-  err.style.display='block';
+  if (!email || !pass || !username) { showSgErr('Completa todos los campos.'); return; }
+  if (pass.length < 6) { showSgErr('Contraseña mínimo 6 caracteres.'); return; }
+  setBtn(true);
+  const { data, error } = await sgClient.auth.signUp({ email, password: pass });
+  if (error) { showSgErr(error.message); setBtn(false); return; }
+  const { error: pe } = await sgClient.from('profiles').insert({ id: data.user.id, username });
+  if (pe) { showSgErr('Nombre de usuario ya en uso. Elige otro.'); setBtn(false); return; }
+  setBtn(false);
+  closeSgModal('sgAuthModal');
+  showToast('¡Bienvenido a Score Guardians!');
 }
 
-// ── Login ────────────────────────────────────────────────────
-async function sgLogin() {
-  const email    = document.getElementById('sgEmail').value.trim();
-  const password = document.getElementById('sgPassword').value;
-  const err      = document.getElementById('sgAuthError');
-
-  if (!email || !password) {
-    err.textContent = 'Ingresa tu correo y contraseña.'; err.style.display='block'; return;
-  }
-
-  setBtnLoading('sgSubmitBtn', true);
-  const { error } = await sgClient.auth.signInWithPassword({ email, password });
-  if (error) {
-    err.textContent = 'Correo o contraseña incorrectos.';
-    err.style.display='block';
-    setBtnLoading('sgSubmitBtn',false);
-  }
-}
-
-// ── Logout ───────────────────────────────────────────────────
 async function sgLogout() {
   await sgClient.auth.signOut();
+  closeSgModal('sgUserModal');
 }
 
-// ── Guardar predicción ───────────────────────────────────────
-async function guardarPrediccion(home, away, prediccion, fechaPartido) {
-  if (!currentUser) { alert('Inicia sesión para guardar predicciones.'); return; }
-
-  const partido = `${home} vs ${away}`;
-  // Verificar si ya existe
-  const { data: existing } = await sgClient
-    .from('predicciones')
-    .select('id')
-    .eq('user_id', currentUser.id)
-    .eq('partido', partido)
-    .single();
-
-  if (existing) {
-    alert('Ya guardaste una predicción para este partido.');
-    return;
-  }
-
-  const label = prediccion === 'L' ? home : prediccion === 'V' ? away : 'Empate';
-  const { error } = await sgClient.from('predicciones').insert({
-    user_id:       currentUser.id,
-    username:      currentProfile?.username || 'Usuario',
-    partido,
-    home,
-    away,
-    prediccion,
-    fecha_partido: fechaPartido || null
-  });
-
-  if (error) {
-    alert('Error al guardar: ' + error.message);
+// ── Modal control ─────────────────────────────────────────────
+function openUserModal() {
+  if (!sgUser) {
+    document.getElementById('sgAuthModal').classList.add('open');
   } else {
-    showToast(`Predicción guardada: ${label}`);
-    renderMisPredBox();
+    document.getElementById('sgUserModal').classList.add('open');
+    renderMisPreds();
   }
 }
-
-// ── Cargar mis predicciones ──────────────────────────────────
-async function getMisPredicciones() {
-  if (!currentUser) return [];
-  const { data } = await sgClient
-    .from('predicciones')
-    .select('*')
-    .eq('user_id', currentUser.id)
-    .order('created_at', { ascending: false });
-  return data || [];
+function closeSgModal(id) {
+  document.getElementById(id).classList.remove('open');
 }
-
-// ── Leaderboard ──────────────────────────────────────────────
-async function getLeaderboard() {
-  const { data } = await sgClient
-    .from('predicciones')
-    .select('username, acertó')
-    .not('acertó', 'is', null);
-
-  if (!data || !data.length) return [];
-
-  const stats = {};
-  data.forEach(row => {
-    if (!stats[row.username]) stats[row.username] = { total: 0, aciertos: 0 };
-    stats[row.username].total++;
-    if (row['acertó']) stats[row.username].aciertos++;
+// Close on overlay click
+document.addEventListener('click', (e) => {
+  ['sgAuthModal','sgUserModal'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && e.target === el) el.classList.remove('open');
   });
+});
 
-  return Object.entries(stats)
-    .map(([username, s]) => ({
-      username,
-      total: s.total,
-      aciertos: s.aciertos,
-      pct: s.total > 0 ? Math.round((s.aciertos / s.total) * 100) : 0
-    }))
-    .sort((a, b) => b.pct - a.pct || b.aciertos - a.aciertos)
-    .slice(0, 10);
+// ── State callbacks ───────────────────────────────────────────
+function onLoggedIn() {
+  const letter = (sgProfile?.username || sgUser.email || '?')[0].toUpperCase();
+  // Avatar in header
+  const av = document.getElementById('sgAvatarLetter');
+  if (av) av.textContent = letter;
+  const avBtn = document.getElementById('sgAvatarBtn');
+  if (avBtn) { avBtn.style.background = 'rgba(0,229,255,.25)'; avBtn.style.borderColor = 'var(--accent)'; }
+  // Avatar in modal
+  const avBig = document.getElementById('sgAvatarBig');
+  if (avBig) avBig.textContent = letter;
+  // Welcome
+  const wel = document.getElementById('sgWelcome');
+  if (wel) wel.textContent = sgProfile?.username || 'Usuario';
+  const emailEl = document.getElementById('sgUserEmail');
+  if (emailEl) emailEl.textContent = sgUser.email;
 }
 
-// ── UI helpers ────────────────────────────────────────────────
-function setBtnLoading(id, loading) {
-  const btn = document.getElementById(id);
-  if (!btn) return;
-  btn.disabled = loading;
-  btn.textContent = loading ? 'Cargando...' : btn.dataset.label;
+function onLoggedOut() {
+  const av = document.getElementById('sgAvatarLetter');
+  if (av) av.textContent = '?';
+  const avBtn = document.getElementById('sgAvatarBtn');
+  if (avBtn) { avBtn.style.background = 'rgba(0,229,255,.1)'; }
 }
 
-function showToast(msg) {
-  const t = document.createElement('div');
-  t.textContent = msg;
-  t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;padding:10px 20px;border-radius:8px;font-family:Barlow Condensed,sans-serif;font-size:14px;font-weight:700;z-index:9999;letter-spacing:1px;';
-  document.body.appendChild(t);
-  setTimeout(() => t.remove(), 3000);
+// ── Panel tabs ────────────────────────────────────────────────
+function switchPanelTab(tab) {
+  ['preds','new','lead'].forEach(t => {
+    const panel = document.getElementById('sgPanel' + t.charAt(0).toUpperCase() + t.slice(1));
+    const tabEl = document.getElementById('sgPanelTab' + t.charAt(0).toUpperCase() + t.slice(1));
+    if (panel) panel.style.display = t === tab ? 'block' : 'none';
+    if (tabEl) tabEl.classList.toggle('sg-tab-active', t === tab);
+  });
+  if (tab === 'lead') renderLeaderboard();
+  if (tab === 'preds') renderMisPreds();
 }
 
-function showAuthUI() {
-  const el = document.getElementById('sgAuthSection');
-  if (el) el.style.display = 'block';
-  const ud = document.getElementById('sgUserSection');
-  if (ud) ud.style.display = 'none';
-}
-
-function showUserUI() {
-  const el = document.getElementById('sgAuthSection');
-  if (el) el.style.display = 'none';
-  const ud = document.getElementById('sgUserSection');
-  if (ud) {
-    ud.style.display = 'block';
-  }
-  const bar = document.getElementById('sgUserBar');
-  if (bar) bar.classList.add('visible');
-  const welcome = document.getElementById('sgWelcome');
-  if (welcome) welcome.textContent = '👋 Hola, ' + (currentProfile?.username || 'Usuario');
-  renderMisPredBox();
-  renderLeaderboard();
-  injectPredButtons();
-}
-
+// ── Auth mode switch ──────────────────────────────────────────
 function switchAuthMode(mode) {
   const isLogin = mode === 'login';
-
   const regFields = document.getElementById('sgRegFields');
   const submitBtn = document.getElementById('sgSubmitBtn');
   const modeTitle = document.getElementById('sgModeTitle');
   const authErr   = document.getElementById('sgAuthError');
   const tabLogin  = document.getElementById('sgTabLogin');
   const tabReg    = document.getElementById('sgTabReg');
-
-  if (!regFields || !submitBtn || !modeTitle) return;
-
-  regFields.style.display = isLogin ? 'none' : 'block';
+  if (!submitBtn) return;
+  if (regFields)  regFields.style.display  = isLogin ? 'none' : 'block';
+  if (modeTitle)  modeTitle.textContent    = isLogin ? 'Iniciar sesión' : 'Crear cuenta';
   submitBtn.textContent   = isLogin ? 'Entrar' : 'Registrarse';
-  submitBtn.dataset.label = isLogin ? 'Entrar' : 'Registrarse';
+  submitBtn.dataset.label = submitBtn.textContent;
   submitBtn.disabled      = false;
   submitBtn.onclick       = isLogin ? sgLogin : sgRegister;
-  modeTitle.textContent   = isLogin ? 'Iniciar sesión' : 'Crear cuenta';
-  if (authErr) { authErr.style.display = 'none'; authErr.style.color = 'var(--red)'; }
+  if (authErr)  { authErr.style.display = 'none'; authErr.style.color = 'var(--red)'; }
   if (tabLogin) tabLogin.classList.toggle('sg-tab-active', isLogin);
   if (tabReg)   tabReg.classList.toggle('sg-tab-active', !isLogin);
 }
 
-// ── Render mis predicciones ──────────────────────────────────
-async function renderMisPredBox() {
+// ── Model prediction preview ───────────────────────────────────
+function updateSgModelPred() {
+  const home = document.getElementById('sgPredHome').value;
+  const away = document.getElementById('sgPredAway').value;
+  const preview = document.getElementById('sgModelPreview');
+  const loading = document.getElementById('sgModelLoading');
+  if (!home || !away || home === away) { if (preview) preview.style.display='none'; return; }
+
+  if (loading) loading.style.display = 'block';
+  if (preview) preview.style.display = 'none';
+
+  // Use model if ready
+  setTimeout(() => {
+    if (typeof eloPredict !== 'function') { if (loading) loading.style.display='none'; return; }
+    const p = eloPredict(home, away);
+    if (!p) { if (loading) loading.style.display='none'; return; }
+
+    if (loading) loading.style.display = 'none';
+    if (preview) preview.style.display = 'block';
+
+    // Team logos
+    if (typeof logoSVG === 'function') {
+      const lh = document.getElementById('sgLogoHome');
+      const la = document.getElementById('sgLogoAway');
+      if (lh) lh.innerHTML = logoSVG(home, 48);
+      if (la) la.innerHTML = logoSVG(away, 48);
+    }
+    document.getElementById('sgNameHome').textContent = home;
+    document.getElementById('sgNameAway').textContent = away;
+    if (p.marcador) document.getElementById('sgMarcador').textContent = p.marcador;
+
+    const ph = Math.round(p.winH * 100), pd = Math.round(p.draw * 100), pa = Math.round(p.winA * 100);
+    document.getElementById('sgPctH').textContent = ph + '%';
+    document.getElementById('sgPctD').textContent = pd + '%';
+    document.getElementById('sgPctA').textContent = pa + '%';
+    setTimeout(() => {
+      document.getElementById('sgBarH').style.width = ph + '%';
+      document.getElementById('sgBarD').style.width = pd + '%';
+      document.getElementById('sgBarA').style.width = pa + '%';
+    }, 60);
+  }, 200);
+}
+
+function selectMyPred(val) {
+  sgMyPred = val;
+  ['L','E','V'].forEach(v => {
+    const btn = document.getElementById('sgBtn' + v);
+    if (btn) btn.classList.toggle('selected', v === val);
+  });
+}
+
+// ── Save prediction ───────────────────────────────────────────
+async function savePredFromForm() {
+  if (!sgUser) { showToast('Inicia sesión primero.'); return; }
+  const home = document.getElementById('sgPredHome').value;
+  const away = document.getElementById('sgPredAway').value;
+  const pred = sgMyPred;
+  if (!home || !away || home === away) { showToast('Selecciona dos equipos diferentes.'); return; }
+  if (!pred) { showToast('Selecciona tu predicción: local, empate o visitante.'); return; }
+  await guardarPrediccion(home, away, pred);
+}
+
+async function guardarPrediccion(home, away, prediccion) {
+  if (!sgUser) return;
+  const partido = home + ' vs ' + away;
+  const { data: ex } = await sgClient.from('predicciones').select('id').eq('user_id', sgUser.id).eq('partido', partido).single();
+  if (ex) { showToast('Ya tienes una predicción para este partido.'); return; }
+  const label = prediccion === 'L' ? home : prediccion === 'V' ? away : 'Empate';
+  const { error } = await sgClient.from('predicciones').insert({
+    user_id: sgUser.id, username: sgProfile?.username || 'Usuario',
+    partido, home, away, prediccion
+  });
+  if (error) { showToast('Error: ' + error.message); }
+  else { showToast('Predicción guardada: ' + label); renderMisPreds(); switchPanelTab('preds'); }
+}
+
+// ── Render mis predicciones ───────────────────────────────────
+async function renderMisPreds() {
   const box = document.getElementById('sgMisPreds');
-  if (!box) return;
+  if (!box || !sgUser) return;
   box.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:8px;">Cargando...</div>';
-
-  const preds = await getMisPredicciones();
-  if (!preds.length) {
-    box.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:8px;">Aún no tienes predicciones guardadas.</div>';
-    return;
+  const { data: preds } = await sgClient.from('predicciones').select('*').eq('user_id', sgUser.id).order('created_at', { ascending: false });
+  if (!preds || !preds.length) {
+    box.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:8px;">Aún no tienes predicciones. ¡Ve a "Nueva predicción"!</div>';
+    updateStats(0, 0, null); return;
   }
-
-  const total    = preds.length;
   const resueltos = preds.filter(p => p['acertó'] !== null && p['acertó'] !== undefined);
-  const aciertos = resueltos.filter(p => p['acertó']).length;
-  const pct      = resueltos.length ? Math.round((aciertos / resueltos.length) * 100) : null;
+  const aciertos  = resueltos.filter(p => p['acertó']).length;
+  const pct        = resueltos.length ? Math.round(aciertos / resueltos.length * 100) : null;
+  updateStats(preds.length, aciertos, pct);
 
-  let html = `<div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;">
-    <div class="stat-card" style="flex:1;min-width:80px;">
-      <div class="stat-num">${total}</div><div class="stat-lbl">Predicciones</div>
-    </div>
-    <div class="stat-card" style="flex:1;min-width:80px;">
-      <div class="stat-num">${aciertos}</div><div class="stat-lbl">Aciertos</div>
-    </div>
-    <div class="stat-card" style="flex:1;min-width:80px;">
-      <div class="stat-num" style="color:var(--accent)">${pct !== null ? pct+'%' : '—'}</div>
-      <div class="stat-lbl">Precisión</div>
-    </div>
-  </div>`;
-
-  html += `<div style="max-height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;">`;
+  let html = '<div style="display:flex;flex-direction:column;gap:8px;">';
   preds.forEach(p => {
     const label = p.prediccion === 'L' ? p.home : p.prediccion === 'V' ? p.away : 'Empate';
     const acerto = p['acertó'];
-    const badge = acerto === true
-      ? '<span style="color:var(--green);font-size:11px;font-weight:700;">✓ ACERTÓ</span>'
-      : acerto === false
-        ? '<span style="color:var(--red);font-size:11px;font-weight:700;">✗ FALLÓ</span>'
-        : '<span style="color:var(--text3);font-size:11px;">Pendiente</span>';
-    html += `<div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px;">
-      <div>
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;color:var(--text);">${p.partido}</div>
-        <div style="font-size:12px;color:var(--accent);margin-top:2px;">Mi predicción: ${label}</div>
+    const badgeColor = acerto === true ? 'var(--green)' : acerto === false ? 'var(--red)' : 'var(--text3)';
+    const badgeTxt   = acerto === true ? '✓ Acertó' : acerto === false ? '✗ Falló' : 'Pendiente';
+    const cardClass  = acerto === true ? 'acertó-true' : acerto === false ? 'acertó-false' : '';
+
+    let logosHtml = '';
+    if (typeof logoSVG === 'function') {
+      logosHtml = `<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        ${logoSVG(p.home,32)}<span style="font-size:11px;color:var(--text3);">vs</span>${logoSVG(p.away,32)}
+      </div>`;
+    }
+
+    // Model pred if available
+    let modelHtml = '';
+    if (typeof eloPredict === 'function') {
+      try {
+        const mp = eloPredict(p.home, p.away);
+        if (mp) {
+          const ph = Math.round(mp.winH*100), pd2 = Math.round(mp.draw*100), pa = Math.round(mp.winA*100);
+          modelHtml = `<div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.06);">
+            <div style="font-size:10px;color:var(--text3);letter-spacing:1px;margin-bottom:6px;">MODELO: ${mp.marcador||''}</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;">
+              <div><div style="font-size:10px;color:var(--text3);">Local ${ph}%</div><div class="sg-bar"><div class="sg-bar-fill" style="background:var(--green);width:${ph}%;"></div></div></div>
+              <div><div style="font-size:10px;color:var(--text3);">Empate ${pd2}%</div><div class="sg-bar"><div class="sg-bar-fill" style="background:var(--draw);width:${pd2}%;"></div></div></div>
+              <div><div style="font-size:10px;color:var(--text3);">Visitante ${pa}%</div><div class="sg-bar"><div class="sg-bar-fill" style="background:var(--red);width:${pa}%;"></div></div></div>
+            </div>
+          </div>`;
+        }
+      } catch(e) {}
+    }
+
+    html += `<div class="sg-pred-card ${cardClass}">
+      ${logosHtml}
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+        <div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:var(--text);">${p.partido}</div>
+          <div style="font-size:12px;color:var(--accent);margin-top:2px;">Mi predicción: <strong>${label}</strong></div>
+        </div>
+        <span style="font-size:11px;font-weight:700;color:${badgeColor};white-space:nowrap;flex-shrink:0;">${badgeTxt}</span>
       </div>
-      ${badge}
+      ${modelHtml}
     </div>`;
   });
   html += '</div>';
   box.innerHTML = html;
 }
 
-// ── Render leaderboard ───────────────────────────────────────
+function updateStats(total, aciertos, pct) {
+  const t = document.getElementById('sgStatTotal');
+  const a = document.getElementById('sgStatAciertos');
+  const p = document.getElementById('sgStatPct');
+  if (t) t.textContent = total;
+  if (a) a.textContent = aciertos;
+  if (p) p.textContent = pct !== null ? pct + '%' : '—';
+}
+
+// ── Leaderboard ───────────────────────────────────────────────
 async function renderLeaderboard() {
   const box = document.getElementById('sgLeaderboard');
   if (!box) return;
   box.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:8px;">Cargando...</div>';
-
-  const rows = await getLeaderboard();
-  if (!rows.length) {
-    box.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:8px;">Aún no hay datos de aciertos registrados.</div>';
-    return;
-  }
-
+  const { data } = await sgClient.from('predicciones').select('username, acertó').not('acertó', 'is', null);
+  if (!data || !data.length) { box.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:8px;">Aún no hay aciertos registrados. ¡Sé el primero!</div>'; return; }
+  const stats = {};
+  data.forEach(r => {
+    if (!stats[r.username]) stats[r.username] = { total:0, aciertos:0 };
+    stats[r.username].total++;
+    if (r['acertó']) stats[r.username].aciertos++;
+  });
+  const rows = Object.entries(stats)
+    .map(([u,s]) => ({ username:u, total:s.total, aciertos:s.aciertos, pct: Math.round(s.aciertos/s.total*100) }))
+    .sort((a,b) => b.pct-a.pct || b.aciertos-a.aciertos).slice(0,10);
   const medals = ['🥇','🥈','🥉'];
-  let html = `<div style="display:flex;flex-direction:column;gap:6px;">`;
-  rows.forEach((r, i) => {
-    const isMe = currentProfile && r.username === currentProfile.username;
-    html += `<div style="background:${isMe?'rgba(0,229,255,.08)':'rgba(255,255,255,.04)'};border:1px solid ${isMe?'rgba(0,229,255,.3)':'var(--border)'};border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:12px;">
-      <span style="font-family:'Barlow Condensed',sans-serif;font-size:20px;min-width:28px;">${medals[i]||('#'+(i+1))}</span>
+  let html = '<div style="display:flex;flex-direction:column;gap:6px;">';
+  rows.forEach((r,i) => {
+    const isMe = sgProfile && r.username === sgProfile.username;
+    html += `<div style="background:${isMe?'rgba(0,229,255,.08)':'rgba(255,255,255,.03)'};border:1px solid ${isMe?'rgba(0,229,255,.3)':'var(--border)'};border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;">
+      <span style="font-size:20px;min-width:26px;">${medals[i]||(i+1)+'°'}</span>
       <div style="flex:1;">
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:var(--text);">${r.username}${isMe?' <span style="color:var(--accent);font-size:11px;">(tú)</span>':''}</div>
-        <div style="font-size:11px;color:var(--text3);">${r.aciertos} aciertos de ${r.total} partidos</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:${isMe?'var(--accent)':'var(--text)'};">${r.username}</div>
+        <div style="font-size:11px;color:var(--text3);">${r.aciertos} de ${r.total} partidos</div>
       </div>
-      <span style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--accent);">${r.pct}%</span>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:700;color:var(--accent);">${r.pct}%</span>
     </div>`;
   });
   html += '</div>';
   box.innerHTML = html;
 }
 
-// ── Inyectar botones de predicción en las cards de partidos ──
-function injectPredButtons() {
-  if (!currentUser) return;
-  // Re-render upcoming cards to include prediction buttons
-  if (typeof renderUpcomingCards === 'function') {
-    renderUpcomingCards();
-  }
-}
-
-// ── Iniciar cuando carga la página ───────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(initSupabase, 500);
-});
-
-// ── Guardar desde el formulario rápido ───────────────────────
-function savePredFromForm() {
-  const home = document.getElementById('sgPredHome').value;
-  const away = document.getElementById('sgPredAway').value;
-  const pred = document.getElementById('sgPredResult').value;
-  if (!home || !away || home === away) {
-    showToast('Selecciona dos equipos diferentes'); return;
-  }
-  guardarPrediccion(home, away, pred, null);
-}
-
-// ── Botón "Guardar mi predicción" en el predictor principal ─
+// ── Button in predictor principal ─────────────────────────────
 function addSaveButtonToPredictor(home, away, pred) {
-  if (!currentUser) return;
-  const box = document.getElementById('predInterpret');
-  if (!box) return;
+  if (!sgUser) return;
   const existing = document.getElementById('sgSaveBtn');
   if (existing) existing.remove();
+  const interpret = document.getElementById('predInterpret');
+  if (!interpret) return;
   const btn = document.createElement('button');
   btn.id = 'sgSaveBtn';
-  btn.className = 'sg-pred-btn';
-  btn.style.cssText = 'margin-top:12px;display:block;width:100%;padding:10px;font-size:13px;';
-  btn.textContent = `Guardar mi predicción: ${pred === 'L' ? home : pred === 'V' ? away : 'Empate'}`;
-  btn.onclick = () => {
-    guardarPrediccion(home, away, pred, null);
-    btn.textContent = '✓ Predicción guardada';
-    btn.disabled = true;
-  };
-  box.parentNode.insertBefore(btn, box.nextSibling);
+  btn.style.cssText = 'margin-top:12px;width:100%;background:rgba(0,229,255,.12);border:1px solid rgba(0,229,255,.3);color:var(--accent);border-radius:8px;padding:10px;font-family:\'Barlow Condensed\',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:background .2s;';
+  const label = pred === 'L' ? home : pred === 'V' ? away : 'Empate';
+  btn.textContent = '⭐ Guardar mi predicción: ' + label;
+  btn.onmouseover = () => btn.style.background = 'rgba(0,229,255,.25)';
+  btn.onmouseout  = () => btn.style.background = 'rgba(0,229,255,.12)';
+  btn.onclick = () => { guardarPrediccion(home, away, pred); btn.textContent = '✓ Predicción guardada'; btn.disabled = true; };
+  interpret.parentNode.insertBefore(btn, interpret.nextSibling);
 }
 
-// Sobreescribir showUserUI para mostrar el user bar
-const _origShowUserUI = window.showUserUI;
+// ── Helpers ───────────────────────────────────────────────────
+function showSgErr(msg) {
+  const el = document.getElementById('sgAuthError');
+  if (el) { el.textContent = msg; el.style.display = 'block'; el.style.color = 'var(--red)'; }
+}
+function setBtn(loading) {
+  const btn = document.getElementById('sgSubmitBtn');
+  if (!btn) return;
+  btn.disabled = loading;
+  btn.textContent = loading ? 'Cargando...' : btn.dataset.label;
+}
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;padding:10px 22px;border-radius:10px;font-family:\'Barlow Condensed\',sans-serif;font-size:14px;font-weight:700;z-index:9999;letter-spacing:1px;box-shadow:0 4px 20px rgba(0,0,0,.4);';
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 3000);
+}
+
+// ── Boot ──────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => setTimeout(initSupabase, 400));

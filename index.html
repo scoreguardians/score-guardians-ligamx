@@ -26,20 +26,23 @@
     .sg-pred-btn { background: rgba(0,229,255,.12); border: 1px solid rgba(0,229,255,.3); color: var(--accent); border-radius: 6px; padding: 5px 12px; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1px; cursor: pointer; transition: background .2s; }
     .sg-pred-btn:hover { background: rgba(0,229,255,.25); }
     .sg-pred-btn.selected { background: var(--accent); color: #000; }
-    #sgUserBar { background: rgba(0,229,255,.06); border-bottom: 1px solid rgba(0,229,255,.15); padding: 8px 20px; display: none; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-    #sgUserBar.visible { display: flex; }
+    /* Modal overlay */
+    .sg-overlay { display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:3000;align-items:center;justify-content:center;padding:16px; }
+    .sg-overlay.open { display:flex; }
+    .sg-modal { background:#0e1117;border:1px solid rgba(0,229,255,.25);border-radius:16px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;padding:28px 24px;position:relative; }
+    .sg-modal-wide { max-width:680px; }
+    .sg-close { position:absolute;top:14px;right:18px;background:transparent;border:none;color:var(--text3);font-size:22px;cursor:pointer;line-height:1; }
+    .sg-close:hover { color:var(--text); }
+    /* Pred card with model data */
+    .sg-pred-card { background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px; }
+    .sg-pred-card.acertó-true { border-color:rgba(0,200,100,.4);background:rgba(0,200,100,.05); }
+    .sg-pred-card.acertó-false { border-color:rgba(220,50,50,.4);background:rgba(220,50,50,.05); }
+    .sg-team-logo { width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700; }
+    .sg-bar { height:4px;border-radius:2px;background:rgba(255,255,255,.1);overflow:hidden;margin-top:4px; }
+    .sg-bar-fill { height:100%;border-radius:2px;transition:width .5s; }
   </style>
 </head>
 <body>
-
-<!-- ── USER BAR ── -->
-<div id="sgUserBar">
-  <span id="sgWelcome" style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;color:var(--accent);letter-spacing:1px;"></span>
-  <div style="display:flex;gap:10px;align-items:center;">
-    <a href="#sgSection" style="font-size:12px;color:var(--text3);text-decoration:none;">Mis predicciones</a>
-    <button onclick="sgLogout()" style="background:transparent;border:1px solid var(--border);color:var(--text3);border-radius:6px;padding:4px 12px;font-size:12px;cursor:pointer;font-family:'Barlow',sans-serif;">Cerrar sesión</button>
-  </div>
-</div>
 
 <!--  ADMIN PASSWORD MODAL  -->
 <div class="modal-overlay" id="adminModal">
@@ -68,7 +71,9 @@
       <a href="#charts">Gráficas</a>
       <a href="#standings">Tabla</a>
       <a href="#history">Historial</a>
-      <a href="#sgSection" style="color:var(--accent);">Mi cuenta</a>
+      <div id="sgAvatarBtn" onclick="openUserModal()" title="Mi cuenta" style="width:34px;height:34px;border-radius:50%;background:rgba(0,229,255,.15);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:var(--accent);letter-spacing:0;transition:background .2s;" onmouseover="this.style.background='rgba(0,229,255,.3)'" onmouseout="this.style.background='rgba(0,229,255,.15)'">
+        <span id="sgAvatarLetter">?</span>
+      </div>
     </nav>
     <span class="live-badge"> CLAUSURA 2026</span>
   </div>
@@ -533,103 +538,155 @@
 <!-- ══════════════════════════════════════════════════════
      SCORE GUARDIANS — SECCIÓN DE USUARIO
 ══════════════════════════════════════════════════════ -->
-<section id="sgSection">
-  <div class="section-header">
-    <span class="section-title">Mi Cuenta</span>
-    <div class="section-line"></div>
-    <span class="section-tag">Score Guardians</span>
-  </div>
-
-  <!-- AUTH: login / registro -->
-  <div id="sgAuthSection" class="sg-card" style="max-width:420px;margin:0 auto;">
-    <div class="sg-tabs">
+<!-- ── AUTH MODAL ── -->
+<div class="sg-overlay" id="sgAuthModal">
+  <div class="sg-modal">
+    <button class="sg-close" onclick="closeSgModal('sgAuthModal')">&#x2715;</button>
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;color:var(--text3);margin-bottom:4px;">SCORE GUARDIANS</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--accent);">Acceso a tu cuenta</div>
+    </div>
+    <div class="sg-tabs" style="margin-bottom:20px;">
       <div class="sg-tab sg-tab-active" id="sgTabLogin" onclick="switchAuthMode('login')">Iniciar sesión</div>
       <div class="sg-tab" id="sgTabReg" onclick="switchAuthMode('register')">Crear cuenta</div>
     </div>
-    <div class="sg-section-title" id="sgModeTitle">Iniciar sesión</div>
+    <div id="sgModeTitle" style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:16px;">Iniciar sesión</div>
     <div id="sgAuthError" class="sg-err"></div>
     <div id="sgRegFields" style="display:none;">
       <label class="sg-label">Nombre de usuario</label>
-      <input class="sg-input" id="sgUsername" type="text" placeholder="Tu apodo en Score Guardians" maxlength="20">
+      <input class="sg-input" id="sgUsername" type="text" placeholder="Tu apodo (máx 20 caracteres)" maxlength="20" style="margin-bottom:12px;">
     </div>
     <label class="sg-label">Correo electrónico</label>
-    <input class="sg-input" id="sgEmail" type="email" placeholder="correo@ejemplo.com">
+    <input class="sg-input" id="sgEmail" type="email" placeholder="correo@ejemplo.com" style="margin-bottom:12px;">
     <label class="sg-label">Contraseña</label>
-    <input class="sg-input" id="sgPassword" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')sgLogin()">
+    <input class="sg-input" id="sgPassword" type="password" placeholder="••••••••" style="margin-bottom:16px;" onkeydown="if(event.key==='Enter')sgLogin()">
     <button class="sg-btn" id="sgSubmitBtn" data-label="Entrar" onclick="sgLogin()">Entrar</button>
-    <p style="font-size:11px;color:var(--text3);text-align:center;margin-top:12px;">
+    <p style="font-size:11px;color:var(--text3);text-align:center;margin-top:14px;">
       Al registrarte aceptas que tus predicciones sean visibles en la tabla de líderes.
     </p>
   </div>
+</div>
 
-  <!-- USUARIO LOGUEADO -->
-  <div id="sgUserSection" style="display:none;">
+<!-- ── USER PANEL MODAL ── -->
+<div class="sg-overlay" id="sgUserModal">
+  <div class="sg-modal sg-modal-wide">
+    <button class="sg-close" onclick="closeSgModal('sgUserModal')">&#x2715;</button>
 
-    <!-- Stats + mis predicciones -->
-    <div class="sg-card">
-      <div class="sg-section-title">Mis predicciones</div>
-      <div id="sgMisPreds"><div style="color:var(--text3);font-size:13px;">Cargando...</div></div>
+    <!-- Header usuario -->
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border);">
+      <div id="sgAvatarBig" style="width:52px;height:52px;border-radius:50%;background:rgba(0,229,255,.15);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--accent);flex-shrink:0;"></div>
+      <div style="flex:1;">
+        <div id="sgWelcome" style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--text);"></div>
+        <div id="sgUserEmail" style="font-size:12px;color:var(--text3);margin-top:2px;"></div>
+      </div>
+      <button onclick="sgLogout()" style="background:transparent;border:1px solid var(--border);color:var(--text3);border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;font-family:'Barlow',sans-serif;flex-shrink:0;">Cerrar sesión</button>
     </div>
 
-    <!-- Comparación modelo vs usuario -->
-    <div class="sg-card">
-      <div class="sg-section-title">Predecir y guardar</div>
-      <p style="font-size:13px;color:var(--text3);margin-bottom:16px;">
-        Usa el predictor principal y haz clic en "Guardar mi predicción" después de ver el análisis del modelo.
-        Cuando se juegue el partido, podrás ver si acertaste.
-      </p>
-      <div id="sgQuickPred">
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px;">
-          <div>
-            <label class="sg-label">Local</label>
-            <select id="sgPredHome" class="sg-input" style="margin:0;">
-              <option value="">Selecciona...</option>
-              <option>América</option><option>Atlas</option><option>Atl. San Luis</option>
-              <option>Cruz Azul</option><option>FC Juárez</option><option>Guadalajara</option>
-              <option>León</option><option>Mazatlán</option><option>Monterrey</option>
-              <option>Necaxa</option><option>Pachuca</option><option>Puebla</option>
-              <option>UNAM</option><option>Querétaro</option><option>Santos</option>
-              <option>Tigres</option><option>Tijuana</option><option>Toluca</option>
-            </select>
+    <!-- Stats rápidas -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;">
+      <div class="stat-card"><div class="stat-num" id="sgStatTotal">0</div><div class="stat-lbl">Predicciones</div></div>
+      <div class="stat-card"><div class="stat-num" id="sgStatAciertos">0</div><div class="stat-lbl">Aciertos</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--accent)" id="sgStatPct">—</div><div class="stat-lbl">Precisión</div></div>
+    </div>
+
+    <!-- Tabs internas -->
+    <div class="sg-tabs" style="margin-bottom:16px;">
+      <div class="sg-tab sg-tab-active" id="sgPanelTabPred" onclick="switchPanelTab('preds')">Mis predicciones</div>
+      <div class="sg-tab" id="sgPanelTabNew" onclick="switchPanelTab('new')">Nueva predicción</div>
+      <div class="sg-tab" id="sgPanelTabLead" onclick="switchPanelTab('lead')">Tabla de líderes</div>
+    </div>
+
+    <!-- Panel: mis predicciones -->
+    <div id="sgPanelPreds">
+      <div id="sgMisPreds"><div style="color:var(--text3);font-size:13px;padding:8px;">Cargando...</div></div>
+    </div>
+
+    <!-- Panel: nueva predicción -->
+    <div id="sgPanelNew" style="display:none;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+        <div>
+          <label class="sg-label">Equipo local</label>
+          <select id="sgPredHome" class="sg-input" style="margin:0;" onchange="updateSgModelPred()">
+            <option value="">Selecciona...</option>
+            <option>América</option><option>Atlas</option><option>Atl. San Luis</option>
+            <option>Cruz Azul</option><option>FC Juárez</option><option>Guadalajara</option>
+            <option>León</option><option>Mazatlán</option><option>Monterrey</option>
+            <option>Necaxa</option><option>Pachuca</option><option>Puebla</option>
+            <option>UNAM</option><option>Querétaro</option><option>Santos</option>
+            <option>Tigres</option><option>Tijuana</option><option>Toluca</option>
+          </select>
+        </div>
+        <div>
+          <label class="sg-label">Equipo visitante</label>
+          <select id="sgPredAway" class="sg-input" style="margin:0;" onchange="updateSgModelPred()">
+            <option value="">Selecciona...</option>
+            <option>América</option><option>Atlas</option><option>Atl. San Luis</option>
+            <option>Cruz Azul</option><option>FC Juárez</option><option>Guadalajara</option>
+            <option>León</option><option>Mazatlán</option><option>Monterrey</option>
+            <option>Necaxa</option><option>Pachuca</option><option>Puebla</option>
+            <option>UNAM</option><option>Querétaro</option><option>Santos</option>
+            <option>Tigres</option><option>Tijuana</option><option>Toluca</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Preview del modelo -->
+      <div id="sgModelPreview" style="display:none;background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.2);border-radius:12px;padding:16px;margin-bottom:14px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:2px;color:var(--text3);margin-bottom:12px;">PREDICCIÓN DEL MODELO — RED NEURONAL + POISSON</div>
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin-bottom:14px;">
+          <div style="text-align:center;">
+            <div id="sgLogoHome" style="margin:0 auto 6px;width:48px;height:48px;"></div>
+            <div id="sgNameHome" style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--text);"></div>
           </div>
-          <div>
-            <label class="sg-label">Mi predicción</label>
-            <select id="sgPredResult" class="sg-input" style="margin:0;">
-              <option value="L">Gana local</option>
-              <option value="E">Empate</option>
-              <option value="V">Gana visitante</option>
-            </select>
+          <div style="text-align:center;">
+            <div id="sgMarcador" style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--accent);"></div>
+            <div style="font-size:10px;color:var(--text3);margin-top:2px;">probable</div>
           </div>
-          <div>
-            <label class="sg-label">Visitante</label>
-            <select id="sgPredAway" class="sg-input" style="margin:0;">
-              <option value="">Selecciona...</option>
-              <option>América</option><option>Atlas</option><option>Atl. San Luis</option>
-              <option>Cruz Azul</option><option>FC Juárez</option><option>Guadalajara</option>
-              <option>León</option><option>Mazatlán</option><option>Monterrey</option>
-              <option>Necaxa</option><option>Pachuca</option><option>Puebla</option>
-              <option>UNAM</option><option>Querétaro</option><option>Santos</option>
-              <option>Tigres</option><option>Tijuana</option><option>Toluca</option>
-            </select>
+          <div style="text-align:center;">
+            <div id="sgLogoAway" style="margin:0 auto 6px;width:48px;height:48px;"></div>
+            <div id="sgNameAway" style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--text);"></div>
           </div>
         </div>
-        <button class="sg-btn" onclick="savePredFromForm()" style="margin-top:0;">
-          Guardar predicción
-        </button>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3);margin-bottom:3px;">
+              <span>Local</span><span id="sgPctH">—</span>
+            </div>
+            <div class="sg-bar"><div class="sg-bar-fill" id="sgBarH" style="background:var(--green);width:0%;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3);margin-bottom:3px;">
+              <span>Empate</span><span id="sgPctD">—</span>
+            </div>
+            <div class="sg-bar"><div class="sg-bar-fill" id="sgBarD" style="background:var(--draw);width:0%;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3);margin-bottom:3px;">
+              <span>Visitante</span><span id="sgPctA">—</span>
+            </div>
+            <div class="sg-bar"><div class="sg-bar-fill" id="sgBarA" style="background:var(--red);width:0%;"></div></div>
+          </div>
+        </div>
       </div>
+
+      <div id="sgModelLoading" style="display:none;text-align:center;color:var(--text3);font-size:13px;padding:12px;">Calculando predicción del modelo...</div>
+
+      <label class="sg-label" style="margin-top:4px;">Mi predicción</label>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px;">
+        <button class="sg-pred-btn" id="sgBtnL" onclick="selectMyPred('L')" style="padding:10px;font-size:13px;">Gana local</button>
+        <button class="sg-pred-btn" id="sgBtnE" onclick="selectMyPred('E')" style="padding:10px;font-size:13px;">Empate</button>
+        <button class="sg-pred-btn" id="sgBtnV" onclick="selectMyPred('V')" style="padding:10px;font-size:13px;">Gana visitante</button>
+      </div>
+      <button class="sg-btn" onclick="savePredFromForm()">Guardar mi predicción</button>
     </div>
 
-    <!-- Leaderboard -->
-    <div class="sg-card">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <div class="sg-section-title" style="margin:0;">Tabla de líderes</div>
-        <button onclick="renderLeaderboard()" style="background:transparent;border:1px solid var(--border);color:var(--text3);border-radius:6px;padding:4px 12px;font-size:12px;cursor:pointer;font-family:'Barlow',sans-serif;">Actualizar</button>
-      </div>
-      <div id="sgLeaderboard"><div style="color:var(--text3);font-size:13px;">Cargando...</div></div>
+    <!-- Panel: leaderboard -->
+    <div id="sgPanelLead" style="display:none;">
+      <div id="sgLeaderboard"><div style="color:var(--text3);font-size:13px;padding:8px;">Cargando...</div></div>
     </div>
 
   </div>
-</section>
+</div>
 
 </main>
 
@@ -640,6 +697,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="datos.js?v=5"></script>
   <script src="script.js?v=5"></script>
-  <script src="auth.js?v=1"></script>
+  <script src="auth.js?v=5"></script>
 </body>
 </html>
