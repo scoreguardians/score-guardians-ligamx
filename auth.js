@@ -35,7 +35,15 @@ function initSupabase() {
 async function loadProfile() {
   if (!sgUser) return;
   const { data } = await sgClient.from('profiles').select('*').eq('id', sgUser.id).single();
-  sgProfile = data;
+  if (data) {
+    sgProfile = data;
+  } else {
+    // Profile missing — create fallback from email
+    const fallbackName = sgUser.email.split('@')[0].slice(0, 20);
+    await sgClient.from('profiles').insert({ id: sgUser.id, username: fallbackName }).select().single();
+    const { data: d2 } = await sgClient.from('profiles').select('*').eq('id', sgUser.id).single();
+    sgProfile = d2;
+  }
 }
 
 // ── Auth actions ──────────────────────────────────────────────
