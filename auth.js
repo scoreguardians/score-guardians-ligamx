@@ -6,14 +6,14 @@
 const SUPA_URL = 'https://hkzulxvsnmczbomjklln.supabase.co';
 const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhrenVseHZzbm1jemJvbWprbGxuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzODQyNTEsImV4cCI6MjA5Njk2MDI1MX0.9skguLAPgMS6oJ4gDiYTPaLEWGPqOVljflOnzjpACfs';
 
-let supabase = null;
+let sgClient = null;
 let currentUser = null;
 let currentProfile = null;
 
 // ── Inicializar Supabase ─────────────────────────────────────
 function initSupabase() {
   if (window.supabase && window.supabase.createClient) {
-    supabase = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+    sgClient = window.supabase.createClient(SUPA_URL, SUPA_KEY);
     checkSession();
   } else {
     setTimeout(initSupabase, 300);
@@ -22,7 +22,7 @@ function initSupabase() {
 
 // ── Verificar sesión activa ──────────────────────────────────
 async function checkSession() {
-  const { data: { session } } = await supabase.auth.getSession();
+  const { data: { session } } = await sgClient.auth.getSession();
   if (session) {
     currentUser = session.user;
     await loadProfile();
@@ -30,7 +30,7 @@ async function checkSession() {
   } else {
     showAuthUI();
   }
-  supabase.auth.onAuthStateChange(async (_event, session) => {
+  sgClient.auth.onAuthStateChange(async (_event, session) => {
     if (session) {
       currentUser = session.user;
       await loadProfile();
@@ -69,11 +69,11 @@ async function sgRegister() {
 
   setBtnLoading('sgSubmitBtn', true);
 
-  const { data, error } = await supabase.auth.signUp({ email, password });
+  const { data, error } = await sgClient.auth.signUp({ email, password });
   if (error) { err.textContent = error.message; err.style.display='block'; setBtnLoading('sgSubmitBtn',false); return; }
 
   // Crear perfil
-  const { error: profError } = await supabase.from('profiles').insert({
+  const { error: profError } = await sgClient.from('profiles').insert({
     id: data.user.id,
     username: username
   });
@@ -101,7 +101,7 @@ async function sgLogin() {
   }
 
   setBtnLoading('sgSubmitBtn', true);
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  const { error } = await sgClient.auth.signInWithPassword({ email, password });
   if (error) {
     err.textContent = 'Correo o contraseña incorrectos.';
     err.style.display='block';
@@ -111,7 +111,7 @@ async function sgLogin() {
 
 // ── Logout ───────────────────────────────────────────────────
 async function sgLogout() {
-  await supabase.auth.signOut();
+  await sgClient.auth.signOut();
 }
 
 // ── Guardar predicción ───────────────────────────────────────
@@ -133,7 +133,7 @@ async function guardarPrediccion(home, away, prediccion, fechaPartido) {
   }
 
   const label = prediccion === 'L' ? home : prediccion === 'V' ? away : 'Empate';
-  const { error } = await supabase.from('predicciones').insert({
+  const { error } = await sgClient.from('predicciones').insert({
     user_id:       currentUser.id,
     username:      currentProfile?.username || 'Usuario',
     partido,
