@@ -1,4 +1,4 @@
-﻿// â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+// â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
 // â•‘  SCORE GUARDIANS â€” Clausura 2026                     â•‘
 // â•‘  Datos verificados J1-J14 + PrÃ³ximos J15             â•‘
 // â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
@@ -158,34 +158,23 @@ const C2026 = [
   {round:17,date:'26/abr/26',home:'Santos',hg:3,ag:0,away:'Monterrey'},
   {round:17,date:'26/abr/26',home:'Cruz Azul',hg:4,ag:1,away:'Necaxa'},
 
-  // ── Cuartos de Final (4sF) — Ida ──────────────────────────
-  {round:18,date:'02/may/26',home:'Tigres',hg:3,ag:1,away:'Guadalajara',fase:'4sF'},
-  {round:18,date:'02/may/26',home:'Atlas',hg:2,ag:3,away:'Cruz Azul',fase:'4sF'},
-  {round:18,date:'03/may/26',home:'América',hg:3,ag:3,away:'UNAM',fase:'4sF'},
-  {round:18,date:'03/may/26',home:'Toluca',hg:0,ag:1,away:'Pachuca',fase:'4sF'},
-
-  // ── Cuartos de Final (4sF) — Vuelta ───────────────────────
-  {round:19,date:'09/may/26',home:'Guadalajara',hg:2,ag:0,away:'Tigres',fase:'4sF'},
-  {round:19,date:'09/may/26',home:'Cruz Azul',hg:1,ag:0,away:'Atlas',fase:'4sF'},
-  {round:19,date:'10/may/26',home:'Pachuca',hg:2,ag:0,away:'Toluca',fase:'4sF'},
-  {round:19,date:'10/may/26',home:'UNAM',hg:3,ag:3,away:'América',fase:'4sF'},
-
-  // ── Semifinales (SF) — Ida ────────────────────────────────
-  {round:20,date:'13/may/26',home:'Cruz Azul',hg:2,ag:2,away:'Guadalajara',fase:'SF'},
-  {round:20,date:'14/may/26',home:'Pachuca',hg:1,ag:0,away:'UNAM',fase:'SF'},
-
-  // ── Semifinales (SF) — Vuelta ─────────────────────────────
-  {round:21,date:'16/may/26',home:'Guadalajara',hg:1,ag:2,away:'Cruz Azul',fase:'SF'},
-  {round:21,date:'17/may/26',home:'UNAM',hg:1,ag:0,away:'Pachuca',fase:'SF'},
-
-  // ── Final — Ida ───────────────────────────────────────────
-  {round:22,date:'21/may/26',home:'Cruz Azul',hg:0,ag:0,away:'UNAM',fase:'Fin'},
-
-  // ── Final — Vuelta ────────────────────────────────────────
-  {round:23,date:'24/may/26',home:'UNAM',hg:1,ag:2,away:'Cruz Azul',fase:'Fin'}
 ];
 
-const UPCOMING = [];
+// ── Apertura 2026 ────────────────────────────────────────────
+const A2026 = [];
+
+const UPCOMING = [
+  // Jornada 1 — Apertura 2026
+  {round:1,torneo:'Apertura 2026',date:'16/jul/26',home:'Necaxa',away:'Atlante'},
+  {round:1,torneo:'Apertura 2026',date:'16/jul/26',home:'Tijuana',away:'Tigres'},
+  {round:1,torneo:'Apertura 2026',date:'17/jul/26',home:'Atl. San Luis',away:'Cruz Azul'},
+  {round:1,torneo:'Apertura 2026',date:'17/jul/26',home:'León',away:'Atlas'},
+  {round:1,torneo:'Apertura 2026',date:'18/jul/26',home:'FC Juárez',away:'Puebla'},
+  {round:1,torneo:'Apertura 2026',date:'18/jul/26',home:'UNAM',away:'Pachuca'},
+  {round:1,torneo:'Apertura 2026',date:'18/jul/26',home:'Guadalajara',away:'Toluca'},
+  {round:1,torneo:'Apertura 2026',date:'18/jul/26',home:'Monterrey',away:'Santos'},
+  {round:1,torneo:'Apertura 2026',date:'19/jul/26',home:'Querétaro',away:'América'},
+];
 
 const ACTUALIZACIONES = [];
 
