@@ -1004,7 +1004,7 @@ const TEAM_IMAGES = {
   'América':'img/america.png','Atlas':'img/atlas.png',
   'Atl. San Luis':'img/atlanticodesanluis.png','Cruz Azul':'img/cruzazul.png',
   'FC Juárez':'img/cfjuarez.png','Guadalajara':'img/guadalajara.png',
-  'León':'img/leon.png','Atlante':'escudos/atlante.png',
+  'León':'img/leon.png','Atlante':'img/atlante.png',
   'Monterrey':'img/monterrey.png','Necaxa':'img/necaxa.png',
   'Pachuca':'img/pachuca.png','Puebla':'img/puebla.png',
   'UNAM':'img/UNAM.png','Querétaro':'img/gallosblancos.png',
