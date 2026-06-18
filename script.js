@@ -603,8 +603,8 @@ async function applyQueue(){
   alert(` ${pendingMatches.length} resultado(s) aplicados.\n\nRecalculando red neuronal y prediccionesâ€¦`);
   // Retrain with new data
   await trainNN(getAllMatches());
-  renderStandings('Clausura 2026');
-  renderHistory('Clausura 2026');
+  renderStandings('Apertura 2026');
+  renderHistory('Apertura 2026');
   renderUpcomingCards();
 }
 
@@ -774,7 +774,7 @@ function init(){
   document.getElementById('updAway').value='Guadalajara';
 
   // Build tabs
-  const TOURNS=['Clausura 2026','Apertura 2025','Clausura 2025','Apertura 2024',
+  const TOURNS=['Apertura 2026','Clausura 2026','Apertura 2025','Clausura 2025','Apertura 2024',
     'Clausura 2024','Apertura 2023','Clausura 2023','Apertura 2022','Clausura 2022','Apertura 2021'];
   [['standTabs',(t)=>renderStandings(t)],
    ['champTabs',(t)=>{document.querySelectorAll('#champTabs .t-tab').forEach(b=>b.classList.toggle('active',b.dataset.t===t));runMontecarlo();}],
@@ -795,8 +795,8 @@ function init(){
   document.getElementById('statMatches').textContent=getAllMatches().length.toLocaleString();
 
   // Initial render (before NN)
-  renderStandings('Clausura 2026');
-  renderHistory('Clausura 2026');
+  renderStandings('Apertura 2026');
+  renderHistory('Apertura 2026');
 
   // Render upcoming cards without predictions first
   renderUpcomingCards();
