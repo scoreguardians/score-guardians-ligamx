@@ -62,16 +62,41 @@ async function sgRegister() {
   const email    = document.getElementById('sgEmail').value.trim();
   const pass     = document.getElementById('sgPassword').value;
   const username = document.getElementById('sgUsername').value.trim();
+  const err      = document.getElementById('sgAuthError');
   if (!email || !pass || !username) { showSgErr('Completa todos los campos.'); return; }
   if (pass.length < 6) { showSgErr('Contraseña mínimo 6 caracteres.'); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showSgErr('Ingresa un correo válido.'); return; }
+  if (username.length < 3) { showSgErr('El nombre de usuario debe tener al menos 3 caracteres.'); return; }
+  if (!/^[a-zA-Z0-9_áéíóúÁÉÍÓÚñÑ]+$/.test(username)) { showSgErr('El nombre solo puede tener letras, números y guión bajo.'); return; }
   setBtn(true);
-  const { data, error } = await sgClient.auth.signUp({ email, password: pass });
-  if (error) { showSgErr(error.message); setBtn(false); return; }
-  const { error: pe } = await sgClient.from('profiles').insert({ id: data.user.id, username });
-  if (pe) { showSgErr('Nombre de usuario ya en uso. Elige otro.'); setBtn(false); return; }
-  setBtn(false);
-  closeSgModal('sgAuthModal');
-  showToast('¡Bienvenido a Score Guardians!');
+  if (err) { err.style.display='none'; }
+  try {
+    const { data, error } = await sgClient.auth.signUp({ email, password: pass });
+    if (error) {
+      if (error.message.includes('already registered')) {
+        showSgErr('Este correo ya está registrado. Intenta iniciar sesión.');
+      } else {
+        showSgErr('Error al registrar: ' + error.message);
+      }
+      setBtn(false); return;
+    }
+    if (!data || !data.user) { showSgErr('Error inesperado. Intenta de nuevo.'); setBtn(false); return; }
+    const { error: pe } = await sgClient.from('profiles').insert({ id: data.user.id, username });
+    if (pe) {
+      if (pe.code === '23505') {
+        showSgErr('Nombre de usuario ya en uso. Elige otro.');
+      } else {
+        showSgErr('Error al crear perfil: ' + pe.message);
+      }
+      setBtn(false); return;
+    }
+    setBtn(false);
+    closeSgModal('sgAuthModal');
+    showToast('¡Bienvenido a Score Guardians, ' + username + '!');
+  } catch(e) {
+    showSgErr('Sin conexión. Verifica tu internet e intenta de nuevo.');
+    setBtn(false);
+  }
 }
 
 async function sgLogout() {
@@ -283,13 +308,20 @@ async function renderMisPreds() {
     }
 
     html += `<div class="sg-pred-card ${cardClass}">
-      ${logosHtml}
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
-        <div>
-          <div style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:var(--text);">${p.partido}</div>
-          <div style="font-size:12px;color:var(--accent);margin-top:2px;">Mi predicción: <strong>${label}</strong></div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="display:flex;align-items:center;gap:6px;flex:1;">
+          ${typeof logoSVG==='function' ? logoSVG(p.home,36) : ''}
+          <div style="text-align:center;min-width:48px;">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;color:var(--text3);">VS</div>
+          </div>
+          ${typeof logoSVG==='function' ? logoSVG(p.away,36) : ''}
         </div>
-        <span style="font-size:11px;font-weight:700;color:${badgeColor};white-space:nowrap;flex-shrink:0;">${badgeTxt}</span>
+        <span style="font-size:11px;font-weight:700;color:${badgeColor};white-space:nowrap;padding:3px 8px;border-radius:4px;background:${acerto===true?'rgba(0,200,100,.1)':acerto===false?'rgba(220,50,50,.1)':'rgba(255,255,255,.05)'};">${badgeTxt}</span>
+      </div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;">${p.home} vs ${p.away}</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:11px;color:var(--text3);">Mi predicción:</span>
+        <span style="font-size:13px;font-weight:700;color:var(--accent);font-family:'Barlow Condensed',sans-serif;">${label}</span>
       </div>
       ${modelHtml}
     </div>`;

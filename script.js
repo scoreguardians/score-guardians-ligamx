@@ -143,7 +143,7 @@ const TEAM_STRENGTH = {
   'FC Juárez':     { atk: -0.274, def:  0.208 },
   'Guadalajara':   { atk:  0.073, def: -0.242 },
   'León':          { atk: -0.109, def: -0.031 },
-    'Atlante':      { atk: -0.050, def:  0.080 },
+    'Atlante':      { atk:  0.007, def: -0.450 },
   'Monterrey':     { atk:  0.240, def: -0.206 },
   'Necaxa':        { atk: -0.148, def:  0.121 },
   'Pachuca':       { atk:  0.094, def:  0.028 },
