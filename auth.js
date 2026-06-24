@@ -145,7 +145,8 @@ document.addEventListener('click', (e) => {
 
 // ── State callbacks ───────────────────────────────────────────
 function onLoggedIn() {
-  const letter = (sgProfile?.username || sgUser.email || '?')[0].toUpperCase();
+  const displayName = sgProfile?.username || localStorage.getItem('sg_pending_username') || sgUser.email.split('@')[0];
+  const letter = displayName[0].toUpperCase();
   // Avatar in header
   const av = document.getElementById('sgAvatarLetter');
   if (av) av.textContent = letter;
@@ -156,7 +157,7 @@ function onLoggedIn() {
   if (avBig) avBig.textContent = letter;
   // Welcome
   const wel = document.getElementById('sgWelcome');
-  if (wel) wel.textContent = sgProfile?.username || 'Usuario';
+  if (wel) wel.textContent = displayName;
   const emailEl = document.getElementById('sgUserEmail');
   if (emailEl) emailEl.textContent = sgUser.email;
 }

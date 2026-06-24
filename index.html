@@ -613,9 +613,21 @@
 
     <!-- Stats rápidas -->
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;">
-      <div class="stat-card"><div class="stat-num" id="sgStatTotal">0</div><div class="stat-lbl">Predicciones</div></div>
-      <div class="stat-card"><div class="stat-num" id="sgStatAciertos">0</div><div class="stat-lbl">Aciertos</div></div>
-      <div class="stat-card"><div class="stat-num" style="color:var(--accent)" id="sgStatPct">—</div><div class="stat-lbl">Precisión</div></div>
+      <div class="stat-card" onclick="switchPanelTab('preds')" style="cursor:pointer;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(0,229,255,.4)'" onmouseout="this.style.borderColor=''">
+        <div class="stat-num" id="sgStatTotal">0</div>
+        <div class="stat-lbl">Predicciones</div>
+        <div style="font-size:9px;color:var(--text3);margin-top:4px;letter-spacing:1px;">VER →</div>
+      </div>
+      <div class="stat-card" onclick="switchPanelTab('preds')" style="cursor:pointer;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(0,200,100,.4)'" onmouseout="this.style.borderColor=''">
+        <div class="stat-num" id="sgStatAciertos">0</div>
+        <div class="stat-lbl">Aciertos</div>
+        <div style="font-size:9px;color:var(--text3);margin-top:4px;letter-spacing:1px;">VER →</div>
+      </div>
+      <div class="stat-card" onclick="switchPanelTab('lead')" style="cursor:pointer;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(0,229,255,.4)'" onmouseout="this.style.borderColor=''">
+        <div class="stat-num" style="color:var(--accent)" id="sgStatPct">—</div>
+        <div class="stat-lbl">Precisión</div>
+        <div style="font-size:9px;color:var(--text3);margin-top:4px;letter-spacing:1px;">RANKING →</div>
+      </div>
     </div>
 
     <!-- Tabs internas -->
@@ -724,6 +736,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js"></script>
   <script src="datos.js?v=6"></script>
   <script src="script.js?v=7"></script>
-  <script src="auth.js?v=10"></script>
+  <script src="auth.js?v=11"></script>
 </body>
 </html>
