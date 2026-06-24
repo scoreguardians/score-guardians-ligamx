@@ -34,15 +34,28 @@ function initSupabase() {
 
 async function loadProfile() {
   if (!sgUser) return;
-  const { data } = await sgClient.from('profiles').select('*').eq('id', sgUser.id).single();
-  if (data) {
-    sgProfile = data;
-  } else {
-    // Profile missing — create fallback from email
-    const fallbackName = sgUser.email.split('@')[0].slice(0, 20);
-    await sgClient.from('profiles').insert({ id: sgUser.id, username: fallbackName }).select().single();
-    const { data: d2 } = await sgClient.from('profiles').select('*').eq('id', sgUser.id).single();
-    sgProfile = d2;
+  try {
+    const { data } = await sgClient.from('profiles').select('*').eq('id', sgUser.id).single();
+    if (data) {
+      sgProfile = data;
+      localStorage.removeItem('sg_pending_username');
+    } else {
+      // Profile missing — use pending username or email fallback
+      const pendingName = localStorage.getItem('sg_pending_username');
+      const fallbackName = (pendingName || sgUser.email.split('@')[0]).slice(0, 20);
+      const { error: ie } = await sgClient.from('profiles').insert({ id: sgUser.id, username: fallbackName });
+      if (!ie) {
+        localStorage.removeItem('sg_pending_username');
+        const { data: d2 } = await sgClient.from('profiles').select('*').eq('id', sgUser.id).single();
+        sgProfile = d2;
+      } else {
+        // Create minimal in-memory profile so UI works
+        sgProfile = { id: sgUser.id, username: fallbackName };
+      }
+    }
+  } catch(e) {
+    console.warn('loadProfile error:', e);
+    sgProfile = { id: sgUser.id, username: sgUser.email.split('@')[0] };
   }
 }
 
@@ -83,16 +96,22 @@ async function sgRegister() {
     if (!data || !data.user) { showSgErr('Error inesperado. Intenta de nuevo.'); setBtn(false); return; }
     const { error: pe } = await sgClient.from('profiles').insert({ id: data.user.id, username });
     if (pe) {
-      if (pe.code === '23505') {
+      console.error('Profile insert error:', pe);
+      if (pe.code === '23505' || (pe.message && pe.message.includes('duplicate'))) {
         showSgErr('Nombre de usuario ya en uso. Elige otro.');
+      } else if (pe.code === '42501' || (pe.message && pe.message.includes('policy'))) {
+        // RLS policy issue — profile will be created on next login via loadProfile fallback
+        console.warn('RLS issue on profile insert, will retry on login');
       } else {
-        showSgErr('Error al crear perfil: ' + pe.message);
+        console.warn('Profile insert warning:', pe.message, '— continuing anyway');
       }
-      setBtn(false); return;
     }
+    // Always proceed — profile fallback in loadProfile will handle missing profiles
     setBtn(false);
     closeSgModal('sgAuthModal');
     showToast('¡Bienvenido a Score Guardians, ' + username + '!');
+    // Store username locally in case profile insert failed
+    if (pe) localStorage.setItem('sg_pending_username', username);
   } catch(e) {
     showSgErr('Sin conexión. Verifica tu internet e intenta de nuevo.');
     setBtn(false);
