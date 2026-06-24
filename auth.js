@@ -1,9 +1,10 @@
 // ══════════════════════════════════════════════════════════════
-//  SCORE GUARDIANS — Auth & Predicciones v5
+//  SCORE GUARDIANS — Auth & Predicciones v6
 // ══════════════════════════════════════════════════════════════
 const SUPA_URL = 'https://hkzulxvsnmczbomjklln.supabase.co';
 const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhrenVseHZzbm1jemJvbWprbGxuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzODQyNTEsImV4cCI6MjA5Njk2MDI1MX0.9skguLAPgMS6oJ4gDiYTPaLEWGPqOVljflOnzjpACfs';
 
+// Singleton — usar siempre el mismo cliente para evitar conflictos GoTrueClient
 let sgClient  = null;
 let sgUser    = null;
 let sgProfile = null;
@@ -12,7 +13,11 @@ let sgMyPred  = null; // 'L' | 'E' | 'V'
 // ── Init ─────────────────────────────────────────────────────
 function initSupabase() {
   if (window.supabase && window.supabase.createClient) {
-    if (!sgClient) sgClient = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+    // Singleton: solo crear si no existe en window
+    if (!window._sgClientInstance) {
+      window._sgClientInstance = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+    }
+    sgClient = window._sgClientInstance;
 
     // Listen for auth changes
     sgClient.auth.onAuthStateChange(async (_e, session) => {
@@ -335,8 +340,14 @@ async function guardarPrediccion(home, away, prediccion) {
 // ── Render mis predicciones ───────────────────────────────────
 async function renderMisPreds() {
   const box = document.getElementById('sgMisPreds');
-  if (!box || !sgUser) return;
+  if (!box) return;
+  if (!sgUser || !sgClient) {
+    box.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:8px;">Inicia sesión para ver tus predicciones.</div>';
+    return;
+  }
   box.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:8px;">Cargando...</div>';
+  // Ensure profile is loaded
+  if (!sgProfile) await loadProfile();
   const { data: preds } = await sgClient.from('predicciones').select('*').eq('user_id', sgUser.id).order('created_at', { ascending: false });
   if (!preds || !preds.length) {
     box.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:8px;">Aún no tienes predicciones. ¡Ve a "Nueva predicción"!</div>';
