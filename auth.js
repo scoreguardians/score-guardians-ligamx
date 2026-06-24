@@ -154,26 +154,36 @@ async function sgLogout() {
 }
 
 // ── Modal control ─────────────────────────────────────────────
-async function openUserModal() {
-  if (!sgUser) {
-    // Try to recover session before showing auth modal
-    if (sgClient) {
-      const { data: { session } } = await sgClient.auth.getSession();
-      if (session) {
-        sgUser = session.user;
-        if (!sgProfile) await loadProfile();
-        onLoggedIn();
-        document.getElementById('sgUserModal').classList.add('open');
-        renderMisPreds();
-        return;
+function openUserModal() {
+  try {
+    if (!sgUser || !sgClient) {
+      // No session — show login modal directly
+      const authModal = document.getElementById('sgAuthModal');
+      if (authModal) authModal.classList.add('open');
+      // Try session recovery in background
+      if (sgClient) {
+        sgClient.auth.getSession().then(async ({ data: { session } }) => {
+          if (session && !sgUser) {
+            sgUser = session.user;
+            await loadProfile();
+            onLoggedIn();
+            authModal.classList.remove('open');
+            const userModal = document.getElementById('sgUserModal');
+            if (userModal) userModal.classList.add('open');
+            renderMisPreds();
+          }
+        }).catch(e => console.warn('Session check error:', e));
       }
+    } else {
+      const userModal = document.getElementById('sgUserModal');
+      if (userModal) userModal.classList.add('open');
+      renderMisPreds();
+      if (!sgProfile) loadProfile().then(() => { onLoggedIn(); renderMisPreds(); });
     }
-    document.getElementById('sgAuthModal').classList.add('open');
-  } else {
-    if (!sgProfile) await loadProfile();
-    if (sgProfile) onLoggedIn();
-    document.getElementById('sgUserModal').classList.add('open');
-    renderMisPreds();
+  } catch(e) {
+    console.error('openUserModal error:', e);
+    const authModal = document.getElementById('sgAuthModal');
+    if (authModal) authModal.classList.add('open');
   }
 }
 function closeSgModal(id) {
