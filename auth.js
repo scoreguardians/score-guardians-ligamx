@@ -38,24 +38,37 @@ async function loadProfile() {
     const { data } = await sgClient.from('profiles').select('*').eq('id', sgUser.id).single();
     if (data) {
       sgProfile = data;
+      // Sync localStorage with DB name
+      localStorage.setItem('sg_username_' + sgUser.id, data.username);
       localStorage.removeItem('sg_pending_username');
     } else {
-      // Profile missing — use pending username or email fallback
-      const pendingName = localStorage.getItem('sg_pending_username');
-      const fallbackName = (pendingName || sgUser.email.split('@')[0]).slice(0, 20);
-      const { error: ie } = await sgClient.from('profiles').insert({ id: sgUser.id, username: fallbackName });
+      // Profile not in DB — use saved username or email
+      const savedName = localStorage.getItem('sg_username_' + sgUser.id)
+                     || localStorage.getItem('sg_pending_username')
+                     || sgUser.email.split('@')[0];
+      const cleanName = savedName.slice(0, 20);
+
+      // Try to create profile
+      const { error: ie } = await sgClient.from('profiles').insert({
+        id: sgUser.id,
+        username: cleanName
+      });
+
       if (!ie) {
         localStorage.removeItem('sg_pending_username');
         const { data: d2 } = await sgClient.from('profiles').select('*').eq('id', sgUser.id).single();
-        sgProfile = d2;
+        sgProfile = d2 || { id: sgUser.id, username: cleanName };
       } else {
-        // Create minimal in-memory profile so UI works
-        sgProfile = { id: sgUser.id, username: fallbackName };
+        // Use in-memory profile — will retry next login
+        sgProfile = { id: sgUser.id, username: cleanName };
       }
     }
   } catch(e) {
     console.warn('loadProfile error:', e);
-    sgProfile = { id: sgUser.id, username: sgUser.email.split('@')[0] };
+    const fallback = localStorage.getItem('sg_username_' + sgUser.id)
+                  || localStorage.getItem('sg_pending_username')
+                  || sgUser.email.split('@')[0];
+    sgProfile = { id: sgUser.id, username: fallback };
   }
 }
 
@@ -75,45 +88,52 @@ async function sgRegister() {
   const email    = document.getElementById('sgEmail').value.trim();
   const pass     = document.getElementById('sgPassword').value;
   const username = document.getElementById('sgUsername').value.trim();
-  const err      = document.getElementById('sgAuthError');
+
+  // Validaciones
   if (!email || !pass || !username) { showSgErr('Completa todos los campos.'); return; }
   if (pass.length < 6) { showSgErr('Contraseña mínimo 6 caracteres.'); return; }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showSgErr('Ingresa un correo válido.'); return; }
-  if (username.length < 3) { showSgErr('El nombre de usuario debe tener al menos 3 caracteres.'); return; }
-  if (!/^[a-zA-Z0-9_áéíóúÁÉÍÓÚñÑ]+$/.test(username)) { showSgErr('El nombre solo puede tener letras, números y guión bajo.'); return; }
+  if (username.length < 3) { showSgErr('El nombre debe tener al menos 3 caracteres.'); return; }
+
   setBtn(true);
-  if (err) { err.style.display='none'; }
+  document.getElementById('sgAuthError').style.display = 'none';
+
   try {
+    // 1. Crear usuario en Supabase Auth
     const { data, error } = await sgClient.auth.signUp({ email, password: pass });
+
     if (error) {
-      if (error.message.includes('already registered')) {
-        showSgErr('Este correo ya está registrado. Intenta iniciar sesión.');
+      if (error.message.includes('already registered') || error.message.includes('already been registered')) {
+        showSgErr('Este correo ya está registrado. Usa "Iniciar sesión".');
       } else {
-        showSgErr('Error al registrar: ' + error.message);
+        showSgErr('Error: ' + error.message);
       }
       setBtn(false); return;
     }
-    if (!data || !data.user) { showSgErr('Error inesperado. Intenta de nuevo.'); setBtn(false); return; }
-    const { error: pe } = await sgClient.from('profiles').insert({ id: data.user.id, username });
+
+    if (!data?.user) { showSgErr('Error inesperado. Intenta de nuevo.'); setBtn(false); return; }
+
+    // 2. Guardar nombre en localStorage inmediatamente (respaldo)
+    localStorage.setItem('sg_username_' + data.user.id, username);
+    localStorage.setItem('sg_pending_username', username);
+
+    // 3. Crear perfil en la base de datos
+    const { error: pe } = await sgClient.from('profiles').insert({
+      id: data.user.id,
+      username: username
+    });
+
     if (pe) {
-      console.error('Profile insert error:', pe);
-      if (pe.code === '23505' || (pe.message && pe.message.includes('duplicate'))) {
-        showSgErr('Nombre de usuario ya en uso. Elige otro.');
-      } else if (pe.code === '42501' || (pe.message && pe.message.includes('policy'))) {
-        // RLS policy issue — profile will be created on next login via loadProfile fallback
-        console.warn('RLS issue on profile insert, will retry on login');
-      } else {
-        console.warn('Profile insert warning:', pe.message, '— continuing anyway');
-      }
+      console.warn('Profile insert warning:', pe.code, pe.message);
+      // Aunque falle, el nombre está en localStorage y se crea en el próximo login
     }
-    // Always proceed — profile fallback in loadProfile will handle missing profiles
+
     setBtn(false);
     closeSgModal('sgAuthModal');
-    showToast('¡Bienvenido a Score Guardians, ' + username + '!');
-    // Store username locally in case profile insert failed
-    if (pe) localStorage.setItem('sg_pending_username', username);
+    showToast('¡Bienvenido, ' + username + '!');
+
   } catch(e) {
-    showSgErr('Sin conexión. Verifica tu internet e intenta de nuevo.');
+    console.error('Register error:', e);
+    showSgErr('Sin conexión. Verifica tu internet.');
     setBtn(false);
   }
 }
