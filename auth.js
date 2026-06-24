@@ -13,6 +13,8 @@ let sgMyPred  = null; // 'L' | 'E' | 'V'
 function initSupabase() {
   if (window.supabase && window.supabase.createClient) {
     if (!sgClient) sgClient = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+
+    // Listen for auth changes
     sgClient.auth.onAuthStateChange(async (_e, session) => {
       if (session) {
         sgUser = session.user;
@@ -23,12 +25,20 @@ function initSupabase() {
         onLoggedOut();
       }
     });
-    sgClient.auth.getSession().then(({ data: { session } }) => {
-      if (session) { sgUser = session.user; loadProfile().then(onLoggedIn); }
-      else onLoggedOut();
+
+    // Check existing session (important for mobile where page reloads)
+    sgClient.auth.getSession().then(async ({ data: { session } }) => {
+      if (session) {
+        sgUser = session.user;
+        await loadProfile();
+        onLoggedIn();
+      } else {
+        onLoggedOut();
+      }
     });
   } else {
-    setTimeout(initSupabase, 300);
+    // CDN not loaded yet — retry
+    setTimeout(initSupabase, 200);
   }
 }
 
@@ -144,10 +154,24 @@ async function sgLogout() {
 }
 
 // ── Modal control ─────────────────────────────────────────────
-function openUserModal() {
+async function openUserModal() {
   if (!sgUser) {
+    // Try to recover session before showing auth modal
+    if (sgClient) {
+      const { data: { session } } = await sgClient.auth.getSession();
+      if (session) {
+        sgUser = session.user;
+        if (!sgProfile) await loadProfile();
+        onLoggedIn();
+        document.getElementById('sgUserModal').classList.add('open');
+        renderMisPreds();
+        return;
+      }
+    }
     document.getElementById('sgAuthModal').classList.add('open');
   } else {
+    if (!sgProfile) await loadProfile();
+    if (sgProfile) onLoggedIn();
     document.getElementById('sgUserModal').classList.add('open');
     renderMisPreds();
   }
@@ -450,4 +474,8 @@ function showToast(msg) {
 }
 
 // ── Boot ──────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => setTimeout(initSupabase, 100));
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(initSupabase, 100);
+  setTimeout(() => { if (!sgClient) initSupabase(); }, 1500);
+  setTimeout(() => { if (!sgClient) initSupabase(); }, 3000);
+});
