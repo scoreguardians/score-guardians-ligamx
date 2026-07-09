@@ -24,41 +24,9 @@ let eloRatings = {};
 let statsCache = {};
 let pendingMatches = [];
 let updateQueue = [];
-const ADMIN_PASS = 'scoreguardians2026';
 const BASE_ELO = 1500;
 const K_ELO = 32;
-const HOME_ADV = 60;
-
-// 
-//  ADMIN LOGIC
-// 
-function openAdminModal() {
-  document.getElementById('adminModal').classList.add('open');
-  setTimeout(() => document.getElementById('adminPass').focus(), 100);
-}
-function closeAdminModal() {
-  document.getElementById('adminModal').classList.remove('open');
-  document.getElementById('adminPass').value = '';
-  document.getElementById('adminErr').style.display = 'none';
-}
-function checkAdminPass() {
-  const val = document.getElementById('adminPass').value;
-  if (val === ADMIN_PASS) {
-    closeAdminModal();
-    document.getElementById('adminPanel').style.display='block';
-    renderUpcoming();
-    renderAdminFixtures();
-  } else {
-    document.getElementById('adminErr').style.display = 'block';
-    document.getElementById('adminPass').value = '';
-    document.getElementById('adminPass').focus();
-  }
-}
-function logoutAdmin() {
-  document.getElementById('adminPanel').style.display='none';
-}
-
-// 
+const HOME_ADV = 60;// 
 //  ELO (used as features for NN)
 // 
 function buildElo(matches) {
@@ -93,33 +61,7 @@ function buildStats(matches) {
     h.form.push(m.hg > m.ag ? 1 : m.hg < m.ag ? -1 : 0);
     a.form.push(m.ag > m.hg ? 1 : m.ag < m.hg ? -1 : 0);
   });
-}
-
-function getFeatures(homeTeam, awayTeam) {
-  const eloH = (eloRatings[homeTeam] || BASE_ELO);
-  const eloA = (eloRatings[awayTeam] || BASE_ELO);
-  const sH = statsCache[homeTeam] || {};
-  const sA = statsCache[awayTeam] || {};
-  const homeGFpg = sH.homeN ? sH.homeGF / sH.homeN : 1.2;
-  const homeGApg = sH.homeN ? sH.homeGA / sH.homeN : 1.2;
-  const awayGFpg = sA.awayN ? sA.awayGF / sA.awayN : 1.0;
-  const awayGApg = sA.awayN ? sA.awayGA / sA.awayN : 1.2;
-  const formH = sH.form ? sH.form.slice(-5).reduce((s,v)=>s+v,0)/5 : 0;
-  const formA = sA.form ? sA.form.slice(-5).reduce((s,v)=>s+v,0)/5 : 0;
-  // Normalize Elo to [0,1] range assuming [1200,1800]
-  return [
-    (eloH - 1200) / 600,
-    (eloA - 1200) / 600,
-    homeGFpg / 4,
-    homeGApg / 4,
-    awayGFpg / 4,
-    awayGApg / 4,
-    (formH + 1) / 2,
-    (formA + 1) / 2,
-  ];
-}
-
-// 
+}// 
 //  NEURAL NETWORK
 // 
 
@@ -245,7 +187,7 @@ async function trainNN(allMatches) {
     const ps=document.getElementById('predictStatus'); if(ps) ps.textContent='Red neuronal lista â€” haz clic para predecir';
     const bar=document.getElementById('nnLoadBar'); if(bar){bar.style.opacity='0';setTimeout(()=>bar.style.display='none',600);}
     setNNStatus('ready','Modelo cargado â€” listo',100);
-    runMontecarlo(); renderCharts(); renderUpcomingCards(); renderAdminFixtures();
+    runMontecarlo(); renderCharts(); renderUpcomingCards();
     return;
   }
   setNNStatus('training','Preparando dataset de entrenamiento…',5);
@@ -354,7 +296,7 @@ async function trainNN(allMatches) {
   runMontecarlo();
   renderCharts();
   renderUpcomingCards();
-  renderAdminFixtures();
+ 
 }
 
 function setNNStatus(state, msg, pct) {
@@ -570,73 +512,7 @@ async function showH2H() {
     </div>`; }); }
   html+='</div>';
   document.getElementById('h2hOut').innerHTML=html;
-}
-
-// 
-//  ADMIN UPDATE QUEUE
-// 
-function addToQueue() {
-  const round=parseInt(document.getElementById('updRound').value);
-  const home=document.getElementById('updHome').value;
-  const hg=parseInt(document.getElementById('updHG').value);
-  const ag=parseInt(document.getElementById('updAG').value);
-  const away=document.getElementById('updAway').value;
-  if(isNaN(round)||isNaN(hg)||isNaN(ag)||!home||!away||home===away){alert('Completa todos los campos');return;}
-  updateQueue.push({round,date:`J${round}`,home,hg,ag,away});
-  renderQueue();
-}
-function renderQueue(){
-  const el=document.getElementById('queueBox');
-  if(!updateQueue.length){el.style.display='none';return;}
-  el.style.display='block';
-  el.innerHTML=`<div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;color:var(--text3);margin-bottom:8px">COLA (${updateQueue.length} resultados)</div>`+
-    updateQueue.map((m,i)=>`<div class="q-item"><span>${roundLabel(m.round)} â€” ${m.home} ${m.hg}-${m.ag} ${m.away}</span><button class="q-rm" onclick="removeQueue(${i})">Ã—</button></div>`).join('');
-}
-function removeQueue(i){updateQueue.splice(i,1);renderQueue();}
-function clearQueue(){updateQueue=[];renderQueue();}
-
-async function applyQueue(){
-  if(!updateQueue.length){alert('No hay resultados en la cola');return;}
-  updateQueue.forEach(m=>pendingMatches.push(m));
-  updateQueue=[];
-  renderQueue();
-  alert(` ${pendingMatches.length} resultado(s) aplicados.\n\nRecalculando red neuronal y prediccionesâ€¦`);
-  // Retrain with new data
-  await trainNN(getAllMatches());
-  renderStandings('Apertura 2026');
-  renderHistory('Apertura 2026');
-  renderUpcomingCards();
-}
-
-function exportJSON(){
-  // Merge base C2026 with new results from admin panel
-  const allMatches = [...C2026, ...pendingMatches];
-
-  // Build match lines for datos.js
-  const matchLines = allMatches.map(m =>
-    `  {round:${m.round},date:'${m.date}',home:'${m.home}',hg:${m.hg},ag:${m.ag},away:'${m.away}'}`
-  ).join(',\n');
-
-  // Build upcoming lines (remove matches that now have results)
-  const playedKeys = new Set(pendingMatches.map(m => `${m.home}-${m.away}-${m.round}`));
-  const remainingUpcoming = (typeof UPCOMING !== 'undefined' ? UPCOMING : [])
-    .filter(m => !playedKeys.has(`${m.home}-${m.away}-${m.round}`));
-  const upcomingLines = remainingUpcoming.map(m =>
-    `  {round:${m.round},date:'${m.date}',home:'${m.home}',away:'${m.away}'}`
-  ).join(',\n');
-
-  const js = `// SCORE GUARDIANS â€” Clausura 2026\n// Generado automaticamente desde panel admin\n\nconst C2026 = [\n${matchLines}\n];\n\nconst UPCOMING = [\n${upcomingLines}\n];\n\nconst ACTUALIZACIONES = [];\n`;
-
-  const b = new Blob([js], {type:'application/javascript'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(b);
-  a.download = 'datos.js';
-  a.click();
-
-  alert('datos.js descargado. Sube este archivo a GitHub para actualizar la pagina.');
-}
-
-function renderUpcoming(){
+}function renderUpcoming(){
   const el = document.getElementById('upcomingWrap');
   if (!el) return;
   const byR={};
@@ -952,44 +828,7 @@ async function renderUpcomingCards() {
     ? `<div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;color:var(--text3);text-align:center;margin-bottom:16px;text-transform:uppercase;">Últimos partidos — Clausura 2026</div>`
     : '';
   container.innerHTML = sectionTitle + `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">${cards}</div>`;
-}
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// ADMIN: FIXTURE EDITOR
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-function renderAdminFixtures() {
-  const el = document.getElementById('adminFixtureList');
-  if (!el) return;
-  if (!customUpcoming.length) { el.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:10px;">Sin partidos registrados</div>'; return; }
-  el.innerHTML = customUpcoming.map((m, i) => `
-    <div style="display:grid;grid-template-columns:60px 1fr 1fr 80px;gap:8px;align-items:center;background:var(--bg2);border-radius:6px;padding:8px 12px;border:1px solid var(--border);font-size:13px;">
-      <span style="font-family:'Barlow Condensed',sans-serif;color:var(--accent);font-weight:700;font-size:14px;">${roundLabel(m.round)}</span>
-      <span style="color:var(--text)">${m.home}</span>
-      <span style="color:var(--text2)">${m.away}</span>
-      <button onclick="removeFixture(${i})" style="color:var(--red);cursor:pointer;background:rgba(255,59,92,.1);border:1px solid rgba(255,59,92,.3);border-radius:4px;padding:4px 8px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;">QUITAR</button>
-    </div>`).join('');
-}
-
-function addFixture() {
-  const round = parseInt(document.getElementById('fxRound').value);
-  const date = document.getElementById('fxDate').value.trim();
-  const home = document.getElementById('fxHome').value;
-  const away = document.getElementById('fxAway').value;
-  if (!round || !date || !home || !away || home === away) { alert('Completa todos los campos correctamente'); return; }
-  customUpcoming.push({ round, date, home, away });
-  customUpcoming.sort((a, b) => a.round - b.round || a.date.localeCompare(b.date));
-  renderAdminFixtures();
-  renderUpcomingCards();
-  document.getElementById('fxDate').value = '';
-}
-
-function removeFixture(i) {
-  customUpcoming.splice(i, 1);
-  renderAdminFixtures();
-  renderUpcomingCards();
-}
-
-
-// â”€â”€â”€ Dynamic logo update when select changes â”€â”€â”€
+}// â”€â”€â”€ Dynamic logo update when select changes â”€â”€â”€
 function updateLogoHome(team) {
   const el = document.getElementById('logoHome');
   if (el) { el.innerHTML = logoSVG(team || 'América', 80); el.style.transform='scale(1.05)'; setTimeout(()=>el.style.transform='scale(1)',200); }
