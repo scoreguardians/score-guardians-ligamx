@@ -929,8 +929,9 @@ async function runPrediction() {
     <div class="info-chip">ELO ${away}: <span>${eloA}</span></div>
   `;
 
-  const fav = res.winH > res.winA && res.winH > res.draw ? home :
-              res.winA > res.winH && res.winA > res.draw ? away : 'Empate';
+  const fav  = res.winH > res.winA && res.winH > res.draw ? home :
+               res.winA > res.winH && res.winA > res.draw ? away : 'Empate';
+  const conf = Math.max(res.winH, res.draw, res.winA);
   const scoreHtml = res.marcador
     ? `<div style="margin-top:10px;padding:8px 14px;background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);border-radius:8px;display:inline-block;">`
       + `<span style="font-size:11px;color:var(--text3);letter-spacing:1.5px;font-family:'Barlow Condensed',sans-serif;">MARCADOR PROBABLE</span>`
