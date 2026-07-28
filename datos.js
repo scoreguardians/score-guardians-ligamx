@@ -161,19 +161,41 @@ const C2026 = [
 ];
 
 // ── Apertura 2026 ────────────────────────────────────────────
-const A2026 = [];
+const A2026 = [
+  // ── Jornada 1 ─────────────────────────────────────────────
+  {round:1,date:'16/jul/26',home:'Necaxa',hg:2,ag:1,away:'Atlante'},
+  {round:1,date:'16/jul/26',home:'Tijuana',hg:3,ag:1,away:'Tigres'},
+  {round:1,date:'17/jul/26',home:'Atl. San Luis',hg:2,ag:3,away:'Cruz Azul'},
+  {round:1,date:'17/jul/26',home:'León',hg:2,ag:3,away:'Atlas'},
+  {round:1,date:'18/jul/26',home:'FC Juárez',hg:0,ag:1,away:'Puebla'},
+  {round:1,date:'18/jul/26',home:'UNAM',hg:0,ag:3,away:'Pachuca'},
+  {round:1,date:'18/jul/26',home:'Guadalajara',hg:0,ag:2,away:'Toluca'},
+  {round:1,date:'18/jul/26',home:'Monterrey',hg:3,ag:2,away:'Santos'},
+  {round:1,date:'19/jul/26',home:'Querétaro',hg:0,ag:1,away:'América'},
+
+  // ── Jornada 2 ─────────────────────────────────────────────
+  {round:2,date:'21/jul/26',home:'Cruz Azul',hg:2,ag:1,away:'Puebla'},
+  {round:2,date:'21/jul/26',home:'Toluca',hg:1,ag:2,away:'UNAM'},
+  {round:2,date:'24/jul/26',home:'Tijuana',hg:1,ag:0,away:'León'},
+  {round:2,date:'24/jul/26',home:'Atlante',hg:1,ag:1,away:'América'},
+  {round:2,date:'25/jul/26',home:'Guadalajara',hg:1,ag:0,away:'FC Juárez'},
+  {round:2,date:'25/jul/26',home:'Tigres',hg:2,ag:2,away:'Atl. San Luis'},
+  {round:2,date:'25/jul/26',home:'Santos',hg:0,ag:1,away:'Atlas'},
+  {round:2,date:'26/jul/26',home:'Necaxa',hg:2,ag:1,away:'Monterrey'},
+  {round:2,date:'26/jul/26',home:'Pachuca',hg:1,ag:2,away:'Querétaro'},
+];
 
 const UPCOMING = [
-  // Jornada 1 — Apertura 2026
-  {round:1,torneo:'Apertura 2026',date:'16/jul/26',home:'Necaxa',away:'Atlante'},
-  {round:1,torneo:'Apertura 2026',date:'16/jul/26',home:'Tijuana',away:'Tigres'},
-  {round:1,torneo:'Apertura 2026',date:'17/jul/26',home:'Atl. San Luis',away:'Cruz Azul'},
-  {round:1,torneo:'Apertura 2026',date:'17/jul/26',home:'León',away:'Atlas'},
-  {round:1,torneo:'Apertura 2026',date:'18/jul/26',home:'FC Juárez',away:'Puebla'},
-  {round:1,torneo:'Apertura 2026',date:'18/jul/26',home:'UNAM',away:'Pachuca'},
-  {round:1,torneo:'Apertura 2026',date:'18/jul/26',home:'Guadalajara',away:'Toluca'},
-  {round:1,torneo:'Apertura 2026',date:'18/jul/26',home:'Monterrey',away:'Santos'},
-  {round:1,torneo:'Apertura 2026',date:'19/jul/26',home:'Querétaro',away:'América'},
+  // ── Jornada 3 — Apertura 2026 ─────────────────────────────
+  {round:3,torneo:'Apertura 2026',date:'31/jul/26',home:'Puebla',away:'Guadalajara'},
+  {round:3,torneo:'Apertura 2026',date:'31/jul/26',home:'Atl. San Luis',away:'Tijuana'},
+  {round:3,torneo:'Apertura 2026',date:'31/jul/26',home:'FC Juárez',away:'UNAM'},
+  {round:3,torneo:'Apertura 2026',date:'01/ago/26',home:'Querétaro',away:'Tigres'},
+  {round:3,torneo:'Apertura 2026',date:'01/ago/26',home:'León',away:'Pachuca'},
+  {round:3,torneo:'Apertura 2026',date:'01/ago/26',home:'Atlas',away:'Monterrey'},
+  {round:3,torneo:'Apertura 2026',date:'01/ago/26',home:'Cruz Azul',away:'Atlante'},
+  {round:3,torneo:'Apertura 2026',date:'02/ago/26',home:'América',away:'Santos'},
+  {round:3,torneo:'Apertura 2026',date:'02/ago/26',home:'Toluca',away:'Necaxa'},
 ];
 
 const ACTUALIZACIONES = [];

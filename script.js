@@ -541,8 +541,7 @@ Chart.defaults.color='rgba(139,149,176,0.9)';
 Chart.defaults.font={family:'Barlow,sans-serif',size:11};
 
 function renderCharts(){
-  const TOURNS=['Apertura 2021','Clausura 2022','Apertura 2022','Clausura 2023',
-    'Apertura 2023','Clausura 2024','Apertura 2024','Clausura 2025','Apertura 2025','Clausura 2026'];
+  const TOURNS=['Apertura 2026','Clausura 2026','Apertura 2025','Clausura 2025','Apertura 2024','Clausura 2024','Apertura 2023','Clausura 2023','Apertura 2022','Clausura 2022','Apertura 2021'];
   const labels=TOURNS.map(t=>t.replace('Apertura','A.').replace('Clausura','C.').replace(' 20','\''));
   const TOP6=['Guadalajara','Cruz Azul','Toluca','América','Tigres','UNAM'];
   const colors=['#00e5ff','#ff3b5c','#ffd600','#00c853','#aa44ff','#ff8800'];
