@@ -323,39 +323,7 @@ function setNNStatus(state, msg, pct) {
     const bar=document.getElementById('nnLoadBar'); if(bar) bar.style.display='none';
   }
 
-  if(typeof home === 'undefined' || typeof away === 'undefined') return;
-  const eloA = (eloRatings[away]||BASE_ELO).toFixed(0);
-  document.getElementById('predChips').innerHTML = `
-    <div class="model-tag tag-nn"> Red Neuronal</div>
-    <div class="info-chip">ELO ${home}: <span>${eloH}</span></div>
-    <div class="info-chip">ELO ${away}: <span>${eloA}</span></div>
-  `;
-
-  const fav = res.winH > res.winA && res.winH > res.draw ? home :
-              res.winA > res.winH && res.winA > res.draw ? away : 'Empate';
-  const conf = Math.max(res.winH, res.draw, res.winA);
-  document.getElementById('predInterpret').innerHTML =
-    `<strong>Predicción:</strong> El modelo neural estima que <strong style="color:var(--accent)">${fav}</strong> ` +
-    `es el resultado más probable (confianza: <strong>${(conf*100).toFixed(1)}%</strong>). ` +
-    `${res.winH > 0.5 ? `${home} tiene una fuerte ventaja en casa respaldada por su historial y Elo.` :
-       res.winA > 0.5 ? `${away} tiene ventaja pese a jugar de visitante.` :
-       'El partido está muy equilibrado.'}`;
-
-  // Mostrar botón de guardar predicción si el usuario está logueado
-  const favFinal = res.winH > res.winA && res.winH > res.draw ? 'L' :
-                   res.winA > res.winH && res.winA > res.draw ? 'V' : 'E';
-  if (typeof addSaveButtonToPredictor === 'function') {
-    addSaveButtonToPredictor(home, away, favFinal);
   }
-
-  const h2h = getH2H(home, away);
-  document.getElementById('predH2H').innerHTML =
-    ` H2H histórico: <strong>${home}</strong> ${h2h.w1}V â€” ${h2h.draws}E â€” ${h2h.w2}V <strong>${away}</strong> (${h2h.total} partidos)`;
-}
-
-function clearPred() {
-  document.getElementById('predResult').style.display = 'none';
-}
 
 function renderStandings(tournament) {
   document.getElementById('standTag').textContent = tournament;
@@ -718,7 +686,7 @@ const TEAM_ABBR = {
   'FC Juárez':'JUA','Guadalajara':'GDL','León':'LEO',
   'Monterrey':'MTY','Necaxa':'NEC','Pachuca':'PAC','Puebla':'PUE',
   'UNAM':'UNM','Querétaro':'QRO','Santos':'SAN','Tigres':'TIG',
-  'Tijuana':'TIJ','Toluca':'TOL','Atlante':'ATL'
+  'Tijuana':'TIJ','Toluca':'TOL','Atlante':'ATN'
 };
 
 const TEAM_GRADIENT = {
@@ -740,7 +708,6 @@ const TEAM_GRADIENT = {
   'Tigres':      ['#FFD700','#CC9900'],
   'Tijuana':     ['#880000','#440000'],
   'Toluca':      ['#CC0000','#880000'],
-  'Atlante':     ['#004A97','#002D5F'],
 }
 
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
