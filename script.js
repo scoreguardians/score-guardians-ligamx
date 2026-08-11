@@ -413,7 +413,7 @@ function renderHistory(tournament) {
   document.querySelectorAll('#histTabs .t-tab').forEach(t=>t.classList.toggle('active',t.dataset.t===tournament));
   const matches = getTournamentMatches(tournament);
   const byRound = {};
-  matches.forEach(m => { if(!byRound[m.round]) byRound[m.round]=[]; byRound[m.round].push(m); });
+  matches.filter(m => m && m.hg !== undefined).forEach(m => { if(!byRound[m.round]) byRound[m.round]=[]; byRound[m.round].push(m); });
   let html = '';
   Object.keys(byRound).sort((a,b)=>b-a).forEach(r => {
     html += `<div class="j-header">Jornada ${r}</div>`;
@@ -529,7 +529,7 @@ function renderCharts(){
   });
 
   // Goals chart
-  const avgG=TOURNS.map(t=>{const m=getTournamentMatches(t);if(!m.length)return 0;return(m.reduce((s,x)=>s+x.hg+x.ag,0)/m.length).toFixed(2);});
+  const avgG=TOURNS.map(t=>{const m=getTournamentMatches(t).filter(x=>x&&x.hg!==undefined);if(!m.length)return 0;return(m.reduce((s,x)=>s+x.hg+x.ag,0)/m.length).toFixed(2);});
   if(charts.goals) charts.goals.destroy();
   charts.goals=new Chart(document.getElementById('cGoals'),{
     type:'bar',
@@ -583,9 +583,9 @@ function getAllMatches(){
   return all.filter(m => m && m.home && m.away);
 }
 function getTournamentMatches(t){
-  if(t==='Clausura 2026') return [...C2026,...pendingMatches];
-  if(t==='Apertura 2026') return [...A2026,...pendingMatches];
-  return HIST[t]||[];
+  if(t==='Clausura 2026') return [...C2026,...pendingMatches].filter(m=>m&&m.hg!==undefined);
+  if(t==='Apertura 2026') return [...A2026,...pendingMatches].filter(m=>m&&m.hg!==undefined);
+  return (HIST[t]||[]).filter(m=>m&&m.hg!==undefined);
 }
 function switchTab(e, paneId){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
