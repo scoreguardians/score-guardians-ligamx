@@ -175,7 +175,7 @@ async function cargarModeloGuardado() {
 
 async function trainNN(allMatches) {
   // Try cached model first
-  setNNStatus('training','Buscando modelo guardado…',10);
+  setNNStatus('training','Iniciando sistema de predicción…',5);
   await tf.nextFrame();
   const cached = await cargarModeloGuardado();
   if (cached) {
@@ -233,7 +233,7 @@ async function trainNN(allMatches) {
     if (statsSnap[m.away]) { statsSnap[m.away].awayGF+=m.ag; statsSnap[m.away].awayGA+=m.hg; statsSnap[m.away].awayN++; statsSnap[m.away].form.push(m.ag>m.hg?1:m.ag<m.hg?-1:0); }
   }
 
-  setNNStatus('training', `Construyendo modelo (${xs.length} partidos)â€¦`, 20);
+  setNNStatus('training', `Construyendo modelo (${xs.length} partidos)…`, 20);
   await tf.nextFrame();
 
   const xTensor = tf.tensor2d(xs);
@@ -255,7 +255,7 @@ async function trainNN(allMatches) {
     metrics: ['accuracy']
   });
 
-  setNNStatus('training', 'Entrenando red neuronal (50 Ã©pocas)â€¦', 30);
+  setNNStatus('training', 'Entrenando red neuronal (50 épocas)…', 30);
   await tf.nextFrame();
 
   let lastAcc = 0;
@@ -269,7 +269,7 @@ async function trainNN(allMatches) {
         const pct = 30 + Math.round((epoch / 50) * 65);
         lastAcc = logs.acc || logs.accuracy || 0;
         setNNStatus('training',
-          `Entrenando Ã©poca ${epoch+1}/50 â€” Loss: ${logs.loss.toFixed(4)} â€” Prec: ${(lastAcc*100).toFixed(1)}%`,
+          `Entrenando época ${epoch+1}/50 â€” Loss: ${logs.loss.toFixed(4)} â€” Prec: ${(lastAcc*100).toFixed(1)}%`,
           pct);
         await tf.nextFrame();
       }
@@ -279,7 +279,7 @@ async function trainNN(allMatches) {
   xTensor.dispose(); yTensor.dispose();
 
   setNNStatus('ready',
-    ` Red neuronal lista â€” PrecisiÃ³n: ${(lastAcc*100).toFixed(1)}% â€” ${xs.length} partidos entrenados`,
+    ` Red neuronal lista â€” Precisión: ${(lastAcc*100).toFixed(1)}% â€” ${xs.length} partidos entrenados`,
     100);
 
   const elAcc = document.getElementById('statAcc'); if(elAcc) elAcc.textContent = (lastAcc*100).toFixed(1)+'%';
@@ -578,8 +578,9 @@ function getAllMatches(){
   let all=[];
   ['Apertura 2021','Clausura 2022','Apertura 2022','Clausura 2023',
    'Apertura 2023','Clausura 2024','Apertura 2024','Clausura 2025','Apertura 2025']
-    .forEach(t=>all=all.concat(HIST[t]||[]));
-  return all.concat(C2026,...A2026).concat(pendingMatches);
+    .forEach(t=>{ if(HIST[t]) all=all.concat(HIST[t]); });
+  all = all.concat(C2026).concat(A2026).concat(pendingMatches);
+  return all;
 }
 function getTournamentMatches(t){
   if(t==='Clausura 2026') return [...C2026,...pendingMatches];
@@ -678,9 +679,9 @@ function init(){
 }
 
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════
 // TEAM LOGOS â€” inline SVG badges (no external URLs)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════
 const TEAM_ABBR = {
   'América':'AME','Atlas':'ATL','Atl. San Luis':'SLU','Cruz Azul':'CAZ',
   'FC Juárez':'JUA','Guadalajara':'GDL','León':'LEO',
@@ -710,9 +711,9 @@ const TEAM_GRADIENT = {
   'Toluca':      ['#CC0000','#880000'],
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════
 // UPCOMING MATCHES SECTION â€” card design
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════
 let customUpcoming = JSON.parse(JSON.stringify(UPCOMING));
 
 async function renderUpcomingCards() {
@@ -791,7 +792,7 @@ async function renderUpcomingCards() {
   }
 
   const sectionTitle = modoResultados
-    ? `<div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;color:var(--text3);text-align:center;margin-bottom:16px;text-transform:uppercase;">Últimos partidos — Clausura 2026</div>`
+    ? `<div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;color:var(--text3);text-align:center;margin-bottom:16px;text-transform:uppercase;">Últimos partidos — Apertura 2026</div>`
     : '';
   container.innerHTML = sectionTitle + `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">${cards}</div>`;
 }// â”€â”€â”€ Dynamic logo update when select changes â”€â”€â”€

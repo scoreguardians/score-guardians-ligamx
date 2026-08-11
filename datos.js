@@ -181,6 +181,7 @@ const A2026 = [
   {round:2,date:'25/jul/26',home:'Guadalajara',hg:1,ag:0,away:'FC Juárez'},
   {round:2,date:'25/jul/26',home:'Tigres',hg:2,ag:2,away:'Atl. San Luis'},
   {round:2,date:'25/jul/26',home:'Santos',hg:0,ag:1,away:'Atlas'},
+  ,
   {round:2,date:'26/jul/26',home:'Necaxa',hg:2,ag:1,away:'Monterrey'},
   {round:2,date:'26/jul/26',home:'Pachuca',hg:1,ag:2,away:'Querétaro'},
 ];

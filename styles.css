@@ -169,9 +169,7 @@ tbody td:nth-child(2){text-align:left;color:var(--text);font-weight:500;}
 /*  ADMIN PANEL INPUT  */
 input[type=number],input[type=text],input[type=password]{background:var(--bg3);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:9px 12px;font-family:'Barlow',sans-serif;font-size:13px;width:100%;transition:border-color .2s;}
 input:focus{outline:none;border-color:var(--accent);}
-.q-item{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px;}
 .q-item:last-child{border-bottom:none;}
-.q-rm{color:var(--red);cursor:pointer;background:none;border:none;font-size:16px;line-height:1;}
 
 /*  UPCOMING  */
 #upcomingWrap .match-row .m-score.upcoming{color:var(--text3);}
