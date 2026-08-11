@@ -580,7 +580,7 @@ function getAllMatches(){
    'Apertura 2023','Clausura 2024','Apertura 2024','Clausura 2025','Apertura 2025']
     .forEach(t=>{ if(HIST[t]) all=all.concat(HIST[t]); });
   all = all.concat(C2026).concat(A2026).concat(pendingMatches);
-  return all;
+  return all.filter(m => m && m.home && m.away);
 }
 function getTournamentMatches(t){
   if(t==='Clausura 2026') return [...C2026,...pendingMatches];
@@ -610,12 +610,11 @@ function init(){
   // Options already in HTML â€” just set default values
   const _aw = document.getElementById('awayTeam'); if(_aw) _aw.value='Guadalajara';
   // Set initial logos
-  const initHome = document.getElementById('homeTeam').value;
+  const _homeEl = document.getElementById('homeTeam'); const initHome = _homeEl ? _homeEl.value : 'América';
   const initAway = document.getElementById('awayTeam').value;
   const lh = document.getElementById('logoHome'); if(lh) lh.innerHTML = logoSVG(initHome,80);
   const la = document.getElementById('logoAway'); if(la) la.innerHTML = logoSVG(initAway,80);
-  document.getElementById('h2hT2').value='Guadalajara';
-  document.getElementById('updAway').value='Guadalajara';
+  const _h2hT2 = document.getElementById('h2hT2'); if(_h2hT2) _h2hT2.value='Guadalajara';
 
   // Build tabs
   const TOURNS=['Apertura 2026','Clausura 2026','Apertura 2025','Clausura 2025','Apertura 2024',
@@ -952,7 +951,7 @@ function computeStandings(matches) {
   const tbl = {};
   TEAMS.forEach(t => tbl[t]={team:t,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
   // Excluir liguilla (rounds >= 18) de la tabla de posiciones
-  const regularSeason = matches.filter(m => typeof m.round === 'number' && m.round <= 17);
+  const regularSeason = matches.filter(m => m && typeof m.round === 'number' && m.round <= 17 && m.hg !== undefined);
   [...regularSeason].sort((a,b)=>a.round-b.round).forEach(m => {
     const h = tbl[m.home]||(tbl[m.home]={team:m.home,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
     const a = tbl[m.away]||(tbl[m.away]={team:m.away,pj:0,g:0,e:0,p:0,gf:0,gc:0,pts:0,form:[]});
